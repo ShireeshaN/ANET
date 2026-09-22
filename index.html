@@ -1,0 +1,4981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#151515">
+    <meta name="description"
+        content="AlphaNumeric Engineering and Technology — architectural lighting, home and industrial automation, BMS and IoT integration.">
+    <title>ANET | AlphaNumeric Engineering and Technology</title>
+</head>
+
+<body id="top">
+    <!-- =========================================================
+         CORE MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+    <!-- CORE MODULE CSS -->
+    <style>
+        :root {
+            --ink: #1e1e1e;
+            --muted: #6e6e6e;
+            --paper: #f0f0f0;
+            --line: #d7d7d7;
+            --accent: #e0e0e0;
+            --night: #151515;
+            --ease: cubic-bezier(.22, 1, .36, 1)
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased
+        }
+
+        button,
+        a,
+        input {
+            touch-action: manipulation
+        }
+
+        button,
+        input {
+            font: inherit
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        summary:focus-visible {
+            outline: 2px solid #9b9b9b;
+            outline-offset: 6px
+        }
+
+        button {
+            color: inherit
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%
+        }
+
+        button {
+            border-radius: 0
+        }
+
+        ::selection {
+            background: #dbdbdb;
+            color: #1e1e1e
+        }
+
+        .wrap {
+            width: min(1320px, calc(100% - 112px));
+            margin: auto
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: .2em;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .eyebrow:before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: currentColor
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .section-title {
+            font-weight: 400;
+            letter-spacing: -.055em;
+            font-size: clamp(40px, 4.4vw, 65px);
+            line-height: 1.04;
+            margin: 25px 0
+        }
+
+        .section-title em {
+            font-family: Georgia, serif;
+            font-weight: 400
+        }
+
+        .body-copy {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--muted);
+            max-width: 430px
+        }
+
+        .small {
+            font-size: 11px;
+            line-height: 1.6
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 35px;
+            padding: 17px 21px;
+            background: var(--accent);
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: background .3s, transform .3s
+        }
+
+        .button:hover {
+            background: #ededed;
+            transform: translateY(-2px)
+        }
+
+        .button.outline {
+            background: transparent;
+            border-color: #ffffff38;
+            color: #ffffff
+        }
+
+        .arrow {
+            font-size: 19px;
+            font-weight: 400
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 12px;
+            border-bottom: 1px solid;
+            padding: 12px 0
+        }
+
+        .skip {
+            position: fixed;
+            top: -100px;
+            left: 20px;
+            z-index: 99;
+            background: var(--paper);
+            padding: 16px
+        }
+
+        .skip:focus {
+            top: 10px
+        }
+
+        .reveal {
+            transition: opacity .8s var(--ease), transform 1s var(--ease)
+        }
+
+        .js-motion .reveal:not(.visible) {
+            opacity: 0;
+            transform: translateY(25px)
+        }
+
+        @media (max-width:1100px) {
+            .wrap {
+                width: calc(100% - 64px)
+            }
+        }
+
+        @media (max-width:760px) {
+            html {
+                scroll-padding-top: 85px
+            }
+
+            .wrap {
+                width: calc(100% - 40px)
+            }
+
+            h1 {
+                font-size: 60px;
+                margin: 25px 0 20px
+            }
+
+            .section-title {
+                font-size: 43px
+            }
+
+            .section-top {
+                align-items: flex-start
+            }
+
+            .section-top .index-label {
+                display: none
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *:before,
+            *:after {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .js-motion .reveal:not(.visible) {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        h1 {
+            font-size: clamp(58px, 5.5vw, 80px)
+        }
+
+        @media (max-width:760px) {
+            h1 {
+                font-size: 56px;
+                line-height: 1.01;
+                margin-top: 24px
+            }
+        }
+    </style>
+
+    <!-- CORE MODULE HTML -->
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- CORE MODULE JS -->
+    <script>
+        (() => {
+            'use strict';
+            window.ANET = window.ANET || {};
+            ANET.$ = s => document.querySelector(s);
+            ANET.$$ = s => [...document.querySelectorAll(s)];
+            ANET.reduced = matchMedia('(prefers-reduced-motion: reduce)');
+
+            // Motion is global, but it waits until the full single-page DOM has been parsed.
+            const initReveal = () => {
+                const { $$ } = ANET;
+                if ('IntersectionObserver' in window) {
+                    document.documentElement.classList.add('js-motion');
+                    const observer = new IntersectionObserver(entries => entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('visible');
+                            observer.unobserve(e.target);
+                        }
+                    }), { threshold: .08 });
+                    $$('.reveal').forEach(e => observer.observe(e));
+                }
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initReveal, { once: true });
+            } else {
+                initReveal();
+            }
+        })();
+    </script>
+
+    <!-- ======================= END CORE MODULE ======================= -->
+
+    <!-- =========================================================
+         HEADER MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+    <!-- HEADER MODULE CSS -->
+    <style>
+        /* Navigation */
+        .header {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 30;
+            color: #ffffff;
+            height: 88px;
+            border-bottom: 1px solid #ffffff17;
+            transition: background .4s, color .4s, height .4s
+        }
+
+        .header.scrolled,
+        .header.menu-open {
+            background: #f4f4f4ed;
+            color: var(--ink);
+            height: 76px;
+            backdrop-filter: blur(18px);
+            border-color: var(--line)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            position: relative
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .brand-mark {
+            font-size: 25px;
+            letter-spacing: -2px;
+            font-weight: 800;
+            border-right: 1px solid #86868666;
+            padding-right: 14px;
+            line-height: 1.2
+        }
+
+        .brand-name {
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: .12em;
+            font-weight: 700
+        }
+
+        .brand-name small {
+            font-size: 8px;
+            display: block;
+            font-weight: 400;
+            letter-spacing: .23em
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px
+        }
+
+        .nav-links>a,
+        .solutions-trigger {
+            font-size: 11px;
+            letter-spacing: .06em;
+            background: none;
+            border: 0;
+            padding: 16px 0
+        }
+
+        .nav-links>a[aria-current] {
+            border-bottom: 1px solid currentColor
+        }
+
+        .solutions-trigger span {
+            display: inline-block;
+            margin-left: 7px;
+            transition: transform .3s
+        }
+
+        .solutions-trigger[aria-expanded=true] span {
+            transform: rotate(180deg)
+        }
+
+        .nav-note {
+            font-size: 9px;
+            letter-spacing: .08em;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: #c2c2c2
+        }
+
+        .nav-note i,
+        .online i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px #e1e1e199
+        }
+
+        .scrolled .nav-note {
+            color: #6c6c6c
+        }
+
+        .mega {
+            position: absolute;
+            top: calc(100% - 1px);
+            right: 0;
+            width: min(860px, 100%);
+            padding: 32px;
+            background: #f5f5f5;
+            color: var(--ink);
+            box-shadow: 0 30px 50px #00000033;
+            border: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px
+        }
+
+        .mega[hidden] {
+            display: none
+        }
+
+        .mega-column b {
+            display: block;
+            font-weight: 500;
+            font-size: 19px;
+            padding-bottom: 17px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 12px
+        }
+
+        .mega-column a {
+            display: block;
+            font-size: 12px;
+            color: #696969;
+            padding: 10px 0;
+            transition: color .2s, transform .2s
+        }
+
+        .mega-column a:hover {
+            color: #1e1e1e;
+            transform: translateX(4px)
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid #9191915e;
+            font-size: 12px;
+            padding: 10px 12px
+        }
+
+        @media (max-width:1100px) {
+            .nav-note {
+                display: none
+            }
+        }
+
+        @media (max-width:760px) {
+            .header {
+                height: 74px
+            }
+
+            .header.scrolled,
+            .header.menu-open {
+                height: 68px
+            }
+
+            .brand-mark {
+                font-size: 23px
+            }
+
+            .brand-name {
+                font-size: 9px
+            }
+
+            .menu-toggle {
+                display: block
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                left: -20px;
+                right: -20px;
+                top: 100%;
+                max-height: calc(100svh - 68px);
+                overflow: auto;
+                background: #f4f4f4;
+                color: var(--ink);
+                padding: 20px;
+                align-items: stretch;
+                gap: 0;
+                box-shadow: 0 30px 40px #00000022
+            }
+
+            .menu-open .nav-links {
+                display: flex;
+                flex-direction: column
+            }
+
+            .nav-links>a,
+            .solutions-trigger {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: 17px 0;
+                font-size: 13px;
+                border-bottom: 1px solid #d9d9d9
+            }
+
+            .mega {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border: 0;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+                background: #ebebeb
+            }
+
+            .mega-column b {
+                font-size: 15px;
+                padding-bottom: 8px;
+                margin-bottom: 4px
+            }
+
+            .mega-column a {
+                padding: 9px 0
+            }
+        }
+
+        .nav-links {
+            margin-left: auto;
+            gap: 40px
+        }
+
+        .brand-mark {
+            width: 96px;
+            padding-right: 0;
+            border: 0;
+            letter-spacing: 0
+        }
+
+        .brand-mark svg {
+            width: 96px;
+            height: 32px
+        }
+
+        .brand-name {
+            border-left: 1px solid #8e8e8e55;
+            padding-left: 16px;
+            letter-spacing: .13em;
+            font-size: 11px
+        }
+
+        .brand-name small {
+            font-size: 7px;
+            letter-spacing: .13em;
+            margin-top: 3px
+        }
+
+        @media (max-width:1100px) {
+            .brand-name {
+                font-size: 9px
+            }
+
+            .brand-mark,
+            .brand-mark svg {
+                width: 84px
+            }
+
+            .nav-links {
+                gap: 28px
+            }
+        }
+
+        @media (max-width:760px) {
+            .brand {
+                gap: 9px
+            }
+
+            .brand-mark,
+            .brand-mark svg {
+                width: 70px;
+                height: 29px
+            }
+
+            .brand-name {
+                font-size: 8px;
+                padding-left: 10px
+            }
+
+            .brand-name small {
+                font-size: 5.7px;
+                letter-spacing: .065em
+            }
+
+            .nav-links {
+                margin: 0;
+                gap: 0
+            }
+        }
+    </style>
+
+    <!-- HEADER MODULE HTML -->
+    <header class="header" id="header">
+        <nav aria-label="Main navigation" class="nav wrap"><a aria-label="AlphaNumeric Engineering and Technology home"
+                class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 146 36">
+                        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
+                            stroke-width="4">
+                            <path
+                                d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
+                            </path>
+                        </g>
+                        <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
+                    </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
+                        TECHNOLOGY</small></span></a><button aria-controls="navLinks" aria-expanded="false"
+                class="menu-toggle" id="menuToggle">Menu +</button>
+            <div class="nav-links" id="navLinks"><a aria-current="page" href="index.html">Home</a><a href="about.html">About</a>
+                <div class="solutions"><button aria-controls="solutionsMenu" aria-expanded="false"
+                        class="solutions-trigger" id="solutionsTrigger">Solutions <span>⌄</span></button>
+                    <div class="mega" hidden="" id="solutionsMenu">
+                        <div class="mega-column"><b>01 / Lighting</b><a href="residential-lighting.html">Residential
+                                Lighting</a><a href="commercial-lighting.html">Commercial Lighting</a><a
+                                href="industrial-lighting.html">Industrial Lighting</a><a href="facade-lighting.html">Façade
+                                Lighting</a><a href="landscape-lighting.html">Landscape Lighting</a></div>
+                        <div class="mega-column"><b>02 / Automation</b><a href="home-automation.html">Home
+                                Automation</a><a href="commercial-automation.html">Commercial Automation</a><a
+                                href="industrial-automation.html">Industrial Automation</a></div>
+                        <div class="mega-column"><b>03 / IoT</b><a href="bms.html">BMS</a><a
+                                href="bms-with-iot.html">BMS with IoT</a><a href="bms-and-iot.html">BMS &amp;
+                                IoT</a></div>
+                    </div>
+                </div><a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HEADER MODULE JS -->
+    <script>
+        (() => {
+            'use strict';
+            const { $, $$ } = window.ANET;
+            const header = $('#header'), menu = $('#menuToggle'), trigger = $('#solutionsTrigger'), mega = $('#solutionsMenu');
+            function closeNav() { header.classList.remove('menu-open'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'Menu +'; closeMega() }
+            function closeMega() { mega.hidden = true; trigger.setAttribute('aria-expanded', 'false') }
+            menu.addEventListener('click', () => { const open = header.classList.toggle('menu-open'); menu.setAttribute('aria-expanded', String(open)); menu.textContent = open ? 'Close ×' : 'Menu +'; if (!open) closeMega() });
+            trigger.addEventListener('click', () => { mega.hidden = !mega.hidden; trigger.setAttribute('aria-expanded', String(!mega.hidden)) });
+            document.addEventListener('click', e => { if (!e.target.closest('.solutions')) closeMega() }); document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!mega.hidden) { closeMega(); trigger.focus() } else if (header.classList.contains('menu-open')) { closeNav(); menu.focus() } } });
+            $('#navLinks').addEventListener('click', e => { if (e.target.closest('a')) closeNav() });
+            addEventListener('resize', () => { if (innerWidth > 760 && header.classList.contains('menu-open')) closeNav() });
+            const syncNav = () => header.classList.toggle('scrolled', scrollY > 25); syncNav(); addEventListener('scroll', syncNav, { passive: true });
+        })();
+    </script>
+
+    <!-- ======================= END HEADER MODULE ======================= -->
+
+    <main id="main">
+
+        <!-- =========================================================
+         HERO MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- HERO MODULE CSS -->
+        <style>
+            .hero {
+                position: relative;
+                background: #101010;
+                color: #f2f2f2;
+                overflow: hidden;
+                min-height: 820px;
+                padding: 140px 0 118px;
+                isolation: isolate
+            }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background: radial-gradient(ellipse at 78% 42%, #2f2f2f55, transparent 64%)
+            }
+
+            .hero .wrap {
+                width: min(1500px, calc(100% - 96px))
+            }
+
+            .premium-layout {
+                display: grid;
+                grid-template-columns: minmax(300px, .76fr) minmax(0, 1.5fr);
+                gap: 48px;
+                align-items: center;
+                min-height: 530px
+            }
+
+            .hero-eyebrow {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 10px;
+                letter-spacing: .18em;
+                color: #d0d0d0;
+                line-height: 1.7
+            }
+
+            .hero-eyebrow:before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                background: #e0e0e0
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 4.7vw, 76px);
+                letter-spacing: -.06em;
+                line-height: 1.04;
+                font-weight: 400;
+                margin: 28px 0 24px
+            }
+
+            .hero h1 em {
+                font-family: Georgia, serif;
+                font-weight: 400;
+                color: #e0e0e0
+            }
+
+            .hero-description {
+                font-size: 15px;
+                line-height: 1.8;
+                color: #b5b5b5;
+                max-width: 390px;
+                margin: 0 0 30px
+            }
+
+            .hero-actions {
+                display: flex;
+                gap: 24px;
+                align-items: center;
+                flex-wrap: wrap
+            }
+
+            .hero-actions .link {
+                font-size: 11px;
+                color: #bbbbbb
+            }
+
+            .hero-actions .button {
+                gap: 22px
+            }
+
+            .banner-note {
+                border-top: 1px solid #ffffff20;
+                margin-top: 40px;
+                padding-top: 20px;
+                display: flex;
+                gap: 13px;
+                align-items: flex-start;
+                color: #989898;
+                font-size: 11px;
+                line-height: 1.7;
+                max-width: 370px
+            }
+
+            .banner-note b {
+                color: #e1e1e1;
+                font-weight: 400;
+                white-space: nowrap
+            }
+
+            .premium-stage {
+                min-width: 0;
+                position: relative
+            }
+
+            .banner-pane[hidden] {
+                display: none !important
+            }
+
+            .stage-heading {
+                display: flex;
+                justify-content: space-between;
+                gap: 16px;
+                align-items: center;
+                margin: 0 0 22px;
+                font-size: 10px;
+                letter-spacing: .15em;
+                color: #bcbcbc
+            }
+
+            .stage-heading span:last-child {
+                font-size: 9px;
+                color: #9c9c9c;
+                letter-spacing: .08em
+            }
+
+            .status-dot {
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #dedede;
+                margin-right: 7px
+            }
+
+            .lighting-image {
+                position: relative;
+                aspect-ratio: 1688/942;
+                background: #000000;
+                overflow: hidden
+            }
+
+            .lighting-image img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain
+            }
+
+            .light-region {
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: opacity .9s ease
+            }
+
+            .light-region.on {
+                opacity: 1
+            }
+
+            .light-region[data-region="0"] {
+                clip-path: polygon(0 0, 30% 0, 30% 52%, 0 52%)
+            }
+
+            .light-region[data-region="1"] {
+                clip-path: polygon(69% 0, 100% 0, 100% 51%, 69% 51%)
+            }
+
+            .light-region[data-region="2"] {
+                clip-path: polygon(69% 51%, 100% 51%, 100% 100%, 69% 100%)
+            }
+
+            .light-region[data-region="3"] {
+                clip-path: polygon(0 52%, 29% 52%, 29% 100%, 0 100%)
+            }
+
+            .light-region[data-region="4"] {
+                clip-path: polygon(30% 0, 69% 0, 69% 100%, 29% 100%, 29% 52%, 30% 52%)
+            }
+
+            .lighting-dot {
+                position: absolute;
+                left: 17%;
+                top: 24%;
+                width: 7px;
+                height: 7px;
+                background: #f4f4f4;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 3
+            }
+
+            .light-hotspot {
+                position: absolute;
+                width: 44px;
+                height: 44px;
+                transform: translate(-50%, -50%);
+                background: transparent;
+                border: 0;
+                z-index: 4
+            }
+
+            .light-hotspot:focus-visible {
+                outline: 1px solid #e7e7e7;
+                outline-offset: 0
+            }
+
+            .light-caption {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 19px 0;
+                border-bottom: 1px solid #ffffff20;
+                gap: 10px
+            }
+
+            .light-caption strong {
+                font-weight: 400;
+                font-size: 18px
+            }
+
+            .light-caption small {
+                display: block;
+                font-size: 10px;
+                color: #9f9f9f;
+                margin-top: 6px
+            }
+
+            .light-caption>span {
+                font-size: 10px;
+                color: #c1c1c1;
+                letter-spacing: .1em
+            }
+
+            .lighting-options {
+                display: flex;
+                gap: 4px;
+                margin-top: 14px;
+                flex-wrap: wrap
+            }
+
+            .lighting-options button {
+                font-size: 10px;
+                color: #b6b6b6;
+                border: 1px solid transparent;
+                background: transparent;
+                padding: 11px 10px
+            }
+
+            .lighting-options button[aria-pressed=true] {
+                color: #eaeaea;
+                border-color: #b1b1b155;
+                background: #e0e0e00c
+            }
+
+            .hero-bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #ffffff21;
+                background: #111111
+            }
+
+            .hero-tabs {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 42px;
+                gap: 28px;
+                align-items: stretch
+            }
+
+            .hero-tab {
+                display: flex;
+                text-align: left;
+                align-items: center;
+                gap: 18px;
+                border: 0;
+                border-top: 2px solid transparent;
+                background: transparent;
+                color: #8f8f8f;
+                padding: 24px 0
+            }
+
+            .hero-tab small {
+                font-size: 10px;
+                color: #919191
+            }
+
+            .hero-tab strong {
+                font-size: 15px;
+                display: block;
+                font-weight: 400
+            }
+
+            .hero-tab span {
+                display: block;
+                font-size: 10px;
+                margin-top: 6px;
+                color: #8c8c8c
+            }
+
+            .hero-tab.active {
+                border-top-color: #e0e0e0;
+                color: #f3f3f3
+            }
+
+            .hero-tab.active small {
+                color: #e0e0e0
+            }
+
+            .pause {
+                align-self: center;
+                width: 38px;
+                height: 38px;
+                border: 1px solid #5e5e5e;
+                background: transparent;
+                color: #dfdfdf
+            }
+
+            /* Automation: a legible device network, driven by the same clock as its controls. */
+            .automation-network {
+                position: relative;
+                aspect-ratio: 800/460;
+                background: radial-gradient(ellipse at center, #39393955, transparent 62%);
+                border-top: 1px solid #ffffff13;
+                border-bottom: 1px solid #ffffff13
+            }
+
+            .network-wires {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: visible
+            }
+
+            .network-wires path {
+                stroke: #787878;
+                stroke-width: 1;
+                fill: none;
+                opacity: .6
+            }
+
+            .network-wires circle {
+                fill: #ebebeb
+            }
+
+            .device-card {
+                position: absolute;
+                width: 23%;
+                height: 24%;
+                border: 1px solid #7a7a7a66;
+                background: #191919;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 15px;
+                transition: border-color .5s, background .5s;
+                color: #bfbfbf
+            }
+
+            .device-card svg {
+                width: 22px;
+                height: 22px;
+                margin-bottom: 10px
+            }
+
+            .device-card strong {
+                font-size: 12px;
+                font-weight: 400;
+                color: #e9e9e9
+            }
+
+            .device-card small {
+                font-size: 9px;
+                color: #999999;
+                margin-top: 5px
+            }
+
+            .device-card.is-active {
+                border-color: #d3d3d380;
+                background: #2c2c2c
+            }
+
+            .device-card.is-active svg {
+                color: #ebebeb
+            }
+
+            .device-card.is-active small {
+                color: #d3d3d3
+            }
+
+            .device-card[data-device="0"] {
+                left: 0;
+                top: 5%
+            }
+
+            .device-card[data-device="1"] {
+                right: 0;
+                top: 5%
+            }
+
+            .device-card[data-device="2"] {
+                left: 0;
+                top: 38%
+            }
+
+            .device-card[data-device="3"] {
+                right: 0;
+                top: 38%
+            }
+
+            .device-card[data-device="4"] {
+                left: 0;
+                bottom: 5%
+            }
+
+            .device-card[data-device="5"] {
+                right: 0;
+                bottom: 5%
+            }
+
+            .automation-hub {
+                position: absolute;
+                left: 35%;
+                top: 32%;
+                width: 30%;
+                height: 36%;
+                border: 1px solid #c0c0c0;
+                background: linear-gradient(145deg, #343434, #1d1d1d);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 65px #c7c7c70d
+            }
+
+            .hub-mark {
+                font-size: 28px;
+                letter-spacing: -2px;
+                color: #e8e8e8
+            }
+
+            .automation-hub strong {
+                font-size: 9px;
+                font-weight: 400;
+                letter-spacing: .15em;
+                margin-top: 12px
+            }
+
+            .automation-hub small {
+                font-size: 9px;
+                color: #aeaeae;
+                margin-top: 9px
+            }
+
+            .scene-control {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                padding: 18px 0;
+                border-bottom: 1px solid #ffffff20;
+                flex-wrap: wrap
+            }
+
+            .scene-control>span {
+                font-size: 9px;
+                color: #979797;
+                letter-spacing: .1em;
+                margin-right: auto
+            }
+
+            .scene-control button {
+                padding: 10px 13px;
+                font-size: 10px;
+                border: 1px solid #4f4f4f;
+                background: transparent;
+                color: #cfcfcf
+            }
+
+            .scene-control button[aria-pressed=true] {
+                background: #e0e0e0;
+                color: #1e1e1e;
+                border-color: #e0e0e0
+            }
+
+            .network-caption {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 16px;
+                font-size: 11px;
+                color: #dbdbdb;
+                min-height: 24px
+            }
+
+            .network-caption small {
+                margin-left: auto;
+                color: #8e8e8e;
+                font-size: 9px
+            }
+
+            .flow-steps {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                margin-top: 18px;
+                color: #8f8f8f;
+                font-size: 9px;
+                letter-spacing: .06em
+            }
+
+            .flow-steps b {
+                font-weight: 400;
+                color: #d9d9d9
+            }
+
+            /* BMS: systems -> integration -> one operational view. No invented live readings. */
+            .bms-board {
+                background: #181818;
+                border: 1px solid #5e5e5e70;
+                padding: 24px
+            }
+
+            .bms-board-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #ffffff17;
+                gap: 12px
+            }
+
+            .bms-board-top strong {
+                font-size: 17px;
+                font-weight: 400;
+                letter-spacing: -.03em
+            }
+
+            .bms-board-top span {
+                font-size: 9px;
+                color: #cdcdcd
+            }
+
+            .bms-flow-head {
+                display: grid;
+                grid-template-columns: 1fr .7fr 1.15fr;
+                gap: 18px;
+                font-size: 8px;
+                letter-spacing: .1em;
+                color: #8a8a8a;
+                padding: 22px 0 14px
+            }
+
+            .bms-flow {
+                display: grid;
+                grid-template-columns: 1fr .7fr 1.15fr;
+                gap: 18px;
+                position: relative;
+                align-items: center
+            }
+
+            .bms-systems {
+                display: grid;
+                gap: 7px
+            }
+
+            .bms-system {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: #222222;
+                border: 1px solid #474747;
+                color: #c1c1c1;
+                padding: 11px 10px;
+                text-align: left;
+                font-size: 10px;
+                min-height: 43px
+            }
+
+            .bms-system svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0
+            }
+
+            .bms-system.selected {
+                border-color: #dbdbdb;
+                color: #eeeeee;
+                background: #363636
+            }
+
+            .gateway-column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 13px;
+                position: relative
+            }
+
+            .gateway-column::before {
+                content: '';
+                position: absolute;
+                left: -18px;
+                right: -18px;
+                top: 50%;
+                height: 1px;
+                background: #949494;
+                z-index: 0
+            }
+
+            .gateway-box {
+                padding: 16px 7px;
+                width: 100%;
+                text-align: center;
+                border: 1px solid #656565;
+                background: #202020;
+                position: relative;
+                z-index: 1
+            }
+
+            .gateway-box b {
+                display: block;
+                font-size: 10px;
+                font-weight: 400;
+                color: #e8e8e8
+            }
+
+            .gateway-box small {
+                display: block;
+                font-size: 8px;
+                margin-top: 6px;
+                line-height: 1.5;
+                color: #a0a0a0
+            }
+
+            .gateway-arrow {
+                font-size: 17px;
+                color: #c8c8c8
+            }
+
+            .operations-panel {
+                background: #e5e5e5;
+                color: #2b2b2b;
+                padding: 20px 16px;
+                min-height: 258px
+            }
+
+            .operations-panel>small {
+                font-size: 8px;
+                letter-spacing: .1em;
+                color: #616161
+            }
+
+            .operations-panel h3 {
+                font-size: 23px;
+                line-height: 1.1;
+                font-weight: 400;
+                letter-spacing: -.045em;
+                margin: 18px 0 8px
+            }
+
+            .operations-panel p {
+                font-size: 10px;
+                line-height: 1.6;
+                color: #606060;
+                min-height: 48px
+            }
+
+            .operations-list {
+                display: grid;
+                gap: 0;
+                margin-top: 16px
+            }
+
+            .operations-list span {
+                font-size: 9px;
+                padding: 9px 0;
+                border-top: 1px solid #35353525
+            }
+
+            .operations-list span::before {
+                content: '↗';
+                margin-right: 8px;
+                color: #616161
+            }
+
+            .bms-board-footer {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-top: 20px;
+                padding-top: 16px;
+                border-top: 1px solid #ffffff17;
+                font-size: 9px;
+                color: #9a9a9a
+            }
+
+            .bms-caption {
+                font-size: 11px;
+                line-height: 1.7;
+                color: #adadad;
+                margin: 17px 0 0
+            }
+
+            .bms-caption b {
+                color: #e2e2e2;
+                font-weight: 400
+            }
+
+            .capabilities {
+                background: #e0e0e0;
+                padding: 20px 0;
+                color: #2f2f2f
+            }
+
+            .capabilities .wrap {
+                display: flex;
+                justify-content: space-between;
+                gap: 14px;
+                font-size: 9px;
+                letter-spacing: .1em;
+                flex-wrap: wrap
+            }
+
+            .capabilities i {
+                font-style: normal
+            }
+
+            @media(min-width:1700px) {
+                .hero {
+                    min-height: 940px
+                }
+
+                .premium-layout {
+                    min-height: 660px
+                }
+            }
+
+            @media(max-width:1100px) {
+                .hero .wrap {
+                    width: calc(100% - 56px)
+                }
+
+                .premium-layout {
+                    gap: 25px;
+                    grid-template-columns: .75fr 1.25fr
+                }
+
+                .hero h1 {
+                    font-size: 52px
+                }
+
+                .hero-description {
+                    font-size: 13px
+                }
+
+                .hero-actions {
+                    gap: 16px
+                }
+
+                .device-card {
+                    padding: 0 10px
+                }
+
+                .device-card strong {
+                    font-size: 10px
+                }
+
+                .device-card small {
+                    font-size: 8px
+                }
+
+                .device-card svg {
+                    width: 18px;
+                    height: 18px;
+                    margin-bottom: 6px
+                }
+
+                .bms-board {
+                    padding: 16px
+                }
+
+                .bms-flow,
+                .bms-flow-head {
+                    gap: 10px;
+                    grid-template-columns: 1fr .65fr 1.1fr
+                }
+
+                .bms-system {
+                    font-size: 9px;
+                    padding: 10px 6px;
+                    gap: 6px
+                }
+
+                .operations-panel {
+                    padding: 15px 10px
+                }
+
+                .operations-panel h3 {
+                    font-size: 20px
+                }
+
+                .bms-board-top strong {
+                    font-size: 14px
+                }
+
+                .hero-tabs {
+                    gap: 18px
+                }
+
+                .hero-tab span {
+                    font-size: 9px
+                }
+            }
+
+            @media(max-width:760px) {
+                .hero {
+                    padding: 108px 0 104px;
+                    min-height: 0
+                }
+
+                .hero .wrap {
+                    width: calc(100% - 40px)
+                }
+
+                .premium-layout {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 40px
+                }
+
+                .hero h1 {
+                    font-size: 53px;
+                    margin: 20px 0
+                }
+
+                .hero-description {
+                    max-width: 440px;
+                    font-size: 14px;
+                    margin-bottom: 22px
+                }
+
+                .hero-eyebrow {
+                    font-size: 9px
+                }
+
+                .banner-note {
+                    display: none
+                }
+
+                .stage-heading {
+                    margin-bottom: 14px;
+                    font-size: 9px
+                }
+
+                .stage-heading span:last-child {
+                    font-size: 8px
+                }
+
+                .hero-tab {
+                    gap: 9px;
+                    padding: 19px 0
+                }
+
+                .hero-tab strong {
+                    font-size: 12px
+                }
+
+                .hero-tab span {
+                    display: none
+                }
+
+                .hero-tab small {
+                    font-size: 8px
+                }
+
+                .hero-tabs {
+                    gap: 12px;
+                    grid-template-columns: 1fr 1fr 1fr 32px
+                }
+
+                .pause {
+                    width: 30px;
+                    height: 30px
+                }
+
+                .light-caption strong {
+                    font-size: 16px
+                }
+
+                .light-caption small {
+                    font-size: 9px
+                }
+
+                .lighting-options {
+                    gap: 2px
+                }
+
+                .lighting-options button {
+                    padding: 10px 7px;
+                    font-size: 9px
+                }
+
+                .automation-network {
+                    aspect-ratio: 640/450
+                }
+
+                .automation-hub {
+                    left: 33%;
+                    width: 34%
+                }
+
+                .device-card {
+                    width: 25%;
+                    padding: 0 8px
+                }
+
+                .hub-mark {
+                    font-size: 24px
+                }
+
+                .automation-hub strong {
+                    font-size: 8px;
+                    letter-spacing: .05em
+                }
+
+                .automation-hub small {
+                    font-size: 8px
+                }
+
+                .network-caption {
+                    font-size: 10px;
+                    gap: 7px
+                }
+
+                .network-caption small {
+                    font-size: 8px
+                }
+
+                .scene-control button {
+                    padding: 9px 10px
+                }
+
+                .bms-board {
+                    padding: 14px
+                }
+
+                .bms-board-top {
+                    padding-bottom: 15px
+                }
+
+                .bms-board-top strong {
+                    font-size: 14px
+                }
+
+                .bms-board-top span {
+                    font-size: 8px
+                }
+
+                .bms-flow-head {
+                    font-size: 7px;
+                    gap: 8px
+                }
+
+                .bms-flow {
+                    gap: 8px;
+                    grid-template-columns: 1fr .65fr 1.1fr
+                }
+
+                .bms-system {
+                    font-size: 8px;
+                    padding: 10px 5px;
+                    gap: 5px
+                }
+
+                .bms-system svg {
+                    width: 15px;
+                    height: 15px
+                }
+
+                .gateway-box b {
+                    font-size: 8px
+                }
+
+                .gateway-box small {
+                    font-size: 7px
+                }
+
+                .operations-panel {
+                    padding: 15px 9px;
+                    min-height: 266px
+                }
+
+                .operations-panel h3 {
+                    font-size: 18px
+                }
+
+                .operations-panel p {
+                    font-size: 9px
+                }
+
+                .operations-panel>small {
+                    font-size: 7px
+                }
+
+                .operations-list span {
+                    font-size: 8px
+                }
+
+                .bms-board-footer {
+                    font-size: 8px
+                }
+
+                .flow-steps {
+                    font-size: 8px;
+                    gap: 7px
+                }
+
+                .bms-caption {
+                    font-size: 10px
+                }
+            }
+
+            @media(max-width:480px) {
+                .bms-flow-head {
+                    display: none
+                }
+
+                .bms-flow {
+                    grid-template-columns: 1fr;
+                    margin-top: 18px;
+                    gap: 16px
+                }
+
+                .bms-systems {
+                    grid-template-columns: repeat(3, 1fr)
+                }
+
+                .bms-system {
+                    font-size: 10px;
+                    padding: 11px 7px
+                }
+
+                .gateway-column {
+                    flex-direction: row;
+                    gap: 12px
+                }
+
+                .gateway-column::before {
+                    display: none
+                }
+
+                .gateway-box {
+                    padding: 12px
+                }
+
+                .gateway-box b {
+                    font-size: 11px
+                }
+
+                .gateway-box small {
+                    font-size: 9px
+                }
+
+                .gateway-arrow {
+                    transform: rotate(-90deg)
+                }
+
+                .operations-panel {
+                    min-height: 0;
+                    padding: 18px
+                }
+
+                .operations-panel h3 {
+                    font-size: 25px;
+                    margin: 12px 0 8px
+                }
+
+                .operations-panel p {
+                    font-size: 12px;
+                    min-height: 0
+                }
+
+                .operations-panel>small {
+                    font-size: 9px
+                }
+
+                .operations-list {
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 10px
+                }
+
+                .operations-list span {
+                    font-size: 9px;
+                    line-height: 1.5
+                }
+
+                .operations-list span::before {
+                    display: none
+                }
+            }
+
+            @media(prefers-reduced-motion:reduce) {
+                .light-region {
+                    transition: none
+                }
+            }
+        </style>
+
+        <section class="hero" id="home" aria-label="Lighting, automation and IoT solutions"
+            aria-roledescription="carousel">
+            <div class="wrap premium-layout">
+                <div class="hero-copy">
+                    <div class="hero-eyebrow" id="heroEyebrow">01 — INTELLIGENT LIGHTING</div>
+                    <h1 id="heroTitle">Beautiful spaces.<br /><em>Brought to light.</em></h1>
+                    <p class="hero-description" id="heroDescription">Light that reveals architecture, shapes atmosphere
+                        and brings every environment to life.</p>
+                    <div class="hero-actions"><a class="button" id="heroCta" href="#lighting">Explore lighting <span
+                                class="arrow">↗</span></a><a class="link" href="#about">Discover ANET <span>↓</span></a>
+                    </div>
+                    <div class="banner-note"><b id="noteTitle">Designed to be felt.</b><span id="noteCopy">From a quiet
+                            living room to a landmark façade. Every space deserves the right light.</span></div>
+                </div>
+                <div class="premium-stage">
+                    <div class="banner-pane" data-pane="0">
+                        <div class="stage-heading"><span>FIVE ENVIRONMENTS. ONE VISION.</span><span>SELECT A SPACE TO
+                                ILLUMINATE</span></div>
+                        <div class="lighting-image"><img
+                                src="assets/image-60392734f29b.jpg"
+                                alt="Architectural, commercial, industrial, residential and landscape lighting environments" />
+                            <div class="light-region on" data-region="0"><img
+                                    src="assets/image-d04eea408c90.jpg"
+                                    alt="" /></div>
+                            <div class="light-region " data-region="1"><img
+                                    src="assets/image-d04eea408c90.jpg"
+                                    alt="" /></div>
+                            <div class="light-region " data-region="2"><img
+                                    src="assets/image-d04eea408c90.jpg"
+                                    alt="" /></div>
+                            <div class="light-region " data-region="3"><img
+                                    src="assets/image-d04eea408c90.jpg"
+                                    alt="" /></div>
+                            <div class="light-region " data-region="4"><img
+                                    src="assets/image-d04eea408c90.jpg"
+                                    alt="" /></div>
+                            <div class="lighting-dot" aria-hidden="true"></div><button class="light-hotspot"
+                                data-light="3" style="left:17%;top:24%" aria-label="Illuminate façade"
+                                aria-pressed="true"></button><button class="light-hotspot" data-light="1"
+                                style="left:82%;top:24%" aria-label="Illuminate commercial"
+                                aria-pressed="false"></button><button class="light-hotspot" data-light="2"
+                                style="left:82%;top:76%" aria-label="Illuminate industrial"
+                                aria-pressed="false"></button><button class="light-hotspot" data-light="0"
+                                style="left:17%;top:76%" aria-label="Illuminate residential"
+                                aria-pressed="false"></button><button class="light-hotspot" data-light="4"
+                                style="left:49%;top:46%" aria-label="Illuminate landscape"
+                                aria-pressed="false"></button>
+                        </div>
+                        <div class="light-caption">
+                            <div><strong id="lightingName">Residential lighting</strong><small
+                                    id="lightingDetail">Warmth, comfort and beautifully layered living.</small></div>
+                            <span id="lightingIndex">01 / 05</span>
+                        </div>
+                        <div class="lighting-options"><button data-light="0"
+                                aria-pressed="true">Residential</button><button data-light="1"
+                                aria-pressed="false">Commercial</button><button data-light="2"
+                                aria-pressed="false">Industrial</button><button data-light="3"
+                                aria-pressed="false">Façade</button><button data-light="4"
+                                aria-pressed="false">Landscape</button></div>
+                    </div>
+                    <!-- AUTOMATION: data-pane="1" -->
+<div class="banner-pane ani-tech-pane" data-pane="1" hidden>
+  <div class="ani-tech-head"><span>INDUSTRIAL AUTOMATION ECOSYSTEM</span><span class="ani-live"><i></i> 15 CONNECTED SYSTEMS · DEMO</span></div>
+  <div class="ani-console" id="industrialAutomation">
+    <svg class="ani-paths" viewBox="0 0 800 500" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="ani-core"><div><span class="ani-core-icon">PLC</span><strong>CONTROL CORE</strong><small id="aniCoreState">Coordinating systems</small></div></div>
+    <button type="button" class="ani-node" style="--row:0" data-side="left" data-name="PLC" data-detail="Logic executing"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h12v12H6z M9 9h6v6H9z M3 8h3m-3 4h3m-3 4h3m12-8h3m-3 4h3m-3 4h3M8 3v3m4-3v3m4-3v3M8 18v3m4-3v3m4-3v3"/></svg></b><div><strong>PROGRAMMABLE<br>LOGIC CONTROL</strong><small>Logic executing</small></div></button>
+    <button type="button" class="ani-node" style="--row:0" data-side="right" data-name="SCADA" data-detail="Supervisory view"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v13H3z M8 21h8m-4-4v4 M6 13l4-5 4 3 4-5"/></svg></b><div><strong>SCADA</strong><small>Supervisory view</small></div></button>
+    <button type="button" class="ani-node" style="--row:1" data-side="left" data-name="HMI" data-detail="Operator interface"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v16H3z M8 22h8 M7 7h10M7 11h4m3 0h3M7 15h10"/></svg></b><div><strong>HMI</strong><small>Operator interface</small></div></button>
+    <button type="button" class="ani-node" style="--row:1" data-side="right" data-name="VFD" data-detail="Speed regulated"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-12 6 12 9 0s6 12 9 0 M3 21h18"/></svg></b><div><strong>VARIABLE FREQUENCY<br>DRIVE</strong><small>Speed regulated</small></div></button>
+    <button type="button" class="ani-node" style="--row:2" data-side="left" data-name="MCC" data-detail="Motors coordinated"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14v12H5z M9 9h6v6H9z M2 9h3m14 0h3M2 15h3m14 0h3"/></svg></b><div><strong>MOTOR CONTROL<br>CENTRE</strong><small>Motors coordinated</small></div></button>
+    <button type="button" class="ani-node" style="--row:2" data-side="right" data-name="PCC" data-detail="Power managed"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18H4z M13 6l-4 7h5l-3 5"/></svg></b><div><strong>POWER CONTROL<br>CENTRE</strong><small>Power managed</small></div></button>
+    <button type="button" class="ani-node" style="--row:3" data-side="left" data-name="RTU" data-detail="Remote telemetry"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12a5 5 0 0 1 10 0 M4 9a9 9 0 0 1 16 0 M12 12v9m-4 0h8"/></svg></b><div><strong>REMOTE TERMINAL<br>UNIT</strong><small>Remote telemetry</small></div></button>
+    <button type="button" class="ani-node" style="--row:3" data-side="right" data-name="Control Panels" data-detail="Process control"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18H4z M8 7h8M8 11h3m3 0h2M8 15h3m3 0h2"/></svg></b><div><strong>CONTROL PANELS</strong><small>Process control</small></div></button>
+    <button type="button" class="ani-node" style="--row:4" data-side="left" data-name="Automation Panels" data-detail="Sequence active"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18H4z M8 7h8M8 11h8M8 15h8 M8 18h2m4 0h2"/></svg></b><div><strong>AUTOMATION PANELS</strong><small>Sequence active</small></div></button>
+    <button type="button" class="ani-node" style="--row:4" data-side="right" data-name="Protection" data-detail="Protection healthy"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6z M8 12l3 3 5-6"/></svg></b><div><strong>RELAY &amp; PROTECTION</strong><small>Protection healthy</small></div></button>
+    <button type="button" class="ani-node" style="--row:5" data-side="left" data-name="Sensors" data-detail="Field data live"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9h6v6H9z M6 6a8 8 0 0 0 0 12m12-12a8 8 0 0 1 0 12M3 3a13 13 0 0 0 0 18m18-18a13 13 0 0 1 0 18"/></svg></b><div><strong>INDUSTRIAL SENSORS</strong><small>Field data live</small></div></button>
+    <button type="button" class="ani-node" style="--row:5" data-side="right" data-name="Energy" data-detail="Demand monitored"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a9 9 0 1 1 16 0 M12 12l5-5 M8 20h8"/></svg></b><div><strong>ENERGY MONITORING</strong><small>Demand monitored</small></div></button>
+    <button type="button" class="ani-node" style="--row:6" data-side="left" data-name="Remote Control" data-detail="Secure access"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v13H3z M8 21h8m-4-4v4 M8 10h8m-3-3 3 3-3 3"/></svg></b><div><strong>REMOTE MONITORING<br>&amp; CONTROL</strong><small>Secure access</small></div></button>
+    <button type="button" class="ani-node" style="--row:6" data-side="right" data-name="Data Logging" data-detail="Records captured"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0-4 16-4 16 0v14c0 4-16 4-16 0z M4 5c0 4 16 4 16 0M4 12c0 4 16 4 16 0"/></svg></b><div><strong>DATA LOGGING</strong><small>Records captured</small></div></button>
+    <button type="button" class="ani-node" style="--row:7" data-side="left" data-name="Networking" data-detail="Devices connected"><b><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v6H9z M2 16h6v6H2z M16 16h6v6h-6z M12 8v4H5v4m7-4h7v4"/></svg></b><div><strong>INDUSTRIAL<br>NETWORKING</strong><small>Devices connected</small></div></button>
+  </div>
+  <div class="ani-tech-foot"><strong id="aniActiveName">PLC Control Core</strong><span id="aniActiveDetail">Coordinating the complete automation network</span><span>DATA · CONTROL · PROTECTION</span></div>
+</div>
+
+<!-- BMS + IoT: data-pane="2" -->
+<div class="banner-pane ani-tech-pane bms-pro" data-pane="2" hidden>
+  <div class="ani-tech-head"><span>UNIFIED BUILDING INTELLIGENCE</span><span class="ani-live"><i></i> BMS + IoT · ILLUSTRATIVE VIEW</span></div>
+  <div class="ani-console">
+    <span class="edge-flow"></span>
+    <div class="bms-column">
+      <div class="bms-label"><span>01 / FIELD SYSTEMS</span><i></i></div>
+      <div class="bms-assets">
+        <button class="bms-asset active" data-bms="0"><b>HVAC</b><small>Climate &amp; ventilation</small></button>
+        <button class="bms-asset" data-bms="1"><b>LIGHTING</b><small>Zones &amp; schedules</small></button>
+        <button class="bms-asset" data-bms="2"><b>ENERGY</b><small>Meters &amp; demand</small></button>
+        <button class="bms-asset" data-bms="3"><b>FIRE</b><small>Life-safety events</small></button>
+        <button class="bms-asset" data-bms="4"><b>SECURITY</b><small>Access &amp; surveillance</small></button>
+        <button class="bms-asset" data-bms="5"><b>WATER</b><small>Flow, tanks &amp; leaks</small></button>
+        <button class="bms-asset" data-bms="6"><b>ELEVATORS</b><small>Status &amp; events</small></button>
+        <button class="bms-asset" data-bms="7"><b>IAQ</b><small>Indoor air quality</small></button>
+      </div>
+    </div>
+    <div class="bms-column">
+      <div class="bms-label"><span>02 / INTELLIGENCE</span><i></i></div>
+      <div class="edge-stack">
+        <div class="edge-box"><i></i><b>BMS CONTROLLERS</b><small>BACnet · Modbus · KNX</small><i></i></div>
+        <div class="edge-box"><i></i><b>IoT EDGE GATEWAY</b><small>Secure data normalization</small><i></i></div>
+        <div class="edge-box"><i></i><b>ANALYTICS LAYER</b><small>Rules · Trends · Alerts</small><i></i></div>
+      </div>
+    </div>
+    <div class="bms-column">
+      <div class="bms-label"><span>03 / COMMAND CENTRE</span><i></i></div>
+      <div class="ops-shell">
+        <div class="ops-top"><strong>ONE OPERATIONAL VIEW</strong><span>DATA FLOW</span></div>
+        <div class="ops-focus"><small>SELECTED SYSTEM</small><h3 id="bmsProTitle">HVAC Intelligence</h3><p id="bmsProCopy">Coordinate comfort, ventilation and equipment operation from one connected view.</p></div>
+        <div class="ops-vitals"><div class="ops-vital"><b id="bmsMetric1">Zones</b><small>OPERATION VIEW</small></div><div class="ops-vital"><b id="bmsMetric2">Trends</b><small>DATA INSIGHT</small></div><div class="ops-vital"><b id="bmsMetric3">Alerts</b><small>ACTION CENTRE</small></div></div>
+        <div class="trend"><svg viewBox="0 0 300 74" preserveAspectRatio="none"><polyline points="0,55 25,49 50,52 75,37 100,43 125,28 150,34 175,22 200,29 225,17 250,24 275,12 300,18"/></svg></div>
+        <div class="event-stream"><div class="event"><i></i><span id="bmsEvent1">Field data synchronized</span><time>NOW</time></div><div class="event"><i></i><span id="bmsEvent2">Operational trend updated</span><time>LIVE</time></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ani-tech-foot"><strong>SYSTEMS → EDGE → INTELLIGENCE</strong><span>Clear visibility. Faster decisions. Smarter buildings.</span><span>ONE PLATFORM</span></div>
+</div>
+
+
+</div>
+</div>
+            <div class="hero-bottom">
+                <div class="wrap hero-tabs" aria-label="Choose a banner"><button class="hero-tab active" data-slide="0"
+                        aria-pressed="true"><small>01</small>
+                        <div><strong>Lighting</strong><span>Spaces, beautifully illuminated.</span></div>
+                    </button><button class="hero-tab " data-slide="1" aria-pressed="false"><small>02</small>
+                        <div><strong>Automation</strong><span>Every device. In harmony.</span></div>
+                    </button><button class="hero-tab " data-slide="2" aria-pressed="false"><small>03</small>
+                        <div><strong>BMS & IoT</strong><span>Complex systems. Clear insight.</span></div>
+                    </button><button class="pause" id="pause" aria-label="Pause banner animation"
+                        aria-pressed="false">Ⅱ</button></div>
+            </div>
+        </section>
+        <div class="capabilities">
+            <div class="wrap"><span>ARCHITECTURAL LIGHTING</span><i>+</i><span>INTELLIGENT
+                    AUTOMATION</span><i>+</i><span>CONNECTED BUILDINGS</span><i>+</i><span>ONE INTEGRATED VISION</span>
+            </div>
+        </div>
+
+        <style>
+/* Scoped styles: these rules affect only the upgraded hero panes. */
+.hero .ani-tech-pane{--ice:#dff7ff;--cyan:#63ddff;--blue:#3c83ff;--line:rgba(142,224,255,.19);position:relative;color:#eefaff}
+.hero .ani-tech-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 14px;font:600 9px/1.4 "Manrope",sans-serif;letter-spacing:.16em;color:#9bb2bb}
+.hero .ani-live{display:flex;align-items:center;gap:8px;color:#d8f8ff}.hero .ani-live i{width:6px;height:6px;border-radius:50%;background:#6ce7ff;box-shadow:0 0 0 0 rgba(108,231,255,.5);animation:aniPulse 1.8s infinite}
+.hero .ani-console{position:relative;height:500px;overflow:hidden;border:1px solid rgba(174,225,242,.19);background:radial-gradient(circle at 50% 48%,rgba(35,116,159,.22),transparent 29%),linear-gradient(145deg,#11191d,#070a0c 70%);isolation:isolate}
+.hero .ani-console:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(126,198,221,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(126,198,221,.045) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 94%)}
+.hero .ani-console:after{content:"";position:absolute;left:0;right:0;top:-20%;height:34%;pointer-events:none;background:linear-gradient(transparent,rgba(99,221,255,.045),transparent);animation:aniScan 6s linear infinite}
+.hero .ani-paths{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.hero .ani-path{fill:none;stroke:var(--line);stroke-width:1}.hero .ani-path.active{stroke:rgba(99,221,255,.65);filter:drop-shadow(0 0 4px rgba(99,221,255,.7));stroke-dasharray:4 9;animation:aniDash 1.4s linear infinite}
+.hero .ani-packet{fill:#dffaff;filter:drop-shadow(0 0 7px #63ddff)}
+.hero .ani-core{position:absolute;left:50%;top:50%;width:148px;height:148px;transform:translate(-50%,-50%);border:1px solid rgba(130,225,255,.62);background:linear-gradient(145deg,rgba(26,55,67,.97),rgba(8,14,17,.98));display:grid;place-items:center;text-align:center;z-index:4;box-shadow:0 0 0 8px rgba(99,221,255,.025),0 0 65px rgba(61,175,224,.14)}
+.hero .ani-core:before,.hero .ani-core:after{content:"";position:absolute;border:1px solid rgba(105,220,255,.19);inset:-12px;animation:aniCore 3s ease-in-out infinite}.hero .ani-core:after{inset:-23px;animation-delay:-1.5s}
+.hero .ani-core-icon{width:40px;height:40px;margin:auto;display:grid;place-items:center;border:1px solid rgba(142,230,255,.4);font:700 13px/1 "Manrope",sans-serif;letter-spacing:.08em;color:#ecfbff;background:#12252d}
+.hero .ani-core strong{display:block;margin-top:10px;font:650 11px/1.3 "Manrope",sans-serif;letter-spacing:.12em}.hero .ani-core small{display:block;margin-top:7px;font:500 8px/1.2 "Manrope",sans-serif;letter-spacing:.08em;color:#7fabb9}
+.hero .ani-node{position:absolute;width:142px;min-height:53px;padding:9px 10px;display:flex;align-items:center;gap:9px;border:1px solid rgba(141,197,215,.22);background:rgba(15,23,27,.94);z-index:3;transition:.35s ease;transform:translate(-50%,-50%)}
+.hero .ani-node:hover,.hero .ani-node.is-active{border-color:rgba(116,224,255,.82);background:rgba(23,48,58,.98);box-shadow:0 0 24px rgba(58,180,224,.12);transform:translate(-50%,-50%) translateY(-2px)}
+.hero .ani-node b{width:30px;height:30px;display:grid;place-items:center;flex:0 0 30px;border:1px solid rgba(129,211,239,.24);font:700 8px/1 "Manrope",sans-serif;letter-spacing:.02em;color:#9edff3}.hero .ani-node.is-active b{color:white;background:rgba(61,164,202,.2)}
+.hero .ani-node strong{display:block;font:600 8px/1.25 "Manrope",sans-serif;letter-spacing:.06em;color:#e1edf1}.hero .ani-node small{display:block;margin-top:4px;font:500 7px/1.1 "Manrope",sans-serif;color:#6f8992}
+.hero .ani-node.is-active small{color:#8edff7}
+.hero .ani-node:nth-of-type(2){left:10%;top:10%}.hero .ani-node:nth-of-type(3){left:30%;top:8%}.hero .ani-node:nth-of-type(4){left:70%;top:8%}.hero .ani-node:nth-of-type(5){left:90%;top:10%}
+.hero .ani-node:nth-of-type(6){left:8%;top:30%}.hero .ani-node:nth-of-type(7){left:25%;top:28%}.hero .ani-node:nth-of-type(8){left:75%;top:28%}.hero .ani-node:nth-of-type(9){left:92%;top:30%}
+.hero .ani-node:nth-of-type(10){left:8%;top:70%}.hero .ani-node:nth-of-type(11){left:25%;top:72%}.hero .ani-node:nth-of-type(12){left:75%;top:72%}.hero .ani-node:nth-of-type(13){left:92%;top:70%}
+.hero .ani-node:nth-of-type(14){left:18%;top:91%}.hero .ani-node:nth-of-type(15){left:50%;top:91%}.hero .ani-node:nth-of-type(16){left:82%;top:91%}
+.hero .ani-tech-foot{display:flex;align-items:center;gap:15px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font:500 9px/1.4 "Manrope",sans-serif;letter-spacing:.08em;color:#8ca0a8}.hero .ani-tech-foot strong{color:#dff8ff;font-weight:550}.hero .ani-tech-foot span:last-child{margin-left:auto;color:#69dfff}
+
+/* BMS + IoT command centre */
+.hero .bms-pro{--accent:#69e0ff}.hero .bms-pro .ani-console{display:grid;grid-template-columns:1.05fr .74fr 1.08fr;height:500px;background:linear-gradient(145deg,#0d1417,#06090b)}
+.hero .bms-column{position:relative;padding:20px;border-right:1px solid rgba(153,216,236,.13);min-width:0}.hero .bms-column:last-child{border-right:0}.hero .bms-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px;font:650 8px/1.2 "Manrope",sans-serif;letter-spacing:.16em;color:#7e9ba5}.hero .bms-label i{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.hero .bms-assets{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hero .bms-asset{position:relative;padding:12px 10px;border:1px solid rgba(134,193,211,.17);background:rgba(22,31,35,.76);cursor:pointer;text-align:left;color:#dce9ed;transition:.3s}.hero .bms-asset:before{content:"";position:absolute;left:-1px;top:9px;bottom:9px;width:2px;background:transparent}.hero .bms-asset.active{border-color:rgba(105,224,255,.6);background:rgba(28,62,73,.65)}.hero .bms-asset.active:before{background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.hero .bms-asset b{display:block;font:700 9px/1.2 "Manrope",sans-serif;letter-spacing:.06em}.hero .bms-asset small{display:block;margin-top:5px;font:500 7px/1.2 "Manrope",sans-serif;color:#718a93}.hero .bms-asset.active small{color:#8ddcef}
+.hero .edge-stack{height:calc(100% - 35px);display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative}.hero .edge-stack:before{content:"";position:absolute;left:50%;top:8%;bottom:8%;border-left:1px dashed rgba(105,224,255,.26)}
+.hero .edge-box{position:relative;z-index:2;padding:17px 9px;text-align:center;border:1px solid rgba(112,211,239,.32);background:#101c21}.hero .edge-box b{display:block;font:650 9px/1.3 "Manrope",sans-serif;letter-spacing:.09em}.hero .edge-box small{display:block;margin-top:6px;font:500 7px/1.45 "Manrope",sans-serif;color:#7495a0}.hero .edge-box i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);left:50%;transform:translateX(-50%);box-shadow:0 0 10px var(--accent)}.hero .edge-box i:first-child{top:-4px}.hero .edge-box i:last-child{bottom:-4px}
+.hero .edge-flow{position:absolute;left:calc(33.33% - 8px);right:calc(33.33% - 8px);top:50%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);z-index:4;animation:aniFlow 2.4s ease-in-out infinite;pointer-events:none}
+.hero .ops-shell{height:calc(100% - 34px);display:flex;flex-direction:column}.hero .ops-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.1)}.hero .ops-top strong{font:600 11px/1.2 "Manrope",sans-serif}.hero .ops-top span{font:600 7px/1 "Manrope",sans-serif;letter-spacing:.12em;color:#70e0ff}
+.hero .ops-focus{padding:17px 0 12px}.hero .ops-focus small{font:600 7px/1 "Manrope",sans-serif;letter-spacing:.14em;color:#73909a}.hero .ops-focus h3{margin:8px 0 5px;font:450 25px/1 "Manrope",sans-serif;letter-spacing:-.045em}.hero .ops-focus p{margin:0;min-height:30px;font:500 8px/1.55 "Manrope",sans-serif;color:#8399a1}
+.hero .ops-vitals{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.hero .ops-vital{padding:10px 7px;border:1px solid rgba(130,191,210,.15);background:rgba(255,255,255,.025)}.hero .ops-vital b{display:block;font:550 10px/1.2 "Manrope",sans-serif;color:#dff8ff}.hero .ops-vital small{display:block;margin-top:5px;font:550 6px/1.1 "Manrope",sans-serif;letter-spacing:.08em;color:#66828c}
+.hero .trend{height:74px;margin-top:9px;border:1px solid rgba(130,191,210,.13);background:linear-gradient(180deg,rgba(56,160,194,.09),transparent);position:relative;overflow:hidden}.hero .trend svg{width:100%;height:100%}.hero .trend polyline{fill:none;stroke:#69e0ff;stroke-width:1.4;vector-effect:non-scaling-stroke;stroke-dasharray:260;animation:aniChart 4s ease-in-out infinite}.hero .trend:after{content:"LIVE TREND";position:absolute;right:8px;top:7px;font:600 6px/1 "Manrope",sans-serif;letter-spacing:.13em;color:#6d8b95}
+.hero .event-stream{margin-top:8px;display:grid;gap:5px}.hero .event{display:flex;gap:7px;align-items:center;padding:7px 8px;border-left:1px solid rgba(105,224,255,.35);background:rgba(255,255,255,.025);font:500 7px/1.2 "Manrope",sans-serif;color:#81979f}.hero .event i{width:4px;height:4px;border-radius:50%;background:#69e0ff}.hero .event time{margin-left:auto;color:#57717a}
+@keyframes aniPulse{70%{box-shadow:0 0 0 8px transparent}}@keyframes aniScan{to{top:100%}}@keyframes aniDash{to{stroke-dashoffset:-26}}@keyframes aniCore{50%{transform:scale(1.035);opacity:.5}}@keyframes aniFlow{0%,100%{opacity:.2;transform:scaleX(.25)}50%{opacity:1;transform:scaleX(1)}}@keyframes aniChart{0%{stroke-dashoffset:260}35%,100%{stroke-dashoffset:0}} 
+@media(max-width:1100px){.hero .ani-console{height:470px}.hero .ani-node{width:122px;padding:8px}.hero .ani-node strong{font-size:7px}.hero .ani-core{width:124px;height:124px}.hero .bms-pro .ani-console{grid-template-columns:1fr .64fr 1fr}.hero .bms-column{padding:14px}}
+@media(max-width:760px){.hero .ani-tech-head span:last-child{display:none}.hero .ani-console{height:690px}.hero .ani-core{width:110px;height:110px}.hero .ani-node{width:116px}.hero .ani-node:nth-of-type(2),.hero .ani-node:nth-of-type(6),.hero .ani-node:nth-of-type(10){left:18%}.hero .ani-node:nth-of-type(5),.hero .ani-node:nth-of-type(9),.hero .ani-node:nth-of-type(13){left:82%}.hero .ani-node:nth-of-type(3){left:18%;top:20%}.hero .ani-node:nth-of-type(4){left:82%;top:20%}.hero .ani-node:nth-of-type(7){left:18%;top:40%}.hero .ani-node:nth-of-type(8){left:82%;top:40%}.hero .ani-node:nth-of-type(11){left:18%;top:60%}.hero .ani-node:nth-of-type(12){left:82%;top:60%}.hero .ani-node:nth-of-type(14){left:18%;top:82%}.hero .ani-node:nth-of-type(15){left:50%;top:92%}.hero .ani-node:nth-of-type(16){left:82%;top:82%}.hero .bms-pro .ani-console{display:block;height:auto}.hero .bms-column{border-right:0;border-bottom:1px solid rgba(153,216,236,.13)}.hero .edge-stack{height:auto;display:grid;grid-template-columns:repeat(3,1fr)}.hero .edge-stack:before,.hero .edge-flow{display:none}.hero .ops-shell{height:auto}.hero .bms-assets{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){.hero .ani-tech-pane *{animation:none!important}}
+
+.hero .ani-tech-pane{font-family:Arial,Helvetica,sans-serif}
+.hero .ani-console{height:570px}
+.hero .ani-console .ani-node{left:19%;top:calc(6.25% + var(--row)*12.5%);width:32%;height:55px;min-height:0;padding:8px 10px;text-align:left;cursor:pointer}
+.hero .ani-console .ani-node[data-side="right"]{left:81%}
+.hero .ani-node strong{font-size:10px;letter-spacing:.01em;line-height:1.3}
+.hero .ani-node small{font-size:9px;line-height:1.25}
+.hero .ani-node b{border:0;width:28px;flex-basis:28px}.hero .ani-node b svg{width:24px;height:24px}
+.hero .ani-core{width:23%;height:122px}.hero .ani-core strong{font-size:9px}
+.hero .ani-core:after{inset:-16px}.hero .ani-tech-foot{flex-wrap:wrap;min-height:54px;font-size:10px}
+.hero .ani-tech-foot span:last-child{font-size:8px}.hero .bms-pro .ani-console{height:570px}
+.hero .bms-asset{min-height:83px}.hero .bms-asset b{font-size:10px}.hero .bms-asset small{font-size:9px}
+.hero .ops-focus p{font-size:11px;line-height:1.65;min-height:75px}.hero .ops-top strong{line-height:1.5}
+.hero .ops-vital small{font-size:7px}.hero .event{font-size:9px;line-height:1.4}.hero .edge-box small{font-size:9px}
+.hero .ani-paused *,.hero.ani-paused .ani-tech-pane *{animation-play-state:paused!important}
+.hero .ani-node:focus-visible{outline:2px solid #b9ebfa;outline-offset:3px}
+@media(max-width:760px){.hero .ani-console{height:640px}.hero .ani-node strong{font-size:8px}.hero .ani-node small{font-size:8px}.hero .ani-console .ani-node{padding:6px;gap:5px;height:68px;width:33%}.hero .ani-node b{width:19px;flex-basis:19px}.hero .ani-node b svg{width:19px;height:19px}.hero .ani-core{height:100px}.hero .ani-core strong{font-size:7px}.hero .ani-core small{font-size:7px}.hero .ani-core:before{inset:-5px}.hero .ani-core:after{inset:-10px}.hero .bms-pro .ani-console{height:auto}.hero .bms-assets{grid-template-columns:repeat(2,1fr)}.hero .bms-asset{min-height:65px}.hero .ops-focus p{min-height:0}.hero .ani-tech-foot span:last-child{margin-left:0}}
+</style>
+<!-- HERO MODULE JS -->
+        <script>
+            (() => {
+                'use strict';
+                const hero = document.querySelector('.hero'), $ = s => hero.querySelector(s), $$ = s => [...hero.querySelectorAll(s)], reduced = matchMedia('(prefers-reduced-motion: reduce)');
+                const slides = [['01 — INTELLIGENT LIGHTING', 'Beautiful spaces.<br><em>Brought to light.</em>', 'Light that reveals architecture, shapes atmosphere and brings every environment to life.', 'Explore lighting', '#lighting', 'Designed to be felt.', 'From a quiet living room to a landmark façade. Every space deserves the right light.'], ['02 — INTELLIGENT AUTOMATION', 'Every process.<br><em>Precisely connected.</em>', 'From PLC and SCADA to drives, protection and remote monitoring. Connect every layer of industrial operation.', 'Explore automation', '#automation', 'Intelligence in harmony.', 'Explore 15 connected systems. Follow the flow of data between field devices, control and operational insight.'], ['03 — BMS & IoT', 'Every system.<br><em>A clearer view.</em>', 'Bring building systems and sensor data together. Understand what matters. Act with confidence.', 'Explore BMS & IoT', '#iot', 'From complexity to clarity.', 'Select a system to explore its path from field devices to a unified operational view.']];
+                const names = ['Residential', 'Commercial', 'Industrial', 'Façade', 'Landscape'], details = ['Warmth, comfort and beautifully layered living.', 'Comfortable, focused light for working and gathering.', 'Clarity for production floors and industrial spaces.', 'Architecture, beautifully defined after dark.', 'Paths, planting and outdoor spaces brought to life.'], points = [[17, 76], [82, 24], [82, 76], [17, 24], [49, 46]], regionMap = [3, 1, 2, 0, 4], lightAccents = ['#f3bd73', '#ffd89c', '#a9d8ff', '#60cfff', '#76d990'];
+                const systems = [['Lighting', 'See zone status and manage lighting schedules.', 'Zones & schedules'], ['HVAC', 'Coordinate climate systems and review comfort conditions.', 'Comfort & equipment'], ['Energy', 'Understand meter data and identify consumption patterns.', 'Meters & consumption'], ['Air quality', 'Bring indoor environmental sensor data into focus.', 'Air quality & ventilation'], ['Water', 'Monitor tanks, flow and compatible leak sensors.', 'Levels, flow & leaks'], ['Access', 'Review entry status and connected access events.', 'Entry status & events']];
+                const scenes = { welcome: ['Scene on', 'Comfort mode', 'Open', 'Entry enabled', 'Presence aware', 'Occupied mode'], evening: ['Warm & dimmed', 'Evening comfort', 'Closed', 'Secured', 'Presence aware', 'Evening mode'], away: ['Off', 'Eco mode', 'Closed', 'Secured', 'Monitoring', 'Standby loads'] };
+                let slide = 0, light = 0, system = 0, scene = 'welcome', paused = reduced.matches, visible = true, hover = false, focus = false, t = 0, slideStart = 0, lightStart = 0, sceneStart = 0, systemStart = 0, last = 0, raf = 0, travel = null, dotPos = points[0].slice(), motion = 0, lastStage = -1;
+                function syncPause() { hero.classList.toggle('ani-paused', paused); $('#pause').textContent = paused ? '▷' : 'Ⅱ'; $('#pause').setAttribute('aria-pressed', String(paused)); $('#pause').setAttribute('aria-label', paused ? 'Play banner animation' : 'Pause banner animation'); }
+                function activateLight(i) { light = i; lightStart = t; hero.style.setProperty('--hero-light-accent', lightAccents[i]); $$('.hero [data-light]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.light === i))); $('#lightingName').textContent = names[i] + ' lighting'; $('#lightingDetail').textContent = details[i]; $('#lightingIndex').textContent = '0' + (i + 1) + ' / 05'; $$('[data-region]').forEach(e => e.classList.toggle('on', +e.dataset.region === regionMap[i])); }
+                function chooseLight(i) { lightStart = t; if (reduced.matches || paused) { travel = null; dotPos = points[i].slice(); placeDot(); activateLight(i); return; } travel = { from: dotPos.slice(), to: points[i], index: i, start: motion }; }
+                function placeDot() { const d = $('.lighting-dot'); d.style.left = dotPos[0] + '%'; d.style.top = dotPos[1] + '%'; }
+                function chooseSystem(i) { systemStart = t; }
+                function chooseScene(name) { scene = name; sceneStart = t; lastStage = -1; $$('[data-scene]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scene === name))); updateAutomation(paused || reduced.matches ? 7 : 0); }
+                function updateAutomation(elapsed) {}
+                function go(i) { slide = i; slideStart = t; const d = slides[i]; $('#heroEyebrow').textContent = d[0]; $('#heroTitle').innerHTML = d[1]; $('#heroDescription').textContent = d[2]; $('#heroCta').innerHTML = d[3] + ' <span class="arrow">↗</span>'; $('#heroCta').href = d[4]; $('#noteTitle').textContent = d[5]; $('#noteCopy').textContent = d[6]; $$('[data-pane]').forEach(e => e.hidden = +e.dataset.pane !== i); $$('[data-slide]').forEach(b => { b.classList.toggle('active', +b.dataset.slide === i); b.setAttribute('aria-pressed', String(+b.dataset.slide === i)); }); if (i === 0) lightStart = t; if (i === 1) chooseScene(scene); if (i === 2) systemStart = t; }
+                $$('[data-slide]').forEach(b => b.addEventListener('click', () => go(+b.dataset.slide)));
+                $$('.hero [data-light]').forEach(b => { b.addEventListener('click', () => chooseLight(+b.dataset.light)); b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') chooseLight(+b.dataset.light); }); });
+                $$('[data-scene]').forEach(b => b.addEventListener('click', () => chooseScene(b.dataset.scene))); $$('[data-system]').forEach(b => b.addEventListener('click', () => chooseSystem(+b.dataset.system)));
+                $('#pause').addEventListener('click', () => { paused = !paused; if (paused && travel) { dotPos = travel.to.slice(); placeDot(); activateLight(travel.index); travel = null; } syncPause(); });
+                hero.addEventListener('mouseenter', () => hover = true); hero.addEventListener('mouseleave', () => hover = false); hero.addEventListener('focusin', () => focus = true); hero.addEventListener('focusout', e => focus = hero.contains(e.relatedTarget));
+                if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visible = e.isIntersecting; last = 0; }, { threshold: .05 }).observe(hero);
+                reduced.addEventListener('change', () => { paused = reduced.matches; if (paused && travel) { dotPos = travel.to.slice(); placeDot(); activateLight(travel.index); travel = null; } if (slide === 1) updateAutomation(7); syncPause(); });
+                function frame(now) { const dt = last ? Math.min((now - last) / 1000, .08) : 0; last = now; if (visible && !document.hidden && !paused) { t += dt; motion += dt; if (travel) { const p = Math.min(1, (motion - travel.start) / .72), q = p * p * (3 - 2 * p); dotPos = travel.from.map((v, n) => v + (travel.to[n] - v) * q); placeDot(); if (p === 1) { activateLight(travel.index); travel = null; } } if (slide === 0 && !travel && !hover && !focus && t - lightStart > 4.4) chooseLight((light + 1) % 5); if (slide === 1) updateAutomation(t - sceneStart); if (slide === 2 && !hover && !focus && t - systemStart > 3.6) chooseSystem((system + 1) % 6); if (!hover && !focus && t - slideStart > [27, 16, 23][slide]) go((slide + 1) % 3); } raf = requestAnimationFrame(frame); }
+                document.addEventListener('visibilitychange', () => last = 0); addEventListener('pagehide', () => cancelAnimationFrame(raf)); addEventListener('pageshow', e => { if (e.persisted) { last = 0; raf = requestAnimationFrame(frame); } }); syncPause(); raf = requestAnimationFrame(frame);
+            })();
+        </script>
+
+        <script>
+(() => {
+  'use strict';
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  /* Draw accurate centre-to-device paths and animate packets. */
+  const automation = hero.querySelector('#industrialAutomation');
+  if (automation) {
+    const svg = automation.querySelector('.ani-paths');
+    const nodes = [...automation.querySelectorAll('.ani-node')];
+    const ns = 'http://www.w3.org/2000/svg';
+    let paths = [], packets = [], active = 0, lastSwitch = 0;
+    function buildNetwork(){
+      svg.replaceChildren(); paths=[]; packets=[];
+      const box=automation.getBoundingClientRect(), sx=400, sy=250; if(!box.width || !box.height)return;
+      nodes.forEach((node,i)=>{
+        const r=node.getBoundingClientRect();
+        const x=((r.left+r.width/2-box.left)/box.width)*800;
+        const y=((r.top+r.height/2-box.top)/box.height)*500;
+        const bendX=sx+(x-sx)*.56;
+        const p=document.createElementNS(ns,'path');
+        p.setAttribute('d',`M ${sx} ${sy} C ${bendX} ${sy}, ${bendX} ${y}, ${x} ${y}`);
+        p.setAttribute('class','ani-path'); p.id='aniPath'+i; svg.appendChild(p); paths.push(p);
+        const dot=document.createElementNS(ns,'circle'); dot.setAttribute('r','2.5'); dot.setAttribute('class','ani-packet'); svg.appendChild(dot); packets.push(dot);
+      });
+    }
+    function selectNode(i){
+      active=i; nodes.forEach((n,j)=>n.classList.toggle('is-active',j===i));
+      paths.forEach((p,j)=>p.classList.toggle('active',j===i));
+      const n=nodes[i];
+      const name=hero.querySelector('#aniActiveName'), detail=hero.querySelector('#aniActiveDetail'), core=hero.querySelector('#aniCoreState');
+      if(name) name.textContent=n.dataset.name+' connected'; if(detail) detail.textContent=n.dataset.detail; if(core) core.textContent='Exchanging live data';
+    }
+    let start=0, clock=0, previous=0; const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+    function animate(stamp){
+      const dt=previous?Math.min(stamp-previous,80):0;previous=stamp;
+      if(automation.closest('[data-pane]').hidden || document.hidden || hero.classList.contains('ani-paused') || motionQuery.matches)return requestAnimationFrame(animate);
+      clock+=dt; const now=clock;
+      if(!paths.length) return requestAnimationFrame(animate);
+      if(now-lastSwitch>1500){lastSwitch=now;selectNode((active+1)%nodes.length)}
+      paths.forEach((p,i)=>{
+        const len=p.getTotalLength(), phase=((now-start)/2300+i/nodes.length)%1;
+        const point=p.getPointAtLength(len*(i===active?phase:(phase*.72)));
+        packets[i].setAttribute('cx',point.x); packets[i].setAttribute('cy',point.y);
+        packets[i].style.opacity=i===active?'1':'.2';
+      }); requestAnimationFrame(animate);
+    }
+    nodes.forEach((n,i)=>{n.addEventListener('click',()=>{lastSwitch=clock;selectNode(i)});n.addEventListener('mouseenter',()=>{lastSwitch=clock;selectNode(i)});n.addEventListener('focusin',()=>selectNode(i))});
+    new ResizeObserver(()=>{buildNetwork();selectNode(active)}).observe(automation); buildNetwork(); selectNode(0); addEventListener('resize',buildNetwork,{passive:true}); requestAnimationFrame(animate);
+  }
+
+  /* BMS selection: automatic rotation plus direct user control. */
+  const bmsData=[
+    ['HVAC Intelligence','Coordinate comfort, ventilation and equipment operation from one connected view.','Zones','Trends','Alerts','Climate data synchronized','Equipment trend updated'],
+    ['Lighting Control','Coordinate zones, scenes, schedules and occupancy-based operation.','Zones','Scenes','Schedules','Lighting zones synchronized','Occupancy event received'],
+    ['Energy Intelligence','Bring metering, demand and consumption patterns into a clear operational view.','Meters','Demand','Insights','Meter data synchronized','Demand trend updated'],
+    ['Fire Integration','Surface compatible life-safety status and events for coordinated response.','Panels','Events','Status','Panel status synchronized','Safety event stream ready'],
+    ['Security & Access','Unify compatible access, entry and surveillance events in one view.','Doors','Events','Video','Access data synchronized','Security event received'],
+    ['Water Management','Monitor tank levels, flow patterns and compatible leak detection points.','Tanks','Flow','Leaks','Water data synchronized','Flow trend updated'],
+    ['Elevator Visibility','Review connected elevator status, movement data and operational events.','Cars','Status','Events','Elevator data synchronized','Movement trend updated'],
+    ['Indoor Air Quality','Understand connected CO₂, particulate, humidity and comfort sensor data.','CO₂','PM','Comfort','IAQ sensors synchronized','Air trend updated']
+  ];
+  const bmsButtons=[...hero.querySelectorAll('.bms-asset')]; let bmsIndex=0, bmsTimer;
+  function chooseBms(i,user=false){
+    if(!bmsButtons.length)return; bmsIndex=i; const d=bmsData[i];
+    bmsButtons.forEach((b,j)=>{b.classList.toggle('active',j===i);b.setAttribute('aria-pressed',String(j===i))});
+    [['#bmsProTitle',d[0]],['#bmsProCopy',d[1]],['#bmsMetric1',d[2]],['#bmsMetric2',d[3]],['#bmsMetric3',d[4]],['#bmsEvent1',d[5]],['#bmsEvent2',d[6]]].forEach(([s,v])=>{const el=hero.querySelector(s);if(el)el.textContent=v});
+    if(user){clearInterval(bmsTimer);bmsTimer=setInterval(()=>{if(!hero.querySelector('[data-pane="2"]').hidden&&!document.hidden&&!hero.classList.contains('ani-paused')&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!hero.querySelector('[data-pane="2"]').matches(':focus-within'))chooseBms((bmsIndex+1)%bmsData.length)},2600)}
+  }
+  bmsButtons.forEach((b,i)=>b.addEventListener('click',()=>chooseBms(i,true)));
+  if(bmsButtons.length){chooseBms(0);bmsTimer=setInterval(()=>{if(!hero.querySelector('[data-pane="2"]').hidden&&!document.hidden&&!hero.classList.contains('ani-paused')&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!hero.querySelector('[data-pane="2"]').matches(':focus-within'))chooseBms((bmsIndex+1)%bmsData.length)},2600)}
+})();
+</script>
+<!-- ======================= END HERO MODULE ======================= -->
+
+        <!-- =========================================================
+         ABOUT MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- ABOUT MODULE CSS -->
+        <style>
+            /* About */
+            .about {
+                padding: 110px 0 85px
+            }
+
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1.7fr;
+                gap: 100px
+            }
+
+            .about .section-title {
+                margin-top: 0;
+                max-width: 780px
+            }
+
+            .about-bottom {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 45px;
+                align-items: end
+            }
+
+            .about-bottom p {
+                margin: 5px 0
+            }
+
+            .about-seal {
+                display: flex;
+                gap: 18px;
+                align-items: center;
+                justify-content: flex-end
+            }
+
+            .about-seal svg {
+                width: 60px;
+                height: 60px
+            }
+
+            .about-seal span {
+                font-size: 10px;
+                line-height: 1.8;
+                color: #787878
+            }
+
+            .principles {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                margin-top: 70px;
+                border-top: 1px solid var(--line)
+            }
+
+            .principles>div {
+                padding: 25px 30px 0 0;
+                display: flex;
+                gap: 18px
+            }
+
+            .principles>div+div {
+                padding-left: 30px;
+                border-left: 1px solid var(--line)
+            }
+
+            .principles b {
+                font-size: 10px;
+                color: #979797;
+                font-weight: 400;
+                padding-top: 4px
+            }
+
+            .principles h3 {
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0 0 8px
+            }
+
+            .principles p {
+                font-size: 12px;
+                line-height: 1.7;
+                color: #787878;
+                margin: 0;
+                max-width: 280px
+            }
+
+            @media (max-width:1100px) {
+                .about-grid {
+                    gap: 50px;
+                    grid-template-columns: .7fr 1.5fr
+                }
+            }
+
+            @media (max-width:760px) {
+                .about {
+                    padding: 70px 0 45px
+                }
+
+                .about-grid {
+                    grid-template-columns: 1fr;
+                    gap: 25px
+                }
+
+                .about-bottom {
+                    grid-template-columns: 1fr;
+                    gap: 25px
+                }
+
+                .about-seal {
+                    justify-content: flex-start
+                }
+
+                .about-seal svg {
+                    width: 45px;
+                    height: 45px
+                }
+
+                .principles {
+                    grid-template-columns: 1fr;
+                    margin-top: 35px
+                }
+
+                .principles>div,
+                .principles>div+div {
+                    border-left: 0;
+                    border-bottom: 1px solid var(--line);
+                    padding: 20px 0
+                }
+
+                .principles p {
+                    max-width: 100%
+                }
+            }
+        </style>
+
+        <!-- ABOUT MODULE HTML -->
+        <section class="about" id="about">
+            <div class="wrap">
+                <div class="about-grid reveal">
+                    <div>
+                        <div class="eyebrow">About ANET</div>
+                        <p class="small muted" style="margin-top:24px">Technology with purpose.<br />Experiences with
+                            possibility.</p>
+                    </div>
+                    <div>
+                        <h2 class="section-title">Extraordinary spaces.<br /><em>Intelligence within.</em></h2>
+                        <div class="about-bottom">
+                            <p class="body-copy">AlphaNumeric Engineering and Technology brings lighting, automation and
+                                connected building systems together. From a single room to an entire facility, we create
+                                environments that respond to the people who use them.</p>
+                            <div class="about-seal"><svg aria-hidden="true" fill="none" stroke="#969696"
+                                    viewBox="0 0 70 70">
+                                    <circle cx="35" cy="35" r="28"></circle>
+                                    <ellipse cx="35" cy="35" rx="12" ry="28"></ellipse>
+                                    <ellipse cx="35" cy="35" rx="28" ry="12"></ellipse>
+                                    <path d="M7 35h56M35 7v56"></path>
+                                </svg><span>DESIGNED TO CONNECT.<br />BUILT AROUND YOU.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="principles reveal">
+                    <div><b>01</b>
+                        <div>
+                            <h3>Thoughtful by design</h3>
+                            <p>Solutions shaped around your space, your requirements and your everyday experience.</p>
+                        </div>
+                    </div>
+                    <div><b>02</b>
+                        <div>
+                            <h3>Connected by purpose</h3>
+                            <p>Lighting, controls and data working together as a coordinated system.</p>
+                        </div>
+                    </div>
+                    <div><b>03</b>
+                        <div>
+                            <h3>Ready to evolve</h3>
+                            <p>New installations and existing-system upgrades, with room for what comes next.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT MODULE JS -->
+        <script>
+            // Presentation-only section. No JavaScript required.
+        </script>
+
+        <!-- ======================= END ABOUT MODULE ======================= -->
+
+        <!-- =========================================================
+         LIGHTING MODULE — CSS + HTML + JS
+         Interactive five-zone lighting banner.
+         OFF image is the base. One softly masked ON zone is revealed at a time.
+         ========================================================= -->
+
+        <!-- LIGHTING MODULE CSS -->
+        <style>
+            .lighting {
+                padding: 78px 0 112px;
+                background: var(--paper);
+                overflow: hidden;
+            }
+
+            .lighting .section-top {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 30px;
+                margin-bottom: 34px;
+            }
+
+            .lighting .section-top .section-title {
+                margin-bottom: 0;
+            }
+
+            .lighting .index-label {
+                font-size: 10px;
+                letter-spacing: .14em;
+                color: #8e8e8e;
+                white-space: nowrap;
+                padding-bottom: 8px;
+            }
+
+            .lighting-banner {
+                position: relative;
+                width: 100%;
+                background: #000000;
+                overflow: hidden;
+                isolation: isolate;
+                box-shadow: 0 34px 85px rgba(17, 17, 17, .17);
+            }
+
+            .lighting-stage {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 1672 / 941;
+                min-height: 540px;
+                overflow: hidden;
+                background: #000000;
+            }
+
+            .lighting-base {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                filter: brightness(.97) saturate(.98);
+                transform: scale(1.002);
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            .lighting-stage::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                pointer-events: none;
+                background:
+                    radial-gradient(ellipse at 50% 48%, transparent 52%, rgba(0, 0, 0, .10) 82%, rgba(0, 0, 0, .34) 100%),
+                    linear-gradient(180deg, rgba(0, 0, 0, .05), transparent 23%, transparent 75%, rgba(0, 0, 0, .12));
+            }
+
+            .lighting-stage::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 3;
+                pointer-events: none;
+                box-shadow: inset 0 0 90px rgba(0, 0, 0, .28);
+            }
+
+            .lighting-reveal {
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                opacity: 0;
+                pointer-events: none;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                filter: brightness(1.03) saturate(1.07) contrast(1.01);
+                transform: scale(1.002);
+                transition: opacity .65s var(--ease);
+            }
+
+            .lighting-reveal.active {
+                opacity: 1;
+            }
+
+            /* No card borders: every ON zone feathers naturally into the OFF image and black canvas. */
+            .lighting-reveal[data-zone="0"] {
+                -webkit-mask-image: radial-gradient(ellipse 30% 45% at 16% 24%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+                mask-image: radial-gradient(ellipse 30% 45% at 16% 24%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+            }
+
+            .lighting-reveal[data-zone="1"] {
+                -webkit-mask-image: radial-gradient(ellipse 37% 32% at 50% 46%,
+                        #000000 0 54%, rgba(0, 0, 0, .98) 64%, rgba(0, 0, 0, .72) 76%, rgba(0, 0, 0, .22) 88%, transparent 100%);
+                mask-image: radial-gradient(ellipse 37% 32% at 50% 46%,
+                        #000000 0 54%, rgba(0, 0, 0, .98) 64%, rgba(0, 0, 0, .72) 76%, rgba(0, 0, 0, .22) 88%, transparent 100%);
+            }
+
+            .lighting-reveal[data-zone="2"] {
+                -webkit-mask-image: radial-gradient(ellipse 30% 45% at 84% 24%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+                mask-image: radial-gradient(ellipse 30% 45% at 84% 24%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+            }
+
+            .lighting-reveal[data-zone="3"] {
+                -webkit-mask-image: radial-gradient(ellipse 31% 44% at 16% 76%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+                mask-image: radial-gradient(ellipse 31% 44% at 16% 76%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+            }
+
+            .lighting-reveal[data-zone="4"] {
+                -webkit-mask-image: radial-gradient(ellipse 31% 44% at 84% 76%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+                mask-image: radial-gradient(ellipse 31% 44% at 84% 76%,
+                        #000000 0 52%, rgba(0, 0, 0, .98) 61%, rgba(0, 0, 0, .72) 73%, rgba(0, 0, 0, .24) 84%, transparent 96%);
+            }
+
+            .lighting-hit {
+                position: absolute;
+                z-index: 5;
+                border: 0;
+                padding: 0;
+                margin: 0;
+                background: transparent;
+                cursor: pointer;
+                outline-offset: -5px;
+            }
+
+            .lighting-hit--facade {
+                left: 0;
+                top: 0;
+                width: 31%;
+                height: 52%;
+            }
+
+            .lighting-hit--landscape {
+                left: 29%;
+                top: 20%;
+                width: 42%;
+                height: 51%;
+            }
+
+            .lighting-hit--commercial {
+                right: 0;
+                top: 0;
+                width: 31%;
+                height: 52%;
+            }
+
+            .lighting-hit--residential {
+                left: 0;
+                bottom: 0;
+                width: 31%;
+                height: 52%;
+            }
+
+            .lighting-hit--industrial {
+                right: 0;
+                bottom: 0;
+                width: 31%;
+                height: 52%;
+            }
+
+            .lighting-orb {
+                --orb-x: 16%;
+                --orb-y: 24%;
+                position: absolute;
+                z-index: 8;
+                left: var(--orb-x);
+                top: var(--orb-y);
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                background: #f6f6f6;
+                box-shadow:
+                    0 0 0 1px rgba(255, 255, 255, .75),
+                    0 0 18px rgba(255, 255, 255, .88),
+                    0 0 46px rgba(224, 224, 224, .38);
+                transition:
+                    left .82s cubic-bezier(.22, 1, .36, 1),
+                    top .82s cubic-bezier(.22, 1, .36, 1),
+                    background .32s ease,
+                    box-shadow .32s ease;
+            }
+
+            .lighting-orb::before {
+                content: "";
+                position: absolute;
+                inset: -11px;
+                border: 1px solid rgba(255, 255, 255, .34);
+                border-radius: 50%;
+                opacity: .65;
+                transform: scale(.78);
+                animation: lightingPulse 1.7s ease-in-out infinite;
+            }
+
+            .lighting-orb::after {
+                content: "";
+                position: absolute;
+                width: 64px;
+                height: 1px;
+                right: 12px;
+                top: 7px;
+                transform-origin: right center;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .08), rgba(224, 224, 224, .68));
+                opacity: .72;
+            }
+
+            .lighting-orb.arrived {
+                background: #e0e0e0;
+                box-shadow:
+                    0 0 0 1px rgba(224, 224, 224, .95),
+                    0 0 18px rgba(224, 224, 224, .95),
+                    0 0 54px rgba(224, 224, 224, .55);
+            }
+
+            @keyframes lightingPulse {
+
+                0%,
+                100% {
+                    opacity: .22;
+                    transform: scale(.72);
+                }
+
+                48% {
+                    opacity: .85;
+                    transform: scale(1.08);
+                }
+            }
+
+            .lighting-stage-label {
+                position: absolute;
+                z-index: 7;
+                left: 28px;
+                top: 26px;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                color: rgba(241, 241, 241, .78);
+                font-size: 9px;
+                letter-spacing: .17em;
+                text-transform: uppercase;
+                pointer-events: none;
+            }
+
+            .lighting-stage-label i {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #e0e0e0;
+                box-shadow: 0 0 16px rgba(224, 224, 224, .75);
+            }
+
+            .lighting-stage-count {
+                position: absolute;
+                z-index: 7;
+                right: 28px;
+                top: 26px;
+                color: rgba(241, 241, 241, .56);
+                font-size: 9px;
+                letter-spacing: .16em;
+                pointer-events: none;
+            }
+
+            .lighting-caption {
+                position: absolute;
+                z-index: 7;
+                left: 30px;
+                bottom: 28px;
+                color: #f6f6f6;
+                max-width: min(520px, 52%);
+                pointer-events: none;
+            }
+
+            .lighting-caption strong {
+                display: block;
+                font-size: clamp(25px, 2.5vw, 39px);
+                line-height: 1.04;
+                font-weight: 400;
+                letter-spacing: -.045em;
+            }
+
+            .lighting-caption small {
+                display: block;
+                margin-top: 10px;
+                color: #b5b5b5;
+                font-size: 9px;
+                line-height: 1.55;
+                letter-spacing: .15em;
+                text-transform: uppercase;
+            }
+
+            .lighting-controls {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0;
+                background: #0b0b0b;
+                border-top: 1px solid rgba(255, 255, 255, .08);
+            }
+
+            .lighting-control {
+                position: relative;
+                appearance: none;
+                border: 0;
+                border-right: 1px solid rgba(255, 255, 255, .06);
+                background: transparent;
+                color: #7d7d7d;
+                min-height: 76px;
+                padding: 18px 18px 17px;
+                text-align: left;
+                transition: color .32s ease, background .32s ease;
+            }
+
+            .lighting-control:last-child {
+                border-right: 0;
+            }
+
+            .lighting-control::before {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #e0e0e0;
+                transition: width .48s var(--ease);
+            }
+
+            .lighting-control span {
+                display: block;
+                margin-bottom: 8px;
+                color: #565656;
+                font-size: 8px;
+                letter-spacing: .14em;
+                transition: color .32s ease;
+            }
+
+            .lighting-control strong {
+                display: block;
+                color: inherit;
+                font-size: 11px;
+                line-height: 1.35;
+                font-weight: 500;
+                letter-spacing: .02em;
+            }
+
+            .lighting-control.active,
+            .lighting-control:hover {
+                color: #f0f0f0;
+                background: rgba(255, 255, 255, .018);
+            }
+
+            .lighting-control.active::before {
+                width: 100%;
+            }
+
+            .lighting-control.active span {
+                color: #dddddd;
+            }
+
+            .lighting-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 36px;
+                margin-top: 25px;
+            }
+
+            .lighting-info p {
+                max-width: 730px;
+                min-height: 44px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            .lighting-info .link {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            @media (max-width:1100px) {
+                .lighting-stage {
+                    min-height: 430px;
+                }
+
+                .lighting-control {
+                    padding-inline: 13px;
+                }
+            }
+
+            @media (max-width:760px) {
+                .lighting {
+                    padding: 42px 0 70px;
+                }
+
+                .lighting .section-top {
+                    align-items: flex-start;
+                    margin-bottom: 25px;
+                }
+
+                .lighting .index-label {
+                    display: none;
+                }
+
+                .lighting-stage {
+                    aspect-ratio: 1672 / 941;
+                    min-height: 250px;
+                }
+
+                .lighting-stage-label {
+                    left: 15px;
+                    top: 14px;
+                    font-size: 6.7px;
+                    letter-spacing: .12em;
+                }
+
+                .lighting-stage-count {
+                    right: 15px;
+                    top: 14px;
+                    font-size: 6.7px;
+                }
+
+                .lighting-caption {
+                    left: 16px;
+                    right: 16px;
+                    bottom: 14px;
+                    max-width: 70%;
+                }
+
+                .lighting-caption strong {
+                    font-size: 19px;
+                }
+
+                .lighting-caption small {
+                    display: none;
+                }
+
+                .lighting-orb {
+                    width: 11px;
+                    height: 11px;
+                }
+
+                .lighting-orb::after {
+                    width: 34px;
+                    right: 9px;
+                    top: 5px;
+                }
+
+                .lighting-controls {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .lighting-control {
+                    min-height: 62px;
+                    padding: 14px 13px;
+                    border-bottom: 1px solid rgba(255, 255, 255, .06);
+                }
+
+                .lighting-control:nth-child(5) {
+                    grid-column: 1 / -1;
+                }
+
+                .lighting-info {
+                    display: block;
+                }
+
+                .lighting-info .link {
+                    margin-top: 12px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                .lighting-orb,
+                .lighting-reveal {
+                    transition: none;
+                }
+
+                .lighting-orb::before {
+                    animation: none;
+                }
+            }
+        </style>
+
+        <!-- LIGHTING MODULE HTML -->
+        <section class="lighting" id="lighting">
+            <div class="wrap">
+                <div class="section-top reveal">
+                    <div>
+                        <div class="eyebrow">01 / Lighting solutions</div>
+                        <h2 class="section-title">Designed around light.<br><em>Defined by atmosphere.</em></h2>
+                    </div><span class="index-label">FIVE ENVIRONMENTS. ONE CONSIDERED APPROACH.</span>
+                </div>
+                <div class="new-light-view reveal">
+                    <div class="new-light-photo" role="img"
+                        aria-label="Warm architectural lighting in a premium living room"
+                        style="background-image:url(assets/image-d86b48981d1b.jpg)">
+                    </div>
+                    <div class="new-light-shade"></div>
+                    <div class="new-light-caption"><small id="newLightCount">01 / 05</small>
+                        <h3 id="newLightTitle">Residential lighting</h3>
+                        <p id="newLightCopy">Layered light. Effortless comfort.</p>
+                    </div>
+                </div>
+                <div class="new-light-tabs" aria-label="Lighting environments"><button type="button" data-lighting="0"
+                        aria-pressed="true"><small>01</small>Residential</button><button type="button" data-lighting="1"
+                        aria-pressed="false"><small>02</small>Commercial</button><button type="button" data-lighting="2"
+                        aria-pressed="false"><small>03</small>Industrial</button><button type="button" data-lighting="3"
+                        aria-pressed="false"><small>04</small>Façade</button><button type="button" data-lighting="4"
+                        aria-pressed="false"><small>05</small>Landscape</button></div>
+                <div class="lighting-info">
+                    <p>From ambient layers to precision illumination, each environment receives a lighting approach
+                        shaped around its architecture and everyday use.</p><a class="link" href="#contact">Plan your
+                        lighting ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTING MODULE JS -->
+        <script>
+            // Lower lighting gallery: independent of the hero carousel.
+            (() => {
+                const section = document.querySelector('#lighting');
+                const names = ['Residential', 'Commercial', 'Industrial', 'Façade', 'Landscape'];
+                const copy = ['Layered light. Effortless comfort.', 'Purposeful light for productive spaces.', 'Clarity across every work zone.', 'A distinctive presence after dark.', 'Beautiful journeys beyond the building.'];
+                function selectLight(i) {
+                    section.querySelector('.new-light-photo').style.backgroundPosition = '50% ' + (i * 25) + '%';
+                    section.querySelector('.new-light-photo').setAttribute('aria-label', names[i] + ' architectural lighting');
+                    document.querySelector('#newLightCount').textContent = '0' + (i + 1) + ' / 05';
+                    document.querySelector('#newLightTitle').textContent = names[i] + ' lighting';
+                    document.querySelector('#newLightCopy').textContent = copy[i];
+                    section.querySelectorAll('[data-lighting]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.lighting === i)));
+                }
+                section.querySelectorAll('[data-lighting]').forEach(b => b.addEventListener('click', () => selectLight(+b.dataset.lighting)));
+                document.querySelectorAll('.mega-column [data-light]').forEach(b => b.addEventListener('click', () => selectLight(+b.dataset.light)));
+                if (matchMedia('(prefers-reduced-motion: reduce)').matches) section.querySelectorAll('svg').forEach(s => { if (s.pauseAnimations) s.pauseAnimations(); });
+            })();
+        </script>
+
+        <!-- ======================= END LIGHTING MODULE ======================= -->
+
+        <!-- =========================================================
+         AUTOMATION MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- AUTOMATION MODULE CSS -->
+        <style>
+            /* Automation */
+            .automation {
+                background: #1e1e1e;
+                color: #ececec;
+                padding: 100px 0;
+                overflow: hidden
+            }
+
+            .automation-grid {
+                display: grid;
+                grid-template-columns: 1fr 1.12fr;
+                gap: 80px;
+                align-items: center
+            }
+
+            .automation .eyebrow {
+                color: #aeaeae
+            }
+
+            .automation .section-title em {
+                color: #d5d5d5
+            }
+
+            .automation .body-copy {
+                color: #9e9e9e
+            }
+
+            .automation-tabs {
+                display: flex;
+                gap: 6px;
+                margin-top: 30px;
+                border-bottom: 1px solid #ffffff20
+            }
+
+            .automation-tabs button {
+                font-size: 11px;
+                padding: 14px 16px 14px 0;
+                margin-right: 16px;
+                background: none;
+                color: #a1a1a1;
+                border: 0;
+                border-bottom: 2px solid transparent
+            }
+
+            .automation-tabs .active {
+                color: #e4e4e4;
+                border-color: #e4e4e4
+            }
+
+            .auto-description {
+                font-size: 12px;
+                line-height: 1.8;
+                color: #afafaf;
+                min-height: 64px;
+                margin-top: 22px;
+                max-width: 380px
+            }
+
+            .auto-feature {
+                display: flex;
+                gap: 22px;
+                font-size: 9px;
+                color: #dbdbdb;
+                margin: 23px 0 25px;
+                letter-spacing: .09em
+            }
+
+            .automation-visual {
+                position: relative;
+                border: 1px solid #4e4e4e;
+                background: radial-gradient(ellipse at 50% 30%, #3e3e3e55, transparent 70%), #222222;
+                min-height: 470px;
+                overflow: hidden
+            }
+
+            .visual-top {
+                position: absolute;
+                top: 23px;
+                left: 23px;
+                right: 23px;
+                display: flex;
+                justify-content: space-between;
+                font-size: 9px;
+                color: #b2b2b2;
+                letter-spacing: .1em
+            }
+
+            .online {
+                display: flex;
+                gap: 7px;
+                align-items: center;
+                font-size: 8px
+            }
+
+            .automation-map {
+                width: 100%;
+                height: 375px;
+                padding: 35px 20px 0
+            }
+
+            .flow-line {
+                stroke-dasharray: 6 8;
+                animation: flow 3s linear infinite
+            }
+
+            @keyframes flow {
+                to {
+                    stroke-dashoffset: -84
+                }
+            }
+
+            .mode-card {
+                position: absolute;
+                right: 24px;
+                top: 112px;
+                background: #181818ed;
+                border: 1px solid #5a5a5a;
+                padding: 15px;
+                width: 140px
+            }
+
+            .mode-card small {
+                color: #9c9c9c;
+                font-size: 8px
+            }
+
+            .mode-card strong {
+                display: block;
+                font-size: 15px;
+                font-weight: 400;
+                margin-top: 9px
+            }
+
+            .mode-card span {
+                display: block;
+                font-size: 9px;
+                color: #cecece;
+                margin-top: 12px
+            }
+
+            .device-strip {
+                position: absolute;
+                bottom: 22px;
+                left: 22px;
+                right: 22px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px
+            }
+
+            .device-strip div {
+                border: 1px solid #ffffff13;
+                padding: 16px 10px;
+                background: #2d2d2d
+            }
+
+            .device-strip small {
+                font-size: 8px;
+                color: #959595;
+                display: block;
+                letter-spacing: .07em
+            }
+
+            .device-strip strong {
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                margin-top: 8px
+            }
+
+            .automation-footer {
+                margin-top: 65px;
+                padding-top: 25px;
+                border-top: 1px solid #ffffff18;
+                display: flex;
+                justify-content: space-between;
+                gap: 25px;
+                font-size: 10px;
+                color: #929292;
+                letter-spacing: .09em
+            }
+
+            @media (max-width:1100px) {
+                .automation-grid {
+                    gap: 35px
+                }
+            }
+
+            @media (max-width:760px) {
+                .automation {
+                    padding: 70px 0
+                }
+
+                .automation-grid {
+                    grid-template-columns: 1fr;
+                    gap: 35px
+                }
+
+                .automation-visual {
+                    min-height: 430px
+                }
+
+                .automation .section-title {
+                    margin: 23px 0
+                }
+
+                .automation-footer {
+                    margin-top: 35px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    line-height: 1.6;
+                    font-size: 8px
+                }
+            }
+        </style>
+
+        <!-- AUTOMATION MODULE HTML -->
+        <section class="automation" id="automation">
+            <div class="wrap">
+                <div class="automation-grid">
+                    <div class="reveal">
+                        <div class="eyebrow">02 / Automation solutions</div>
+                        <h2 class="section-title">Less effort.<br /><em>More possibility.</em></h2>
+                        <p class="body-copy">Spaces that adapt. Systems that work together. Bring everyday comfort and
+                            operational control into one connected experience.</p>
+                        <div aria-label="Automation applications" class="automation-tabs"><button aria-pressed="true"
+                                class="active" data-auto="0">Home</button><button aria-pressed="false"
+                                data-auto="1">Commercial</button><button aria-pressed="false"
+                                data-auto="2">Industrial</button></div>
+                        <p class="auto-description" id="autoDescription">A single scene can adjust lighting, climate and
+                            curtains. Personalise everyday routines with intuitive, coordinated control.</p>
+                        <div class="auto-feature" id="autoFeatures"><span>SCENE
+                                CONTROL</span><span>COMFORT</span><span>CONVENIENCE</span></div><a class="link"
+                            href="#contact">Build your connected space <span class="arrow">↗</span></a>
+                    </div>
+                    <div class="automation-visual reveal">
+                        <div class="visual-top"><span>CONNECTED ENVIRONMENT</span><span class="online"><i></i> CONCEPT
+                                PREVIEW</span></div><svg class="automation-map connected-map" viewBox="0 0 540 455"
+                            role="img" aria-label="Six building systems connected to one automation controller">
+                            <defs>
+                                <radialGradient id="netGlow">
+                                    <stop stop-color="#1b6d71" />
+                                    <stop offset="1" stop-color="#10242c" />
+                                </radialGradient>
+                            </defs>
+                            <g fill="none" stroke="#23464d">
+                                <circle cx="270" cy="225" r="130" />
+                                <circle cx="270" cy="225" r="190" stroke-dasharray="3 9" />
+                            </g>
+                            <path class="net-track" d="M270 225 L100 85" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="2.0s" repeatCount="indefinite" path="M270 225 L100 85" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="45" y="58" width="110" height="54" rx="10" />
+                                <circle cx="64" cy="85" r="4" /><text x="108" y="90">Lighting</text>
+                            </g>
+                            <path class="net-track" d="M270 225 L440 85" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="2.23s" repeatCount="indefinite" path="M270 225 L440 85" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="385" y="58" width="110" height="54" rx="10" />
+                                <circle cx="404" cy="85" r="4" /><text x="448" y="90">Climate</text>
+                            </g>
+                            <path class="net-track" d="M270 225 L80 245" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="2.46s" repeatCount="indefinite" path="M270 225 L80 245" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="25" y="218" width="110" height="54" rx="10" />
+                                <circle cx="44" cy="245" r="4" /><text x="88" y="250">Curtains</text>
+                            </g>
+                            <path class="net-track" d="M270 225 L460 245" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="2.69s" repeatCount="indefinite" path="M270 225 L460 245" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="405" y="218" width="110" height="54" rx="10" />
+                                <circle cx="424" cy="245" r="4" /><text x="468" y="250">Access</text>
+                            </g>
+                            <path class="net-track" d="M270 225 L155 385" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="2.92s" repeatCount="indefinite" path="M270 225 L155 385" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="100" y="358" width="110" height="54" rx="10" />
+                                <circle cx="119" cy="385" r="4" /><text x="163" y="390">Sensors</text>
+                            </g>
+                            <path class="net-track" d="M270 225 L385 385" />
+                            <circle r="3" fill="#a5f5e6">
+                                <animateMotion dur="3.1500000000000004s" repeatCount="indefinite"
+                                    path="M270 225 L385 385" />
+                            </circle>
+                            <g class="net-node">
+                                <rect x="330" y="358" width="110" height="54" rx="10" />
+                                <circle cx="349" cy="385" r="4" /><text x="393" y="390">Energy</text>
+                            </g>
+                            <rect x="204" y="174" width="132" height="102" rx="18" fill="url(#netGlow)"
+                                stroke="#66d7c7" /><text x="270" y="219" class="net-core">ONE CONTROL</text><text
+                                x="270" y="240" class="net-sub">CONNECTED SYSTEMS</text>
+                        </svg>
+                        <div class="mode-card"><small id="modeLabel">HOME / SCENE CONTROL</small><strong
+                                id="modeTitle">Evening mode</strong><span id="modeState">One touch. In harmony.</span>
+                        </div>
+                        <div class="device-strip">
+                            <div><small id="device1Label">LIGHTING</small><strong id="device1Value">Warm &amp;
+                                    soft</strong></div>
+                            <div><small id="device2Label">CLIMATE</small><strong id="device2Value">Comfort mode</strong>
+                            </div>
+                            <div><small id="device3Label">CURTAINS</small><strong id="device3Value">Privacy
+                                    scene</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="automation-footer"><span>INTUITIVE CONTROL</span><span>COORDINATED
+                        SYSTEMS</span><span>PERSONALISED SCENES</span><span>SPACE TO SCALE</span></div>
+            </div>
+        </section>
+
+        <!-- AUTOMATION MODULE JS -->
+        <script>
+            (() => {
+                'use strict';
+                const { $, $$ } = window.ANET;
+                const automations = [['A single scene can adjust lighting, climate and curtains. Personalise everyday routines with intuitive, coordinated control.', ['SCENE CONTROL', 'COMFORT', 'CONVENIENCE'], 'HOME / SCENE CONTROL', 'Evening mode', 'One touch. In harmony.', ['LIGHTING', 'Warm & soft', 'CLIMATE', 'Comfort mode', 'CURTAINS', 'Privacy scene']], ['Coordinate lighting schedules, climate and occupancy-based operation across commercial spaces. Give facility teams a clearer way to manage everyday environments.', ['SCHEDULES', 'OCCUPANCY', 'FACILITY CONTROL'], 'COMMERCIAL / SCHEDULES', 'Workspace mode', 'Spaces aligned to your day.', ['LIGHTING', 'Work schedule', 'CLIMATE', 'Zone control', 'OCCUPANCY', 'Sensor input']], ['Bring machine and process controls into a coordinated operational view with PLC, HMI and SCADA integration tailored to your application.', ['PLC / HMI', 'SCADA', 'PROCESS CONTROL'], 'INDUSTRIAL / OPERATIONS', 'Process overview', 'Clarity across operations.', ['CONTROL', 'PLC systems', 'INTERFACE', 'HMI panels', 'VISIBILITY', 'SCADA view']]];
+                function setAuto(i) { const a = automations[i]; $$('.automation-tabs button').forEach((b, n) => { b.classList.toggle('active', i === n); b.setAttribute('aria-pressed', String(i === n)) }); $('#autoDescription').textContent = a[0]; $('#autoFeatures').replaceChildren(...a[1].map(t => { let s = document.createElement('span'); s.textContent = t; return s })); $('#modeLabel').textContent = a[2]; $('#modeTitle').textContent = a[3]; $('#modeState').textContent = a[4]; for (let n = 1; n <= 3; n++) { $('#device' + n + 'Label').textContent = a[5][(n - 1) * 2]; $('#device' + n + 'Value').textContent = a[5][(n - 1) * 2 + 1] } }
+                $$('[data-auto]').forEach(b => b.addEventListener('click', () => setAuto(+b.dataset.auto)));
+            })();
+        </script>
+
+        <!-- ======================= END AUTOMATION MODULE ======================= -->
+
+        <!-- =========================================================
+         IOT MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- IOT MODULE CSS -->
+        <style>
+            /* IoT */
+            .iot {
+                padding: 110px 0;
+                background: #ebebeb
+            }
+
+            .iot-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                gap: 60px
+            }
+
+            .iot-head .body-copy {
+                max-width: 355px;
+                margin-bottom: 29px;
+                font-size: 13px
+            }
+
+            .iot-layout {
+                display: grid;
+                grid-template-columns: 1.12fr 1fr;
+                gap: 80px;
+                align-items: center;
+                margin-top: 20px
+            }
+
+            .network-visual {
+                position: relative;
+                min-height: 450px
+            }
+
+            .network-visual svg {
+                width: 100%;
+                height: 440px
+            }
+
+            .orbit {
+                transform-origin: 260px 220px;
+                animation: orbit 80s linear infinite
+            }
+
+            @keyframes orbit {
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+
+            .network-foot {
+                display: flex;
+                justify-content: space-between;
+                font-size: 9px;
+                color: #8c8c8c;
+                letter-spacing: .08em
+            }
+
+            .iot-cards {
+                border-top: 1px solid #cbcbcb
+            }
+
+            .iot-card {
+                border-bottom: 1px solid #cbcbcb;
+                padding: 25px 0
+            }
+
+            .iot-card summary {
+                list-style: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 20px
+            }
+
+            .iot-card summary::-webkit-details-marker {
+                display: none
+            }
+
+            .iot-card summary b {
+                font-weight: 400;
+                font-size: 10px;
+                color: #8f8f8f
+            }
+
+            .iot-card summary strong {
+                font-size: 20px;
+                letter-spacing: -.025em;
+                font-weight: 400;
+                flex: 1
+            }
+
+            .iot-card summary span {
+                font-size: 22px;
+                font-weight: 300;
+                transition: transform .3s
+            }
+
+            .iot-card[open] summary span {
+                transform: rotate(45deg)
+            }
+
+            .iot-card p {
+                font-size: 12px;
+                line-height: 1.8;
+                color: #7d7d7d;
+                margin: 18px 30px 15px
+            }
+
+            .iot-card .tags {
+                margin-left: 30px;
+                display: flex;
+                gap: 7px;
+                flex-wrap: wrap
+            }
+
+            .tags span {
+                font-size: 9px;
+                background: #e0e0e0;
+                padding: 7px 9px;
+                color: #656565
+            }
+
+            .iot-note {
+                font-size: 10px;
+                margin-top: 22px;
+                color: #878787
+            }
+
+            @media (max-width:1100px) {
+                .iot-layout {
+                    gap: 35px
+                }
+            }
+
+            @media (max-width:760px) {
+                .iot {
+                    padding: 70px 0
+                }
+
+                .iot-head {
+                    display: block
+                }
+
+                .iot-head .body-copy {
+                    max-width: 100%
+                }
+
+                .iot-layout {
+                    grid-template-columns: 1fr;
+                    gap: 40px
+                }
+
+                .network-visual {
+                    min-height: 350px
+                }
+
+                .network-visual svg {
+                    height: 330px
+                }
+
+                .iot-cards {
+                    order: -1
+                }
+
+                .iot-card summary strong {
+                    font-size: 18px
+                }
+            }
+        </style>
+
+        <!-- IOT MODULE HTML -->
+        <section class="iot" id="iot">
+            <div class="wrap">
+                <div class="iot-head reveal">
+                    <div>
+                        <div class="eyebrow">03 / IoT &amp; building management</div>
+                        <h2 class="section-title">Everything connected.<br /><em>Everything visible.</em></h2>
+                    </div>
+                    <p class="body-copy">Bring building systems and operational data into focus. Start with a new BMS,
+                        connect your existing system, or create a complete BMS and IoT solution.</p>
+                </div>
+                <div class="iot-layout">
+                    <div class="network-visual reveal building-visual">
+                        <div class="building-kicker">BUILDING INTELLIGENCE <span>ILLUSTRATIVE SYSTEM VIEW</span></div>
+                        <svg viewBox="0 0 600 500" role="img"
+                            aria-label="Smart commercial building with lighting, HVAC, energy, water, access and safety connections">
+                            <defs>
+                                <linearGradient id="glassBuilding" x2="1" y2="1">
+                                    <stop stop-color="#397486" />
+                                    <stop offset="1" stop-color="#142e3e" />
+                                </linearGradient>
+                                <pattern id="glassWindows" width="28" height="33" patternUnits="userSpaceOnUse">
+                                    <rect x="4" y="4" width="18" height="23" fill="#78c5d3" opacity=".36" />
+                                    <path d="M4 28h18" stroke="#8cd5dd" opacity=".2" />
+                                </pattern>
+                            </defs>
+                            <g fill="none" stroke="#244653">
+                                <path d="M40 405 290 270 566 405 300 488Z" />
+                                <path d="M75 405 290 290 530 405 300 468Z" />
+                            </g>
+                            <path d="M220 119 350 83 407 116 280 155Z" fill="#527f8b" />
+                            <path d="M220 119 280 155V412L220 372Z" fill="#163443" />
+                            <path d="M280 155 407 116V370L280 412Z" fill="url(#glassBuilding)" />
+                            <path d="M287 162 400 128V365L287 401Z" fill="url(#glassWindows)" />
+                            <g stroke="#70bfd0" opacity=".5">
+                                <path d="M280 182 407 143" />
+                                <path d="M280 215 407 176" />
+                                <path d="M280 248 407 209" />
+                                <path d="M280 281 407 242" />
+                                <path d="M280 314 407 275" />
+                                <path d="M280 347 407 308" />
+                                <path d="M280 380 407 341" />
+                            </g>
+                            <path d="M304 401v-37l38-12v37" fill="#f5c57c" opacity=".85" />
+                            <g class="building-system" data-floor="0">
+                                <path d="M95 140H250V168" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="250" cy="168" r="4" fill="#8aeeeb" />
+                                <rect x="39" y="122" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="95" y="144" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">LIGHTING</text>
+                            </g>
+                            <g class="building-system" data-floor="1">
+                                <path d="M495 135H380V163" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="380" cy="163" r="4" fill="#8aeeeb" />
+                                <rect x="439" y="117" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="495" y="139" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">HVAC</text>
+                            </g>
+                            <g class="building-system" data-floor="2">
+                                <path d="M95 250H250V278" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="250" cy="278" r="4" fill="#8aeeeb" />
+                                <rect x="39" y="232" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="95" y="254" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">ENERGY</text>
+                            </g>
+                            <g class="building-system" data-floor="3">
+                                <path d="M495 245H380V273" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="380" cy="273" r="4" fill="#8aeeeb" />
+                                <rect x="439" y="227" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="495" y="249" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">WATER</text>
+                            </g>
+                            <g class="building-system" data-floor="4">
+                                <path d="M95 355H250V383" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="250" cy="383" r="4" fill="#8aeeeb" />
+                                <rect x="39" y="337" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="95" y="359" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">ACCESS</text>
+                            </g>
+                            <g class="building-system" data-floor="5">
+                                <path d="M495 355H380V383" fill="none" stroke="#6cbcd0" stroke-dasharray="4 6" />
+                                <circle cx="380" cy="383" r="4" fill="#8aeeeb" />
+                                <rect x="439" y="337" width="112" height="36" rx="6" fill="#17313f" stroke="#386273" />
+                                <text x="495" y="359" text-anchor="middle" fill="#cfe8ee" font-family="Arial"
+                                    font-size="11">SAFETY</text>
+                            </g>
+                            <path d="M325 404v44" stroke="#68d9d0" stroke-dasharray="4 5" />
+                            <rect x="230" y="448" width="190" height="34" rx="7" fill="#225059" stroke="#71dace" /><text
+                                x="325" y="470" text-anchor="middle" fill="#e2ffff" font-size="11"
+                                font-family="Arial">BMS GATEWAY → DASHBOARD</text>
+                        </svg>
+                        <div class="network-foot"><span>FIELD DEVICES → BMS → INSIGHTS</span><span>WIRED +
+                                WIRELESS</span></div>
+                    </div>
+                    <div class="reveal">
+                        <div class="iot-cards">
+                            <details class="iot-card" id="bms" open="">
+                                <summary><b>01</b><strong>BMS</strong><span>+</span></summary>
+                                <p>A central platform for building monitoring and control. Coordinate compatible HVAC,
+                                    lighting, energy and other facility systems through a clear operational view.</p>
+                                <div class="tags"><span>Centralised control</span><span>System visibility</span></div>
+                            </details>
+                            <details class="iot-card" id="bms-with-iot">
+                                <summary><b>02</b><strong>BMS with IoT</strong><span>+</span></summary>
+                                <p>Extend an existing BMS with compatible sensors, gateways and connectivity. Add remote
+                                    visibility, trends and alerts while building on the infrastructure you already have.
+                                </p>
+                                <div class="tags"><span>Existing BMS integration</span><span>Connected insights</span>
+                                </div>
+                            </details>
+                            <details class="iot-card" id="bms-and-iot">
+                                <summary><b>03</b><strong>BMS &amp; IoT</strong><span>+</span></summary>
+                                <p>A coordinated implementation of building management and IoT, from field devices to
+                                    dashboards. Plan a connected foundation for a new facility or a wider
+                                    transformation.</p>
+                                <div class="tags"><span>End-to-end solution</span><span>Scalable architecture</span>
+                                </div>
+                            </details>
+                        </div>
+                        <p class="iot-note">Configured around your facility, systems and integration requirements.</p><a
+                            class="link" href="#contact">Discuss your building <span class="arrow">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IOT MODULE JS -->
+        <script>
+            (() => {
+                'use strict';
+                const { $, $$ } = window.ANET;
+                const details = $$('.iot-card'); details.forEach(d => d.addEventListener('toggle', () => { if (d.open) details.forEach(o => { if (o !== d) o.open = false }) })); $$('[data-iot]').forEach(a => a.addEventListener('click', () => { details.forEach((d, n) => d.open = n === +a.dataset.iot) }));
+            })();
+        </script>
+
+        <!-- ======================= END IOT MODULE ======================= -->
+
+        <!-- =========================================================
+         PROCESS MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- PROCESS MODULE CSS -->
+        <style>
+            /* Process / contact */
+            .process {
+                padding: 95px 0 90px
+            }
+
+            .process-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+            .process-head h2 {
+                font-size: 32px;
+                letter-spacing: -.04em;
+                font-weight: 400
+            }
+
+            .process-steps {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 40px;
+                margin-top: 38px
+            }
+
+            .step {
+                border-top: 1px solid var(--line);
+                padding-top: 22px
+            }
+
+            .step>span {
+                font-size: 10px;
+                color: #8c8c8c;
+                display: flex;
+                justify-content: space-between
+            }
+
+            .step h3 {
+                font-size: 17px;
+                font-weight: 400;
+                margin: 25px 0 13px
+            }
+
+            .step p {
+                font-size: 12px;
+                line-height: 1.8;
+                color: #818181;
+                max-width: 240px
+            }
+
+            @media (max-width:760px) {
+                .process {
+                    padding: 60px 0
+                }
+
+                .process-head {
+                    display: block
+                }
+
+                .process-head h2 {
+                    font-size: 31px
+                }
+
+                .process-steps {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 22px
+                }
+
+                .step h3 {
+                    font-size: 15px;
+                    margin: 20px 0 10px
+                }
+
+                .step p {
+                    font-size: 11px
+                }
+            }
+        </style>
+
+        <!-- PROCESS MODULE HTML -->
+        <section class="process">
+            <div class="wrap">
+                <div class="process-head reveal">
+                    <div class="eyebrow">From idea to everyday</div>
+                    <h2>A clear path to a smarter space.</h2>
+                </div>
+                <div class="process-steps reveal">
+                    <div class="step"><span>01 <i>↗</i></span>
+                        <h3>Understand</h3>
+                        <p>Your space, priorities and existing systems define where we begin.</p>
+                    </div>
+                    <div class="step"><span>02 <i>↗</i></span>
+                        <h3>Design</h3>
+                        <p>A coordinated solution built around function, experience and future needs.</p>
+                    </div>
+                    <div class="step"><span>03 <i>↗</i></span>
+                        <h3>Integrate</h3>
+                        <p>Connect the right systems, configure controls and validate operation.</p>
+                    </div>
+                    <div class="step"><span>04 <i>↗</i></span>
+                        <h3>Enable</h3>
+                        <p>Clear handover and guidance to help your team use the system with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS MODULE JS -->
+        <script>
+            // Presentation-only section. No JavaScript required.
+        </script>
+
+        <!-- ======================= END PROCESS MODULE ======================= -->
+
+        <!-- =========================================================
+         CONTACT MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+        <!-- CONTACT MODULE CSS -->
+        <style>
+            .contact {
+                padding: 85px 0;
+                background: #dfdfdf
+            }
+
+            .contact .wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 40px
+            }
+
+            .contact h2 {
+                font-size: clamp(36px, 4vw, 60px);
+                line-height: 1.08;
+                letter-spacing: -.05em;
+                font-weight: 400;
+                margin: 22px 0 0
+            }
+
+            .contact .button {
+                background: #242424;
+                color: #f3f3f3
+            }
+
+            .contact .button:hover {
+                background: #424242
+            }
+
+            .contact small {
+                display: block;
+                margin-top: 17px;
+                font-size: 11px;
+                color: #6a6a6a
+            }
+
+            @media (max-width:760px) {
+                .contact {
+                    padding: 65px 0
+                }
+
+                .contact .wrap {
+                    display: block
+                }
+
+                .contact .button {
+                    margin-top: 30px
+                }
+            }
+        </style>
+
+        <!-- CONTACT MODULE HTML -->
+        <section class="contact" id="contact">
+            <div class="wrap reveal">
+                <div>
+                    <div class="eyebrow">Your next space starts here</div>
+                    <h2>Let’s make it<br /><em style="font-family:Georgia;font-weight:400">extraordinary.</em></h2>
+                </div>
+                <div><a class="button"
+                        href="mailto:info@aniplgroup.com?subject=Lighting%2C%20Automation%20%26%20IoT%20Enquiry">Start a
+                        conversation <span class="arrow">↗</span></a><small>Lighting. Automation. IoT. One connected
+                        vision.</small></div>
+            </div>
+        </section>
+
+        <!-- CONTACT MODULE JS -->
+        <script>
+            // Presentation-only section. No JavaScript required.
+        </script>
+
+        <!-- ======================= END CONTACT MODULE ======================= -->
+    </main>
+
+    <!-- =========================================================
+         FOOTER MODULE — CSS + HTML + JS
+         Everything for this module stays together in this file.
+         ========================================================= -->
+
+    <!-- FOOTER MODULE CSS -->
+    <style>
+        .footer {
+            padding: 65px 0 25px;
+            background: #181818;
+            color: #e6e6e6
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr .7fr 1fr;
+            gap: 80px
+        }
+
+        .footer .brand {
+            margin-bottom: 22px
+        }
+
+        .footer p {
+            font-size: 12px;
+            line-height: 1.8;
+            color: #8b8b8b;
+            max-width: 230px
+        }
+
+        .footer h3 {
+            font-size: 10px;
+            font-weight: 400;
+            color: #9d9d9d;
+            letter-spacing: .12em;
+            margin: 0 0 22px
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            font-size: 11px;
+            color: #cdcdcd
+        }
+
+        .footer address {
+            font-style: normal;
+            font-size: 11px;
+            line-height: 1.9;
+            color: #8d8d8d
+        }
+
+        .footer-mail {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 17px
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 23px;
+            border-top: 1px solid #ffffff13;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            color: #7e7e7e;
+            gap: 20px
+        }
+
+        .footer-bottom a {
+            color: #bbbbbb
+        }
+
+        @media (max-width:1100px) {
+            .footer-grid {
+                gap: 40px
+            }
+        }
+
+        @media (max-width:760px) {
+            .footer {
+                padding: 50px 0 25px
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px
+            }
+
+            .footer-grid>div:first-child {
+                grid-column: 1/-1
+            }
+
+            .footer-bottom {
+                margin-top: 35px;
+                font-size: 8px;
+                line-height: 1.7
+            }
+
+            .footer-mail {
+                font-size: 11px;
+                overflow-wrap: anywhere
+            }
+
+            .footer address {
+                font-size: 10px
+            }
+        }
+    </style>
+
+    <!-- FOOTER MODULE HTML -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div><a class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true"
+                                viewBox="0 0 146 36">
+                                <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
+                                    stroke-width="4">
+                                    <path
+                                        d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
+                                    </path>
+                                </g>
+                                <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
+                            </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
+                                TECHNOLOGY</small></span></a>
+                    <p>Spaces, made intelligent.<br />Experiences, made extraordinary.</p>
+                </div>
+                <div>
+                    <h3>EXPLORE</h3>
+                    <div class="footer-links"><a href="about.html">About us</a><a href="residential-lighting.html">Lighting</a><a
+                            href="industrial-automation.html">Automation</a><a href="bms-and-iot.html">IoT &amp; BMS</a></div>
+                </div>
+                <div>
+                    <h3>LET’S CONNECT</h3><a class="footer-mail" href="mailto:info@aniplgroup.com">info@aniplgroup.com
+                        ↗</a>
+                    <address>320 Fifth Floor, East Avenue,<br />Ayyappa Society Main Rd, near YSR Statue,<br />SBH
+                        Officers
+                        Colony, Mega Hills, Madhapur,<br />Hyderabad, Telangana 500081</address>
+                </div>
+            </div>
+            <div class="footer-bottom"><span>© <span id="year">2026</span> AlphaNumeric Engineering and
+                    Technology</span><span>LIGHT / CONTROL / CONNECT</span><a href="#top">Back to top ↑</a></div>
+        </div>
+    </footer>
+
+    <!-- FOOTER MODULE JS -->
+    <script>
+        (() => {
+            const { $ } = window.ANET;
+            $('#year').textContent = new Date().getFullYear();
+        })();
+    </script>
+
+    <!-- ======================= END FOOTER MODULE ======================= -->
+
+    <!-- =========================================================
+         PREMIUM VISUAL COLOR MODULE — CSS ONLY
+         Adds colour to images, diagrams, glows and banner surfaces.
+         Typography / font colours remain controlled by the monochrome theme.
+         ========================================================= -->
+
+    <!-- PREMIUM VISUAL COLOR MODULE CSS -->
+    <style>
+        /* Monochrome visual system */
+        :root {
+            --ink: #151515;
+            --muted: #6b6b6b;
+            --paper: #f4f4f2;
+            --line: #d7d7d7;
+            --accent: #f2f2f0;
+            --night: #080808
+        }
+
+        body,
+        button,
+        input,
+        textarea,
+        select {
+            font-family: Inter, "Segoe UI", Arial, sans-serif
+        }
+
+        body {
+            background: #f4f4f2;
+            color: #151515
+        }
+
+        /* Keep typography monochrome, but restore natural colour to imagery and banner graphics. */
+        img {
+            filter: none
+        }
+
+        canvas,
+        svg {
+            filter: none
+        }
+
+        .hero canvas,
+        .hero svg,
+        .lighting svg {
+            filter: none
+        }
+
+        h1,
+        h2,
+        h3,
+        .section-title {
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            font-weight: 400
+        }
+
+        h1 em,
+        h2 em,
+        .section-title em,
+        .contact h2 em {
+            font-family: inherit !important;
+            font-style: normal;
+            font-weight: 300;
+            color: inherit
+        }
+
+        .hero h1 em {
+            font-family: inherit;
+            color: #9d9d9d;
+            font-weight: 300;
+            font-style: normal
+        }
+
+        .hero h1 {
+            letter-spacing: -.065em;
+            font-size: clamp(48px, 4.6vw, 76px)
+        }
+
+        .button {
+            background: #191919;
+            color: #fff
+        }
+
+        .button:hover {
+            background: #333
+        }
+
+        .hero .button {
+            background: #f0f0ed;
+            color: #101010
+        }
+
+        .hero .button:hover {
+            background: #fff
+        }
+
+        .hero {
+            background: #080808
+        }
+
+        .hero::before {
+            background: radial-gradient(ellipse at 77% 43%, #29292944, transparent 65%)
+        }
+
+        .hero-bottom {
+            background: #0c0c0c
+        }
+
+        .hero-eyebrow,
+        .hero-tab.active small {
+            color: #dedede
+        }
+
+        .hero-eyebrow:before {
+            background: #e8e8e8
+        }
+
+        .hero-description {
+            color: #aaa
+        }
+
+        .hero-tab.active {
+            border-top-color: #f1f1f1
+        }
+
+        .hero .status-dot {
+            background: #e9e9e9
+        }
+
+        .lighting-dot {
+            background: #fff
+        }
+
+        .lighting-options button[aria-pressed=true] {
+            color: #fff;
+            border-color: #777;
+            background: #222
+        }
+
+        .capabilities {
+            background: #e8e8e6;
+            color: #191919
+        }
+
+        .contact {
+            background: #e2e2e0
+        }
+
+        .contact .button {
+            background: #171717;
+            color: #fff
+        }
+
+        .footer {
+            background: #0b0b0b
+        }
+
+        .hero .scene-control button[aria-pressed=true] {
+            background: #eee;
+            color: #111;
+            border-color: #eee
+        }
+
+        .connected-city {
+            aspect-ratio: 800/490;
+            border: 0;
+            background: none
+        }
+
+        .city-art {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none
+        }
+
+        .city-wires {
+            width: 100%;
+            height: 100%
+        }
+
+        .city-wires path {
+            stroke: #d7d7d7;
+            opacity: .45;
+            stroke-width: 1;
+            stroke-dasharray: 3 5
+        }
+
+        .city-wires circle {
+            fill: #fff
+        }
+
+        .city-controller {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border-top: 1px solid #555;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            font-size: 10px;
+            letter-spacing: .12em;
+            color: #eee
+        }
+
+        .city-controller small {
+            font-size: 10px;
+            color: #929292;
+            letter-spacing: 0
+        }
+
+        .city-device-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
+            margin: 18px 0 0
+        }
+
+        .city-device-grid .device-card {
+            position: static !important;
+            width: auto;
+            height: auto;
+            min-height: 86px;
+            border: 0;
+            border-left: 1px solid #333;
+            background: none;
+            padding: 4px 10px;
+            justify-content: flex-start;
+            box-shadow: none
+        }
+
+        .city-device-grid .device-card:first-child {
+            border-left: 0;
+            padding-left: 0
+        }
+
+        .city-device-grid .device-card svg {
+            width: 19px;
+            height: 19px;
+            margin-bottom: 9px;
+            color: #7e7e7e
+        }
+
+        .city-device-grid .device-card strong {
+            font-size: 10px;
+            color: #ddd
+        }
+
+        .city-device-grid .device-card small {
+            font-size: 8px;
+            line-height: 1.5;
+            color: #777;
+            min-height: 24px
+        }
+
+        .city-device-grid .device-card.is-active svg {
+            color: #fff
+        }
+
+        .city-device-grid .device-card.is-active small {
+            color: #ddd
+        }
+
+        .scene-control {
+            padding-top: 10px
+        }
+
+        .scene-control>span {
+            color: #999
+        }
+
+        .flow-steps {
+            color: #909090
+        }
+
+        .flow-steps b {
+            color: #ddd
+        }
+
+        .network-caption {
+            color: #ddd
+        }
+
+        .network-caption small {
+            color: #929292
+        }
+
+        .bms-board {
+            background: linear-gradient(125deg, #151515, #0b0b0b);
+            border: 1px solid #3e3e3e;
+            padding: 23px
+        }
+
+        .bms-board-top strong {
+            font-size: 16px
+        }
+
+        .bms-board-top span {
+            color: #bdbdbd
+        }
+
+        .bms-flow,
+        .bms-flow-head {
+            grid-template-columns: .8fr 1.5fr 1fr;
+            gap: 15px
+        }
+
+        .bms-flow-head {
+            font-size: 8px;
+            color: #939393;
+            letter-spacing: .08em
+        }
+
+        .bms-system {
+            background: #181818;
+            border-color: #383838;
+            color: #aaa;
+            font-size: 10px;
+            padding: 11px 8px
+        }
+
+        .bms-system.selected {
+            background: #eeeeeb;
+            color: #161616;
+            border-color: #fff
+        }
+
+        .central-building {
+            width: 100%;
+            gap: 14px
+        }
+
+        .central-building::before {
+            display: none
+        }
+
+        .bms-building-art {
+            width: 100%;
+            height: auto;
+            max-height: 370px;
+            overflow: visible
+        }
+
+        .building-integrations {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            flex-wrap: wrap;
+            font-size: 8px;
+            color: #bdbdbd
+        }
+
+        .building-integrations span {
+            border: 1px solid #555;
+            padding: 7px 8px
+        }
+
+        .building-layer {
+            opacity: 0;
+            transition: opacity .45s
+        }
+
+        .building-layer.selected {
+            opacity: 1
+        }
+
+        .building-layer path {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2
+        }
+
+        .building-layer circle {
+            fill: #fff
+        }
+
+        .operations-panel {
+            background: #e5e5e1;
+            color: #191919;
+            min-height: 250px;
+            padding: 20px 14px
+        }
+
+        .operations-panel>small {
+            color: #555
+        }
+
+        .operations-panel h3 {
+            font-size: 25px
+        }
+
+        .operations-panel p {
+            color: #595959;
+            min-height: 64px
+        }
+
+        .operations-list span {
+            border-color: #aaa;
+            color: #333
+        }
+
+        .operations-list span::before {
+            color: #444
+        }
+
+        .bms-board-footer {
+            color: #aaa
+        }
+
+        .bms-caption {
+            color: #999
+        }
+
+        .bms-caption b {
+            color: #eee
+        }
+
+        @media(min-width:1101px) {
+            .premium-layout {
+                grid-template-columns: .7fr 1.5fr;
+                gap: 48px
+            }
+
+            .hero {
+                min-height: 900px
+            }
+
+            .premium-layout {
+                min-height: 620px
+            }
+        }
+
+        @media(max-width:1100px) {
+            .bms-board {
+                padding: 16px
+            }
+
+            .bms-flow,
+            .bms-flow-head {
+                gap: 9px;
+                grid-template-columns: .85fr 1.3fr 1fr
+            }
+
+            .bms-system {
+                font-size: 9px;
+                padding: 10px 6px;
+                gap: 6px
+            }
+
+            .operations-panel {
+                padding: 17px 10px
+            }
+
+            .operations-panel h3 {
+                font-size: 20px
+            }
+
+            .city-device-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px 0
+            }
+
+            .city-device-grid .device-card:nth-child(4) {
+                border-left: 0;
+                padding-left: 0
+            }
+
+            .city-device-grid .device-card small {
+                font-size: 9px
+            }
+
+            .city-device-grid .device-card strong {
+                font-size: 11px
+            }
+        }
+
+        @media(max-width:760px) {
+            .hero h1 {
+                font-size: 53px
+            }
+
+            .connected-city {
+                aspect-ratio: 800/490
+            }
+
+            .city-controller {
+                font-size: 9px
+            }
+
+            .city-controller small {
+                font-size: 9px
+            }
+
+            .bms-board {
+                padding: 16px
+            }
+
+            .bms-flow-head {
+                display: none
+            }
+
+            .bms-flow {
+                display: grid;
+                grid-template-columns: .85fr 1.4fr;
+                margin-top: 20px;
+                gap: 16px
+            }
+
+            .central-building {
+                flex-direction: column;
+                grid-column: 2;
+                grid-row: 1
+            }
+
+            .bms-systems {
+                grid-template-columns: 1fr;
+                grid-column: 1;
+                grid-row: 1
+            }
+
+            .bms-system {
+                font-size: 11px;
+                min-height: 43px;
+                padding: 10px;
+                gap: 8px
+            }
+
+            .bms-building-art {
+                max-height: 310px
+            }
+
+            .building-integrations {
+                font-size: 8px
+            }
+
+            .building-integrations span {
+                padding: 5px 6px
+            }
+
+            .operations-panel {
+                grid-column: 1/-1;
+                min-height: 0;
+                padding: 18px
+            }
+
+            .operations-panel h3 {
+                font-size: 27px;
+                margin: 10px 0
+            }
+
+            .operations-panel p {
+                font-size: 12px;
+                min-height: 0;
+                margin-bottom: 16px
+            }
+
+            .operations-list {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 10px
+            }
+
+            .operations-list span {
+                font-size: 9px
+            }
+
+            .operations-panel>small {
+                font-size: 9px
+            }
+
+            .bms-board-top strong {
+                font-size: 14px
+            }
+
+            .bms-board-top span {
+                font-size: 8px
+            }
+
+            .bms-flow-head span {
+                font-size: 7px
+            }
+        }
+
+        /* ---------- Hero / common premium stage ---------- */
+        .hero {
+            --hero-light-accent: #f3bd73;
+        }
+
+        .hero .premium-stage {
+            filter: drop-shadow(0 34px 70px rgba(0, 0, 0, .34));
+        }
+
+        /* ---------- Lighting banner imagery ---------- */
+        .hero .lighting-image {
+            border-radius: 26px;
+            background: #020507;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 24px 70px rgba(0, 0, 0, .38);
+            isolation: isolate;
+        }
+
+        .hero .lighting-image>img {
+            filter: brightness(.88) saturate(1.24) contrast(1.08) !important;
+            transform: scale(1.006);
+        }
+
+        .hero .light-region img {
+            filter: brightness(1.07) saturate(1.34) contrast(1.09) !important;
+            transform: scale(1.012);
+        }
+
+        .hero .lighting-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+            background:
+                radial-gradient(circle at 17% 76%, rgba(255, 188, 102, .14), transparent 23%),
+                radial-gradient(circle at 82% 24%, rgba(255, 210, 145, .11), transparent 23%),
+                radial-gradient(circle at 82% 76%, rgba(123, 190, 255, .10), transparent 23%),
+                radial-gradient(circle at 17% 24%, rgba(72, 190, 255, .11), transparent 23%),
+                radial-gradient(circle at 49% 46%, rgba(96, 210, 116, .10), transparent 28%);
+            mix-blend-mode: screen;
+        }
+
+        .hero .lighting-dot {
+            background: var(--hero-light-accent) !important;
+            box-shadow: 0 0 0 7px rgba(255, 255, 255, .055), 0 0 24px var(--hero-light-accent), 0 0 54px rgba(255, 255, 255, .14);
+        }
+
+        .hero .light-hotspot:focus-visible {
+            outline-color: var(--hero-light-accent);
+        }
+
+        /* ---------- Automation banner visuals ---------- */
+        .hero .automation-network {
+            background:
+                radial-gradient(circle at 50% 50%, rgba(44, 214, 198, .12), transparent 34%),
+                radial-gradient(circle at 64% 28%, rgba(58, 139, 255, .10), transparent 34%),
+                linear-gradient(145deg, #081313, #0b1118 66%, #071011);
+            box-shadow: inset 0 0 0 1px rgba(105, 226, 211, .08), 0 24px 70px rgba(0, 0, 0, .28);
+        }
+
+        .hero .city-wires path,
+        .hero .network-wires path {
+            stroke: #62d8d0 !important;
+            opacity: .58 !important;
+        }
+
+        .hero .city-wires circle,
+        .hero .network-wires circle {
+            fill: #bff8ef !important;
+            filter: drop-shadow(0 0 5px rgba(98, 216, 208, .75));
+        }
+
+        .hero .city-art [fill="#181818"] {
+            fill: #0d1c24 !important;
+        }
+
+        .hero .city-art [fill="#bbbbbb"] {
+            fill: #78d8d0 !important;
+        }
+
+        .hero .city-art [fill="#737373"] {
+            fill: #2f7f8d !important;
+        }
+
+        .hero .city-art [fill="#454545"] {
+            fill: #194b59 !important;
+        }
+
+        .hero .city-art [stroke="#d8d8d8"],
+        .hero .city-art [stroke="#aaaaaa"] {
+            stroke: #88dce0 !important;
+        }
+
+        .hero .device-card.is-active {
+            border-color: rgba(93, 224, 207, .58) !important;
+            background: linear-gradient(145deg, rgba(24, 71, 70, .75), rgba(20, 39, 49, .86)) !important;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, .22), inset 0 0 24px rgba(76, 218, 201, .07);
+        }
+
+        .hero .device-card.is-active svg path,
+        .hero .device-card.is-active svg rect,
+        .hero .device-card.is-active svg circle,
+        .hero .device-card.is-active svg line,
+        .hero .device-card.is-active svg polyline {
+            stroke: #70e4d2 !important;
+        }
+
+        .hero .automation-hub {
+            border-color: rgba(99, 219, 213, .68) !important;
+            background: linear-gradient(145deg, #173b3d, #10242f) !important;
+            box-shadow: 0 0 65px rgba(64, 211, 199, .10), inset 0 0 42px rgba(94, 220, 208, .05) !important;
+        }
+
+        /* ---------- BMS / IoT banner visuals ---------- */
+        .hero .bms-board {
+            background:
+                radial-gradient(circle at 56% 40%, rgba(51, 178, 220, .10), transparent 35%),
+                linear-gradient(135deg, #11191d, #0a0d11 72%) !important;
+            border-color: rgba(91, 180, 211, .28) !important;
+            box-shadow: 0 26px 74px rgba(0, 0, 0, .32), inset 0 0 50px rgba(41, 159, 205, .035);
+        }
+
+        .hero #bmsFacade stop:first-child {
+            stop-color: #16485a !important;
+        }
+
+        .hero #bmsFacade stop:last-child {
+            stop-color: #0b1720 !important;
+        }
+
+        .hero .bms-building-art [fill="#999999"] {
+            fill: #e9bd69 !important;
+        }
+
+        .hero .bms-building-art [stroke="#646464"] {
+            stroke: #44758a !important;
+        }
+
+        .hero .building-layer.selected path {
+            stroke: #72e3ff !important;
+            filter: drop-shadow(0 0 5px rgba(114, 227, 255, .82));
+        }
+
+        .hero .building-layer.selected circle {
+            fill: #72e3ff !important;
+            filter: drop-shadow(0 0 5px rgba(114, 227, 255, .82));
+        }
+
+        .hero .bms-system.selected {
+            background: linear-gradient(135deg, #eefcf9, #e6f4ff) !important;
+            border-color: #78d8e5 !important;
+            box-shadow: 0 9px 26px rgba(53, 170, 196, .12);
+        }
+
+        .hero .gateway-box {
+            background: linear-gradient(145deg, #10252d, #16343b) !important;
+            border-color: rgba(101, 214, 218, .44) !important;
+        }
+
+        .hero .operations-panel {
+            background: linear-gradient(145deg, #f4f2e9, #e8f7f5) !important;
+            box-shadow: inset 0 0 0 1px rgba(72, 163, 177, .08);
+        }
+
+        .hero .building-integrations span {
+            border-color: rgba(95, 202, 216, .44) !important;
+            background: rgba(33, 115, 133, .08);
+        }
+
+        /* ---------- Dedicated lighting section ---------- */
+        .lighting-banner {
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, .055);
+            background: #020609 !important;
+            box-shadow: 0 36px 90px rgba(6, 12, 14, .25) !important;
+        }
+
+        .lighting-stage {
+            --visual-accent: #f3bd73;
+            border-radius: 28px 28px 0 0;
+            background:
+                radial-gradient(circle at 50% 42%, rgba(26, 72, 72, .08), transparent 40%),
+                #020609 !important;
+        }
+
+        .lighting-base {
+            filter: brightness(1.08) saturate(1.24) contrast(1.07) !important;
+        }
+
+        .lighting-reveal {
+            filter: brightness(1.08) saturate(1.34) contrast(1.09) !important;
+        }
+
+        .lighting-reveal.active {
+            filter: brightness(1.10) saturate(1.38) contrast(1.10) drop-shadow(0 0 16px rgba(255, 255, 255, .04)) !important;
+        }
+
+        .lighting-orb,
+        .lighting-orb.arrived {
+            background: var(--visual-accent) !important;
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, .74),
+                0 0 18px var(--visual-accent),
+                0 0 55px var(--visual-accent) !important;
+        }
+
+        .lighting-orb::before {
+            border-color: var(--visual-accent) !important;
+        }
+
+        .lighting-orb::after {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .08), var(--visual-accent)) !important;
+        }
+
+        .lighting-controls {
+            background: linear-gradient(180deg, #0d1112, #080b0c);
+            border-top: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .lighting-control.active {
+            background: rgba(255, 255, 255, .055);
+            box-shadow: inset 0 2px 0 var(--visual-accent);
+        }
+
+        @media (max-width: 760px) {
+
+            .hero .lighting-image,
+            .lighting-banner,
+            .lighting-stage {
+                border-radius: 20px;
+            }
+        }
+
+        /* Refined visual sections: scoped to avoid altering header and hero controls. */
+        .new-light-view {
+            position: relative;
+            aspect-ratio: 3/1;
+            min-height: 310px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #17252a
+        }
+
+        .new-light-photo {
+            position: absolute;
+            inset: 0;
+            background-size: 100% 500%;
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+            transition: opacity .25s
+        }
+
+        .new-light-shade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(3, 12, 17, .84), transparent 65%)
+        }
+
+        .new-light-caption {
+            position: absolute;
+            bottom: 32px;
+            left: 36px;
+            color: #fff
+        }
+
+        .new-light-caption small {
+            font-size: 11px;
+            letter-spacing: .18em;
+            color: #efd2a5
+        }
+
+        .new-light-caption h3 {
+            font-size: clamp(25px, 3vw, 42px);
+            margin: 12px 0
+        }
+
+        .new-light-caption p {
+            font-size: 14px;
+            color: #e1e5e5
+        }
+
+        .new-light-tabs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border-bottom: 1px solid #ccc
+        }
+
+        .new-light-tabs button {
+            border: 0;
+            border-bottom: 2px solid transparent;
+            background: transparent;
+            text-align: left;
+            padding: 24px 14px;
+            font-size: 13px;
+            transition: .2s
+        }
+
+        .new-light-tabs small {
+            display: block;
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 10px
+        }
+
+        .new-light-tabs button[aria-pressed=true] {
+            border-bottom-color: #99743e;
+            background: #e8e6e0;
+            color: #111
+        }
+
+        .new-light-tabs button:hover {
+            background: #ece9e3
+        }
+
+        #automation .automation-visual {
+            background: radial-gradient(ellipse at 50% 40%, #153a40, #0b181e 70%);
+            border: 1px solid #2d454d;
+            border-radius: 18px;
+            color: #e4eeef
+        }
+
+        #automation .visual-top {
+            color: #bacbd0
+        }
+
+        #automation .connected-map {
+            width: 100%;
+            height: auto;
+            max-height: 490px;
+            filter: none
+        }
+
+        #automation .net-track {
+            fill: none;
+            stroke: #559f9e;
+            stroke-width: 1.2;
+            stroke-dasharray: 4 5;
+            animation: wireRun 16s linear infinite
+        }
+
+        #automation .net-node rect {
+            fill: #142c35;
+            stroke: #406771
+        }
+
+        #automation .net-node circle {
+            fill: #88e6c5
+        }
+
+        #automation .net-node text {
+            fill: #dceff1;
+            font: 12px Arial;
+            text-anchor: middle
+        }
+
+        #automation .net-core {
+            fill: #f0ffff;
+            font: 600 13px Arial;
+            text-anchor: middle
+        }
+
+        #automation .net-sub {
+            fill: #91c7cb;
+            font: 8px Arial;
+            text-anchor: middle;
+            letter-spacing: 1px
+        }
+
+        #automation .mode-card {
+            background: #16333b;
+            border-color: #365962
+        }
+
+        #automation .mode-card strong {
+            color: #f0faf8
+        }
+
+        #automation .mode-card small,
+        #automation .mode-card span {
+            color: #b1cccc
+        }
+
+        #automation .device-strip {
+            border-color: #33515a
+        }
+
+        #automation .device-strip small {
+            color: #98b1bb
+        }
+
+        #automation .device-strip strong {
+            color: #d7eeea
+        }
+
+        #iot .building-visual {
+            background: radial-gradient(ellipse at 50% 45%, #173946, #0a1720 75%);
+            border: 1px solid #2d4c5b;
+            border-radius: 18px;
+            padding: 25px 20px;
+            color: #dcebef
+        }
+
+        #iot .building-visual svg {
+            width: 100%;
+            filter: none
+        }
+
+        #iot .building-kicker {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            letter-spacing: .12em;
+            gap: 20px
+        }
+
+        #iot .building-kicker span {
+            color: #7d9daa;
+            font-size: 8px
+        }
+
+        #iot .network-foot {
+            color: #93b5be;
+            border-color: #2b4856;
+            font-size: 8px
+        }
+
+        #iot .building-system path {
+            animation: wireRun 18s linear infinite
+        }
+
+        #iot .iot-card[open] {
+            border-color: #80aaa8
+        }
+
+        #iot .iot-card[open] summary b {
+            color: #347974
+        }
+
+        @keyframes wireRun {
+            to {
+                stroke-dashoffset: -160
+            }
+        }
+
+        @media(max-width:760px) {
+            .new-light-view {
+                aspect-ratio: 1.3;
+                min-height: 280px
+            }
+
+            .new-light-photo {
+                background-size: auto 500%
+            }
+
+            .new-light-caption {
+                left: 22px;
+                bottom: 20px
+            }
+
+            .new-light-tabs {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .new-light-tabs button {
+                font-size: 11px;
+                padding: 15px 8px
+            }
+
+            .new-light-caption p {
+                max-width: 240px;
+                font-size: 12px
+            }
+
+            #iot .building-kicker {
+                font-size: 8px
+            }
+
+            #iot .building-kicker span {
+                font-size: 7px
+            }
+
+            #iot .building-visual {
+                padding: 18px 10px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important
+            }
+
+            .connected-map animateMotion {
+                display: none
+            }
+        }
+    </style>
+
+    <!-- ======================= END PREMIUM VISUAL COLOR MODULE ======================= -->
+
+</body>
+
+</html>
