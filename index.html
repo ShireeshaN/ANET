@@ -17332,164 +17332,818 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
         <!-- ======================= END CONTACT MODULE ======================= -->
     </main>
 
-    <!-- =========================================================
-         FOOTER MODULE — CSS + HTML + JS
-         Everything for this module stays together in this file.
-         ========================================================= -->
+<!-- =========================================================
+     PREMIUM FOOTER MODULE
+     CSS + HTML + JS
+     ========================================================= -->
 
-    <!-- FOOTER MODULE CSS -->
-    <style>
-        .footer {
-            padding: 65px 0 25px;
-            background: #181818;
-            color: #e6e6e6
-        }
+<style>
+/* ============================================================
+   FOOTER — PREMIUM DARK
+   ============================================================ */
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.4fr .7fr 1fr;
-            gap: 80px
-        }
+.footer{
+    position:relative;
+    overflow:hidden;
+    padding:82px 0 24px;
+    background:
+        radial-gradient(circle at 8% 15%,rgba(215,168,64,.06),transparent 26%),
+        radial-gradient(circle at 86% 24%,rgba(60,131,255,.05),transparent 28%),
+        linear-gradient(180deg,#141516 0%,#0d0e0f 100%);
+    color:#f2f2f0;
+    border-top:1px solid rgba(255,255,255,.06);
+    isolation:isolate;
+}
 
-        .footer .brand {
-            margin-bottom: 22px
-        }
+/* very subtle premium grid */
+.footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.22;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:72px 72px;
+    mask-image:linear-gradient(to bottom,#000,transparent 85%);
+    -webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
 
-        .footer p {
-            font-size: 12px;
-            line-height: 1.8;
-            color: #8b8b8b;
-            max-width: 230px
-        }
+.footer .wrap{
+    width:min(1500px,calc(100% - 96px));
+    margin-inline:auto;
+}
 
-        .footer h3 {
-            font-size: 10px;
-            font-weight: 400;
-            color: #9d9d9d;
-            letter-spacing: .12em;
-            margin: 0 0 22px
-        }
+/* ============================================================
+   TOP AREA
+   ============================================================ */
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 13px;
-            font-size: 11px;
-            color: #cdcdcd
-        }
+.footer-top{
+    display:grid;
+    grid-template-columns:
+        minmax(260px,1.25fr)
+        minmax(150px,.65fr)
+        minmax(190px,.82fr)
+        minmax(190px,.82fr)
+        minmax(260px,1.05fr);
+    gap:clamp(38px,4vw,76px);
+    align-items:start;
+}
 
-        .footer address {
-            font-style: normal;
-            font-size: 11px;
-            line-height: 1.9;
-            color: #8d8d8d
-        }
+/* ============================================================
+   BRAND
+   ============================================================ */
 
-        .footer-mail {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 17px
-        }
+.footer-brand{
+    min-width:0;
+}
 
-        .footer-bottom {
-            margin-top: 60px;
-            padding-top: 23px;
-            border-top: 1px solid #ffffff13;
-            display: flex;
-            justify-content: space-between;
-            font-size: 9px;
-            color: #7e7e7e;
-            gap: 20px
-        }
+.footer-logo{
+    display:inline-flex;
+    align-items:center;
+    width:min(260px,100%);
+    margin-bottom:26px;
+}
 
-        .footer-bottom a {
-            color: #bbbbbb
-        }
+.footer-logo img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:100px;
+    object-fit:contain;
+    object-position:left center;
+}
 
-        @media (max-width:1100px) {
-            .footer-grid {
-                gap: 40px
-            }
-        }
+.footer-intro{
+    max-width:310px;
+    margin:0;
+    color:#85898c;
+    font:450 12px/1.85 "Manrope","Inter","Segoe UI",sans-serif;
+}
 
-        @media (max-width:760px) {
-            .footer {
-                padding: 50px 0 25px
-            }
+.footer-intro strong{
+    color:#d9dbdc;
+    font-weight:500;
+}
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 35px
-            }
+/* ============================================================
+   HEADINGS
+   ============================================================ */
 
-            .footer-grid>div:first-child {
-                grid-column: 1/-1
-            }
+.footer-title{
+    position:relative;
+    margin:5px 0 25px;
+    padding-top:14px;
+    color:#84898c;
+    font:650 8px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.19em;
+    text-transform:uppercase;
+}
 
-            .footer-bottom {
-                margin-top: 35px;
-                font-size: 8px;
-                line-height: 1.7
-            }
+.footer-title::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:28px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        #d7a840,
+        rgba(215,168,64,.12)
+    );
+}
 
-            .footer-mail {
-                font-size: 11px;
-                overflow-wrap: anywhere
-            }
+/* ============================================================
+   LINKS
+   ============================================================ */
 
-            .footer address {
-                font-size: 10px
-            }
-        }
-    </style>
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:13px;
+}
 
-    <!-- FOOTER MODULE HTML -->
-    <footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div><a class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true"
-                                viewBox="0 0 146 36">
-                                <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
-                                    stroke-width="4">
-                                    <path
-                                        d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
-                                    </path>
-                                </g>
-                                <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
-                            </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
-                                TECHNOLOGY</small></span></a>
-                    <p>Spaces, made intelligent.<br />Experiences, made extraordinary.</p>
-                </div>
-                <div>
-                    <h3>EXPLORE</h3>
-                    <div class="footer-links"><a href="about.html">About us</a><a
-                            href="residential-lighting.html">Lighting</a><a
-                            href="industrial-automation.html">Automation</a><a href="bms-and-iot.html">IoT &amp; BMS</a>
-                    </div>
-                </div>
-                <div>
-                    <h3>LET’S CONNECT</h3><a class="footer-mail" href="mailto:info@aniplgroup.com">info@aniplgroup.com
-                        ↗</a>
-                    <address>320 Fifth Floor, East Avenue,<br />Ayyappa Society Main Rd, near YSR Statue,<br />SBH
-                        Officers
-                        Colony, Mega Hills, Madhapur,<br />Hyderabad, Telangana 500081</address>
-                </div>
+.footer-links a{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#b5b8ba;
+    font:500 11px/1.4 "Manrope","Inter",sans-serif;
+    text-decoration:none;
+    transition:
+        color .3s ease,
+        transform .3s cubic-bezier(.2,.72,.2,1);
+}
+
+.footer-links a::before{
+    content:"";
+    width:0;
+    height:1px;
+    background:#d7a840;
+    transition:width .3s cubic-bezier(.2,.72,.2,1);
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(4px);
+}
+
+.footer-links a:hover::before{
+    width:13px;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.footer-contact{
+    min-width:0;
+}
+
+.footer-mail{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:18px;
+    color:#f0f0ee;
+    font:520 12px/1.4 "Manrope","Inter",sans-serif;
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.footer-mail span{
+    color:#d7a840;
+    transition:transform .3s ease;
+}
+
+.footer-mail:hover{
+    color:#d7a840;
+}
+
+.footer-mail:hover span{
+    transform:translate(2px,-2px);
+}
+
+.footer address{
+    margin:0;
+    max-width:310px;
+    color:#85898c;
+    font:450 10.5px/1.82 "Manrope","Inter",sans-serif;
+    font-style:normal;
+}
+
+/* ============================================================
+   SOCIAL AREA
+   ============================================================ */
+
+.footer-social-wrap{
+    margin-top:32px;
+}
+
+.footer-social-label{
+    display:block;
+    margin-bottom:13px;
+    color:#666b6e;
+    font:600 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+}
+
+.footer-socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.footer-social{
+    position:relative;
+    display:grid;
+    place-items:center;
+    width:36px;
+    height:36px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50%;
+    color:#aeb2b4;
+    background:rgba(255,255,255,.018);
+    text-decoration:none;
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s cubic-bezier(.2,.72,.2,1),
+        box-shadow .3s ease;
+}
+
+.footer-social svg{
+    width:14px;
+    height:14px;
+    fill:currentColor;
+}
+
+.footer-social:hover{
+    color:#fff;
+    border-color:rgba(215,168,64,.55);
+    background:rgba(215,168,64,.08);
+    transform:translateY(-3px);
+    box-shadow:0 10px 26px rgba(0,0,0,.28);
+}
+
+.footer-social::after{
+    content:attr(aria-label);
+    position:absolute;
+    left:50%;
+    bottom:calc(100% + 10px);
+    padding:6px 8px;
+    border-radius:3px;
+    background:#f1f1ef;
+    color:#121314;
+    font:600 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.04em;
+    white-space:nowrap;
+    opacity:0;
+    visibility:hidden;
+    transform:translate(-50%,5px);
+    transition:.22s ease;
+    pointer-events:none;
+}
+
+.footer-social:hover::after{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%,0);
+}
+
+/* ============================================================
+   DIVIDER / BOTTOM
+   ============================================================ */
+
+.footer-divider{
+    height:1px;
+    margin-top:68px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03),
+            rgba(255,255,255,.11) 50%,
+            rgba(255,255,255,.03)
+        );
+}
+
+.footer-bottom{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:28px;
+    padding-top:22px;
+    color:#686d70;
+    font:550 8px/1.5 "Manrope","Inter",sans-serif;
+    letter-spacing:.08em;
+}
+
+.footer-bottom-center{
+    color:#7a7f82;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.footer-back{
+    justify-self:end;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#9fa3a5;
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.footer-back i{
+    width:27px;
+    height:27px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50%;
+    font-style:normal;
+    transition:
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.footer-back:hover{
+    color:#fff;
+}
+
+.footer-back:hover i{
+    border-color:rgba(215,168,64,.45);
+    transform:translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media(max-width:1180px){
+
+    .footer .wrap{
+        width:min(100% - 60px,1500px);
+    }
+
+    .footer-top{
+        grid-template-columns:
+            minmax(260px,1.2fr)
+            repeat(3,minmax(145px,.7fr));
+        gap:45px 32px;
+    }
+
+    .footer-contact{
+        grid-column:2/-1;
+    }
+
+    .footer-contact-inner{
+        display:grid;
+        grid-template-columns:1fr auto;
+        gap:40px;
+        align-items:start;
+    }
+
+    .footer-social-wrap{
+        margin-top:0;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media(max-width:760px){
+
+    .footer{
+        padding:58px 0 24px;
+    }
+
+    .footer .wrap{
+        width:calc(100% - 38px);
+    }
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+        gap:42px 28px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+        padding-bottom:6px;
+    }
+
+    .footer-logo{
+        width:230px;
+        margin-bottom:20px;
+    }
+
+    .footer-intro{
+        max-width:300px;
+        font-size:11px;
+    }
+
+    .footer-contact{
+        grid-column:1/-1;
+    }
+
+    .footer-contact-inner{
+        display:block;
+    }
+
+    .footer-social-wrap{
+        margin-top:26px;
+    }
+
+    .footer-title{
+        margin-bottom:20px;
+    }
+
+    .footer-links{
+        gap:12px;
+    }
+
+    .footer-links a{
+        font-size:10px;
+    }
+
+    .footer address{
+        font-size:10px;
+    }
+
+    .footer-divider{
+        margin-top:48px;
+    }
+
+    .footer-bottom{
+        grid-template-columns:1fr auto;
+        gap:14px;
+        padding-top:20px;
+    }
+
+    .footer-bottom-center{
+        display:none;
+    }
+
+    .footer-bottom > span:first-child{
+        max-width:220px;
+        font-size:7.5px;
+    }
+}
+
+@media(max-width:480px){
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+        column-gap:20px;
+    }
+
+    .footer-logo{
+        width:205px;
+        
+    }
+
+    .footer-social{
+        width:34px;
+        height:34px;
+    }
+
+    .footer-social svg{
+        width:13px;
+        height:13px;
+    }
+
+    .footer-bottom{
+        align-items:end;
+    }
+}
+</style>
+
+
+<!-- ============================================================
+     FOOTER HTML
+     ============================================================ -->
+
+<footer class="footer">
+
+    <div class="wrap">
+
+        <div class="footer-top">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <a
+                    class="footer-logo"
+                    href="index.html"
+                    aria-label="Alphanumeric home"
+                >
+                    <!--
+                        DARK FOOTER:
+                        Use your transparent WHITE logo here.
+
+                        If your actual white logo filename is different,
+                        change only this src.
+                    -->
+                    <img
+                        src="assets/logo-black.png"
+                        alt="Alphanumeric"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </a>
+
+                <p class="footer-intro">
+                    <strong>Light. Control. Intelligence.</strong><br>
+                    Integrated lighting, automation and building
+                    intelligence for connected environments.
+                </p>
+
             </div>
-            <div class="footer-bottom"><span>© <span id="year">2026</span> AlphaNumeric Engineering and
-                    Technology</span><span>LIGHT / CONTROL / CONNECT</span><a href="#top">Back to top ↑</a></div>
+
+
+            <!-- COMPANY -->
+            <div>
+
+                <h3 class="footer-title">Company</h3>
+
+                <nav class="footer-links" aria-label="Company links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+            </div>
+
+
+            <!-- LIGHTING -->
+            <div>
+
+                <h3 class="footer-title">Lighting</h3>
+
+                <nav class="footer-links" aria-label="Lighting links">
+
+                    <a href="residential-lighting.html">
+                        Residential
+                    </a>
+
+                    <a href="commercial-lighting.html">
+                        Commercial
+                    </a>
+
+                    <a href="industrial-lighting.html">
+                        Industrial
+                    </a>
+
+                    <a href="facade-lighting.html">
+                        Façade
+                    </a>
+
+                    <a href="landscape-lighting.html">
+                        Landscape
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- AUTOMATION -->
+            <div>
+
+                <h3 class="footer-title">Automation</h3>
+
+                <nav
+                    class="footer-links"
+                    aria-label="Automation links"
+                >
+
+                    <a href="home-automation.html">
+                        Home Automation
+                    </a>
+
+                    <a href="commercial-automation.html">
+                        Commercial Automation
+                    </a>
+
+                    <a href="industrial-automation.html">
+                        Industrial Automation
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- CONNECT -->
+            <div class="footer-contact">
+
+                <h3 class="footer-title">Let's connect</h3>
+
+                <div class="footer-contact-inner">
+
+                    <div>
+
+                        <a
+                            class="footer-mail"
+                            href="mailto:info@aniplgroup.com"
+                        >
+                            info@aniplgroup.com
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                        <address>
+                            320 Fifth Floor, East Avenue,<br>
+                            Ayyappa Society Main Rd, near YSR Statue,<br>
+                            SBH Officers Colony, Mega Hills, Madhapur,<br>
+                            Hyderabad, Telangana 500081
+                        </address>
+
+                    </div>
+
+
+                    <!-- SOCIAL MEDIA -->
+                    <div class="footer-social-wrap">
+
+                        <span class="footer-social-label">
+                            Follow us
+                        </span>
+
+                        <div class="footer-socials">
+
+
+                            <!-- GOOGLE -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Google"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M21.35 12.27c0-.71-.06-1.24-.2-1.8H12v3.49h5.37c-.11.87-.69 2.18-1.98 3.06l-.02.12 2.87 2.23.2.02c1.84-1.7 2.91-4.2 2.91-7.12ZM12 21.8c2.62 0 4.82-.86 6.43-2.35l-3.06-2.37c-.82.56-1.91.95-3.37.95-2.52 0-4.66-1.7-5.43-4.05l-.11.01-2.99 2.32-.04.11A9.72 9.72 0 0 0 12 21.8ZM6.57 13.98A5.9 5.9 0 0 1 6.25 12c0-.69.12-1.36.31-1.98v-.12L3.54 7.54l-.1.05A9.79 9.79 0 0 0 2.4 12c0 1.58.38 3.07 1.04 4.41l3.13-2.43ZM12 5.97c1.82 0 3.05.79 3.75 1.44l2.75-2.68C16.81 3.15 14.62 2.2 12 2.2a9.72 9.72 0 0 0-8.57 5.39l3.13 2.43C7.34 7.67 9.48 5.97 12 5.97Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- INSTAGRAM -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Instagram"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- FACEBOOK -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Facebook"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M13.7 22v-9h3l.45-3.5H13.7V7.26c0-1.01.28-1.7 1.73-1.7h1.84V2.43a24 24 0 0 0-2.68-.14c-2.65 0-4.47 1.62-4.47 4.59V9.5h-3v3.5h3v9h3.58Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- YOUTUBE -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="YouTube"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M23.5 6.19a3 3 0 0 0-2.11-2.12C19.53 3.57 12 3.57 12 3.57s-7.53 0-9.39.5A3 3 0 0 0 .5 6.19 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.81 3 3 0 0 0 2.11 2.12c1.86.5 9.39.5 9.39.5s7.53 0 9.39-.5a3 3 0 0 0 2.11-2.12A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.81ZM9.6 15.6V8.4L15.84 12 9.6 15.6Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- PINTEREST -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Pinterest"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2C6.48 2 2 5.96 2 10.84c0 3.62 2.23 6.83 5.61 8.2-.08-.62-.14-1.58.03-2.26l1.29-5.46s-.33-.66-.33-1.64c0-1.53.89-2.68 2-2.68.94 0 1.4.71 1.4 1.56 0 .95-.6 2.37-.91 3.68-.26 1.1.55 2 1.64 2 1.97 0 3.49-2.08 3.49-5.08 0-2.66-1.91-4.51-4.64-4.51-3.16 0-5.01 2.37-5.01 4.82 0 .95.37 1.98.83 2.53.09.11.1.21.08.32l-.31 1.27c-.05.21-.17.25-.39.15-1.47-.68-2.39-2.83-2.39-4.55 0-3.71 2.69-7.12 7.77-7.12 4.08 0 7.25 2.91 7.25 6.79 0 4.05-2.55 7.31-6.09 7.31-1.19 0-2.31-.62-2.69-1.35l-.73 2.79c-.27 1.02-.98 2.3-1.46 3.08 1.1.34 2.26.52 3.47.52 5.52 0 10-3.96 10-8.84C22 5.96 17.52 2 12 2Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- X / TWITTER -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="X"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M18.24 2H21l-6.03 6.89L22.06 22h-5.55l-4.35-5.69L7.18 22H4.41l6.45-7.37L4.06 2h5.69l3.93 5.2L18.24 2Zm-.97 17.69h1.53L8.92 4.19H7.28l9.99 15.5Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- THREADS -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Threads"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12.19 2C6.9 2 3.38 5.65 3.38 11.88c0 6.1 3.44 10.12 8.82 10.12 4.65 0 8.05-2.68 8.05-6.5 0-2.8-1.55-4.58-4.32-5.39-.11-1.55-.56-2.85-1.37-3.79-1.03-1.2-2.52-1.81-4.43-1.81-2.34 0-4.1.91-5.24 2.7l1.75 1.2c.78-1.21 1.91-1.78 3.49-1.78 2.08 0 3.27 1.02 3.55 3.03-.48-.05-.98-.07-1.51-.07-3.47 0-5.72 1.66-5.72 4.23 0 2.32 1.89 3.99 4.5 3.99 3.12 0 5.15-1.98 5.15-5.18v-.54c1.37.57 2.01 1.61 2.01 3.25 0 2.67-2.42 4.4-5.94 4.4-4.12 0-6.62-3.04-6.62-8.02 0-4.99 2.49-7.76 6.62-7.76 3.01 0 5.05 1.43 6.09 4.26l2.02-.74C19.02 3.88 16.27 2 12.19 2Zm-.97 13.93c-1.45 0-2.49-.8-2.49-1.96 0-1.34 1.25-2.19 3.4-2.19.57 0 1.1.03 1.58.1v.61c0 2.14-.93 3.44-2.49 3.44Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- LINKEDIN -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="LinkedIn"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M4.98 3.5A2.49 2.49 0 1 1 5 8.48 2.49 2.49 0 0 1 4.98 3.5ZM3 9.98h4V21H3V9.98Zm6.5 0h3.83v1.51h.05c.53-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.67 4.8 6.14V21h-4v-4.83c0-1.15-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56V21h-4V9.98Z"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-    </footer>
 
-    <!-- FOOTER MODULE JS -->
-    <script>
-        (() => {
-            const { $ } = window.ANET;
-            $('#year').textContent = new Date().getFullYear();
-        })();
-    </script>
 
-    <!-- ======================= END FOOTER MODULE ======================= -->
+        <div class="footer-divider"></div>
 
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year">2026</span>
+                Alphanumeric. All rights reserved.
+            </span>
+
+            <span class="footer-bottom-center">
+                Light / Control / Connect
+            </span>
+
+            <a class="footer-back" href="#top">
+                Back to top
+                <i aria-hidden="true">↑</i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ============================================================
+     FOOTER JS
+     ============================================================ -->
+
+<script>
+(() => {
+
+    const year = document.getElementById("year");
+
+    if(year){
+        year.textContent = new Date().getFullYear();
+    }
+
+})();
+</script>
+
+<!-- ====================== END FOOTER ====================== -->
     <!-- =========================================================
          PREMIUM VISUAL COLOR MODULE — CSS ONLY
          Adds colour to images, diagrams, glows and banner surfaces.
