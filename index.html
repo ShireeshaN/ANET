@@ -1406,7 +1406,6 @@
 
      
 
-
    
   <style>
             /* ==================== COMMON HERO ==================== */
@@ -1738,7 +1737,7 @@
                 background-repeat: no-repeat;
                 mix-blend-mode: screen;
                 filter: saturate(1.04) contrast(1.015) brightness(.92);
-                transition: opacity 1.02s cubic-bezier(.22, .72, .2, 1);
+                transition: opacity .68s cubic-bezier(.22, .72, .2, 1);
                 will-change: opacity;
                 transform: translateZ(0);
                 backface-visibility: hidden;
@@ -1891,7 +1890,7 @@
                 height: calc(var(--lighting-progress) * 1%);
                 background: linear-gradient(to bottom, #9f7b35, #d7a840, #f4d997);
                 box-shadow: 0 0 14px rgba(215, 168, 64, .34);
-                transition: height .85s cubic-bezier(.22, .72, .2, 1);
+                transition: height .52s cubic-bezier(.22, .72, .2, 1);
             }
 
             .hero .lighting-nav {
@@ -2046,7 +2045,7 @@
                 box-shadow: 0 0 8px rgba(255, 208, 110, .92);
                 opacity: 0;
                 transform: translate(-50%, -50%);
-                animation: lightingSprinkle .86s cubic-bezier(.15, .72, .2, 1) forwards;
+                animation: lightingSprinkle .58s cubic-bezier(.15, .72, .2, 1) forwards;
                 animation-delay: var(--delay, 0ms);
             }
 
@@ -2070,7 +2069,7 @@
             /* ==================== COPY CHANGE ANIMATION ==================== */
 
             .hero.is-lighting .hero-copy.light-copy-change > * {
-                animation: lightingCopyRefresh .64s cubic-bezier(.2, .72, .2, 1) both !important;
+                animation: lightingCopyRefresh .42s cubic-bezier(.2, .72, .2, 1) both !important;
             }
 
             .hero.is-lighting .hero-copy.light-copy-change > *:nth-child(2) {
@@ -2185,7 +2184,7 @@
                 .hero .lighting-nav-progress {
                     width: calc(var(--lighting-progress) * 1%);
                     height: 1px;
-                    transition: width .85s cubic-bezier(.22, .72, .2, 1);
+                    transition: width .52s cubic-bezier(.22, .72, .2, 1);
                 }
 
                 .hero .lighting-nav {
@@ -6315,11 +6314,11 @@
                    TIMING — SECONDS
                 ====================================================== */
 
-                const LIGHTING_START_HOLD = 0.55;
-                const LIGHTING_TRAVEL = 1.00;
-                const LIGHTING_AFTER_HIT = 0.75;
-                const LIGHTING_MANUAL_HOLD = 2.8;
-                const LIGHTING_ALL_ON_HOLD = 0.35;
+                const LIGHTING_START_HOLD = 0.28;
+                const LIGHTING_TRAVEL = 0.68;
+                const LIGHTING_AFTER_HIT = 0.42;
+                const LIGHTING_MANUAL_HOLD = 1.8;
+                const LIGHTING_ALL_ON_HOLD = 0.20;
 
                 const AUTOMATION_TRAVEL = 0.72;
                 const AUTOMATION_SCENE_HOLD = 0.95;
@@ -6549,7 +6548,7 @@
                         particle.style.setProperty("--delay", `${i * 18}ms`);
                         particle.style.setProperty("--size", `${2 + (i % 3)}px`);
                         lightingEffects.appendChild(particle);
-                        setTimeout(() => particle.remove(), 1150);
+                        setTimeout(() => particle.remove(), 820);
                     });
                 }
 
@@ -6568,7 +6567,7 @@
                                 { opacity: 0, transform: "scale(3)", transformOrigin: `${x}px ${y}px` }
                             ],
                             {
-                                duration: 720,
+                                duration: 500,
                                 easing: "cubic-bezier(.2,.72,.2,1)",
                                 fill: "forwards"
                             }
@@ -6582,8 +6581,8 @@
                     lightingSparkHalo.style.opacity = "0";
 
                     if (!reducedMotion.matches) {
-                        lightingSparkPath.style.transition = "opacity .48s ease";
-                        lightingSparkGlow.style.transition = "opacity .55s ease";
+                        lightingSparkPath.style.transition = "opacity .30s ease";
+                        lightingSparkGlow.style.transition = "opacity .34s ease";
                         lightingSparkPath.style.opacity = ".16";
                         lightingSparkGlow.style.opacity = "0";
                     } else {
@@ -6597,7 +6596,7 @@
                     lightIndex = index;
                     lightManual = manual;
                     lightPhase = "wait";
-                    lightNextAt = t + (manual ? .08 : .22);
+                    lightNextAt = t + (manual ? .05 : .12);
 
                     prepareLightingZones(index, manual);
                     hideLightingSpark();
