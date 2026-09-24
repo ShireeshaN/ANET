@@ -13148,3980 +13148,1723 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
 
 
 
-
-        <!-- ============================================================
-     BMS + IOT MODULE — COMPLETE PREMIUM WHITE VERSION
-     CSS + HTML + JAVASCRIPT
-
-     BMS
-     BMS WITH IOT
-     BMS & IOT
-
-     Premium White Background
-     Animated Smart Building
-     System-by-System Connectivity
-     BMS → IoT Gateway → Cloud → Dashboard
-     Fully Responsive
+<!-- ============================================================
+     BMS → IoT CINEMATIC TRANSFORMATION SECTION
+     Two-image system:
+       OFF : assets/bms-iot-off.png
+       ON  : assets/bms-iot-on.png
+     All CSS/JS is scoped to .bi2-section so it will not disturb
+     any other website modules.
      ============================================================ -->
 
-
-        <!-- ============================================================
-     01 — CSS
-     ============================================================ -->
-
-        <style>
-            /* ============================================================
-   ROOT
+<style>
+/* ============================================================
+   BMS → IoT — CINEMATIC SECTION
    ============================================================ */
 
-            .bi-section {
-                --bg: #ffffff;
-                --bg-soft: #f5f7f7;
+.bi2-section{
+    --bi2-bg:#03070b;
+    --bi2-ink:#f4f7f7;
+    --bi2-copy:#aab4b9;
+    --bi2-cyan:#67e7ff;
+    --bi2-blue:#5b9dff;
+    --bi2-green:#6ce5a8;
+    --bi2-gold:#d7a840;
 
-                --ink: #11171b;
-                --copy: #6c7378;
-                --muted: #90969a;
+    position:relative;
+    width:100%;
+    min-height:clamp(720px,52vw,940px);
+    overflow:hidden;
+    isolation:isolate;
+    background:
+        radial-gradient(circle at 30% 45%,rgba(39,126,164,.12),transparent 34%),
+        linear-gradient(180deg,#07101a 0%,#03070b 100%);
+    color:var(--bi2-ink);
+    font-family:"Manrope","Inter","Segoe UI",Arial,sans-serif;
+}
 
-                --line: rgba(21, 39, 48, .10);
+.bi2-section *,
+.bi2-section *::before,
+.bi2-section *::after{
+    box-sizing:border-box;
+}
 
-                --cyan: #42bec5;
-                --cyan-bright: #59dce0;
-                --blue: #548fc6;
-                --teal: #55aaa7;
-
-                --gold: #c99c47;
-
-                position: relative;
-
-                width: 100%;
-
-                padding:
-                    clamp(88px, 8vw, 132px) 0 clamp(92px, 8vw, 140px);
-
-                overflow: hidden;
-
-                isolation: isolate;
-
-                color: var(--ink);
-
-                background:
-                    radial-gradient(circle at 8% 30%,
-                        rgba(63, 157, 181, .055),
-                        transparent 29%),
-                    radial-gradient(circle at 94% 8%,
-                        rgba(201, 156, 71, .045),
-                        transparent 24%),
-                    linear-gradient(180deg,
-                        #ffffff 0%,
-                        #fafbfb 50%,
-                        #ffffff 100%);
-            }
-
-
-            .bi-section *,
-            .bi-section *::before,
-            .bi-section *::after {
-                box-sizing: border-box;
-            }
-
-
-
-            /* subtle technical grid */
-
-            .bi-section::before {
-                content: "";
-
-                position: absolute;
-
-                inset: 0;
-
-                z-index: -2;
-
-                pointer-events: none;
-
-                opacity: .5;
-
-                background-image:
-
-                    linear-gradient(rgba(24, 44, 54, .022) 1px,
-                        transparent 1px),
-
-                    linear-gradient(90deg,
-                        rgba(24, 44, 54, .022) 1px,
-                        transparent 1px);
-
-                background-size:
-                    80px 80px;
-
-                mask-image:
-                    linear-gradient(180deg,
-                        transparent,
-                        #000 12%,
-                        #000 88%,
-                        transparent);
-            }
-
-
-
-            /* soft ambient atmosphere */
-
-            .bi-section::after {
-                content: "";
-
-                position: absolute;
-
-                z-index: -1;
-
-                left: -280px;
-                top: 17%;
-
-                width: 720px;
-                height: 720px;
-
-                border-radius: 50%;
-
-                pointer-events: none;
-
-                background:
-                    radial-gradient(circle,
-                        rgba(63, 157, 181, .065),
-                        rgba(63, 157, 181, .015) 48%,
-                        transparent 72%);
-
-                filter: blur(15px);
-            }
-
-
-
-            /* ============================================================
-   WRAPPER
+/* ============================================================
+   MEDIA STAGE
    ============================================================ */
 
-            .bi-wrap {
-                width: min(1500px,
-                        calc(100% - 100px));
+.bi2-stage{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    isolation:isolate;
+    background:#03070b;
+}
 
-                margin-inline: auto;
-            }
+.bi2-backdrop{
+    position:absolute;
+    inset:-14px;
+    z-index:0;
+    background:
+        linear-gradient(90deg,
+            rgba(3,7,11,.08) 0%,
+            rgba(3,7,11,.02) 48%,
+            rgba(3,7,11,.72) 78%,
+            rgba(3,7,11,.96) 100%),
+        url("assets/bms-iot-off.png") center center / cover no-repeat;
+    filter:blur(7px) brightness(.64) saturate(.86);
+    transform:scale(1.025);
+}
 
+.bi2-frame{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    overflow:hidden;
+}
 
+/* Full 1935×813 image always visible, no aggressive crop. */
+.bi2-off,
+.bi2-on-full,
+.bi2-layer{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center center;
+    user-select:none;
+    -webkit-user-drag:none;
+}
 
-            /* ============================================================
-   HEADER
+.bi2-off{
+    z-index:1;
+    filter:saturate(.96) contrast(1.025) brightness(.94);
+}
+
+.bi2-on-full{
+    z-index:3;
+    opacity:0;
+    transition:
+        opacity 1.15s cubic-bezier(.2,.72,.2,1),
+        filter 1.15s ease;
+    filter:saturate(1.02) contrast(1.02) brightness(.98);
+}
+
+.bi2-section.is-complete .bi2-on-full{
+    opacity:1;
+}
+
+/* ============================================================
+   SYSTEM-BY-SYSTEM REVEAL LAYERS
+   Each layer paints the SAME ON image and reveals only one
+   system cluster / icon / connector region.
    ============================================================ */
 
-            .bi-head {
-                display: grid;
+.bi2-system-layers{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+}
 
-                grid-template-columns:
-                    minmax(0, 1fr) minmax(300px, 440px);
+.bi2-layer{
+    opacity:0;
+    background:
+        url("assets/bms-iot-on.png") center center / contain no-repeat;
+    transition:
+        opacity .78s cubic-bezier(.2,.72,.2,1),
+        filter .78s ease;
+    filter:
+        saturate(1.06)
+        contrast(1.025)
+        brightness(1.01)
+        drop-shadow(0 0 10px rgba(84,215,255,.12));
+}
 
-                gap:
-                    clamp(48px, 6vw, 90px);
+.bi2-layer.is-on{
+    opacity:1;
+}
 
-                align-items: end;
+/* 01 HVAC */
+.bi2-layer[data-bi2-system="0"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 18% 19% at 10% 15%,#000 0 50%,rgba(0,0,0,.86) 67%,transparent 92%),
+        radial-gradient(ellipse 14% 12% at 28% 20%,#000 0 43%,rgba(0,0,0,.72) 62%,transparent 90%);
+    mask-image:
+        radial-gradient(ellipse 18% 19% at 10% 15%,#000 0 50%,rgba(0,0,0,.86) 67%,transparent 92%),
+        radial-gradient(ellipse 14% 12% at 28% 20%,#000 0 43%,rgba(0,0,0,.72) 62%,transparent 90%);
+}
 
-                margin-bottom:
-                    clamp(54px, 6vw, 84px);
-            }
+/* 02 OCCUPANCY */
+.bi2-layer[data-bi2-system="1"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 18% 15% at 33% 10%,#000 0 51%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 12% 14% at 38% 30%,#000 0 44%,rgba(0,0,0,.70) 63%,transparent 91%);
+    mask-image:
+        radial-gradient(ellipse 18% 15% at 33% 10%,#000 0 51%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 12% 14% at 38% 30%,#000 0 44%,rgba(0,0,0,.70) 63%,transparent 91%);
+}
 
+/* 03 ENERGY */
+.bi2-layer[data-bi2-system="2"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 18% 16% at 55% 12%,#000 0 50%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 13% 13% at 49% 25%,#000 0 43%,rgba(0,0,0,.70) 62%,transparent 90%);
+    mask-image:
+        radial-gradient(ellipse 18% 16% at 55% 12%,#000 0 50%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 13% 13% at 49% 25%,#000 0 43%,rgba(0,0,0,.70) 62%,transparent 90%);
+}
 
+/* 04 ENVIRONMENT */
+.bi2-layer[data-bi2-system="3"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 15% 18% at 8% 40%,#000 0 50%,rgba(0,0,0,.84) 68%,transparent 94%),
+        radial-gradient(ellipse 15% 15% at 23% 42%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 91%);
+    mask-image:
+        radial-gradient(ellipse 15% 18% at 8% 40%,#000 0 50%,rgba(0,0,0,.84) 68%,transparent 94%),
+        radial-gradient(ellipse 15% 15% at 23% 42%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 91%);
+}
 
-            /* eyebrow */
+/* 05 ACCESS */
+.bi2-layer[data-bi2-system="4"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 17% 17% at 62% 44%,#000 0 48%,rgba(0,0,0,.84) 66%,transparent 93%),
+        radial-gradient(ellipse 15% 13% at 47% 46%,#000 0 42%,rgba(0,0,0,.70) 62%,transparent 90%);
+    mask-image:
+        radial-gradient(ellipse 17% 17% at 62% 44%,#000 0 48%,rgba(0,0,0,.84) 66%,transparent 93%),
+        radial-gradient(ellipse 15% 13% at 47% 46%,#000 0 42%,rgba(0,0,0,.70) 62%,transparent 90%);
+}
 
-            .bi-eyebrow {
-                display: flex;
+/* 06 SECURITY */
+.bi2-layer[data-bi2-system="5"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 15% 18% at 8% 65%,#000 0 49%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 15% 14% at 24% 61%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 90%);
+    mask-image:
+        radial-gradient(ellipse 15% 18% at 8% 65%,#000 0 49%,rgba(0,0,0,.84) 67%,transparent 93%),
+        radial-gradient(ellipse 15% 14% at 24% 61%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 90%);
+}
 
-                align-items: center;
+/* 07 BUILDING INTELLIGENCE */
+.bi2-layer[data-bi2-system="6"]{
+    -webkit-mask-image:
+        radial-gradient(ellipse 18% 17% at 61% 67%,#000 0 49%,rgba(0,0,0,.84) 67%,transparent 94%),
+        radial-gradient(ellipse 17% 14% at 44% 62%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 90%);
+    mask-image:
+        radial-gradient(ellipse 18% 17% at 61% 67%,#000 0 49%,rgba(0,0,0,.84) 67%,transparent 94%),
+        radial-gradient(ellipse 17% 14% at 44% 62%,#000 0 42%,rgba(0,0,0,.72) 62%,transparent 90%);
+}
 
-                gap: 13px;
-
-                margin-bottom: 24px;
-
-                font:
-                    650 9px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .19em;
-
-                text-transform: uppercase;
-
-                color: #737a7f;
-            }
-
-
-            .bi-eyebrow::before {
-                content: "";
-
-                width: 38px;
-                height: 1px;
-
-                background:
-                    linear-gradient(90deg,
-                        #343c42,
-                        var(--gold));
-            }
-
-
-
-            /* ============================================================
-   LARGE TITLE
+/* ============================================================
+   CINEMATIC OVERLAYS
    ============================================================ */
 
-            .bi-title {
-                margin: 0;
+.bi2-left-vignette,
+.bi2-right-shade,
+.bi2-top-bottom,
+.bi2-scan,
+.bi2-glow{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
 
-                font:
-                    650 clamp(65px,
-                        8vw,
-                        132px)/.80 "Manrope",
-                    sans-serif;
+.bi2-left-vignette{
+    z-index:4;
+    background:
+        linear-gradient(90deg,
+            rgba(2,6,10,.18) 0%,
+            rgba(2,6,10,.04) 38%,
+            transparent 56%);
+}
 
-                letter-spacing: -.082em;
+.bi2-right-shade{
+    z-index:5;
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            transparent 56%,
+            rgba(3,7,11,.18) 66%,
+            rgba(3,7,11,.58) 78%,
+            rgba(3,7,11,.90) 90%,
+            #03070b 100%);
+}
 
-                color: #12171b;
-            }
+.bi2-top-bottom{
+    z-index:6;
+    background:
+        linear-gradient(180deg,
+            rgba(2,6,10,.82) 0%,
+            rgba(2,6,10,.20) 11%,
+            transparent 24%,
+            transparent 72%,
+            rgba(2,6,10,.18) 84%,
+            rgba(2,6,10,.88) 100%);
+}
 
+/* subtle moving scan that travels through building */
+.bi2-scan{
+    z-index:7;
+    opacity:0;
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            rgba(111,230,255,.04) 45%,
+            rgba(151,244,255,.72) 50%,
+            rgba(111,230,255,.05) 55%,
+            transparent 100%);
+    transform:translateX(-58%);
+}
 
-            .bi-title span {
-                position: relative;
+.bi2-section.is-transforming .bi2-scan{
+    animation:bi2Scan 5.2s cubic-bezier(.2,.72,.2,1) both;
+}
 
-                display: inline-block;
-            }
+.bi2-glow{
+    z-index:7;
+    opacity:0;
+    background:
+        radial-gradient(circle at 38% 48%,
+            rgba(83,215,255,.20) 0%,
+            rgba(62,159,214,.08) 22%,
+            transparent 48%);
+}
 
+.bi2-section.is-transforming .bi2-glow{
+    animation:bi2Glow 5.4s ease both;
+}
 
-            .bi-title span::after {
-                content: "";
-
-                position: absolute;
-
-                left: 6px;
-                bottom: -17px;
-
-                width: 55px;
-                height: 2px;
-
-                background:
-                    linear-gradient(90deg,
-                        #be9142,
-                        #dabc73);
-            }
-
-
-
-            /* ============================================================
-   HEADER RIGHT
+/* ============================================================
+   RIGHT COPY — BLACK SPACE
    ============================================================ */
 
-            .bi-head-copy {
-                padding-top: 21px;
+.bi2-copy{
+    position:absolute;
+    z-index:20;
+    top:50%;
+    right:clamp(28px,4vw,78px);
+    width:min(390px,26vw);
+    transform:translateY(-50%);
+}
 
-                border-top:
-                    1px solid rgba(21, 39, 48, .10);
-            }
+.bi2-kicker{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:22px;
+    color:rgba(218,236,242,.60);
+    font:650 8px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.19em;
+    text-transform:uppercase;
+}
 
+.bi2-kicker::before{
+    content:"";
+    width:34px;
+    height:1px;
+    background:linear-gradient(90deg,var(--bi2-gold),rgba(215,168,64,.12));
+}
 
-            .bi-head-copy strong {
-                display: block;
+.bi2-title{
+    margin:0;
+    max-width:390px;
+    color:#f7f8f7;
+    font:620 clamp(48px,4.3vw,74px)/.90 "Manrope","Inter",sans-serif;
+    letter-spacing:-.066em;
+    text-wrap:balance;
+}
 
-                margin-bottom: 11px;
+.bi2-title em{
+    display:block;
+    margin-top:7px;
+    color:#9edff1;
+    font-style:normal;
+    font-weight:520;
+}
 
-                font:
-                    400 clamp(18px,
-                        1.35vw,
-                        22px)/1.42 Georgia,
-                    serif;
+.bi2-slogan{
+    max-width:350px;
+    margin:24px 0 0;
+    color:#e4e9ea;
+    font:400 clamp(17px,1.25vw,21px)/1.38 Georgia,"Times New Roman",serif;
+    letter-spacing:-.02em;
+}
 
-                letter-spacing: -.02em;
+.bi2-description{
+    max-width:350px;
+    margin:14px 0 0;
+    color:rgba(191,205,211,.66);
+    font:450 11px/1.76 "Manrope","Inter",sans-serif;
+}
 
-                color: #333a3f;
-            }
+.bi2-capabilities{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:23px;
+}
 
+.bi2-capabilities span{
+    padding:7px 9px;
+    border:1px solid rgba(144,209,226,.11);
+    border-radius:999px;
+    color:rgba(203,222,228,.66);
+    background:rgba(255,255,255,.018);
+    font:600 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
 
-            .bi-head-copy p {
-                margin: 0;
-
-                font:
-                    400 11.5px/1.85 "Manrope",
-                    sans-serif;
-
-                color: #747b80;
-            }
-
-
-
-            /* ============================================================
-   MAIN LAYOUT
+/* ============================================================
+   SYSTEM STATUS
    ============================================================ */
 
-            .bi-layout {
-                display: grid;
+.bi2-status{
+    position:absolute;
+    z-index:22;
+    left:clamp(25px,3.2vw,62px);
+    bottom:clamp(34px,4vw,64px);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-width:245px;
+}
 
-                grid-template-columns:
-                    minmax(0, 1.15fr) minmax(350px, .85fr);
+.bi2-status-dot{
+    position:relative;
+    width:10px;
+    height:10px;
+    flex:0 0 10px;
+    border-radius:50%;
+    background:#e7fbff;
+    box-shadow:
+        0 0 0 6px rgba(99,220,255,.07),
+        0 0 22px rgba(99,220,255,.44);
+}
 
-                gap:
-                    clamp(60px,
-                        7vw,
-                        110px);
+.bi2-status-dot::after{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border:1px solid rgba(124,233,255,.20);
+    border-radius:50%;
+    animation:bi2Pulse 1.8s ease-out infinite;
+}
 
-                align-items: center;
-            }
+.bi2-status-copy strong{
+    display:block;
+    color:#eff8fa;
+    font:650 9px/1.2 "Manrope","Inter",sans-serif;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
 
+.bi2-status-copy small{
+    display:block;
+    margin-top:5px;
+    color:rgba(180,202,209,.48);
+    font:550 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+}
 
+.bi2-count{
+    margin-left:7px;
+    color:rgba(211,231,236,.62);
+    font:650 8px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.10em;
+}
 
-            /* ============================================================
-   SMART BUILDING PANEL
+/* progress line */
+.bi2-progress{
+    position:absolute;
+    z-index:22;
+    left:clamp(25px,3.2vw,62px);
+    right:clamp(25px,3.2vw,62px);
+    bottom:20px;
+    height:1px;
+    background:rgba(255,255,255,.08);
+}
+
+.bi2-progress span{
+    display:block;
+    width:0;
+    height:100%;
+    background:
+        linear-gradient(90deg,var(--bi2-cyan),var(--bi2-blue),var(--bi2-green));
+    box-shadow:0 0 12px rgba(98,224,255,.30);
+    transition:width .55s cubic-bezier(.2,.72,.2,1);
+}
+
+/* ============================================================
+   SYSTEM PING
    ============================================================ */
 
-            .bi-visual {
-                position: relative;
+.bi2-ping{
+    position:absolute;
+    z-index:15;
+    left:var(--x);
+    top:var(--y);
+    width:9px;
+    height:9px;
+    margin:-4.5px 0 0 -4.5px;
+    border-radius:50%;
+    opacity:0;
+    background:#f2fdff;
+    box-shadow:
+        0 0 0 6px rgba(93,221,255,.08),
+        0 0 22px rgba(93,221,255,.65);
+    pointer-events:none;
+}
 
-                width: 100%;
+.bi2-ping.fire{
+    animation:bi2Ping .86s cubic-bezier(.2,.72,.2,1) both;
+}
 
-                min-height: 570px;
-
-                aspect-ratio: 1.15 / 1;
-
-                overflow: hidden;
-
-                isolation: isolate;
-
-                border:
-                    1px solid rgba(30, 63, 77, .13);
-
-                border-radius: 8px;
-
-                background:
-                    radial-gradient(circle at 54% 43%,
-                        rgba(65, 160, 184, .10),
-                        transparent 42%),
-                    linear-gradient(145deg,
-                        #fafcfc,
-                        #edf3f4);
-
-                box-shadow:
-                    0 38px 85px rgba(37, 59, 70, .10),
-                    0 10px 28px rgba(37, 59, 70, .05),
-                    inset 0 1px rgba(255, 255, 255, .95);
-            }
-
-
-
-            /* panel visual grid */
-
-            .bi-visual::before {
-                content: "";
-
-                position: absolute;
-
-                inset: 0;
-
-                z-index: 0;
-
-                pointer-events: none;
-
-                opacity: .32;
-
-                background-image:
-
-                    linear-gradient(rgba(48, 92, 108, .035) 1px,
-                        transparent 1px),
-
-                    linear-gradient(90deg,
-                        rgba(48, 92, 108, .035) 1px,
-                        transparent 1px);
-
-                background-size:
-                    38px 38px;
-            }
-
-
-
-            /* ============================================================
-   VISUAL TOP
+/* ============================================================
+   ANIMATIONS
    ============================================================ */
 
-            .bi-visual-top {
-                position: absolute;
+@keyframes bi2Scan{
+    0%{opacity:0;transform:translateX(-58%)}
+    10%{opacity:.65}
+    86%{opacity:.55}
+    100%{opacity:0;transform:translateX(58%)}
+}
 
-                z-index: 50;
+@keyframes bi2Glow{
+    0%{opacity:0}
+    18%{opacity:.75}
+    82%{opacity:.28}
+    100%{opacity:.08}
+}
 
-                top: 20px;
-                left: 22px;
-                right: 22px;
+@keyframes bi2Pulse{
+    0%{opacity:.55;transform:scale(.55)}
+    100%{opacity:0;transform:scale(1.8)}
+}
 
-                display: flex;
+@keyframes bi2Ping{
+    0%{opacity:0;transform:scale(.35)}
+    30%{opacity:1;transform:scale(1)}
+    100%{opacity:0;transform:scale(2.1)}
+}
 
-                justify-content: space-between;
-                align-items: center;
-
-                pointer-events: none;
-            }
-
-
-            .bi-visual-top>span:first-child {
-                font:
-                    650 7px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .16em;
-
-                text-transform: uppercase;
-
-                color:
-                    rgba(34, 58, 69, .52);
-            }
-
-
-            .bi-live {
-                display: flex;
-
-                align-items: center;
-
-                gap: 7px;
-
-                font:
-                    650 7px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .14em;
-
-                text-transform: uppercase;
-
-                color:
-                    rgba(34, 58, 69, .48);
-            }
-
-
-            .bi-live i {
-                width: 5px;
-                height: 5px;
-
-                border-radius: 50%;
-
-                background: #43b9bd;
-
-                box-shadow:
-                    0 0 10px rgba(67, 185, 189, .38);
-
-                animation:
-                    biLivePulse 1.7s ease-in-out infinite;
-            }
-
-
-            @keyframes biLivePulse {
-
-                50% {
-                    opacity: .3;
-                }
-
-            }
-
-
-
-            /* ============================================================
-   BUILDING PULSE
+/* ============================================================
+   RESPONSIVE
    ============================================================ */
 
-            .bi-building-pulse {
-                position: absolute;
+@media(max-width:1100px){
+    .bi2-section{
+        min-height:760px;
+    }
 
-                z-index: 2;
+    .bi2-copy{
+        right:34px;
+        width:min(350px,32vw);
+    }
 
-                left: 52%;
-                top: 48%;
+    .bi2-title{
+        font-size:clamp(44px,5vw,62px);
+    }
+}
 
-                width: 330px;
-                height: 330px;
+@media(max-width:760px){
+    .bi2-section{
+        min-height:880px;
+        background:#03070b;
+    }
 
-                border-radius: 50%;
+    .bi2-stage{
+        inset:0;
+    }
 
-                transform:
-                    translate(-50%, -50%);
+    .bi2-frame{
+        top:0;
+        bottom:auto;
+        height:54%;
+    }
 
-                border:
-                    1px solid rgba(65, 178, 183, .10);
+    .bi2-off,
+    .bi2-on-full,
+    .bi2-layer{
+        object-fit:contain;
+        object-position:center center;
+    }
 
-                pointer-events: none;
+    .bi2-system-layers{
+        height:54%;
+        bottom:auto;
+    }
 
-                animation:
-                    biBuildingPulse 3s ease-out infinite;
-            }
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        height:54%;
+        bottom:auto;
+    }
 
+    .bi2-right-shade{
+        background:
+            linear-gradient(180deg,
+                transparent 0%,
+                transparent 52%,
+                rgba(3,7,11,.46) 78%,
+                #03070b 100%);
+    }
 
-            .bi-building-pulse::before {
-                content: "";
+    .bi2-copy{
+        top:auto;
+        left:20px;
+        right:20px;
+        bottom:112px;
+        width:auto;
+        max-width:390px;
+        transform:none;
+    }
 
-                position: absolute;
+    .bi2-kicker{
+        margin-bottom:15px;
+    }
 
-                inset: 42px;
+    .bi2-title{
+        font-size:clamp(40px,11vw,58px);
+    }
 
-                border-radius: 50%;
+    .bi2-slogan{
+        margin-top:16px;
+        font-size:16px;
+    }
 
-                border:
-                    1px solid rgba(80, 144, 190, .07);
-            }
+    .bi2-description{
+        font-size:10.5px;
+        line-height:1.66;
+    }
 
+    .bi2-capabilities{
+        margin-top:17px;
+    }
 
-            @keyframes biBuildingPulse {
+    .bi2-status{
+        left:20px;
+        bottom:54px;
+    }
 
-                0% {
-                    opacity: .55;
+    .bi2-progress{
+        left:20px;
+        right:20px;
+        bottom:30px;
+    }
+}
 
-                    transform:
-                        translate(-50%, -50%) scale(.70);
-                }
+@media(max-width:480px){
+    .bi2-section{
+        min-height:840px;
+    }
 
-                75% {
-                    opacity: .035;
+    .bi2-frame,
+    .bi2-system-layers,
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        height:48%;
+    }
 
-                    transform:
-                        translate(-50%, -50%) scale(1.12);
-                }
+    .bi2-copy{
+        bottom:110px;
+    }
 
-                100% {
-                    opacity: 0;
+    .bi2-title{
+        font-size:42px;
+    }
 
-                    transform:
-                        translate(-50%, -50%) scale(1.25);
-                }
+    .bi2-capabilities span{
+        font-size:6.4px;
+    }
+}
 
-            }
+@media(prefers-reduced-motion:reduce){
+    .bi2-section *,
+    .bi2-section *::before,
+    .bi2-section *::after{
+        animation:none !important;
+        transition:none !important;
+    }
 
+    .bi2-on-full{
+        opacity:1;
+    }
 
+    .bi2-layer{
+        display:none;
+    }
+}
 
-            /* ============================================================
-   SVG
+/* ============================================================
+   LONG-VIEW PREMIUM FIT PATCH
+   Keeps the OFF/ON artwork fully visible with breathing room.
    ============================================================ */
 
-            .bi-building-svg {
-                position: absolute;
-
-                inset: 0;
-
-                z-index: 4;
-
-                width: 100%;
-                height: 100%;
-
-                pointer-events: none;
-            }
-
-
-
-            /* ============================================================
-   BUILDING
-   ============================================================ */
-
-            .bi-building-body {
-                fill:
-                    rgba(47, 104, 121, .76);
-
-                stroke:
-                    rgba(52, 143, 159, .47);
-
-                stroke-width: 1.4;
-            }
-
-
-            .bi-building-side {
-                fill:
-                    rgba(28, 66, 79, .88);
-
-                stroke:
-                    rgba(68, 136, 149, .25);
-            }
-
-
-            .bi-building-top {
-                fill:
-                    rgba(102, 161, 173, .62);
-
-                stroke:
-                    rgba(67, 140, 153, .32);
-            }
-
-
-
-            /* ============================================================
-   WINDOWS
-   ============================================================ */
-
-            .bi-window {
-                fill:
-                    rgba(74, 158, 176, .16);
-
-                stroke:
-                    rgba(55, 131, 147, .09);
-
-                transition:
-                    fill .42s ease,
-                    opacity .42s ease,
-                    filter .42s ease;
-            }
-
-
-            .bi-window.on {
-                fill:
-                    rgba(76, 199, 201, .61);
-
-                filter:
-                    drop-shadow(0 0 5px rgba(57, 169, 172, .38));
-            }
-
-
-
-            /* ============================================================
-   FLOOR LINES
-   ============================================================ */
-
-            .bi-floor-line {
-                stroke:
-                    rgba(41, 116, 131, .19);
-
-                stroke-width: 1;
-            }
-
-
-            .bi-floor-live {
-                fill: none;
-
-                stroke:
-                    rgba(61, 189, 192, .92);
-
-                stroke-width: 2;
-
-                opacity: 0;
-
-                filter:
-                    drop-shadow(0 0 4px rgba(61, 189, 192, .36));
-            }
-
-
-            .bi-floor-live.active {
-                opacity: 1;
-
-                animation:
-                    biFloorPulse 1.65s ease-in-out infinite;
-            }
-
-
-            @keyframes biFloorPulse {
-
-                50% {
-                    opacity: .40;
-                }
-
-            }
-
-
-
-            /* ============================================================
-   SYSTEM CARDS
-   ============================================================ */
-
-            .bi-system-card rect {
-                fill:
-                    rgba(255, 255, 255, .88);
-
-                stroke:
-                    rgba(52, 117, 132, .20);
-
-                stroke-width: 1;
-
-                filter:
-                    drop-shadow(0 6px 12px rgba(39, 64, 75, .04));
-
-                transition:
-                    fill .3s ease,
-                    stroke .3s ease,
-                    filter .3s ease;
-            }
-
-
-            .bi-system-card text {
-                fill:
-                    rgba(41, 65, 74, .66);
-
-                font:
-                    600 10px "Manrope",
-                    sans-serif;
-
-                letter-spacing: .08em;
-
-                transition:
-                    fill .3s ease;
-            }
-
-
-            .bi-system-card.active rect {
-                fill: #fff;
-
-                stroke:
-                    rgba(58, 180, 183, .78);
-
-                filter:
-                    drop-shadow(0 8px 18px rgba(61, 140, 153, .12));
-            }
-
-
-            .bi-system-card.active text {
-                fill: #1d3c45;
-            }
-
-
-
-            /* ============================================================
-   SYSTEM ROUTES
-   ============================================================ */
-
-            .bi-system-path-base {
-                fill: none;
-
-                stroke:
-                    rgba(55, 132, 146, .13);
-
-                stroke-width: 1.25;
-
-                stroke-linecap: round;
-
-                stroke-dasharray:
-                    4 7;
-            }
-
-
-            .bi-system-path {
-                fill: none;
-
-                stroke: #43bcc1;
-
-                stroke-width: 2.15;
-
-                stroke-linecap: round;
-
-                opacity: 0;
-
-                filter:
-                    drop-shadow(0 0 3px rgba(67, 188, 193, .36));
-            }
-
-
-            .bi-system-path.flowing {
-                opacity: 1;
-            }
-
-
-            .bi-system-path.connected {
-                opacity: .82;
-
-                stroke-dasharray:
-                    8 10;
-
-                animation:
-                    biSystemFlow .8s linear infinite;
-            }
-
-
-            @keyframes biSystemFlow {
-
-                to {
-                    stroke-dashoffset: -36;
-                }
-
-            }
-
-
-
-            /* ============================================================
-   HUBS
-   ============================================================ */
-
-            .bi-hub {
-                fill:
-                    rgba(255, 255, 255, .94);
-
-                stroke:
-                    rgba(58, 137, 150, .29);
-
-                stroke-width: 1.1;
-
-                filter:
-                    drop-shadow(0 7px 14px rgba(36, 66, 77, .06));
-
-                transition:
-                    stroke .3s ease,
-                    filter .3s ease;
-            }
-
-
-            .bi-hub.active {
-                stroke:
-                    rgba(53, 183, 184, .86);
-
-                filter:
-                    drop-shadow(0 8px 18px rgba(55, 143, 153, .13));
-            }
-
-
-            .bi-hub-label {
-                fill:
-                    rgba(34, 62, 71, .78);
-
-                font:
-                    600 9px "Manrope",
-                    sans-serif;
-
-                letter-spacing: .07em;
-            }
-
-
-
-            /* ============================================================
-   MAIN ROUTES
-   ============================================================ */
-
-            .bi-main-route {
-                fill: none;
-
-                stroke:
-                    rgba(56, 143, 156, .19);
-
-                stroke-width: 1.5;
-
-                stroke-linecap: round;
-            }
-
-
-            .bi-main-route-live {
-                fill: none;
-
-                stroke: #48bdc2;
-
-                stroke-width: 2.25;
-
-                stroke-linecap: round;
-
-                opacity: 0;
-
-                filter:
-                    drop-shadow(0 0 4px rgba(72, 189, 194, .32));
-            }
-
-
-            .bi-main-route-live.flowing {
-                opacity: 1;
-            }
-
-
-            .bi-main-route-live.connected {
-                opacity: .88;
-
-                stroke-dasharray:
-                    9 11;
-
-                animation:
-                    biMainFlow .74s linear infinite;
-            }
-
-
-            @keyframes biMainFlow {
-
-                to {
-                    stroke-dashoffset: -40;
-                }
-
-            }
-
-
-
-            /* ============================================================
-   SYSTEM SIGNAL POINT
-   ============================================================ */
-
-            .bi-signal {
-                position: absolute;
-
-                z-index: 20;
-
-                width: 8px;
-                height: 8px;
-
-                border-radius: 50%;
-
-                opacity: 0;
-
-                transform:
-                    translate(-50%, -50%);
-
-                background: #fff;
-
-                box-shadow:
-                    0 0 8px rgba(255, 255, 255, .9),
-                    0 0 18px rgba(60, 190, 194, .75);
-
-                pointer-events: none;
-            }
-
-
-            .bi-signal.active {
-                opacity: 1;
-            }
-
-
-
-            /* ============================================================
-   STATUS BAR
-   ============================================================ */
-
-            .bi-status {
-                position: absolute;
-
-                z-index: 50;
-
-                left: 22px;
-                right: 22px;
-                bottom: 22px;
-
-                display: grid;
-
-                grid-template-columns:
-                    7px minmax(0, 1fr) auto;
-
-                align-items: center;
-
-                gap: 11px;
-
-                padding:
-                    11px 13px;
-
-                border:
-                    1px solid rgba(34, 65, 77, .11);
-
-                background:
-                    rgba(255, 255, 255, .76);
-
-                box-shadow:
-                    0 12px 30px rgba(36, 58, 69, .08);
-
-                backdrop-filter:
-                    blur(16px);
-
-                -webkit-backdrop-filter:
-                    blur(16px);
-
-                pointer-events: none;
-            }
-
-
-            .bi-status-dot {
-                width: 6px;
-                height: 6px;
-
-                border-radius: 50%;
-
-                background: #43b8bd;
-
-                box-shadow:
-                    0 0 9px rgba(67, 184, 189, .34);
-            }
-
-
-            .bi-status-copy strong {
-                display: block;
-
-                overflow: hidden;
-
-                white-space: nowrap;
-
-                text-overflow: ellipsis;
-
-                font:
-                    550 8px/1.2 "Manrope",
-                    sans-serif;
-
-                color: #2c3a40;
-            }
-
-
-            .bi-status-copy small {
-                display: block;
-
-                margin-top: 4px;
-
-                font:
-                    500 6px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .08em;
-
-                text-transform: uppercase;
-
-                color: #7a8287;
-            }
-
-
-            .bi-status-count {
-                font:
-                    650 7px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .07em;
-
-                color: #747c82;
-            }
-
-
-
-            /* ============================================================
-   PROGRESS
-   ============================================================ */
-
-            .bi-progress {
-                position: absolute;
-
-                z-index: 51;
-
-                left: 22px;
-                right: 22px;
-                bottom: 14px;
-
-                height: 1px;
-
-                background:
-                    rgba(36, 65, 76, .10);
-            }
-
-
-            .bi-progress span {
-                display: block;
-
-                width: 0;
-                height: 100%;
-
-                background:
-                    linear-gradient(90deg,
-                        #43b9bd,
-                        #588ec0,
-                        #58aaa3);
-
-                transition:
-                    width .35s ease;
-            }
-
-
-
-            /* ============================================================
-   RIGHT COLUMN
-   ============================================================ */
-
-            .bi-options {
-                position: relative;
-            }
-
-
-
-            /* ============================================================
-   OPTIONS INTRO
-   ============================================================ */
-
-            .bi-options-head {
-                margin-bottom: 28px;
-            }
-
-
-            .bi-options-head small {
-                display: block;
-
-                margin-bottom: 11px;
-
-                font:
-                    650 8px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .17em;
-
-                text-transform: uppercase;
-
-                color: #7e8589;
-            }
-
-
-            .bi-options-head strong {
-                display: block;
-
-                max-width: 430px;
-
-                font:
-                    400 clamp(20px,
-                        1.7vw,
-                        27px)/1.30 Georgia,
-                    serif;
-
-                letter-spacing: -.02em;
-
-                color: #353b3f;
-            }
-
-
-
-            /* ============================================================
-   ACCORDION
-   ============================================================ */
-
-            .bi-cards {
-                border-top:
-                    1px solid rgba(30, 44, 52, .11);
-            }
-
-
-            .bi-card {
-                border-bottom:
-                    1px solid rgba(30, 44, 52, .11);
-
-                transition:
-                    background .3s ease;
-            }
-
-
-            .bi-card[open] {
-                background:
-                    linear-gradient(90deg,
-                        rgba(62, 161, 177, .055),
-                        transparent 76%);
-            }
-
-
-            .bi-card summary {
-                list-style: none;
-
-                cursor: pointer;
-
-                display: grid;
-
-                grid-template-columns:
-                    34px minmax(0, 1fr) 25px;
-
-                gap: 17px;
-
-                align-items: center;
-
-                padding:
-                    25px 0;
-
-                user-select: none;
-            }
-
-
-            .bi-card summary::-webkit-details-marker {
-                display: none;
-            }
-
-
-
-            /* number */
-
-            .bi-card-num {
-                font:
-                    600 8px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .12em;
-
-                color: #9a9fa3;
-            }
-
-
-
-            /* title */
-
-            .bi-card-title {
-                font:
-                    500 clamp(19px,
-                        1.5vw,
-                        24px)/1.1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: -.035em;
-
-                color: #565d61;
-
-                transition:
-                    color .3s ease;
-            }
-
-
-            .bi-card[open] .bi-card-title {
-                color: #181d21;
-            }
-
-
-
-            /* plus */
-
-            .bi-card-plus {
-                position: relative;
-
-                width: 22px;
-                height: 22px;
-            }
-
-
-            .bi-card-plus::before,
-            .bi-card-plus::after {
-                content: "";
-
-                position: absolute;
-
-                left: 50%;
-                top: 50%;
-
-                background: #8a9195;
-
-                transform:
-                    translate(-50%, -50%);
-
-                transition:
-                    transform .3s ease,
-                    background .3s ease;
-            }
-
-
-            .bi-card-plus::before {
-                width: 12px;
-                height: 1px;
-            }
-
-
-            .bi-card-plus::after {
-                width: 1px;
-                height: 12px;
-            }
-
-
-            .bi-card[open] .bi-card-plus::after {
-                transform:
-                    translate(-50%, -50%) rotate(90deg);
-            }
-
-
-            .bi-card[open] .bi-card-plus::before,
-            .bi-card[open] .bi-card-plus::after {
-                background: var(--gold);
-            }
-
-
-
-            /* ============================================================
-   CARD BODY
-   ============================================================ */
-
-            .bi-card-body {
-                padding:
-                    0 38px 27px 51px;
-            }
-
-
-            .bi-card-body p {
-                max-width: 450px;
-
-                margin:
-                    0 0 17px;
-
-                font:
-                    400 11.5px/1.82 "Manrope",
-                    sans-serif;
-
-                color: #72797d;
-            }
-
-
-
-            /* ============================================================
-   TAGS
-   ============================================================ */
-
-            .bi-tags {
-                display: flex;
-
-                flex-wrap: wrap;
-
-                gap: 7px;
-            }
-
-
-            .bi-tags span {
-                padding:
-                    7px 9px;
-
-                border:
-                    1px solid rgba(34, 50, 59, .09);
-
-                background: #f3f5f4;
-
-                font:
-                    600 7px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .08em;
-
-                text-transform: uppercase;
-
-                color: #6d7478;
-            }
-
-
-
-            /* ============================================================
-   NOTE
-   ============================================================ */
-
-            .bi-note {
-                max-width: 430px;
-
-                margin:
-                    24px 0 0;
-
-                font:
-                    400 10px/1.72 "Manrope",
-                    sans-serif;
-
-                color: #7c8286;
-            }
-
-
-
-            /* ============================================================
-   CTA
-   ============================================================ */
-
-            .bi-link {
-                position: relative;
-
-                display: inline-flex;
-
-                align-items: center;
-
-                gap: 9px;
-
-                margin-top: 21px;
-
-                padding-bottom: 5px;
-
-                color: #242a2e;
-
-                text-decoration: none;
-
-                font:
-                    650 9px/1 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .10em;
-
-                text-transform: uppercase;
-            }
-
-
-            .bi-link::after {
-                content: "";
-
-                position: absolute;
-
-                left: 0;
-                bottom: 0;
-
-                width: 100%;
-                height: 1px;
-
-                background:
-                    linear-gradient(90deg,
-                        #252c31,
-                        var(--gold));
-
-                transform-origin: left;
-
-                transition:
-                    transform .3s ease;
-            }
-
-
-            .bi-link:hover::after {
-                transform:
-                    scaleX(.55);
-            }
-
-
-            .bi-link span {
-                font-size: 13px;
-
-                transition:
-                    transform .3s ease;
-            }
-
-
-            .bi-link:hover span {
-                transform:
-                    translate(3px, -3px);
-            }
-
-
-
-            /* ============================================================
-   FOOTER
-   ============================================================ */
-
-            .bi-footer {
-                display: grid;
-
-                grid-template-columns:
-                    repeat(4, 1fr);
-
-                gap: 20px;
-
-                margin-top:
-                    clamp(65px,
-                        7vw,
-                        95px);
-
-                padding-top: 22px;
-
-                border-top:
-                    1px solid rgba(31, 45, 53, .10);
-            }
-
-
-            .bi-footer span {
-                position: relative;
-
-                padding-left: 14px;
-
-                font:
-                    650 8px/1.5 "Manrope",
-                    sans-serif;
-
-                letter-spacing: .12em;
-
-                color: #747b7f;
-            }
-
-
-            .bi-footer span::before {
-                content: "";
-
-                position: absolute;
-
-                left: 0;
-                top: 5px;
-
-                width: 5px;
-                height: 5px;
-
-                border-radius: 50%;
-
-                background: var(--gold);
-            }
-
-
-
-            /* ============================================================
-   ENTRANCE
-   ============================================================ */
-
-            .bi-reveal {
-                opacity: 0;
-
-                transform:
-                    translateY(22px);
-
-                transition:
-                    opacity .9s ease,
-                    transform .9s cubic-bezier(.2, .7, .2, 1);
-            }
-
-
-            .bi-reveal.visible {
-                opacity: 1;
-
-                transform: none;
-            }
-
-
-
-            /* ============================================================
+.bi2-section{
+    min-height:clamp(760px,56vw,980px);
+    background:
+        radial-gradient(circle at 28% 46%,rgba(44,135,171,.10),transparent 32%),
+        linear-gradient(180deg,#07101a 0%,#03070b 100%);
+}
+
+/* The visual now sits as a framed long-view composition on the left.
+   This gives the building more space around it and preserves the full image. */
+.bi2-frame{
+    left:clamp(22px,2.4vw,46px);
+    right:clamp(390px,29vw,540px);
+    top:clamp(52px,6vh,88px);
+    bottom:clamp(88px,9vh,128px);
+    border-radius:18px;
+    overflow:hidden;
+    background:#050a0f;
+    box-shadow:
+        0 34px 88px rgba(0,0,0,.34),
+        inset 0 0 0 1px rgba(255,255,255,.035);
+}
+
+/* Full image stays visible — slightly pulled back for a true long-view feel. */
+.bi2-off,
+.bi2-on-full{
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center center;
+    transform:scale(.94);
+    transform-origin:center center;
+}
+
+/* Each animated ON layer follows the exact same long-view frame. */
+.bi2-system-layers{
+    inset:0;
+}
+
+.bi2-layer{
+    background-size:94% auto;
+    background-position:center center;
+}
+
+/* Pings now live visually inside the image frame, so they stay aligned
+   even when the visual is pulled back. */
+.bi2-frame .bi2-ping{
+    z-index:16;
+}
+
+/* Black edge treatment around the framed image — no visible hard ending. */
+.bi2-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:10;
+    pointer-events:none;
+    border-radius:inherit;
+    background:
+        linear-gradient(180deg,
+            rgba(2,6,10,.26) 0%,
+            transparent 13%,
+            transparent 78%,
+            rgba(2,6,10,.52) 100%),
+        linear-gradient(90deg,
+            rgba(2,6,10,.20) 0%,
+            transparent 12%,
+            transparent 88%,
+            rgba(2,6,10,.42) 100%);
+    box-shadow:inset 0 0 70px rgba(0,0,0,.26);
+}
+
+/* Stage backdrop is now a soft ambient extension, not a zoomed replacement. */
+.bi2-backdrop{
+    inset:0;
+    background:
+        radial-gradient(circle at 35% 48%,rgba(61,165,202,.09),transparent 30%),
+        linear-gradient(90deg,
+            rgba(3,7,11,.10) 0%,
+            rgba(3,7,11,.22) 58%,
+            rgba(3,7,11,.76) 78%,
+            #03070b 100%);
+    filter:none;
+    transform:none;
+}
+
+/* Right-side copy gets its own premium breathing room. */
+.bi2-copy{
+    right:clamp(34px,4.2vw,82px);
+    width:min(390px,25vw);
+}
+
+.bi2-title{
+    font-size:clamp(46px,4vw,70px);
+}
+
+.bi2-right-shade{
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            transparent 58%,
+            rgba(3,7,11,.20) 68%,
+            rgba(3,7,11,.64) 79%,
+            rgba(3,7,11,.92) 91%,
+            #03070b 100%);
+}
+
+/* Keep scan/glow focused over the visual instead of washing the whole section. */
+.bi2-scan,
+.bi2-glow{
+    left:clamp(22px,2.4vw,46px);
+    right:clamp(390px,29vw,540px);
+    top:clamp(52px,6vh,88px);
+    bottom:clamp(88px,9vh,128px);
+    border-radius:18px;
+    overflow:hidden;
+}
+
+/* ============================================================
    TABLET
    ============================================================ */
 
-            @media(max-width:1100px) {
+@media(max-width:1100px){
+    .bi2-frame{
+        left:28px;
+        right:330px;
+        top:58px;
+        bottom:112px;
+    }
 
-                .bi-wrap {
-                    width:
-                        calc(100% - 58px);
-                }
+    .bi2-copy{
+        right:28px;
+        width:285px;
+    }
 
+    .bi2-scan,
+    .bi2-glow{
+        left:28px;
+        right:330px;
+        top:58px;
+        bottom:112px;
+    }
+}
 
-                .bi-layout {
-                    grid-template-columns:
-                        minmax(0, 1fr) minmax(320px, .84fr);
-
-                    gap: 48px;
-                }
-
-
-                .bi-visual {
-                    min-height: 500px;
-                }
-
-
-                .bi-title {
-                    font-size:
-                        clamp(62px,
-                            8vw,
-                            104px);
-                }
-
-            }
-
-
-
-            /* ============================================================
-   MOBILE
+/* ============================================================
+   MOBILE — same premium composition, stacked cleanly
    ============================================================ */
 
-            @media(max-width:760px) {
+@media(max-width:760px){
+    .bi2-section{
+        min-height:900px;
+        padding:0;
+    }
 
-                .bi-section {
-                    padding:
-                        65px 0 82px;
+    .bi2-frame{
+        left:16px;
+        right:16px;
+        top:78px;
+        bottom:auto;
+        height:42%;
+        border-radius:14px;
+    }
 
-                    background:
-                        radial-gradient(circle at 10% 35%,
-                            rgba(65, 155, 177, .06),
-                            transparent 32%),
-                        #fff;
-                }
+    .bi2-off,
+    .bi2-on-full{
+        transform:scale(.92);
+    }
 
+    .bi2-layer{
+        background-size:92% auto;
+    }
 
-                .bi-wrap {
-                    width:
-                        calc(100% - 34px);
-                }
+    .bi2-system-layers{
+        height:100%;
+    }
 
+    .bi2-scan,
+    .bi2-glow{
+        left:16px;
+        right:16px;
+        top:78px;
+        bottom:auto;
+        height:42%;
+        border-radius:14px;
+    }
 
-                .bi-head {
-                    display: block;
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom{
+        inset:0;
+        height:100%;
+    }
 
-                    margin-bottom: 45px;
-                }
+    .bi2-right-shade{
+        background:
+            linear-gradient(180deg,
+                transparent 0%,
+                transparent 36%,
+                rgba(3,7,11,.22) 45%,
+                rgba(3,7,11,.76) 56%,
+                #03070b 68%,
+                #03070b 100%);
+    }
 
+    .bi2-copy{
+        left:20px;
+        right:20px;
+        top:auto;
+        bottom:118px;
+        width:auto;
+        max-width:420px;
+    }
 
-                .bi-title {
-                    font-size:
-                        clamp(57px,
-                            17vw,
-                            90px);
-                }
+    .bi2-title{
+        font-size:clamp(40px,11vw,56px);
+    }
 
+    .bi2-status{
+        left:20px;
+        bottom:56px;
+    }
 
-                .bi-head-copy {
-                    margin-top: 39px;
-                }
+    .bi2-progress{
+        left:20px;
+        right:20px;
+        bottom:30px;
+    }
+}
 
+@media(max-width:480px){
+    .bi2-section{
+        min-height:860px;
+    }
 
-                .bi-layout {
-                    display: flex;
+    .bi2-frame,
+    .bi2-scan,
+    .bi2-glow{
+        top:72px;
+        height:38%;
+    }
 
-                    flex-direction: column;
-
-                    gap: 45px;
-                }
-
-
-                .bi-options {
-                    order: 1;
-
-                    width: 100%;
-                }
-
-
-                .bi-visual {
-                    order: 2;
-
-                    width: 100%;
-
-                    min-height: 435px;
-
-                    aspect-ratio: auto;
-                }
-
-
-                .bi-card-title {
-                    font-size: 19px;
-                }
-
-
-                .bi-card-body {
-                    padding:
-                        0 20px 25px 51px;
-                }
-
-
-                .bi-footer {
-                    grid-template-columns:
-                        1fr 1fr;
-
-                    gap: 15px;
-
-                    margin-top: 50px;
-                }
-
-
-                .bi-status {
-                    left: 12px;
-                    right: 12px;
-                    bottom: 15px;
-
-                    padding:
-                        9px 10px;
-                }
-
-
-                .bi-progress {
-                    left: 12px;
-                    right: 12px;
-                    bottom: 9px;
-                }
-
-            }
+    .bi2-copy{
+        bottom:112px;
+    }
+}
 
 
-
-            /* ============================================================
-   SMALL MOBILE
+/* ============================================================
+   FINAL NATURAL FIT + SMOOTH TRANSFORMATION PATCH
    ============================================================ */
 
-            @media(max-width:480px) {
+/* full fit, no zoom, no crop */
+.bi2-frame{
+    left:clamp(18px,2.1vw,40px) !important;
+    right:clamp(395px,29vw,540px) !important;
+    top:clamp(46px,5.4vh,80px) !important;
+    bottom:clamp(82px,8vh,118px) !important;
+    border-radius:16px !important;
+    background:#04080c !important;
+    box-shadow:
+        0 28px 76px rgba(0,0,0,.28),
+        inset 0 0 0 1px rgba(255,255,255,.03) !important;
+}
 
-                .bi-card summary {
-                    grid-template-columns:
-                        28px minmax(0, 1fr) 22px;
+.bi2-off,
+.bi2-on-full{
+    object-fit:contain !important;
+    object-position:center center !important;
+    transform:none !important;
+}
 
-                    gap: 10px;
-                }
+.bi2-system-layers{
+    inset:0 !important;
+}
+
+.bi2-layer{
+    background-size:contain !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
+    opacity:0;
+    filter:
+        saturate(1.03)
+        contrast(1.01)
+        brightness(1.01)
+        blur(9px)
+        drop-shadow(0 0 9px rgba(83,215,255,.08)) !important;
+    transition:
+        opacity 1.02s cubic-bezier(.2,.72,.2,1),
+        filter 1.02s cubic-bezier(.2,.72,.2,1) !important;
+}
+
+.bi2-layer.is-on{
+    opacity:1;
+    filter:
+        saturate(1.03)
+        contrast(1.01)
+        brightness(1.01)
+        blur(0px)
+        drop-shadow(0 0 10px rgba(83,215,255,.10)) !important;
+}
+
+.bi2-on-full{
+    opacity:0;
+    transition:
+        opacity 1.35s cubic-bezier(.2,.72,.2,1),
+        filter 1.35s ease !important;
+    filter:saturate(1.01) contrast(1.01) brightness(.995) !important;
+}
+
+.bi2-section.is-complete .bi2-on-full{
+    opacity:1 !important;
+}
+
+.bi2-frame::before{
+    background:
+        radial-gradient(120% 72% at 16% 4%,
+            rgba(2,6,10,.22) 0%,
+            rgba(2,6,10,.08) 26%,
+            transparent 54%),
+        radial-gradient(95% 70% at 87% 96%,
+            rgba(2,6,10,.18) 0%,
+            rgba(2,6,10,.06) 26%,
+            transparent 58%),
+        linear-gradient(90deg,
+            rgba(2,6,10,.14) 0%,
+            transparent 10%,
+            transparent 87%,
+            rgba(2,6,10,.24) 100%),
+        linear-gradient(180deg,
+            rgba(2,6,10,.18) 0%,
+            transparent 16%,
+            transparent 80%,
+            rgba(2,6,10,.26) 100%) !important;
+    box-shadow:inset 0 0 60px rgba(0,0,0,.18) !important;
+}
+
+/* less uniform, more natural overlays */
+.bi2-left-vignette{
+    background:
+        radial-gradient(85% 120% at -10% 48%,
+            rgba(3,7,11,.44) 0%,
+            rgba(3,7,11,.14) 36%,
+            transparent 70%),
+        linear-gradient(90deg,
+            rgba(2,6,10,.10) 0%,
+            transparent 30%) !important;
+}
+
+.bi2-right-shade{
+    background:
+        radial-gradient(105% 100% at 112% 48%,
+            rgba(3,7,11,.98) 0%,
+            rgba(3,7,11,.84) 22%,
+            rgba(3,7,11,.46) 42%,
+            rgba(3,7,11,.14) 62%,
+            transparent 80%),
+        linear-gradient(90deg,
+            transparent 0%,
+            transparent 56%,
+            rgba(3,7,11,.12) 66%,
+            rgba(3,7,11,.42) 78%,
+            rgba(3,7,11,.76) 90%,
+            rgba(3,7,11,.94) 100%) !important;
+}
+
+.bi2-top-bottom{
+    background:
+        radial-gradient(110% 64% at 36% -8%,
+            rgba(3,7,11,.30) 0%,
+            rgba(3,7,11,.12) 20%,
+            transparent 52%),
+        radial-gradient(125% 72% at 72% 112%,
+            rgba(3,7,11,.42) 0%,
+            rgba(3,7,11,.14) 24%,
+            transparent 58%),
+        linear-gradient(180deg,
+            rgba(2,6,10,.20) 0%,
+            rgba(2,6,10,.05) 12%,
+            transparent 24%,
+            transparent 73%,
+            rgba(2,6,10,.08) 88%,
+            rgba(2,6,10,.22) 100%) !important;
+}
+
+/* softer scan / glow so transformation feels premium and not obvious */
+.bi2-scan{
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            rgba(111,230,255,.02) 43%,
+            rgba(151,244,255,.24) 50%,
+            rgba(111,230,255,.02) 57%,
+            transparent 100%) !important;
+}
+
+.bi2-section.is-transforming .bi2-scan{
+    animation:bi2Scan 5.8s cubic-bezier(.2,.72,.2,1) both !important;
+}
+
+.bi2-glow{
+    background:
+        radial-gradient(circle at 36% 46%,
+            rgba(83,215,255,.12) 0%,
+            rgba(62,159,214,.05) 24%,
+            transparent 50%) !important;
+}
+
+.bi2-section.is-transforming .bi2-glow{
+    animation:bi2Glow 5.9s ease both !important;
+}
+
+/* keep pings elegant */
+.bi2-ping{
+    width:8px !important;
+    height:8px !important;
+    margin:-4px 0 0 -4px !important;
+    box-shadow:
+        0 0 0 5px rgba(93,221,255,.06),
+        0 0 18px rgba(93,221,255,.42) !important;
+}
+
+/* mobile fit stays full and un-cropped */
+@media(max-width:760px){
+    .bi2-frame{
+        left:16px !important;
+        right:16px !important;
+        top:74px !important;
+        bottom:auto !important;
+        height:40% !important;
+        border-radius:14px !important;
+    }
+
+    .bi2-off,
+    .bi2-on-full{
+        transform:none !important;
+    }
+
+    .bi2-layer{
+        background-size:contain !important;
+    }
+
+    .bi2-scan,
+    .bi2-glow{
+        left:16px !important;
+        right:16px !important;
+        top:74px !important;
+        bottom:auto !important;
+        height:40% !important;
+        border-radius:14px !important;
+    }
+
+    .bi2-top-bottom{
+        background:
+            radial-gradient(120% 64% at 38% -10%,
+                rgba(3,7,11,.24) 0%,
+                rgba(3,7,11,.10) 18%,
+                transparent 50%),
+            radial-gradient(130% 76% at 68% 112%,
+                rgba(3,7,11,.34) 0%,
+                rgba(3,7,11,.12) 20%,
+                transparent 56%),
+            linear-gradient(180deg,
+                rgba(2,6,10,.14) 0%,
+                transparent 16%,
+                transparent 78%,
+                rgba(2,6,10,.28) 100%) !important;
+    }
+}
 
 
-                .bi-card-body {
-                    padding-left: 38px;
-                }
-
-
-                .bi-footer {
-                    font-size: 7px;
-                }
-
-            }
-
-
-
-            /* ============================================================
-   REDUCED MOTION
+/* ============================================================
+   FINAL PREMIUM BANNER OVERLAY PATCH
+   Text sits ON the image. Full banner fit. Premium top/bottom shade.
    ============================================================ */
 
-            @media(prefers-reduced-motion:reduce) {
-
-                .bi-section *,
-                .bi-section *::before,
-                .bi-section *::after {
-                    animation: none !important;
-
-                    transition: none !important;
-                }
-
-
-                .bi-reveal {
-                    opacity: 1;
-
-                    transform: none;
-                }
-
-            }
-        </style>
-
-
-
-        <!-- ============================================================
-     02 — HTML
-     ============================================================ -->
-
-        <section class="bi-section" id="iot">
-
-            <div class="bi-wrap">
-
-
-                <!-- ====================================================
-             HEADER
-             ==================================================== -->
-
-                <header class="
-                bi-head
-                bi-reveal
-            ">
-
-
-                    <div>
-
-
-                        <div class="bi-eyebrow">
-
-                            03 / Building Intelligence
-
-                        </div>
-
-
-
-                        <h2 class="bi-title">
-
-                            <span>
-                                BMS &amp; IOT
-                            </span>
-
-                        </h2>
-
-
-                    </div>
-
-
-
-                    <div class="bi-head-copy">
-
-
-                        <strong>
-
-                            Everything connected.
-                            Everything visible.
-
-                        </strong>
-
-
-                        <p>
-
-                            Bring building systems, controls and operational
-                            data into one connected environment — from field
-                            devices and BMS control to IoT gateways, cloud
-                            connectivity and intelligent dashboards.
-
-                        </p>
-
-
-                    </div>
-
-
-                </header>
-
-
-
-                <!-- ====================================================
-             MAIN LAYOUT
-             ==================================================== -->
-
-                <div class="bi-layout">
-
-
-                    <!-- =================================================
-                 LEFT — SMART BUILDING
-                 ================================================= -->
-
-                    <div class="
-                    bi-visual
-                    bi-reveal
-                " id="biVisual">
-
-
-                        <!-- TOP -->
-
-                        <div class="bi-visual-top">
-
-
-                            <span>
-                                Smart Building Network
-                            </span>
-
-
-                            <span class="bi-live">
-
-                                <i></i>
-
-                                Live Intelligence
-
-                            </span>
-
-
-                        </div>
-
-
-
-                        <!-- PULSE -->
-
-                        <div class="bi-building-pulse" aria-hidden="true"></div>
-
-
-
-                        <!-- =================================================
-                     SVG
-                     ================================================= -->
-
-                        <svg class="bi-building-svg" viewBox="0 0 760 620" preserveAspectRatio="xMidYMid meet"
-                            role="img"
-                            aria-label="Smart commercial building connected to lighting HVAC energy water access safety BMS IoT cloud and dashboard">
-
-
-                            <!-- =================================================
-                         PLATFORM
-                         ================================================= -->
-
-                            <path d="
-                        M115 490
-                        L390 350
-                        L680 488
-                        L398 592
-                        Z
-                        " fill="rgba(47,95,110,.08)" stroke="rgba(67,137,151,.12)" />
-
-
-                            <path d="
-                        M154 487
-                        L392 370
-                        L640 487
-                        L398 572
-                        Z
-                        " fill="none" stroke="rgba(67,137,151,.12)" />
-
-
-
-                            <!-- =================================================
-                         BUILDING BODY
-                         ================================================= -->
-
-                            <g>
-
-
-                                <!-- roof -->
-
-                                <path class="bi-building-top" d="
-                            M292 126
-                            L446 88
-                            L510 126
-                            L357 168
-                            Z
-                            " />
-
-
-                                <!-- left wall -->
-
-                                <path class="bi-building-side" d="
-                            M292 126
-                            L357 168
-                            L357 456
-                            L292 415
-                            Z
-                            " />
-
-
-                                <!-- front glass wall -->
-
-                                <path class="bi-building-body" d="
-                            M357 168
-                            L510 126
-                            L510 414
-                            L357 456
-                            Z
-                            " />
-
-
-
-                                <!-- vertical glazing -->
-
-                                <path d="M387 160V447" stroke="rgba(208,242,244,.12)" />
-
-                                <path d="M420 151V438" stroke="rgba(208,242,244,.12)" />
-
-                                <path d="M452 142V429" stroke="rgba(208,242,244,.12)" />
-
-                                <path d="M483 134V420" stroke="rgba(208,242,244,.12)" />
-
-
-
-                                <!-- =================================================
-                             FLOOR 01 WINDOWS
-                             ================================================= -->
-
-                                <g>
-
-                                    <rect class="bi-window" data-window="0" x="370" y="180" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="0" x="403" y="171" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="0" x="437" y="162" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="0" x="471" y="153" width="25" height="25" />
-
-                                </g>
-
-
-
-                                <!-- =================================================
-                             FLOOR 02 WINDOWS
-                             ================================================= -->
-
-                                <g>
-
-                                    <rect class="bi-window" data-window="1" x="370" y="229" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="1" x="403" y="220" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="1" x="437" y="211" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="1" x="471" y="202" width="25" height="25" />
-
-                                </g>
-
-
-
-                                <!-- =================================================
-                             FLOOR 03 WINDOWS
-                             ================================================= -->
-
-                                <g>
-
-                                    <rect class="bi-window" data-window="2" x="370" y="278" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="2" x="403" y="269" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="2" x="437" y="260" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="2" x="471" y="251" width="25" height="25" />
-
-                                </g>
-
-
-
-                                <!-- =================================================
-                             FLOOR 04 WINDOWS
-                             ================================================= -->
-
-                                <g>
-
-                                    <rect class="bi-window" data-window="3" x="370" y="327" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="3" x="403" y="318" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="3" x="437" y="309" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="3" x="471" y="300" width="25" height="25" />
-
-                                </g>
-
-
-
-                                <!-- =================================================
-                             FLOOR 05 WINDOWS
-                             ================================================= -->
-
-                                <g>
-
-                                    <rect class="bi-window" data-window="4" x="370" y="376" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="4" x="403" y="367" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="4" x="437" y="358" width="25" height="25" />
-
-                                    <rect class="bi-window" data-window="4" x="471" y="349" width="25" height="25" />
-
-                                </g>
-
-
-
-                                <!-- FLOOR LINES -->
-
-                                <path class="bi-floor-line" d="M357 215L510 173" />
-
-                                <path class="bi-floor-line" d="M357 264L510 222" />
-
-                                <path class="bi-floor-line" d="M357 313L510 271" />
-
-                                <path class="bi-floor-line" d="M357 362L510 320" />
-
-                                <path class="bi-floor-line" d="M357 411L510 369" />
-
-
-
-                                <!-- LIVE FLOOR LINES -->
-
-                                <path class="bi-floor-live" data-floor-live="0" d="M357 215L510 173" />
-
-                                <path class="bi-floor-live" data-floor-live="1" d="M357 264L510 222" />
-
-                                <path class="bi-floor-live" data-floor-live="2" d="M357 313L510 271" />
-
-                                <path class="bi-floor-live" data-floor-live="3" d="M357 362L510 320" />
-
-                                <path class="bi-floor-live" data-floor-live="4" d="M357 411L510 369" />
-
-
-
-                                <!-- entrance -->
-
-                                <path d="
-                            M400 444
-                            V402
-                            L439 392
-                            V433
-                            " fill="rgba(228,184,104,.72)" stroke="rgba(203,153,67,.52)" />
-
-
-                            </g>
-
-
-
-                            <!-- =================================================
-                         LIGHTING
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="0">
-
-                                <rect x="43" y="122" width="132" height="43" rx="8" />
-
-
-                                <text x="109" y="149" text-anchor="middle">
-                                    LIGHTING
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M175 144
-                        H278
-                        C313 144 319 177 357 190
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="0" d="
-                        M175 144
-                        H278
-                        C313 144 319 177 357 190
-                        " />
-
-
-
-                            <!-- =================================================
-                         HVAC
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="1">
-
-                                <rect x="585" y="122" width="132" height="43" rx="8" />
-
-
-                                <text x="651" y="149" text-anchor="middle">
-                                    HVAC
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M585 144
-                        H540
-                        C519 144 516 183 507 203
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="1" d="
-                        M585 144
-                        H540
-                        C519 144 516 183 507 203
-                        " />
-
-
-
-                            <!-- =================================================
-                         ENERGY
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="2">
-
-                                <rect x="43" y="241" width="132" height="43" rx="8" />
-
-
-                                <text x="109" y="268" text-anchor="middle">
-                                    ENERGY
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M175 263
-                        H280
-                        C317 263 326 281 357 291
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="2" d="
-                        M175 263
-                        H280
-                        C317 263 326 281 357 291
-                        " />
-
-
-
-                            <!-- =================================================
-                         WATER
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="3">
-
-                                <rect x="585" y="241" width="132" height="43" rx="8" />
-
-
-                                <text x="651" y="268" text-anchor="middle">
-                                    WATER
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M585 263
-                        H540
-                        C520 263 516 297 507 311
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="3" d="
-                        M585 263
-                        H540
-                        C520 263 516 297 507 311
-                        " />
-
-
-
-                            <!-- =================================================
-                         ACCESS
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="4">
-
-                                <rect x="43" y="357" width="132" height="43" rx="8" />
-
-
-                                <text x="109" y="384" text-anchor="middle">
-                                    ACCESS
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M175 379
-                        H280
-                        C318 379 329 388 357 392
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="4" d="
-                        M175 379
-                        H280
-                        C318 379 329 388 357 392
-                        " />
-
-
-
-                            <!-- =================================================
-                         SAFETY
-                         ================================================= -->
-
-                            <g class="bi-system-card" data-system-card="5">
-
-                                <rect x="585" y="357" width="132" height="43" rx="8" />
-
-
-                                <text x="651" y="384" text-anchor="middle">
-                                    SAFETY
-                                </text>
-
-                            </g>
-
-
-                            <path class="bi-system-path-base" d="
-                        M585 379
-                        H540
-                        C520 379 516 398 507 409
-                        " />
-
-
-                            <path class="bi-system-path" data-system-path="5" d="
-                        M585 379
-                        H540
-                        C520 379 516 398 507 409
-                        " />
-
-
-
-                            <!-- =================================================
-                         BUILDING → BMS
-                         ================================================= -->
-
-                            <path class="bi-main-route" d="
-                        M408 451
-                        V482
-                        " />
-
-
-                            <path class="bi-main-route-live" data-main-route="0" d="
-                        M408 451
-                        V482
-                        " />
-
-
-
-                            <!-- BMS CORE -->
-
-                            <rect class="bi-hub" data-hub="0" x="299" y="482" width="174" height="42" rx="9" />
-
-
-                            <text class="bi-hub-label" x="386" y="508" text-anchor="middle">
-                                BMS CONTROL CORE
-                            </text>
-
-
-
-                            <!-- =================================================
-                         BMS → IOT GATEWAY
-                         ================================================= -->
-
-                            <path class="bi-main-route" d="
-                        M386 524
-                        V540
-                        " />
-
-
-                            <path class="bi-main-route-live" data-main-route="1" d="
-                        M386 524
-                        V540
-                        " />
-
-
-
-                            <!-- IOT GATEWAY -->
-
-                            <rect class="bi-hub" data-hub="1" x="299" y="540" width="174" height="42" rx="9" />
-
-
-                            <text class="bi-hub-label" x="386" y="566" text-anchor="middle">
-                                IOT GATEWAY
-                            </text>
-
-
-
-                            <!-- =================================================
-                         IOT → CLOUD
-                         ================================================= -->
-
-                            <path class="bi-main-route" d="
-                        M473 561
-                        H515
-                        " />
-
-
-                            <path class="bi-main-route-live" data-main-route="2" d="
-                        M473 561
-                        H515
-                        " />
-
-
-
-                            <!-- CLOUD -->
-
-                            <rect class="bi-hub" data-hub="2" x="515" y="520" width="155" height="42" rx="9" />
-
-
-                            <text class="bi-hub-label" x="592.5" y="546" text-anchor="middle">
-                                CLOUD / SERVER
-                            </text>
-
-
-
-                            <!-- =================================================
-                         CLOUD → DASHBOARD
-                         ================================================= -->
-
-                            <path class="bi-main-route" d="
-                        M592
-                        562
-                        V578
-                        " />
-
-
-                            <path class="bi-main-route-live" data-main-route="3" d="
-                        M592
-                        562
-                        V578
-                        " />
-
-
-
-                            <!-- DASHBOARD -->
-
-                            <rect class="bi-hub" data-hub="3" x="515" y="578" width="155" height="32" rx="8" />
-
-
-                            <text class="bi-hub-label" x="592.5" y="599" text-anchor="middle">
-                                DASHBOARD
-                            </text>
-
-
-                        </svg>
-
-
-
-                        <!-- STATUS -->
-
-                        <div class="bi-status">
-
-
-                            <span class="bi-status-dot"></span>
-
-
-                            <div class="bi-status-copy">
-
-                                <strong id="biStatusTitle">
-
-                                    Building systems ready
-
-                                </strong>
-
-
-                                <small id="biStatusSub">
-
-                                    Preparing intelligence layer
-
-                                </small>
-
-                            </div>
-
-
-                            <span class="bi-status-count" id="biStatusCount">
-                                00 / 10
-                            </span>
-
-
-                        </div>
-
-
-
-                        <!-- PROGRESS -->
-
-                        <div class="bi-progress">
-
-                            <span id="biProgress"></span>
-
-                        </div>
-
-
-                    </div>
-
-
-
-                    <!-- =================================================
-                 RIGHT CONTENT
-                 ================================================= -->
-
-                    <div class="
-                    bi-options
-                    bi-reveal
-                ">
-
-
-                        <div class="bi-options-head">
-
-
-                            <small>
-
-                                Connected Building Solutions
-
-                            </small>
-
-
-                            <strong>
-
-                                Choose the right path for your
-                                building infrastructure.
-
-                            </strong>
-
-
-                        </div>
-
-
-
-                        <div class="bi-cards">
-
-
-                            <!-- =================================================
-                         01 — BMS
-                         ================================================= -->
-
-                            <details class="bi-card" data-bi-mode="0" open>
-
-
-                                <summary>
-
-
-                                    <span class="bi-card-num">
-
-                                        01
-
-                                    </span>
-
-
-                                    <span class="bi-card-title">
-
-                                        BMS
-
-                                    </span>
-
-
-                                    <span class="bi-card-plus" aria-hidden="true"></span>
-
-
-                                </summary>
-
-
-
-                                <div class="bi-card-body">
-
-
-                                    <p>
-
-                                        Centralise building monitoring and
-                                        control across HVAC, lighting,
-                                        energy, water, access and safety
-                                        systems through one operational view.
-
-                                    </p>
-
-
-                                    <div class="bi-tags">
-
-
-                                        <span>
-                                            Central Control
-                                        </span>
-
-
-                                        <span>
-                                            System Visibility
-                                        </span>
-
-
-                                        <span>
-                                            Building Operations
-                                        </span>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </details>
-
-
-
-                            <!-- =================================================
-                         02 — EXISTING BMS + IOT
-                         ================================================= -->
-
-                            <details class="bi-card" data-bi-mode="1">
-
-
-                                <summary>
-
-
-                                    <span class="bi-card-num">
-
-                                        02
-
-                                    </span>
-
-
-                                    <span class="bi-card-title">
-
-                                        BMS with IoT
-
-                                    </span>
-
-
-                                    <span class="bi-card-plus" aria-hidden="true"></span>
-
-
-                                </summary>
-
-
-
-                                <div class="bi-card-body">
-
-
-                                    <p>
-
-                                        Extend an existing BMS using
-                                        compatible IoT sensors, gateways
-                                        and connectivity for remote
-                                        monitoring, alerts, trends and
-                                        connected insights.
-
-                                    </p>
-
-
-                                    <div class="bi-tags">
-
-
-                                        <span>
-                                            Existing BMS
-                                        </span>
-
-
-                                        <span>
-                                            IoT Integration
-                                        </span>
-
-
-                                        <span>
-                                            Remote Insights
-                                        </span>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </details>
-
-
-
-                            <!-- =================================================
-                         03 — COMPLETE BMS + IOT
-                         ================================================= -->
-
-                            <details class="bi-card" data-bi-mode="2">
-
-
-                                <summary>
-
-
-                                    <span class="bi-card-num">
-
-                                        03
-
-                                    </span>
-
-
-                                    <span class="bi-card-title">
-
-                                        BMS &amp; IoT
-
-                                    </span>
-
-
-                                    <span class="bi-card-plus" aria-hidden="true"></span>
-
-
-                                </summary>
-
-
-
-                                <div class="bi-card-body">
-
-
-                                    <p>
-
-                                        Create a complete connected
-                                        infrastructure from field devices
-                                        and building controls through
-                                        BMS, IoT gateways, cloud systems
-                                        and intelligent dashboards.
-
-                                    </p>
-
-
-                                    <div class="bi-tags">
-
-
-                                        <span>
-                                            End-to-End
-                                        </span>
-
-
-                                        <span>
-                                            Cloud Ready
-                                        </span>
-
-
-                                        <span>
-                                            Scalable Architecture
-                                        </span>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </details>
-
-
-                        </div>
-
-
-
-                        <p class="bi-note">
-
-                            Each solution is configured around the
-                            building, available infrastructure,
-                            communication protocols and operational
-                            requirements.
-
-                        </p>
-
-
-
-                        <a href="#contact" class="bi-link">
-
-                            Discuss your building
-
-                            <span>
-                                ↗
-                            </span>
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- ====================================================
-             FOOTER
-             ==================================================== -->
-
-                <div class="
-                bi-footer
-                bi-reveal
-            ">
-
-
-                    <span>
-                        CENTRAL CONTROL
-                    </span>
-
-
-                    <span>
-                        MULTI-SYSTEM INTEGRATION
-                    </span>
-
-
-                    <span>
-                        REMOTE VISIBILITY
-                    </span>
-
-
-                    <span>
-                        CONNECTED INTELLIGENCE
-                    </span>
-
-
-                </div>
-
-
+.bi2-section{
+    min-height:clamp(760px,54vw,950px) !important;
+    background:#03070b !important;
+}
+
+.bi2-stage{
+    inset:0 !important;
+}
+
+.bi2-frame{
+    left:clamp(18px,2vw,34px) !important;
+    right:clamp(18px,2vw,34px) !important;
+    top:clamp(26px,3.5vh,42px) !important;
+    bottom:clamp(26px,3.5vh,42px) !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+    background:#060a0f !important;
+    box-shadow:
+        0 26px 72px rgba(0,0,0,.28),
+        inset 0 0 0 1px rgba(255,255,255,.035) !important;
+}
+
+.bi2-off,
+.bi2-on-full{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    transform:none !important;
+}
+
+.bi2-system-layers{
+    inset:0 !important;
+}
+
+.bi2-layer{
+    background-size:contain !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
+}
+
+.bi2-backdrop{
+    display:none !important;
+}
+
+/* Natural premium shade — strongest top and bottom, subtle side support */
+.bi2-left-vignette{
+    background:
+        linear-gradient(90deg,
+            rgba(3,7,11,.30) 0%,
+            rgba(3,7,11,.12) 12%,
+            rgba(3,7,11,0) 28%) !important;
+}
+
+.bi2-right-shade{
+    background:
+        radial-gradient(92% 82% at 100% 22%,
+            rgba(3,7,11,.82) 0%,
+            rgba(3,7,11,.56) 22%,
+            rgba(3,7,11,.22) 44%,
+            transparent 72%),
+        linear-gradient(90deg,
+            transparent 0%,
+            transparent 56%,
+            rgba(3,7,11,.08) 68%,
+            rgba(3,7,11,.28) 82%,
+            rgba(3,7,11,.52) 100%) !important;
+}
+
+.bi2-top-bottom{
+    background:
+        linear-gradient(180deg,
+            rgba(3,7,11,.88) 0%,
+            rgba(3,7,11,.64) 10%,
+            rgba(3,7,11,.18) 22%,
+            rgba(3,7,11,0) 36%,
+            rgba(3,7,11,0) 64%,
+            rgba(3,7,11,.14) 78%,
+            rgba(3,7,11,.54) 90%,
+            rgba(3,7,11,.90) 100%) !important;
+}
+
+/* Scope scan and glow to full frame */
+.bi2-scan,
+.bi2-glow{
+    left:clamp(18px,2vw,34px) !important;
+    right:clamp(18px,2vw,34px) !important;
+    top:clamp(26px,3.5vh,42px) !important;
+    bottom:clamp(26px,3.5vh,42px) !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+}
+
+/* TEXT ON IMAGE */
+.bi2-copy{
+    position:absolute !important;
+    z-index:24 !important;
+    top:clamp(64px,8vh,92px) !important;
+    right:clamp(42px,4vw,72px) !important;
+    left:auto !important;
+    bottom:auto !important;
+    width:min(390px,28vw) !important;
+    transform:none !important;
+    padding:0 !important;
+}
+
+/* Right-top heading */
+.bi2-kicker{
+    margin-bottom:16px !important;
+    justify-content:flex-start !important;
+    color:rgba(219,232,237,.72) !important;
+}
+
+.bi2-title{
+    margin:0 !important;
+    color:#ffffff !important;
+    font:700 clamp(46px,4.2vw,70px)/.92 "Manrope","Inter",sans-serif !important;
+    letter-spacing:-.055em !important;
+    text-transform:uppercase !important;
+    text-shadow:
+        0 2px 16px rgba(0,0,0,.34),
+        0 8px 34px rgba(0,0,0,.42) !important;
+}
+
+.bi2-title em{
+    display:none !important;
+}
+
+.bi2-slogan{
+    margin-top:18px !important;
+    max-width:350px !important;
+    color:#f0f4f5 !important;
+    font:400 clamp(18px,1.22vw,21px)/1.38 Georgia,"Times New Roman",serif !important;
+    text-shadow:
+        0 2px 14px rgba(0,0,0,.32),
+        0 8px 28px rgba(0,0,0,.38) !important;
+}
+
+.bi2-description{
+    margin-top:12px !important;
+    max-width:350px !important;
+    color:rgba(216,227,232,.82) !important;
+    font:480 11px/1.72 "Manrope","Inter",sans-serif !important;
+    text-shadow:0 2px 14px rgba(0,0,0,.30) !important;
+}
+
+.bi2-capabilities{
+    margin-top:18px !important;
+    max-width:360px !important;
+}
+
+.bi2-capabilities span{
+    color:rgba(228,238,241,.76) !important;
+    background:rgba(255,255,255,.05) !important;
+    border:1px solid rgba(255,255,255,.10) !important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+/* Status kept on image bottom-left */
+.bi2-status{
+    left:clamp(36px,3vw,54px) !important;
+    bottom:clamp(50px,6vh,72px) !important;
+    z-index:25 !important;
+}
+
+.bi2-progress{
+    left:clamp(36px,3vw,54px) !important;
+    right:clamp(36px,3vw,54px) !important;
+    bottom:clamp(24px,3vh,34px) !important;
+    z-index:25 !important;
+}
+
+/* Mobile */
+@media(max-width:760px){
+    .bi2-section{
+        min-height:900px !important;
+    }
+
+    .bi2-frame{
+        left:14px !important;
+        right:14px !important;
+        top:18px !important;
+        bottom:18px !important;
+        border-radius:14px !important;
+    }
+
+    .bi2-scan,
+    .bi2-glow{
+        left:14px !important;
+        right:14px !important;
+        top:18px !important;
+        bottom:18px !important;
+        height:auto !important;
+        border-radius:14px !important;
+    }
+
+    .bi2-right-shade{
+        background:
+            radial-gradient(110% 72% at 100% 20%,
+                rgba(3,7,11,.86) 0%,
+                rgba(3,7,11,.54) 26%,
+                rgba(3,7,11,.18) 46%,
+                transparent 72%),
+            linear-gradient(180deg,
+                transparent 0%,
+                transparent 56%,
+                rgba(3,7,11,.18) 74%,
+                rgba(3,7,11,.58) 90%,
+                rgba(3,7,11,.82) 100%) !important;
+    }
+
+    .bi2-top-bottom{
+        background:
+            linear-gradient(180deg,
+                rgba(3,7,11,.88) 0%,
+                rgba(3,7,11,.58) 11%,
+                rgba(3,7,11,.16) 22%,
+                rgba(3,7,11,0) 34%,
+                rgba(3,7,11,0) 62%,
+                rgba(3,7,11,.10) 76%,
+                rgba(3,7,11,.42) 88%,
+                rgba(3,7,11,.86) 100%) !important;
+    }
+
+    .bi2-copy{
+        top:42px !important;
+        right:22px !important;
+        left:22px !important;
+        width:auto !important;
+        max-width:320px !important;
+    }
+
+    .bi2-title{
+        font-size:clamp(34px,9.2vw,50px) !important;
+    }
+
+    .bi2-slogan{
+        font-size:16px !important;
+    }
+
+    .bi2-description{
+        font-size:10px !important;
+        line-height:1.64 !important;
+        max-width:290px !important;
+    }
+
+    .bi2-capabilities{
+        gap:6px !important;
+        margin-top:15px !important;
+        max-width:290px !important;
+    }
+
+    .bi2-status{
+        left:20px !important;
+        bottom:54px !important;
+    }
+
+    .bi2-progress{
+        left:20px !important;
+        right:20px !important;
+        bottom:26px !important;
+    }
+}
+
+</style>
+
+
+<section class="bi2-section" id="iot" aria-label="BMS to IoT transformation">
+
+    <div class="bi2-stage">
+
+        <div class="bi2-backdrop" aria-hidden="true"></div>
+
+        <div class="bi2-frame">
+            <img
+                class="bi2-off"
+                src="assets/bms-iot-off.png"
+                alt="Modern commercial building before BMS and IoT connectivity"
+                loading="lazy"
+                decoding="async">
+
+            <div class="bi2-system-layers" aria-hidden="true">
+                <div class="bi2-layer" data-bi2-system="0"></div>
+                <div class="bi2-layer" data-bi2-system="1"></div>
+                <div class="bi2-layer" data-bi2-system="2"></div>
+                <div class="bi2-layer" data-bi2-system="3"></div>
+                <div class="bi2-layer" data-bi2-system="4"></div>
+                <div class="bi2-layer" data-bi2-system="5"></div>
+                <div class="bi2-layer" data-bi2-system="6"></div>
             </div>
 
-        </section>
-
-
-
-        <!-- ============================================================
-     03 — JAVASCRIPT
-     ============================================================ -->
-
-        <script>
-
-            document.addEventListener(
-                "DOMContentLoaded",
-                () => {
-
-
-                    /* ======================================================
-                       ROOT
-                       ====================================================== */
-
-                    const section =
-                        document.querySelector(
-                            ".bi-section"
-                        );
-
-
-                    if (!section) {
-                        return;
-                    }
-
-
-
-                    /* ======================================================
-                       DOM
-                       ====================================================== */
-
-                    const visual =
-                        section.querySelector(
-                            "#biVisual"
-                        );
-
-
-                    const systemCards =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-system-card]"
-                            )
-                        ];
-
-
-                    const systemPaths =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-system-path]"
-                            )
-                        ];
-
-
-                    const floors =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-floor-live]"
-                            )
-                        ];
-
-
-                    const windows =
-                        [
-                            ...section.querySelectorAll(
-                                ".bi-window"
-                            )
-                        ];
-
-
-                    const mainRoutes =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-main-route]"
-                            )
-                        ];
-
-
-                    const hubs =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-hub]"
-                            )
-                        ];
-
-
-                    const cards =
-                        [
-                            ...section.querySelectorAll(
-                                "[data-bi-mode]"
-                            )
-                        ];
-
-
-                    const statusTitle =
-                        section.querySelector(
-                            "#biStatusTitle"
-                        );
-
-
-                    const statusSub =
-                        section.querySelector(
-                            "#biStatusSub"
-                        );
-
-
-                    const statusCount =
-                        section.querySelector(
-                            "#biStatusCount"
-                        );
-
-
-                    const progress =
-                        section.querySelector(
-                            "#biProgress"
-                        );
-
-
-                    const reduceMotion =
-                        window.matchMedia(
-                            "(prefers-reduced-motion: reduce)"
-                        ).matches;
-
-
-
-                    /* ======================================================
-                       STATE
-                       ====================================================== */
-
-                    let animationToken =
-                        0;
-
-
-                    let running =
-                        false;
-
-
-                    let visible =
-                        false;
-
-
-                    let activeMode =
-                        0;
-
-
-
-                    /* ======================================================
-                       WAIT
-                       ====================================================== */
-
-                    function wait(ms) {
-
-                        return new Promise(
-                            resolve => {
-
-                                setTimeout(
-                                    resolve,
-                                    ms
-                                );
-
-                            }
-                        );
-
-                    }
-
-
-
-                    /* ======================================================
-                       PREPARE PATHS
-                       ====================================================== */
-
-                    function preparePaths() {
-
-
-                        [
-                            ...systemPaths,
-                            ...mainRoutes
-                        ]
-                            .forEach(
-                                path => {
-
-
-                                    const length =
-                                        path.getTotalLength();
-
-
-                                    path.dataset.length =
-                                        String(length);
-
-
-                                    path.style.strokeDasharray =
-                                        `${length}`;
-
-
-                                    path.style.strokeDashoffset =
-                                        `${length}`;
-
-
-                                    path.style.opacity =
-                                        "0";
-
-
-                                }
-                            );
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       RESET
-                       ====================================================== */
-
-                    function resetBuilding() {
-
-
-                        animationToken++;
-
-
-                        running =
-                            false;
-
-
-
-                        /* system cards */
-
-                        systemCards.forEach(
-                            card => {
-
-                                card.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-
-
-                        /* floors */
-
-                        floors.forEach(
-                            floor => {
-
-                                floor.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-
-
-                        /* windows */
-
-                        windows.forEach(
-                            item => {
-
-                                item.classList.remove(
-                                    "on"
-                                );
-
-                            }
-                        );
-
-
-
-                        /* hubs */
-
-                        hubs.forEach(
-                            hub => {
-
-                                hub.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-
-
-                        /* paths */
-
-                        [
-                            ...systemPaths,
-                            ...mainRoutes
-                        ]
-                            .forEach(
-                                path => {
-
-
-                                    path.classList.remove(
-                                        "flowing",
-                                        "connected"
-                                    );
-
-
-                                    const length =
-                                        Number(
-                                            path.dataset.length
-                                        )
-                                        ||
-                                        path.getTotalLength();
-
-
-                                    path.style.transition =
-                                        "none";
-
-
-                                    path.style.strokeDasharray =
-                                        `${length}`;
-
-
-                                    path.style.strokeDashoffset =
-                                        `${length}`;
-
-
-                                    path.style.opacity =
-                                        "0";
-
-
-                                }
-                            );
-
-
-
-                        progress.style.width =
-                            "0%";
-
-
-                        statusCount.textContent =
-                            "00 / 10";
-
-
-                        statusTitle.textContent =
-                            "Building systems ready";
-
-
-                        statusSub.textContent =
-                            "Preparing intelligence layer";
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       ACTIVATE SYSTEM
-                       ====================================================== */
-
-                    function activateSystem(index) {
-
-
-                        const card =
-                            systemCards[index];
-
-
-                        if (card) {
-
-                            card.classList.add(
-                                "active"
-                            );
-
-                        }
-
-
-
-                        /*
-                         There are 6 systems but 5 visible
-                         building floor groups.
-            
-                         Safety shares final floor zone.
-                        */
-
-                        const floorIndex =
-                            Math.min(
-                                index,
-                                4
-                            );
-
-
-                        floors[
-                            floorIndex
-                        ]?.classList.add(
-                            "active"
-                        );
-
-
-
-                        windows
-                            .filter(
-                                windowItem =>
-
-                                    Number(
-                                        windowItem.dataset.window
-                                    )
-                                    ===
-                                    floorIndex
-                            )
-                            .forEach(
-                                windowItem => {
-
-                                    windowItem.classList.add(
-                                        "on"
-                                    );
-
-                                }
-                            );
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       DRAW PATH
-                       ====================================================== */
-
-                    async function drawPath(
-                        path,
-                        currentToken,
-                        duration
-                    ) {
-
-
-                        if (
-                            currentToken !== animationToken
-                        ) {
-                            return false;
-                        }
-
-
-
-                        const length =
-                            Number(
-                                path.dataset.length
-                            )
-                            ||
-                            path.getTotalLength();
-
-
-
-                        /* reset */
-
-                        path.classList.remove(
-                            "connected"
-                        );
-
-
-                        path.classList.add(
-                            "flowing"
-                        );
-
-
-                        path.style.transition =
-                            "none";
-
-
-                        path.style.strokeDasharray =
-                            `${length}`;
-
-
-                        path.style.strokeDashoffset =
-                            `${length}`;
-
-
-                        path.style.opacity =
-                            "1";
-
-
-
-                        /* force repaint */
-
-                        void path.getBoundingClientRect();
-
-
-
-                        const actualDuration =
-                            reduceMotion
-                                ?
-                                20
-                                :
-                                duration;
-
-
-
-                        /* draw */
-
-                        path.style.transition =
-                            `stroke-dashoffset ${actualDuration}ms cubic-bezier(.18,.78,.2,1)`;
-
-
-                        path.style.strokeDashoffset =
-                            "0";
-
-
-
-                        await wait(
-                            actualDuration
-                        );
-
-
-
-                        if (
-                            currentToken !== animationToken
-                        ) {
-                            return false;
-                        }
-
-
-
-                        /* retain live connection */
-
-                        path.style.transition =
-                            "none";
-
-
-                        path.classList.remove(
-                            "flowing"
-                        );
-
-
-                        path.classList.add(
-                            "connected"
-                        );
-
-
-                        path.style.strokeDasharray =
-                            "8 10";
-
-
-                        path.style.strokeDashoffset =
-                            "0";
-
-
-                        path.style.opacity =
-                            "1";
-
-
-                        return true;
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       SYSTEM SEQUENCE
-                       ====================================================== */
-
-                    async function runBuildingSystems(
-                        currentToken
-                    ) {
-
-
-                        for (
-                            let i = 0;
-                            i < systemPaths.length;
-                            i++
-                        ) {
-
-
-                            if (
-                                currentToken !== animationToken
-                            ) {
-                                return false;
-                            }
-
-
-
-                            statusTitle.textContent =
-                                "Connecting building system";
-
-
-                            statusSub.textContent =
-                                "Field communication active";
-
-
-
-                            const ok =
-                                await drawPath(
-                                    systemPaths[i],
-                                    currentToken,
-                                    570
-                                );
-
-
-                            if (!ok) {
-                                return false;
-                            }
-
-
-
-                            activateSystem(
-                                i
-                            );
-
-
-
-                            const complete =
-                                i + 1;
-
-
-
-                            statusCount.textContent =
-                                `${String(complete).padStart(2, "0")} / 10`;
-
-
-                            progress.style.width =
-                                `${complete * 7}%`;
-
-
-
-                            await wait(
-                                reduceMotion
-                                    ?
-                                    10
-                                    :
-                                    220
-                            );
-
-
-                        }
-
-
-                        return true;
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       MAIN INTELLIGENCE SEQUENCE
-                       ====================================================== */
-
-                    async function runCoreSequence(
-                        currentToken
-                    ) {
-
-
-                        /* ==================================================
-                           BMS CORE
-                           ================================================== */
-
-                        statusTitle.textContent =
-                            "Building data converging";
-
-
-                        statusSub.textContent =
-                            "Connecting systems to BMS core";
-
-
-                        const bmsRoute =
-                            await drawPath(
-                                mainRoutes[0],
-                                currentToken,
-                                480
-                            );
-
-
-                        if (!bmsRoute) {
-                            return false;
-                        }
-
-
-                        hubs[0]?.classList.add(
-                            "active"
-                        );
-
-
-                        statusCount.textContent =
-                            "07 / 10";
-
-
-                        progress.style.width =
-                            "70%";
-
-
-                        await wait(
-                            reduceMotion
-                                ?
-                                10
-                                :
-                                300
-                        );
-
-
-
-                        /* ==================================================
-                           MODE 0 — BMS ONLY
-                           ================================================== */
-
-                        if (
-                            activeMode === 0
-                        ) {
-
-
-                            statusTitle.textContent =
-                                "BMS control active";
-
-
-                            statusSub.textContent =
-                                "Building systems centrally monitored";
-
-
-                            progress.style.width =
-                                "100%";
-
-
-                            return true;
-
-                        }
-
-
-
-                        /* ==================================================
-                           IOT GATEWAY
-                           ================================================== */
-
-                        statusTitle.textContent =
-                            "Extending BMS connectivity";
-
-
-                        statusSub.textContent =
-                            "IoT gateway coming online";
-
-
-                        const gatewayRoute =
-                            await drawPath(
-                                mainRoutes[1],
-                                currentToken,
-                                440
-                            );
-
-
-                        if (!gatewayRoute) {
-                            return false;
-                        }
-
-
-                        hubs[1]?.classList.add(
-                            "active"
-                        );
-
-
-                        statusCount.textContent =
-                            "08 / 10";
-
-
-                        progress.style.width =
-                            "80%";
-
-
-                        await wait(
-                            reduceMotion
-                                ?
-                                10
-                                :
-                                250
-                        );
-
-
-
-                        /* ==================================================
-                           CLOUD / SERVER
-                           ================================================== */
-
-                        statusTitle.textContent =
-                            "Connecting remote intelligence";
-
-
-                        statusSub.textContent =
-                            "Cloud and server link active";
-
-
-                        const cloudRoute =
-                            await drawPath(
-                                mainRoutes[2],
-                                currentToken,
-                                480
-                            );
-
-
-                        if (!cloudRoute) {
-                            return false;
-                        }
-
-
-                        hubs[2]?.classList.add(
-                            "active"
-                        );
-
-
-                        statusCount.textContent =
-                            "09 / 10";
-
-
-                        progress.style.width =
-                            "90%";
-
-
-                        await wait(
-                            reduceMotion
-                                ?
-                                10
-                                :
-                                250
-                        );
-
-
-
-                        /* ==================================================
-                           MODE 1 — EXISTING BMS + IOT
-                           ================================================== */
-
-                        if (
-                            activeMode === 1
-                        ) {
-
-
-                            statusTitle.textContent =
-                                "BMS with IoT active";
-
-
-                            statusSub.textContent =
-                                "Remote visibility and intelligence online";
-
-
-                            progress.style.width =
-                                "100%";
-
-
-                            return true;
-
-                        }
-
-
-
-                        /* ==================================================
-                           DASHBOARD
-                           ================================================== */
-
-                        statusTitle.textContent =
-                            "Publishing building intelligence";
-
-
-                        statusSub.textContent =
-                            "Dashboard synchronisation active";
-
-
-                        const dashboardRoute =
-                            await drawPath(
-                                mainRoutes[3],
-                                currentToken,
-                                420
-                            );
-
-
-                        if (!dashboardRoute) {
-                            return false;
-                        }
-
-
-                        hubs[3]?.classList.add(
-                            "active"
-                        );
-
-
-                        statusCount.textContent =
-                            "10 / 10";
-
-
-                        progress.style.width =
-                            "100%";
-
-
-                        statusTitle.textContent =
-                            "Connected building intelligence active";
-
-
-                        statusSub.textContent =
-                            "BMS · IoT · Cloud · Dashboard online";
-
-
-                        return true;
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       COMPLETE PLAYBACK
-                       ====================================================== */
-
-                    async function playBuilding() {
-
-
-                        if (
-                            running
-                            ||
-                            !visible
-                        ) {
-                            return;
-                        }
-
-
-
-                        resetBuilding();
-
-
-
-                        const currentToken =
-                            animationToken;
-
-
-
-                        running =
-                            true;
-
-
-
-                        await wait(
-                            reduceMotion
-                                ?
-                                20
-                                :
-                                500
-                        );
-
-
-
-                        /* systems */
-
-                        const systemsReady =
-                            await runBuildingSystems(
-                                currentToken
-                            );
-
-
-                        if (
-                            !systemsReady
-                            ||
-                            currentToken !== animationToken
-                        ) {
-                            return;
-                        }
-
-
-
-                        /* core / IoT / cloud */
-
-                        const coreReady =
-                            await runCoreSequence(
-                                currentToken
-                            );
-
-
-                        if (
-                            !coreReady
-                            ||
-                            currentToken !== animationToken
-                        ) {
-                            return;
-                        }
-
-
-
-                        /* hold */
-
-                        await wait(
-                            reduceMotion
-                                ?
-                                100
-                                :
-                                3400
-                        );
-
-
-
-                        if (
-                            currentToken !== animationToken
-                        ) {
-                            return;
-                        }
-
-
-
-                        running =
-                            false;
-
-
-
-                        /* replay */
-
-                        if (visible) {
-
-
-                            resetBuilding();
-
-
-                            await wait(
-                                reduceMotion
-                                    ?
-                                    100
-                                    :
-                                    800
-                            );
-
-
-                            playBuilding();
-
-
-                        }
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       ACCORDION MODE
-                       ====================================================== */
-
-                    function selectMode(index) {
-
-
-                        activeMode =
-                            index;
-
-
-
-                        cards.forEach(
-                            (card, i) => {
-
-
-                                if (
-                                    i !== index
-                                ) {
-
-                                    card.open =
-                                        false;
-
-                                }
-
-
-                            }
-                        );
-
-
-
-                        resetBuilding();
-
-
-
-                        setTimeout(
-                            () => {
-
-
-                                if (visible) {
-
-                                    playBuilding();
-
-                                }
-
-
-                            },
-                            280
-                        );
-
-
-                    }
-
-
-
-                    /* ======================================================
-                       ACCORDION EVENTS
-                       ====================================================== */
-
-                    cards.forEach(
-                        (card, index) => {
-
-
-                            card.addEventListener(
-                                "toggle",
-                                () => {
-
-
-                                    if (card.open) {
-
-
-                                        selectMode(
-                                            index
-                                        );
-
-
-                                    }
-
-
-                                }
-                            );
-
-
-                        }
-                    );
-
-
-
-                    /* ======================================================
-                       VIEWPORT PLAY
-                       ====================================================== */
-
-                    const visualObserver =
-                        new IntersectionObserver(
-
-                            entries => {
-
-
-                                entries.forEach(
-                                    entry => {
-
-
-                                        if (
-                                            entry.isIntersecting
-                                            &&
-                                            entry.intersectionRatio
-                                            >=
-                                            .22
-                                        ) {
-
-
-                                            if (!visible) {
-
-
-                                                visible =
-                                                    true;
-
-
-                                                playBuilding();
-
-
-                                            }
-
-
-                                        }
-                                        else if (
-                                            !entry.isIntersecting
-                                        ) {
-
-
-                                            visible =
-                                                false;
-
-
-                                            resetBuilding();
-
-
-                                        }
-
-
-                                    }
-                                );
-
-
-                            },
-
-                            {
-                                threshold: [
-                                    0,
-                                    .22
-                                ]
-                            }
-
-                        );
-
-
-                    visualObserver.observe(
-                        visual
-                    );
-
-
-
-                    /* ======================================================
-                       ENTRANCE ANIMATION
-                       ====================================================== */
-
-                    const revealItems =
-                        section.querySelectorAll(
-                            ".bi-reveal"
-                        );
-
-
-                    const revealObserver =
-                        new IntersectionObserver(
-
-                            entries => {
-
-
-                                entries.forEach(
-                                    entry => {
-
-
-                                        if (
-                                            entry.isIntersecting
-                                        ) {
-
-
-                                            entry.target
-                                                .classList.add(
-                                                    "visible"
-                                                );
-
-
-                                            revealObserver.unobserve(
-                                                entry.target
-                                            );
-
-
-                                        }
-
-
-                                    }
-                                );
-
-
-                            },
-
-                            {
-                                threshold: .12
-                            }
-
-                        );
-
-
-
-                    revealItems.forEach(
-                        item => {
-
-
-                            revealObserver.observe(
-                                item
-                            );
-
-
-                        }
-                    );
-
-
-
-                    /* ======================================================
-                       INITIAL
-                       ====================================================== */
-
-                    preparePaths();
-
-
-                    resetBuilding();
-
-
-                }
+            <img
+                class="bi2-on-full"
+                src="assets/bms-iot-on.png"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async">
+
+            <!-- connection pings stay inside the long-view frame -->
+<span class="bi2-ping" data-bi2-ping="0" style="--x:27%;--y:20%;"></span>
+        <span class="bi2-ping" data-bi2-ping="1" style="--x:38%;--y:29%;"></span>
+        <span class="bi2-ping" data-bi2-ping="2" style="--x:48%;--y:25%;"></span>
+        <span class="bi2-ping" data-bi2-ping="3" style="--x:22%;--y:42%;"></span>
+        <span class="bi2-ping" data-bi2-ping="4" style="--x:47%;--y:46%;"></span>
+        <span class="bi2-ping" data-bi2-ping="5" style="--x:24%;--y:61%;"></span>
+        <span class="bi2-ping" data-bi2-ping="6" style="--x:44%;--y:63%;"></span>
+        </div>
+
+        <div class="bi2-left-vignette" aria-hidden="true"></div>
+        <div class="bi2-right-shade" aria-hidden="true"></div>
+        <div class="bi2-top-bottom" aria-hidden="true"></div>
+        <div class="bi2-scan" aria-hidden="true"></div>
+        <div class="bi2-glow" aria-hidden="true"></div>
+
+    </div>
+
+
+    <!-- RIGHT BLACK-SPACE COPY -->
+    <div class="bi2-copy">
+
+        <div class="bi2-kicker">
+            Building Intelligence / Connected Infrastructure
+        </div>
+
+        <h2 class="bi2-title">BMS TO IOT</h2>
+
+        <p class="bi2-slogan">
+            One intelligent transition. One connected ecosystem.
+        </p>
+
+        <p class="bi2-description">
+            From BMS controls to IoT-enabled visibility, we connect sensors, gateways, dashboards and cloud intelligence into one seamless operational layer.
+        </p>
+
+        <div class="bi2-capabilities" aria-label="BMS and IoT capabilities">
+            <span>BMS</span>
+            <span>BMS + IoT</span>
+            <span>IoT Gateways</span>
+            <span>Remote Visibility</span>
+            <span>Analytics</span>
+        </div>
+
+    </div>
+
+
+    <!-- LIVE STATUS -->
+    <div class="bi2-status" aria-live="polite">
+        <span class="bi2-status-dot" aria-hidden="true"></span>
+
+        <div class="bi2-status-copy">
+            <strong id="bi2StatusTitle">Building systems ready</strong>
+            <small id="bi2StatusSub">Preparing connected intelligence</small>
+        </div>
+
+        <span class="bi2-count" id="bi2Count">00 / 07</span>
+    </div>
+
+    <div class="bi2-progress" aria-hidden="true">
+        <span id="bi2Progress"></span>
+    </div>
+
+</section>
+
+
+<script>
+(() => {
+    "use strict";
+
+    const section = document.querySelector(".bi2-section");
+    if (!section) return;
+
+    const layers = [...section.querySelectorAll(".bi2-layer")];
+    const pings = [...section.querySelectorAll(".bi2-ping")];
+
+    const statusTitle = section.querySelector("#bi2StatusTitle");
+    const statusSub = section.querySelector("#bi2StatusSub");
+    const count = section.querySelector("#bi2Count");
+    const progress = section.querySelector("#bi2Progress");
+
+    const reducedMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const systems = [
+        {
+            title:"HVAC connected",
+            sub:"Climate data linked to the BMS"
+        },
+        {
+            title:"Occupancy connected",
+            sub:"Live space intelligence added"
+        },
+        {
+            title:"Energy connected",
+            sub:"Metering and consumption made visible"
+        },
+        {
+            title:"Environment connected",
+            sub:"Indoor conditions added to the data layer"
+        },
+        {
+            title:"Access connected",
+            sub:"Entry and access events synchronized"
+        },
+        {
+            title:"Security connected",
+            sub:"Safety and surveillance events integrated"
+        },
+        {
+            title:"Building intelligence live",
+            sub:"BMS → IoT → connected operational visibility"
+        }
+    ];
+
+    const STEP = 820;
+    const START = 720;
+    const COMPLETE_HOLD = 3200;
+
+    let timerIds = [];
+    let started = false;
+
+    function clearTimers(){
+        timerIds.forEach(id => clearTimeout(id));
+        timerIds = [];
+    }
+
+    function reset(){
+        clearTimers();
+
+        section.classList.remove(
+            "is-transforming",
+            "is-complete"
+        );
+
+        layers.forEach(layer => layer.classList.remove("is-on"));
+        pings.forEach(ping => ping.classList.remove("fire"));
+
+        if(statusTitle){
+            statusTitle.textContent = "Building systems ready";
+        }
+
+        if(statusSub){
+            statusSub.textContent = "Preparing connected intelligence";
+        }
+
+        if(count){
+            count.textContent = "00 / 07";
+        }
+
+        if(progress){
+            progress.style.width = "0%";
+        }
+    }
+
+    function firePing(index){
+        const ping = pings[index];
+        if(!ping) return;
+
+        ping.classList.remove("fire");
+        void ping.offsetWidth;
+        ping.classList.add("fire");
+    }
+
+    function connectSystem(index){
+        const layer = layers[index];
+        const system = systems[index];
+
+        if(!layer || !system) return;
+
+        layer.classList.add("is-on");
+
+        window.setTimeout(() => {
+            firePing(index);
+        }, 140);
+
+        if(statusTitle){
+            statusTitle.textContent = system.title;
+        }
+
+        if(statusSub){
+            statusSub.textContent = system.sub;
+        }
+
+        if(count){
+            count.textContent =
+                String(index + 1).padStart(2,"0") + " / 07";
+        }
+
+        if(progress){
+            progress.style.width =
+                (((index + 1) / systems.length) * 100) + "%";
+        }
+    }
+
+    function startSequence(){
+        reset();
+
+        if(reducedMotion.matches){
+            layers.forEach(layer => layer.classList.add("is-on"));
+            section.classList.add("is-complete");
+
+            if(progress) progress.style.width = "100%";
+            if(count) count.textContent = "07 / 07";
+            if(statusTitle) statusTitle.textContent = "BMS + IoT connected";
+            if(statusSub) statusSub.textContent = "Connected intelligence live";
+            return;
+        }
+
+        section.classList.add("is-transforming");
+
+        systems.forEach((system,index) => {
+            timerIds.push(
+                setTimeout(
+                    () => connectSystem(index),
+                    START + (index * STEP)
+                )
             );
+        });
 
-        </script>
+        const completeAt =
+            START + (systems.length * STEP) + 300;
 
-        <!-- ======================= END BMS + IOT MODULE ======================= -->
+        timerIds.push(
+            setTimeout(() => {
+                section.classList.add("is-complete");
+                section.classList.remove("is-transforming");
+
+                if(statusTitle){
+                    statusTitle.textContent = "BMS + IoT connected";
+                }
+
+                if(statusSub){
+                    statusSub.textContent =
+                        "Controls, gateways, cloud and dashboards synchronized";
+                }
+            }, completeAt)
+        );
+
+        timerIds.push(
+            setTimeout(() => {
+                startSequence();
+            }, completeAt + COMPLETE_HOLD)
+        );
+    }
+
+    /* Start only when visible so this section does not affect
+       performance of any other page module. */
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting && !started){
+                    started = true;
+                    startSequence();
+                }
+
+                if(!entry.isIntersecting && started){
+                    started = false;
+                    reset();
+                }
+            });
+        },
+        {threshold:.22}
+    );
+
+    observer.observe(section);
+
+    /* Preload the connected state without blocking rendering. */
+    const preload = new Image();
+    preload.src = "assets/bms-iot-on.png";
+
+})();
+</script>
+
+<!-- ================= END BMS → IoT SECTION ================= -->
+
+
+
+
+        
         <!-- =========================================================
          PROCESS MODULE — CSS + HTML + JS
          Everything for this module stays together in this file.
@@ -17242,6 +14985,9 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
 
         <!-- ======================= END PROCESS MODULE ======================= -->
 
+
+
+        
         <!-- =========================================================
          CONTACT MODULE — CSS + HTML + JS
          Everything for this module stays together in this file.
