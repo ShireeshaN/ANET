@@ -9902,7 +9902,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     brightness(1.015) saturate(1.035) contrast(1.015);
 
                 transition:
-                    opacity .7s cubic-bezier(.2, .7, .2, 1);
+                    opacity .38s cubic-bezier(.2, .7, .2, 1);
             }
 
             .lx-stage.is-complete .lx-on-image {
@@ -9940,7 +9940,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                 pointer-events: none;
 
                 transition:
-                    opacity .28s cubic-bezier(.2, .75, .2, 1);
+                    opacity .16s cubic-bezier(.2, .75, .2, 1);
 
                 -webkit-mask-image:
                     radial-gradient(ellipse var(--rx) var(--ry) at var(--px) var(--py),
@@ -10022,7 +10022,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
 
             .lx-reveal-layer.just-hit::after {
                 animation:
-                    lxLocalHit .72s ease-out;
+                    lxLocalHit .38s ease-out;
             }
 
             @keyframes lxLocalHit {
@@ -10117,7 +10117,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                 opacity: .8;
 
                 animation:
-                    lxEnergyDash .5s linear infinite;
+                    lxEnergyDash .30s linear infinite;
             }
 
             @keyframes lxEnergyDash {
@@ -10158,10 +10158,10 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     0 0 70px rgba(215, 168, 64, .30);
 
                 transition:
-                    left .72s cubic-bezier(.22, 1, .36, 1),
-                    top .72s cubic-bezier(.22, 1, .36, 1),
-                    opacity .28s ease,
-                    transform .28s ease;
+                    left .42s cubic-bezier(.22, 1, .36, 1),
+                    top .42s cubic-bezier(.22, 1, .36, 1),
+                    opacity .16s ease,
+                    transform .16s ease;
             }
 
             .lx-orb.is-hidden {
@@ -10203,7 +10203,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     translate(-50%, -50%) scale(.28);
 
                 animation:
-                    lxOrbWave 1.35s ease-out infinite;
+                    lxOrbWave .82s ease-out infinite;
             }
 
             @keyframes lxOrbWave {
@@ -10278,7 +10278,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
 
             .lx-touch.fire {
                 animation:
-                    lxTouchWave .75s cubic-bezier(.16, .75, .2, 1);
+                    lxTouchWave .40s cubic-bezier(.16, .75, .2, 1);
             }
 
             @keyframes lxTouchWave {
@@ -10334,9 +10334,9 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                 background: #fff3d7;
 
                 transition:
-                    opacity .2s ease,
-                    transform .2s ease,
-                    box-shadow .2s ease;
+                    opacity .12s ease,
+                    transform .12s ease,
+                    box-shadow .12s ease;
             }
 
             .lx-light-node.is-on {
@@ -10383,9 +10383,9 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     0 0 42px rgba(215, 168, 64, .55);
 
                 transition:
-                    left .11s linear,
-                    top .11s linear,
-                    opacity .2s ease;
+                    left .06s linear,
+                    top .06s linear,
+                    opacity .12s ease;
             }
 
             .lx-facade-spark.active {
@@ -10473,7 +10473,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     0 0 11px rgba(246, 223, 182, .70);
 
                 animation:
-                    lxLivePulse 1.7s ease-in-out infinite;
+                    lxLivePulse 1.05s ease-in-out infinite;
             }
 
             @keyframes lxLivePulse {
@@ -10585,7 +10585,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         #f5dfb5);
 
                 transition:
-                    width .28s ease;
+                    width .16s ease;
             }
 
 
@@ -10702,7 +10702,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         rgba(215, 168, 64, .22));
 
                 transition:
-                    width .5s ease;
+                    width .28s ease;
             }
 
             .lx-tab small {
@@ -10842,8 +10842,8 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     translateY(22px);
 
                 transition:
-                    opacity .85s ease,
-                    transform .85s cubic-bezier(.2, .7, .2, 1);
+                    opacity .50s ease,
+                    transform .50s cubic-bezier(.2, .7, .2, 1);
             }
 
             .lx-reveal-in.visible {
@@ -11032,12 +11032,6 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
 
             }
         </style>
-
-
-
-        <!-- ============================================================
-     HTML
-     ============================================================ -->
 
         <section class="lx-lighting" id="lighting">
 
@@ -11297,8 +11291,6 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
             </div>
 
         </section>
-
-
 
         <script>
 
@@ -12148,6 +12140,8 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         ).matches;
 
 
+                    /* SPEED TUNED — faster cinematic pacing */
+
                     /* ============================================================
                        STATE
                        ============================================================ */
@@ -12615,7 +12609,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                     async function moveOrb(
                         point,
                         token,
-                        duration = 720,
+                        duration = 420,
                         doTouch = true
                     ) {
 
@@ -12784,7 +12778,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                                     token,
                                     reduceMotion
                                         ? 20
-                                        : 680,
+                                        : 390,
                                     true
                                 );
 
@@ -12813,7 +12807,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                             await sleep(
                                 reduceMotion
                                     ? 20
-                                    : 420
+                                    : 180
                             );
 
                         }
@@ -12854,7 +12848,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                                 token,
                                 reduceMotion
                                     ? 20
-                                    : 850,
+                                    : 480,
 
                                 /*
                                  TRUE ONLY HERE.
@@ -12888,7 +12882,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         await sleep(
                             reduceMotion
                                 ? 20
-                                : 320
+                                : 140
                         );
 
 
@@ -12989,7 +12983,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                             await sleep(
                                 reduceMotion
                                     ? 8
-                                    : 110
+                                    : 52
                             );
 
 
@@ -13030,7 +13024,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                             await sleep(
                                 reduceMotion
                                     ? 6
-                                    : 50
+                                    : 18
                             );
 
                         }
@@ -13070,7 +13064,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         await sleep(
                             reduceMotion
                                 ? 20
-                                : 220
+                                : 100
                         );
 
 
@@ -13115,7 +13109,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                                 progress.style.transition =
                                     reduceMotion
                                         ? "none"
-                                        : "width 3.4s linear";
+                                        : "width 1.8s linear";
 
 
                                 progress.style.width =
@@ -13145,7 +13139,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                                 },
                                 reduceMotion
                                     ? 700
-                                    : 3400
+                                    : 1800
                             );
 
                     }
@@ -13216,7 +13210,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         await sleep(
                             reduceMotion
                                 ? 20
-                                : 520
+                                : 240
                         );
 
 
@@ -13363,7 +13357,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         await sleep(
                             reduceMotion
                                 ? 10
-                                : 170
+                                : 90
                         );
 
 
@@ -13440,7 +13434,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                         await sleep(
                             reduceMotion
                                 ? 10
-                                : 220
+                                : 100
                         );
 
 
@@ -13558,7 +13552,7 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
 
 
                                 },
-                                120
+                                60
                             );
 
 
@@ -13709,7 +13703,6 @@ body{margin:0;background:#f4f6f4;color:var(--ink);font-family:"Manrope","Inter",
                 });
 
         </script>
-
 
 
 
@@ -13868,7 +13861,7 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
                 inset: 0;
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity .65s ease, visibility .65s;
+                transition: opacity .34s ease, visibility .34s;
                 pointer-events: none
             }
 
@@ -13887,7 +13880,8 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
             }
 
             #automation .ac-connected {
-                clip-path: inset(0 100% 0 0)
+                clip-path: inset(0 100% 0 0);
+                will-change: clip-path;
             }
 
             #automation .ac-scan {
@@ -14206,7 +14200,7 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
                 ];
                 const q = s => root.querySelector(s), qa = s => [...root.querySelectorAll(s)];
                 const tabs = qa('[data-scene]'), panels = qa('.ac-panel'), reduce = matchMedia('(prefers-reduced-motion: reduce)');
-                const NORMAL = 2, REVEAL = 2, TOTAL = 9;
+                const NORMAL = 1.0, REVEAL = 0.9, TOTAL = 5.0;
                 let active = 0, elapsed = 0, last = 0, raf = 0, paused = reduce.matches, inView = false, focusInside = false, hovered = false, manualView = null;
                 const states = scenes.map((scene, i) => {
                     const base = new Image(), connected = new Image();
@@ -14270,7 +14264,6 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
                 select(0); syncPause(); raf = requestAnimationFrame(frame);
             })();
         </script>
-
 
 
 
