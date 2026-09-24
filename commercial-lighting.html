@@ -1,69 +1,622 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Support focused work, welcoming hospitality and clear retail presentation with lighting shaped around how each space operates."><meta name="theme-color" content="#151515"><title>Commercial Lighting | ANET</title><link rel="stylesheet" href="assets/base.css"><link rel="stylesheet" href="assets/pages.css"></head><body class="detail-page" id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header" id="header">
-        <nav aria-label="Main navigation" class="nav wrap"><a aria-label="AlphaNumeric Engineering and Technology home"
-                class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 146 36">
-                        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
-                            stroke-width="4">
-                            <path
-                                d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
-                            </path>
-                        </g>
-                        <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
-                    </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
-                        TECHNOLOGY</small></span></a><button aria-controls="navLinks" aria-expanded="false"
-                class="menu-toggle" id="menuToggle">Menu +</button>
-            <div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="about.html">About</a>
-                <div class="solutions"><button aria-controls="solutionsMenu" aria-expanded="false"
-                        class="solutions-trigger" id="solutionsTrigger">Solutions <span>⌄</span></button>
-                    <div class="mega" hidden="" id="solutionsMenu">
-                        <div class="mega-column"><b>01 / Lighting</b><a href="residential-lighting.html">Residential
-                                Lighting</a><a aria-current="page" href="commercial-lighting.html">Commercial Lighting</a><a
-                                href="industrial-lighting.html">Industrial Lighting</a><a href="facade-lighting.html">Façade
-                                Lighting</a><a href="landscape-lighting.html">Landscape Lighting</a></div>
-                        <div class="mega-column"><b>02 / Automation</b><a href="home-automation.html">Home
-                                Automation</a><a href="commercial-automation.html">Commercial Automation</a><a
-                                href="industrial-automation.html">Industrial Automation</a></div>
-                        <div class="mega-column"><b>03 / IoT</b><a href="bms.html">BMS</a><a
-                                href="bms-with-iot.html">BMS with IoT</a><a href="bms-and-iot.html">BMS &amp;
-                                IoT</a></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Premium commercial lighting solutions by ANET — offices, retail, hospitality, reception areas, workspaces, corridors and exterior commercial environments.">
+    <meta name="theme-color" content="#121416">
+    <title>Commercial Lighting | ANET</title>
+    <style>
+        :root{
+            --ink:#111315;
+            --ink-2:#171a1d;
+            --paper:#f2f1ec;
+            --paper-2:#e8e6df;
+            --white:#f8f8f4;
+            --muted:#72777c;
+            --muted-2:#8c9195;
+            --line:rgba(17,19,21,.10);
+            --line-dark:rgba(255,255,255,.10);
+            --gold:#d7a840;
+            --ease:cubic-bezier(.22,1,.36,1);
+            --shadow:0 28px 70px rgba(16,20,23,.08);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{margin:0;color:var(--ink);background:var(--paper);font-family:"Manrope","Inter","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+        button,input,textarea,select{font:inherit}
+        img,svg{display:block;max-width:100%}
+        button{color:inherit;cursor:pointer}
+        ::selection{background:#d7a840;color:#111315}
+        .wrap{width:min(1480px,calc(100% - 96px));margin-inline:auto}
+        .skip{position:fixed;left:18px;top:-90px;z-index:5000;padding:12px 14px;background:#fff;color:#111;border:1px solid #ddd}.skip:focus{top:14px}
+        .section{padding:110px 0}
+        .kicker{display:inline-flex;align-items:center;gap:12px;font:700 10px/1 "Manrope",sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#787d82}.kicker::before{content:"";width:26px;height:1px;background:currentColor}
+        .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,420px);gap:32px;align-items:end;margin-bottom:44px}
+        .section-head h2{margin:18px 0 0;font:600 clamp(32px,3.1vw,50px)/1.02 "Manrope",sans-serif;letter-spacing:-.05em;color:#121416}
+        .section-head p,.body-copy{margin:0;font:500 14px/1.85 "Manrope",sans-serif;color:var(--muted)}
+        .pill{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(12px);color:#fff;font:700 11px/1 "Manrope",sans-serif;letter-spacing:.10em;text-transform:uppercase;transition:transform .28s var(--ease),background .28s ease,border-color .28s ease}
+        .pill:hover{transform:translateY(-2px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+        .pill.dark{background:#171a1d;color:#f7f7f3;border-color:#171a1d;backdrop-filter:none}.pill.dark:hover{background:#22262a;border-color:#22262a}
+        .text-link{display:inline-flex;align-items:center;gap:10px;font:700 11px/1 "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#ece9e0;opacity:.86;transition:opacity .25s ease}.text-link:hover{opacity:1}
+        .reveal{transition:opacity .8s var(--ease),transform .95s var(--ease)}.js-motion .reveal:not(.visible){opacity:0;transform:translateY(26px)}
+
+        .header {--nav-ink:#11161a;--nav-line:rgba(17,29,36,.10);--nav-glass:rgba(248,249,248,.92);--nav-gold:#d7a840;--nav-cyan:#6adce1;position:fixed;inset:0 0 auto;z-index:1000;height:90px;color:#fff;border-bottom:1px solid rgba(255,255,255,.09);transition:height .38s cubic-bezier(.2,.7,.2,1),color .32s ease,background .32s ease,border-color .32s ease,box-shadow .32s ease}
+        .header.scrolled,.header.menu-open,.header.mega-open{height:76px;color:var(--nav-ink);background:var(--nav-glass);border-color:var(--nav-line);box-shadow:0 12px 38px rgba(17,29,36,.07);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%)}
+        .nav{position:relative;display:flex;align-items:center;justify-content:space-between;height:100%}
+        .header .brand{display:block;flex:0 0 auto;width:310px;max-width:calc(100% - 95px)}
+        .header .brand-logos{position:relative;display:block;width:100%;height:100px}
+        .header .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:left center;transition:opacity .25s ease;pointer-events:none}
+        .header .brand-logo--white{opacity:1}.header .brand-logo--black{opacity:0}
+        .header.scrolled .brand-logo--white,.header.menu-open .brand-logo--white,.header.mega-open .brand-logo--white{opacity:0}
+        .header.scrolled .brand-logo--black,.header.menu-open .brand-logo--black,.header.mega-open .brand-logo--black{opacity:1}
+        .nav-links{display:flex;align-items:center;gap:38px;margin-left:auto}
+        .nav-links>a,.solutions-trigger{position:relative;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0;border:0;background:none;color:inherit;font:600 10.5px/1 "Manrope",Arial,sans-serif;letter-spacing:.075em;text-transform:uppercase;cursor:pointer}
+        .nav-label{position:relative;display:inline-block;padding:7px 0 9px}.nav-label::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right center;opacity:.78;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+        .nav-links>a:hover .nav-label::after,.nav-links>a.is-active .nav-label::after,.solutions-trigger:hover .nav-label::after,.solutions-trigger.is-active .nav-label::after,.solutions-trigger[aria-expanded="true"] .nav-label::after{transform:scaleX(1);transform-origin:left center}
+        .nav-links>a.is-active .nav-label::before,.solutions-trigger.is-active .nav-label::before{content:"";position:absolute;left:50%;top:-7px;width:4px;height:4px;border-radius:50%;background:var(--nav-gold);transform:translateX(-50%);box-shadow:0 0 10px rgba(215,168,64,.35)}
+        .solutions-chevron{width:13px;height:13px;display:grid;place-items:center;transition:transform .3s ease;opacity:.72}.solutions-trigger[aria-expanded="true"] .solutions-chevron{transform:rotate(180deg)}
+        .solutions{position:static}
+        .mega{position:absolute;top:calc(100% - 1px);right:0;width:min(1080px,calc(100vw - 64px));color:#11161a;background:rgba(249,250,249,.98);border:1px solid rgba(17,29,36,.10);border-radius:0 0 12px 12px;box-shadow:0 34px 80px rgba(17,29,36,.16),0 8px 24px rgba(17,29,36,.06);overflow:hidden;transform-origin:top right;animation:megaIn .26s cubic-bezier(.2,.7,.2,1)}
+        .mega[hidden]{display:none!important}@keyframes megaIn{from{opacity:0;transform:translateY(-6px) scale(.992)}to{opacity:1;transform:none}}
+        .mega-top{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:18px 22px;border-bottom:1px solid var(--nav-line);background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(239,243,244,.74))}
+        .mega-top-left{display:flex;align-items:center;gap:11px}.mega-top-left i{width:6px;height:6px;border-radius:50%;background:var(--nav-cyan);box-shadow:0 0 10px rgba(106,220,225,.45)}
+        .mega-top strong{font:650 8px/1 "Manrope",Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:#4d585e}.mega-top span{font:550 8px/1 "Manrope",Arial,sans-serif;letter-spacing:.10em;color:#8a9195;text-transform:uppercase}
+        .mega-grid{display:grid;grid-template-columns:.86fr 1fr 1fr 1fr;min-height:345px}
+        .mega-intro{position:relative;padding:30px 26px;overflow:hidden;background:radial-gradient(circle at 20% 15%,rgba(78,154,174,.10),transparent 36%),linear-gradient(160deg,#edf2f3,#f8f9f8 60%);border-right:1px solid var(--nav-line)}
+        .mega-intro::after{content:"";position:absolute;width:170px;height:170px;right:-80px;bottom:-80px;border:1px solid rgba(67,130,145,.10);border-radius:50%;box-shadow:0 0 0 24px rgba(67,130,145,.035),0 0 0 48px rgba(67,130,145,.02)}
+        .mega-kicker{display:block;margin-bottom:16px;font:650 7.5px/1 "Manrope",Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:#788187}
+        .mega-intro h3{margin:0;max-width:220px;font:500 26px/1.06 "Manrope",Arial,sans-serif;letter-spacing:-.045em;color:#182025}.mega-intro p{margin:16px 0 0;max-width:230px;font:400 10.5px/1.75 "Manrope",Arial,sans-serif;color:#70797e}
+        .mega-all{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;margin-top:24px;color:#202a2f;font:650 8px/1 "Manrope",Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}.mega-all::after{content:"↗";font-size:12px;transition:transform .25s ease}.mega-all:hover::after{transform:translate(2px,-2px)}
+        .mega-column{padding:28px 24px 24px;border-right:1px solid var(--nav-line);background:rgba(255,255,255,.72)}.mega-column:last-child{border-right:0}.mega-column-head{display:flex;align-items:flex-start;gap:11px;padding-bottom:17px;margin-bottom:8px;border-bottom:1px solid var(--nav-line)}.mega-number{padding-top:4px;font:650 7px/1 "Manrope",Arial,sans-serif;letter-spacing:.12em;color:#9a9fa2}.mega-column-head h4{margin:0;font:550 18px/1.1 "Manrope",Arial,sans-serif;letter-spacing:-.035em;color:#1d2529}.mega-column-head small{display:block;margin-top:5px;font:500 7.5px/1.35 "Manrope",Arial,sans-serif;letter-spacing:.04em;color:#93999d}.mega-column nav{display:grid;gap:2px}
+        .mega-link{position:relative;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;min-height:42px;padding:9px 2px 9px 0;color:#626b70;border-bottom:1px solid rgba(17,29,36,.055);transition:color .22s ease,padding-left .22s ease}.mega-link:last-child{border-bottom:0}.mega-link span:first-child{font:520 10.5px/1.3 "Manrope",Arial,sans-serif}.mega-link .mega-arrow{width:19px;height:19px;display:grid;place-items:center;border:1px solid rgba(17,29,36,.08);border-radius:50%;font-size:9px;color:#8b9296;opacity:.65;transition:transform .22s ease,opacity .22s ease,border-color .22s ease}.mega-link:hover,.mega-link:focus-visible{color:#151c20;padding-left:5px}.mega-link:hover .mega-arrow,.mega-link:focus-visible .mega-arrow{opacity:1;transform:translate(2px,-2px);border-color:rgba(17,29,36,.18)}.mega-link.is-active{color:#11171b;font-weight:650}.mega-link.is-active::before{content:"";position:absolute;left:-24px;top:10px;bottom:10px;width:2px;background:var(--nav-gold)}
+        .menu-toggle{display:none;align-items:center;justify-content:center;gap:8px;min-width:74px;height:38px;padding:0 12px;border:1px solid currentColor;border-color:rgba(150,150,150,.42);border-radius:999px;background:transparent;color:inherit;font:650 9px/1 "Manrope",Arial,sans-serif;letter-spacing:.10em;text-transform:uppercase}.menu-toggle i{position:relative;width:12px;height:8px}.menu-toggle i::before,.menu-toggle i::after{content:"";position:absolute;left:0;width:12px;height:1px;background:currentColor;transition:transform .25s ease,top .25s ease}.menu-toggle i::before{top:1px}.menu-toggle i::after{top:7px}.menu-open .menu-toggle i::before{top:4px;transform:rotate(45deg)}.menu-open .menu-toggle i::after{top:4px;transform:rotate(-45deg)}
+
+        .hero{position:relative;min-height:100svh;padding:150px 0 88px;overflow:hidden;isolation:isolate;color:#f4f4f1;background:linear-gradient(180deg,#0d1012 0%,#11161a 60%,#0e1114 100%)}
+        .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,8,10,.86) 0%,rgba(7,8,10,.60) 32%,rgba(7,8,10,.22) 62%,rgba(7,8,10,.18) 100%),radial-gradient(circle at 76% 30%,rgba(215,168,64,.08),transparent 32%),var(--hero-image, linear-gradient(135deg,#1e2327,#121518));background-position:center;background-size:cover;z-index:-3}
+        .hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(to top,rgba(14,17,20,1),rgba(14,17,20,0));z-index:-1}
+        .hero-grid{display:grid;grid-template-columns:minmax(300px,520px) minmax(0,1fr);gap:44px;align-items:end;min-height:calc(100svh - 250px)}
+        .hero-copy{max-width:500px}.hero-copy .kicker{color:#b3b8bb}.hero-copy .kicker::before{background:#9ba0a4}
+        .hero h1{margin:18px 0 0;font:600 clamp(42px,4.5vw,72px)/.95 "Manrope",sans-serif;letter-spacing:-.06em;max-width:500px;color:#fbfbf7}
+        .hero p{margin:22px 0 0;max-width:470px;font:500 15px/1.85 "Manrope",sans-serif;color:#d0d4d6}.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+        .hero-highlights{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-self:end}
+        .highlight-card{min-height:122px;padding:18px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.14)}
+        .highlight-card b{display:block;font:700 10px/1.2 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ede9df}.highlight-card span{display:block;margin-top:14px;font:600 17px/1.25 "Manrope",sans-serif;letter-spacing:-.03em;color:#fbfbf8}.highlight-card small{display:block;margin-top:8px;font:500 12px/1.7 "Manrope",sans-serif;color:#c1c6c8}
+
+        .showcase{position:relative;margin-top:-42px;z-index:5}.showcase-shell{padding:22px;border:1px solid rgba(17,19,21,.08);background:#f7f6f2;box-shadow:var(--shadow)}
+        .space-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:240px;gap:18px}
+        .space-card{position:relative;overflow:hidden;min-height:100%;background:#171a1d;border:1px solid rgba(17,19,21,.08)}
+        .space-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,11,13,.06),rgba(9,11,13,.18) 42%,rgba(9,11,13,.82) 100%),var(--bg,linear-gradient(135deg,#23282d,#111417));background-size:cover;background-position:center;transform:scale(1.01);transition:transform .7s var(--ease)}.space-card:hover::before{transform:scale(1.05)}
+        .space-card.large{grid-row:span 2;min-height:498px}.space-card.wide{grid-column:span 2}
+        .space-content{position:absolute;left:22px;right:22px;bottom:22px;color:#f7f6f2}.space-content b{display:block;font:700 10px/1 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#d8d0bc}.space-content h3{margin:10px 0 0;font:600 28px/1.02 "Manrope",sans-serif;letter-spacing:-.04em}.space-content p{margin:10px 0 0;max-width:360px;font:500 13px/1.8 "Manrope",sans-serif;color:#c8cccf}
+
+        .layers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.layer-card{padding:28px 26px;border:1px solid var(--line);background:#fbfaf6;box-shadow:0 14px 40px rgba(20,24,28,.04)}
+        .layer-card span{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(17,19,21,.14);font:700 12px/1 "Manrope",sans-serif;color:#111315}
+        .layer-card h3{margin:18px 0 0;font:600 24px/1.08 "Manrope",sans-serif;letter-spacing:-.035em}.layer-card p{margin:14px 0 0;font:500 13px/1.8 "Manrope",sans-serif;color:var(--muted)}
+
+        .applications{background:#121518;color:#f6f6f2}.applications .section-head h2{color:#f6f6f2}.applications .section-head p{color:#aeb3b6}
+        .application-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.application-card{position:relative;min-height:290px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#181c20}
+        .application-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,15,.02),rgba(11,13,15,.16) 40%,rgba(11,13,15,.86) 100%),var(--bg,linear-gradient(135deg,#242b31,#111418));background-size:cover;background-position:center;transition:transform .7s var(--ease)}.application-card:hover::before{transform:scale(1.05)}
+        .application-card .tag{position:absolute;left:18px;top:18px;padding:8px 10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);font:700 9px/1 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+        .application-card .copy{position:absolute;left:18px;right:18px;bottom:18px}.application-card h3{margin:0;font:600 22px/1.08 "Manrope",sans-serif;letter-spacing:-.035em;color:#f8f8f5}.application-card p{margin:10px 0 0;font:500 12px/1.8 "Manrope",sans-serif;color:#bfc4c7}
+
+        .capabilities-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px}.capability-panel{padding:34px 32px;background:#fbfaf6;border:1px solid var(--line);box-shadow:0 14px 40px rgba(20,24,28,.04)}.capability-panel.dark{background:#16191c;color:#f6f6f2;border-color:rgba(255,255,255,.08)}
+        .capability-panel h3{margin:0;font:600 28px/1.06 "Manrope",sans-serif;letter-spacing:-.04em}.capability-panel p{margin:14px 0 0;font:500 13px/1.85 "Manrope",sans-serif;color:inherit;opacity:.78}
+        .bullet-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}.bullet{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(17,19,21,.09)}.dark .bullet{border-top-color:rgba(255,255,255,.10)}.bullet i{display:block;flex:0 0 6px;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--gold)}.bullet span{font:600 13px/1.6 "Manrope",sans-serif;letter-spacing:-.01em}
+
+        .process-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.process-card{padding:28px 24px;border-top:2px solid #111315;border-bottom:1px solid var(--line)}.process-card b{display:block;font:700 10px/1 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8a8f93}.process-card h3{margin:18px 0 0;font:600 22px/1.08 "Manrope",sans-serif;letter-spacing:-.03em}.process-card p{margin:12px 0 0;font:500 13px/1.8 "Manrope",sans-serif;color:var(--muted)}
+
+        .cta{padding:0 0 110px}.cta-shell{position:relative;overflow:hidden;padding:48px;border:1px solid rgba(255,255,255,.08);color:#f7f6f2;background:linear-gradient(135deg,rgba(14,17,20,.96),rgba(19,24,28,.92)),radial-gradient(circle at 80% 18%,rgba(215,168,64,.12),transparent 25%),linear-gradient(135deg,#111518,#1b2125)}.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}.cta h2{margin:16px 0 0;font:600 clamp(30px,3vw,48px)/1.02 "Manrope",sans-serif;letter-spacing:-.05em}.cta p{margin:14px 0 0;max-width:560px;font:500 14px/1.85 "Manrope",sans-serif;color:#c6cbce}
+
+        .footer{background:#0e1113;color:#d8dcde;padding:34px 0 0}.footer-grid{display:grid;grid-template-columns:1.15fr .75fr .85fr;gap:40px;padding:0 0 28px;border-bottom:1px solid rgba(255,255,255,.08)}.footer .brand{display:block;width:280px;max-width:100%}.footer .brand-logos{position:relative;display:block;width:100%;height:84px}.footer .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:left center}
+        .footer p{margin:14px 0 0;max-width:360px;font:500 13px/1.85 "Manrope",sans-serif;color:#a3a9ad}.footer h3{margin:0 0 16px;font:700 10px/1 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#f6f6f2}.footer-links{display:grid;gap:12px}.footer-links a{font:600 13px/1.5 "Manrope",sans-serif;color:#d7dbdd}.footer-mail{display:inline-flex;align-items:center;gap:8px;font:700 12px/1.4 "Manrope",sans-serif;color:#f5f5f1}.footer address{margin:16px 0 0;font:500 13px/1.85 "Manrope",sans-serif;color:#a3a9ad;font-style:normal}.footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0 20px;font:600 10px/1.5 "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8d9499}
+
+        @media(max-width:1200px){.space-grid{grid-template-columns:1fr 1fr;grid-auto-rows:220px}.space-card.large{grid-column:span 2;grid-row:span 1;min-height:360px}.space-card.wide{grid-column:span 2}.application-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-row,.hero-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}.capabilities-grid{grid-template-columns:1fr}}
+        @media(max-width:1100px){.wrap{width:calc(100% - 64px)}.header .brand{width:270px}.nav-links{gap:27px}.mega{width:min(960px,calc(100vw - 48px))}.mega-grid{grid-template-columns:.74fr 1fr 1fr 1fr}.mega-intro{padding:26px 20px}.mega-column{padding:25px 18px 22px}.hero-grid{grid-template-columns:1fr;align-items:end}.section-head{grid-template-columns:1fr}.layers-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:760px){html{scroll-padding-top:76px}.wrap{width:calc(100% - 36px)}.section{padding:78px 0}.header{height:74px}.header.scrolled,.header.menu-open,.header.mega-open{height:68px}.header .brand{width:235px}.header .brand-logos{height:62px}.menu-toggle{display:inline-flex}.nav-links{display:none;position:absolute;left:-17px;right:-17px;top:100%;max-height:calc(100svh - 68px);overflow:auto;margin:0;padding:13px 17px 22px;background:rgba(248,249,248,.985);color:#11161a;border-top:1px solid rgba(17,29,36,.10);box-shadow:0 30px 60px rgba(17,29,36,.14);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}.menu-open .nav-links{display:flex;flex-direction:column;align-items:stretch;gap:0}.nav-links>a,.solutions-trigger{width:100%;min-height:54px;justify-content:space-between;text-align:left;border-bottom:1px solid rgba(17,29,36,.09)!important;font-size:11px}.nav-links>a .nav-label,.solutions-trigger .nav-label{padding:0}.nav-label::after,.nav-links>a.is-active .nav-label::before,.solutions-trigger.is-active .nav-label::before{display:none}.nav-links>a.is-active .nav-label,.solutions-trigger.is-active .nav-label{color:#11171b;font-weight:700}.nav-links>a.is-active::before,.solutions-trigger.is-active::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);margin-right:8px;flex:0 0 auto}.solutions{position:static}.mega{position:static;width:100%;margin:0;border:0;border-bottom:1px solid rgba(17,29,36,.10);border-radius:0;box-shadow:none;background:#f1f4f4;animation:none}.mega-top{display:none}.mega-grid{display:block;min-height:0}.mega-intro{padding:20px 16px;border-right:0;border-bottom:1px solid rgba(17,29,36,.10)}.mega-intro h3{font-size:21px}.mega-intro p{font-size:9.5px;max-width:100%}.mega-all{margin-top:15px}.mega-column{padding:20px 16px;border-right:0;border-bottom:1px solid rgba(17,29,36,.10)}.mega-column:last-child{border-bottom:0}.mega-column-head{margin-bottom:4px;padding-bottom:12px}.mega-column-head h4{font-size:16px}.mega-link{min-height:40px}.mega-link.is-active::before{left:-16px}.hero{padding:118px 0 70px}.hero h1{font-size:38px;max-width:100%}.hero p{font-size:14px}.hero-actions{gap:12px}.showcase{margin-top:-26px}.showcase-shell{padding:14px}.space-grid,.application-grid,.process-row,.hero-highlights,.footer-grid,.cta-grid,.bullet-grid{grid-template-columns:1fr}.space-card.large,.space-card.wide{grid-column:auto;grid-row:auto;min-height:280px}.space-grid{grid-auto-rows:280px}.application-card{min-height:250px}.capability-panel{padding:26px 20px}.cta-shell{padding:34px 24px}.footer-bottom{flex-direction:column;align-items:flex-start}}
+        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal:not(.visible){opacity:1;transform:none}}
+    </style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header" id="header">
+    <nav class="nav wrap" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Alphanumeric Engineering &amp; Technology home">
+            <span class="brand-logos" aria-hidden="true">
+                <img class="brand-logo brand-logo--white" src="assets/logo-black.png" alt="" loading="eager" decoding="sync" fetchpriority="high">
+                <img class="brand-logo brand-logo--black" src="assets/logo-white.png" alt="" loading="eager" decoding="sync">
+            </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false">
+            <span id="menuToggleText">Menu</span>
+            <i aria-hidden="true"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-nav-page="index.html"><span class="nav-label">Home</span></a>
+            <a href="about.html" data-nav-page="about.html"><span class="nav-label">About</span></a>
+
+            <div class="solutions" id="solutionsRoot">
+                <button class="solutions-trigger" id="solutionsTrigger" type="button" aria-controls="solutionsMenu" aria-expanded="false">
+                    <span class="nav-label">Solutions</span>
+                    <span class="solutions-chevron" aria-hidden="true">⌄</span>
+                </button>
+
+                <div class="mega" id="solutionsMenu" hidden>
+                    <div class="mega-top">
+                        <div class="mega-top-left">
+                            <i aria-hidden="true"></i>
+                            <strong>Integrated Solutions</strong>
+                        </div>
+                        <span>Lighting · Automation · BMS &amp; IoT</span>
                     </div>
-                </div><a href="contact.html">Contact</a>
+
+                    <div class="mega-grid">
+                        <div class="mega-intro">
+                            <span class="mega-kicker">Connected environments</span>
+                            <h3>One portfolio. Multiple intelligent layers.</h3>
+                            <p>Professional lighting, connected automation and building intelligence — planned as complete, scalable systems.</p>
+                            <a class="mega-all" href="index.html#solutions">Explore solutions</a>
+                        </div>
+
+                        <div class="mega-column">
+                            <div class="mega-column-head">
+                                <span class="mega-number">01</span>
+                                <div>
+                                    <h4>Lighting</h4>
+                                    <small>Professional illumination</small>
+                                </div>
+                            </div>
+                            <nav aria-label="Lighting solutions">
+                                <a class="mega-link" href="residential-lighting.html"><span>Residential Lighting</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="commercial-lighting.html"><span>Commercial Lighting</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="industrial-lighting.html"><span>Industrial Lighting</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="facade-lighting.html"><span>Façade Lighting</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="landscape-lighting.html"><span>Landscape Lighting</span><span class="mega-arrow">↗</span></a>
+                            </nav>
+                        </div>
+
+                        <div class="mega-column">
+                            <div class="mega-column-head">
+                                <span class="mega-number">02</span>
+                                <div>
+                                    <h4>Automation</h4>
+                                    <small>Connected control systems</small>
+                                </div>
+                            </div>
+                            <nav aria-label="Automation solutions">
+                                <a class="mega-link" href="home-automation.html"><span>Home Automation</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="commercial-automation.html"><span>Commercial Automation</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="industrial-automation.html"><span>Industrial Automation</span><span class="mega-arrow">↗</span></a>
+                            </nav>
+                        </div>
+
+                        <div class="mega-column">
+                            <div class="mega-column-head">
+                                <span class="mega-number">03</span>
+                                <div>
+                                    <h4>BMS &amp; IoT</h4>
+                                    <small>Building intelligence</small>
+                                </div>
+                            </div>
+                            <nav aria-label="BMS and IoT solutions">
+                                <a class="mega-link" href="bms.html"><span>BMS</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="bms-with-iot.html"><span>BMS with IoT</span><span class="mega-arrow">↗</span></a>
+                                <a class="mega-link" href="bms-and-iot.html"><span>BMS &amp; IoT</span><span class="mega-arrow">↗</span></a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
-    </header><main id="main"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span><span>LIGHTING</span><span>/</span><span>Commercial Lighting</span></div><div class="detail-hero-grid"><div><span class="kicker">02 / COMMERCIAL LIGHTING</span><h1>Purposeful light.<br><em>Exceptional spaces.</em></h1><p class="intro">Support focused work, welcoming hospitality and clear retail presentation with lighting shaped around how each space operates.</p><a class="pill" href="contact.html?service=commercial-lighting">Plan your project <span>↗</span></a><a class="text-link" href="#scope">Explore the scope ↓</a></div><div class="architecture" aria-label="Illustrative Commercial Lighting architecture"><div class="viz-top"><span>ANET / LIGHTING</span><span>ILLUSTRATIVE SYSTEM</span></div><svg viewBox="0 0 720 440" role="img" aria-label="Commercial Lighting: four capability groups connected to a central platform"><g fill="none" stroke="#657c87"><path class="signal" d="M360 220 C240 220 240 100 135 100" style="animation-delay:-0s"/><path class="signal" d="M360 220 C240 220 240 340 135 340" style="animation-delay:-1s"/><path class="signal" d="M360 220 C480 220 480 100 585 100" style="animation-delay:-2s"/><path class="signal" d="M360 220 C480 220 480 340 585 340" style="animation-delay:-3s"/></g><g class="viz-nodes"><g transform="translate(30,65)"><rect width="210" height="70" rx="4"/><circle cx="20" cy="22" r="3"/><text x="18" y="47">Workplace lighting</text></g><g transform="translate(30,305)"><rect width="210" height="70" rx="4"/><circle cx="20" cy="22" r="3"/><text x="18" y="47">Retail display</text></g><g transform="translate(480,65)"><rect width="210" height="70" rx="4"/><circle cx="20" cy="22" r="3"/><text x="18" y="47">Hospitality ambience</text></g><g transform="translate(480,305)"><rect width="210" height="70" rx="4"/><circle cx="20" cy="22" r="3"/><text x="18" y="47">Occupancy response</text></g></g><g class="viz-core"><rect x="282" y="155" width="156" height="130" rx="5"/><rect x="294" y="167" width="132" height="106" rx="3"/><text x="360" y="215" text-anchor="middle">LIGHT SCENES</text><text class="sub" x="360" y="242" text-anchor="middle">LIGHT / CONTROL / CONNECT</text></g></svg><div class="viz-bottom"><span>DESIGNED AROUND YOUR SPACE</span><span>01 — 04</span></div></div></div><div class="use-strip"><span>Offices</span><span>Retail</span><span>Hospitality</span><span>Shared amenities</span></div></div></section>
- <section class="content-section" id="scope"><div class="wrap"><div class="section-heading"><span class="kicker">01 / CAPABILITIES</span><h2>Every detail.<br><em>Part of the whole.</em></h2><p>Define the right combination of products, controls and integration for your site. Final selections follow the agreed project scope.</p></div><div class="scope-grid"><article class="scope-card"><span class="number">01 /</span><h3>Workplace lighting</h3><p>Balance visual comfort, screen use and task illumination.</p></article><article class="scope-card"><span class="number">02 /</span><h3>Retail display</h3><p>Define circulation and bring product presentation into focus.</p></article><article class="scope-card"><span class="number">03 /</span><h3>Hospitality ambience</h3><p>Create a consistent experience across arrivals, lounges and guest areas.</p></article><article class="scope-card"><span class="number">04 /</span><h3>Occupancy response</h3><p>Use compatible sensors and schedules to align lighting with space use.</p></article><article class="scope-card"><span class="number">05 /</span><h3>Daylight integration</h3><p>Coordinate artificial light with available daylight and the façade.</p></article><article class="scope-card"><span class="number">06 /</span><h3>Maintenance planning</h3><p>Consider access, replacement strategy and fixture consistency.</p></article></div></div></section>
- <section class="experience"><div class="wrap experience-grid"><div><span class="kicker">02 / THE EXPERIENCE</span><h2>Light that changes<br><em>with the moment.</em></h2><p>Explore the concept. The modes below illustrate the intended experience; the final configuration is tailored to your project.</p><div class="mode-buttons" role="group" aria-label="Explore operating modes"><button type="button" aria-pressed="true" data-mode="0">Everyday</button><button type="button" aria-pressed="false" data-mode="1">Focused</button><button type="button" aria-pressed="false" data-mode="2">Evening</button></div></div><div class="scene-display" data-scene="0"><span class="kicker">ILLUSTRATIVE OPERATION</span><div class="scene-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3 id="sceneTitle">Everyday</h3><p id="sceneCopy">Balanced illumination for regular activities.</p><script type="application/json" id="sceneData">[["Everyday", "Balanced illumination for regular activities."], ["Focused", "Task-led light for activities that need clarity."], ["Evening", "A quieter atmosphere through selected lighting layers."]]</script></div></div></section>
- <section class="content-section"><div class="wrap"><div class="section-heading"><span class="kicker">03 / DELIVERY</span><h2>Considered from<br><em>the first conversation.</em></h2><p>A lighting layout, control zoning concept and agreed fixture schedule for your operating requirements.</p></div><div class="process-grid"><article class="scope-card"><span class="number">01 /</span><h3>Understand</h3><p>Review your space, operating needs, existing systems and constraints.</p></article><article class="scope-card"><span class="number">02 /</span><h3>Define</h3><p>Agree the solution concept, interfaces, scope and acceptance criteria.</p></article><article class="scope-card"><span class="number">03 /</span><h3>Coordinate</h3><p>Align equipment, installation details and integration activities.</p></article><article class="scope-card"><span class="number">04 /</span><h3>Validate</h3><p>Check the agreed functions, document settings and hand over the system.</p></article></div></div></section>
- <section class="faq-section"><div class="wrap faq-grid"><div><span class="kicker">04 / GOOD TO KNOW</span><h2>Clarity before<br><em>you begin.</em></h2></div><div><details><summary>What do you need to prepare a proposal?</summary><p>Share your location, drawings or site photos, intended use, timeline and any existing equipment details. For commercial lighting, we will also confirm the required zones, interfaces and operating preferences.</p></details><details><summary>Can this be installed in an existing space?</summary><p>Existing spaces can be assessed for an upgrade. Cabling, available power, mounting access and equipment compatibility determine what can be retained and what needs changing.</p></details><details><summary>What is included in the final scope?</summary><p>The proposal identifies equipment, installation responsibilities, integration boundaries, documentation and acceptance checks. Optional additions and dependencies are agreed before implementation.</p></details></div></div></section>
- <section class="related wrap"><span class="kicker">CONTINUE EXPLORING</span><div><a href="industrial-lighting.html">Industrial Lighting <span>↗</span></a><a href="facade-lighting.html">Façade Lighting <span>↗</span></a></div></section><section class="project-cta"><div class="wrap"><div><span class="kicker">START A CONVERSATION</span><h2>Make your next space<br><em>work beautifully.</em></h2></div><a class="pill" href="contact.html">Discuss your project <span>↗</span></a></div></section></main><footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div><a class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true"
-                                viewBox="0 0 146 36">
-                                <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
-                                    stroke-width="4">
-                                    <path
-                                        d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
-                                    </path>
-                                </g>
-                                <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
-                            </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
-                                TECHNOLOGY</small></span></a>
-                    <p>Spaces, made intelligent.<br />Experiences, made extraordinary.</p>
-                </div>
-                <div>
-                    <h3>EXPLORE</h3>
-                    <div class="footer-links"><a href="about.html">About us</a><a href="residential-lighting.html">Lighting</a><a
-                            href="industrial-automation.html">Automation</a><a href="bms-and-iot.html">IoT &amp; BMS</a></div>
-                </div>
-                <div>
-                    <h3>LET’S CONNECT</h3><a class="footer-mail" href="mailto:info@aniplgroup.com">info@aniplgroup.com
-                        ↗</a>
-                    <address>320 Fifth Floor, East Avenue,<br />Ayyappa Society Main Rd, near YSR Statue,<br />SBH
-                        Officers
-                        Colony, Mega Hills, Madhapur,<br />Hyderabad, Telangana 500081</address>
-                </div>
-            </div>
-            <div class="footer-bottom"><span>© <span id="year">2026</span> AlphaNumeric Engineering and
-                    Technology</span><span>LIGHT / CONTROL / CONNECT</span><a href="#top">Back to top ↑</a></div>
+
+            <a href="contact.html" data-nav-page="contact.html"><span class="nav-label">Contact</span></a>
         </div>
-    </footer><script src="assets/pages.js"></script></body></html>
+    </nav>
+</header>
+
+<main id="main">
+    <section class="hero" style="--hero-image:url('assets/images/commercial-lighting/hero-main.jpg')">
+        <div class="wrap hero-grid">
+            <div class="hero-copy reveal">
+                <span class="kicker">02 / Commercial Lighting</span>
+                <h1>Commercial lighting that strengthens the experience of the space.</h1>
+                <p>Professional, efficient and premium lighting for offices, reception areas, showrooms, retail, hospitality spaces, corridors and commercial exteriors — designed to support performance, visibility and a stronger brand environment.</p>
+                <div class="hero-actions">
+                    <a class="pill" href="contact.html?service=commercial-lighting">Discuss your project <span>↗</span></a>
+                    <a class="text-link" href="#spaces">Explore the spaces ↓</a>
+                </div>
+            </div>
+
+            <div class="hero-highlights reveal">
+                <article class="highlight-card"><b>Office</b><span>Focused productivity</span><small>Balanced work lighting for concentration, comfort and visual clarity.</small></article>
+                <article class="highlight-card"><b>Retail</b><span>Display impact</span><small>Accent lighting that improves merchandise visibility and presentation.</small></article>
+                <article class="highlight-card"><b>Hospitality</b><span>Welcoming atmosphere</span><small>Warm, layered light that shapes guest perception and mood.</small></article>
+                <article class="highlight-card"><b>Exterior</b><span>Brand presence</span><small>Facade and entry lighting that elevates a commercial property at night.</small></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase">
+        <div class="wrap showcase-shell reveal" id="spaces">
+            <div class="space-grid">
+                <article class="space-card large" style="--bg:url('assets/images/commercial-lighting/office-main.jpg')">
+                    <div class="space-content">
+                        <b>Signature composition</b>
+                        <h3>One strong hero visual. Then a refined commercial lighting story.</h3>
+                        <p>Use your best commercial image here — a premium office, showroom or reception space with clean architectural lighting and strong depth.</p>
+                    </div>
+                </article>
+
+                <article class="space-card" style="--bg:url('assets/images/commercial-lighting/reception.jpg')">
+                    <div class="space-content">
+                        <b>Reception</b>
+                        <h3>First impressions in light</h3>
+                    </div>
+                </article>
+
+                <article class="space-card" style="--bg:url('assets/images/commercial-lighting/retail.jpg')">
+                    <div class="space-content">
+                        <b>Retail</b>
+                        <h3>Sharper display visibility</h3>
+                    </div>
+                </article>
+
+                <article class="space-card wide" style="--bg:url('assets/images/commercial-lighting/corridor-and-workzones.jpg')">
+                    <div class="space-content">
+                        <b>Circulation &amp; work zones</b>
+                        <h3>Clear movement, elegant illumination</h3>
+                        <p>Corridors, collaborative spaces and focused work areas lit with discipline and visual consistency.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div>
+                    <span class="kicker">Lighting strategy</span>
+                    <h2>Effective commercial spaces depend on lighting that is both functional and brand-aware.</h2>
+                </div>
+                <p>We create lighting schemes that support productivity, customer comfort, circulation, display quality and the overall commercial experience — all while maintaining a premium visual identity.</p>
+            </div>
+
+            <div class="layers-grid">
+                <article class="layer-card reveal">
+                    <span>01</span>
+                    <h3>General illumination</h3>
+                    <p>Uniform and comfortable base lighting for day-to-day operation, workplace clarity and spatial legibility across offices and commercial interiors.</p>
+                </article>
+                <article class="layer-card reveal">
+                    <span>02</span>
+                    <h3>Task &amp; focused lighting</h3>
+                    <p>Dedicated illumination for desks, counters, meeting areas, billing points, service zones and all activity-specific functions.</p>
+                </article>
+                <article class="layer-card reveal">
+                    <span>03</span>
+                    <h3>Accent &amp; brand lighting</h3>
+                    <p>Lighting that highlights products, architecture, signage, textures and focal moments to reinforce commercial identity.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section applications">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div>
+                    <span class="kicker">Commercial applications</span>
+                    <h2>Spaces we light across modern commercial environments.</h2>
+                </div>
+                <p>This section presents the most important commercial categories in a premium visual format rather than heavy text blocks.</p>
+            </div>
+
+            <div class="application-grid">
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/open-office.jpg')">
+                    <span class="tag">Office</span>
+                    <div class="copy">
+                        <h3>Open offices</h3>
+                        <p>Comfortable and efficient lighting for focused work, collaboration and long-duration occupancy.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/reception-2.jpg')">
+                    <span class="tag">Reception</span>
+                    <div class="copy">
+                        <h3>Reception &amp; lobby</h3>
+                        <p>High-impact welcome zones with refined ambient light and curated focal highlights.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/showroom.jpg')">
+                    <span class="tag">Showroom</span>
+                    <div class="copy">
+                        <h3>Showrooms</h3>
+                        <p>Layered illumination that improves product visibility, spatial appeal and customer attention.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/retail-2.jpg')">
+                    <span class="tag">Retail</span>
+                    <div class="copy">
+                        <h3>Retail interiors</h3>
+                        <p>Display-focused lighting for merchandise, shelving, feature walls and customer circulation.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/conference-room.jpg')">
+                    <span class="tag">Meeting</span>
+                    <div class="copy">
+                        <h3>Conference rooms</h3>
+                        <p>Controlled, glare-aware lighting for presentations, discussions and collaborative use.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/hospitality.jpg')">
+                    <span class="tag">Hospitality</span>
+                    <div class="copy">
+                        <h3>Hospitality spaces</h3>
+                        <p>Warm lighting for restaurants, lounges and guest-facing environments with a premium mood.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/corridor.jpg')">
+                    <span class="tag">Circulation</span>
+                    <div class="copy">
+                        <h3>Corridors &amp; common areas</h3>
+                        <p>Consistent guidance, safety and elegance through passage and transition lighting.</p>
+                    </div>
+                </article>
+                <article class="application-card reveal" style="--bg:url('assets/images/commercial-lighting/facade-entry.jpg')">
+                    <span class="tag">Exterior</span>
+                    <div class="copy">
+                        <h3>Facade &amp; entry lighting</h3>
+                        <p>Night-time identity for entrances, elevations and outdoor approach areas.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div>
+                    <span class="kicker">What this page can show</span>
+                    <h2>A stronger commercial lighting page structure for premium client presentation.</h2>
+                </div>
+                <p>This layout is more visual, more premium and easier for a client to understand than a conventional information-heavy service page.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <article class="capability-panel reveal">
+                    <h3>Commercial lighting scope</h3>
+                    <p>Show your complete service offering with concise, premium groupings instead of too much descriptive text.</p>
+                    <div class="bullet-grid">
+                        <div class="bullet"><i></i><span>Office lighting</span></div>
+                        <div class="bullet"><i></i><span>Reception &amp; lobby lighting</span></div>
+                        <div class="bullet"><i></i><span>Retail display lighting</span></div>
+                        <div class="bullet"><i></i><span>Showroom illumination</span></div>
+                        <div class="bullet"><i></i><span>Conference room lighting</span></div>
+                        <div class="bullet"><i></i><span>Hospitality lighting</span></div>
+                        <div class="bullet"><i></i><span>Corridor &amp; common area lighting</span></div>
+                        <div class="bullet"><i></i><span>Facade &amp; exterior lighting</span></div>
+                    </div>
+                </article>
+
+                <article class="capability-panel dark reveal">
+                    <h3>Why this direction works</h3>
+                    <p>One hero image, premium image-led sections and smaller, well-structured content blocks help the page feel much stronger, more modern and more effective for commercial clients.</p>
+                    <div class="bullet-grid">
+                        <div class="bullet"><i></i><span>Clearer visual identity</span></div>
+                        <div class="bullet"><i></i><span>Better space categorization</span></div>
+                        <div class="bullet"><i></i><span>Premium corporate presentation</span></div>
+                        <div class="bullet"><i></i><span>Works well with project images</span></div>
+                        <div class="bullet"><i></i><span>Better service communication</span></div>
+                        <div class="bullet"><i></i><span>Easy to extend across other pages</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <div>
+                    <span class="kicker">Our process</span>
+                    <h2>Thoughtful commercial lighting from planning to final atmosphere.</h2>
+                </div>
+                <p>A light process section helps the page feel complete and builds credibility without making the layout heavy.</p>
+            </div>
+
+            <div class="process-row">
+                <article class="process-card reveal">
+                    <b>01</b>
+                    <h3>Study the environment</h3>
+                    <p>We understand the spatial function, occupancy pattern, business type and lighting expectations.</p>
+                </article>
+                <article class="process-card reveal">
+                    <b>02</b>
+                    <h3>Define the layers</h3>
+                    <p>General, task and accent lighting are balanced around performance, experience and visual appeal.</p>
+                </article>
+                <article class="process-card reveal">
+                    <b>03</b>
+                    <h3>Select the fixtures</h3>
+                    <p>Fixture types, beam spreads and placements are aligned with architecture and intended use.</p>
+                </article>
+                <article class="process-card reveal">
+                    <b>04</b>
+                    <h3>Deliver the identity</h3>
+                    <p>The finished scheme supports operation while strengthening the commercial brand impression.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="wrap">
+            <div class="cta-shell reveal">
+                <div class="cta-grid">
+                    <div>
+                        <span class="kicker">Start a conversation</span>
+                        <h2>Let’s create a commercial lighting experience that feels premium, clear and effective.</h2>
+                        <p>If you want, next I can do the same premium redesign for Industrial Lighting, Façade Lighting and Landscape Lighting pages also in this exact style.</p>
+                    </div>
+                    <a class="pill dark" href="contact.html?service=commercial-lighting">Discuss your project <span>↗</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="index.html" aria-label="Alphanumeric Engineering &amp; Technology home">
+                    <span class="brand-logos" aria-hidden="true">
+                        <img class="brand-logo" src="assets/logo-white.png" alt="" loading="lazy">
+                    </span>
+                </a>
+                <p>Integrated lighting, automation and connected building systems shaped with clarity, restraint and premium execution.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <div class="footer-links">
+                    <a href="about.html">About us</a>
+                    <a href="residential-lighting.html">Lighting</a>
+                    <a href="industrial-automation.html">Automation</a>
+                    <a href="bms-and-iot.html">BMS &amp; IoT</a>
+                </div>
+            </div>
+            <div>
+                <h3>Let’s connect</h3>
+                <a class="footer-mail" href="mailto:info@aniplgroup.com">info@aniplgroup.com ↗</a>
+                <address>
+                    320 Fifth Floor, East Avenue,<br>
+                    Ayyappa Society Main Rd, near YSR Statue,<br>
+                    SBH Officers Colony, Mega Hills, Madhapur,<br>
+                    Hyderabad, Telangana 500081
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="year">2026</span> AlphaNumeric Engineering and Technology</span>
+            <span>Light / Control / Connect</span>
+            <a href="#top">Back to top ↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(() => {
+    'use strict';
+    const $$ = s => [...document.querySelectorAll(s)];
+    const header = document.getElementById('header');
+    const menu = document.getElementById('menuToggle');
+    const menuText = document.getElementById('menuToggleText');
+    const navLinks = document.getElementById('navLinks');
+    const solutionsRoot = document.getElementById('solutionsRoot');
+    const trigger = document.getElementById('solutionsTrigger');
+    const mega = document.getElementById('solutionsMenu');
+    const desktopMedia = window.matchMedia('(min-width: 761px)');
+
+    if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-motion');
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        }), { threshold: .08 });
+        $$('.reveal').forEach(el => observer.observe(el));
+    }
+
+    const normalizePage = () => {
+        let page = location.pathname.split('/').pop() || 'index.html';
+        page = page.split('?')[0].split('#')[0].toLowerCase();
+        return page || 'index.html';
+    };
+
+    const currentPage = normalizePage();
+    const directNav = [...navLinks.querySelectorAll(':scope > a[data-nav-page]')];
+    const megaLinks = mega ? [...mega.querySelectorAll('.mega-link')] : [];
+
+    directNav.forEach(link => {
+        const target = (link.dataset.navPage || '').toLowerCase();
+        const homeMatch = target === 'index.html' && (currentPage === '' || currentPage === 'index.html');
+        const active = homeMatch || currentPage === target;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
+
+    let solutionPageActive = false;
+    megaLinks.forEach(link => {
+        const href = (link.getAttribute('href') || '').split('/').pop().toLowerCase();
+        const active = currentPage === href;
+        link.classList.toggle('is-active', active);
+        if (active) {
+            link.setAttribute('aria-current', 'page');
+            solutionPageActive = true;
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+    trigger.classList.toggle('is-active', solutionPageActive);
+
+    function openMega(){mega.hidden = false; trigger.setAttribute('aria-expanded','true'); header.classList.add('mega-open');}
+    function closeMega(){mega.hidden = true; trigger.setAttribute('aria-expanded','false'); header.classList.remove('mega-open');}
+    function closeNav(){header.classList.remove('menu-open'); menu.setAttribute('aria-expanded','false'); menuText.textContent='Menu'; closeMega();}
+
+    menu.addEventListener('click', () => {
+        const open = header.classList.toggle('menu-open');
+        menu.setAttribute('aria-expanded', String(open));
+        menuText.textContent = open ? 'Close' : 'Menu';
+        if (!open) closeMega();
+    });
+
+    trigger.addEventListener('click', event => {
+        event.preventDefault();
+        mega.hidden ? openMega() : closeMega();
+    });
+
+    let hoverTimer = null;
+    function clearHoverTimer(){ if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; } }
+    function scheduleClose(){ if (!desktopMedia.matches) return; clearHoverTimer(); hoverTimer = setTimeout(closeMega, 150); }
+    solutionsRoot.addEventListener('mouseenter', () => { if (!desktopMedia.matches) return; clearHoverTimer(); openMega(); });
+    solutionsRoot.addEventListener('mouseleave', scheduleClose);
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest('#solutionsRoot')) closeMega();
+        if (header.classList.contains('menu-open') && !event.target.closest('#header')) closeNav();
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        if (!mega.hidden) { closeMega(); trigger.focus(); return; }
+        if (header.classList.contains('menu-open')) { closeNav(); menu.focus(); }
+    });
+
+    navLinks.addEventListener('click', event => {
+        const link = event.target.closest('a');
+        if (!link) return;
+        if (!desktopMedia.matches) closeNav();
+    });
+
+    window.addEventListener('resize', () => {
+        clearHoverTimer();
+        if (desktopMedia.matches && header.classList.contains('menu-open')) closeNav();
+    });
+
+    const syncNav = () => header.classList.toggle('scrolled', window.scrollY > 22);
+    syncNav();
+    window.addEventListener('scroll', syncNav, { passive:true });
+    window.addEventListener('pageshow', syncNav);
+
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

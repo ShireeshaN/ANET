@@ -1,64 +1,2419 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Lighting, automation and connected building systems. Discover the ANET approach."><meta name="theme-color" content="#151515"><title>About | ANET</title><link rel="stylesheet" href="assets/base.css"><link rel="stylesheet" href="assets/pages.css"></head><body class="detail-page" id="top"><a class="skip-link" href="#main">Skip to content</a><header class="header" id="header">
-        <nav aria-label="Main navigation" class="nav wrap"><a aria-label="AlphaNumeric Engineering and Technology home"
-                class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 146 36">
-                        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
-                            stroke-width="4">
-                            <path
-                                d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
-                            </path>
-                        </g>
-                        <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
-                    </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
-                        TECHNOLOGY</small></span></a><button aria-controls="navLinks" aria-expanded="false"
-                class="menu-toggle" id="menuToggle">Menu +</button>
-            <div class="nav-links" id="navLinks"><a href="index.html">Home</a><a aria-current="page" href="about.html">About</a>
-                <div class="solutions"><button aria-controls="solutionsMenu" aria-expanded="false"
-                        class="solutions-trigger" id="solutionsTrigger">Solutions <span>⌄</span></button>
-                    <div class="mega" hidden="" id="solutionsMenu">
-                        <div class="mega-column"><b>01 / Lighting</b><a href="residential-lighting.html">Residential
-                                Lighting</a><a href="commercial-lighting.html">Commercial Lighting</a><a
-                                href="industrial-lighting.html">Industrial Lighting</a><a href="facade-lighting.html">Façade
-                                Lighting</a><a href="landscape-lighting.html">Landscape Lighting</a></div>
-                        <div class="mega-column"><b>02 / Automation</b><a href="home-automation.html">Home
-                                Automation</a><a href="commercial-automation.html">Commercial Automation</a><a
-                                href="industrial-automation.html">Industrial Automation</a></div>
-                        <div class="mega-column"><b>03 / IoT</b><a href="bms.html">BMS</a><a
-                                href="bms-with-iot.html">BMS with IoT</a><a href="bms-and-iot.html">BMS &amp;
-                                IoT</a></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="About AlphaNumeric — integrated lighting, automation, BMS and IoT for intelligent connected environments.">
+    <meta name="theme-color" content="#111315">
+    <title>About | ANET</title>
+    <style>
+        :root{
+            --ink:#111315;
+            --ink-2:#191c1f;
+            --paper:#f2f1ed;
+            --paper-2:#e9e8e2;
+            --white:#f8f8f5;
+            --muted:#71767a;
+            --line:rgba(17,19,21,.11);
+            --gold:#d7a840;
+            --blue:#004aad;
+            --ease:cubic-bezier(.22,1,.36,1);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{
+            margin:0;
+            color:var(--ink);
+            background:var(--paper);
+            font-family:"Manrope","Inter","Segoe UI",Arial,sans-serif;
+            -webkit-font-smoothing:antialiased;
+            overflow-x:hidden;
+        }
+        a{color:inherit;text-decoration:none}
+        button,input,textarea,select{font:inherit}
+        img,svg{display:block;max-width:100%}
+        button{color:inherit}
+        ::selection{background:#d7a840;color:#111315}
+        .wrap{width:min(1500px,calc(100% - 96px));margin-inline:auto}
+        .skip{
+            position:fixed;left:20px;top:-90px;z-index:5000;
+            padding:13px 16px;background:#fff;color:#111;border:1px solid #ddd;
+        }
+        .skip:focus{top:14px}
+        @media(max-width:1100px){.wrap{width:calc(100% - 64px)}}
+        @media(max-width:760px){
+            html{scroll-padding-top:76px}
+            .wrap{width:calc(100% - 36px)}
+        }
+    </style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<style>
+        /* =========================================================
+   01 — HEADER ROOT
+   ========================================================= */
+        .header {
+            --nav-ink: #11161a;
+            --nav-white: #f7f7f5;
+            --nav-muted: #747b80;
+            --nav-line: rgba(17, 29, 36, .10);
+            --nav-glass: rgba(248, 249, 248, .92);
+            --nav-gold: #d7a840;
+            --nav-cyan: #6adce1;
+
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 1000;
+            height: 90px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, .09);
+            transition:
+                height .38s cubic-bezier(.2, .7, .2, 1),
+                color .32s ease,
+                background .32s ease,
+                border-color .32s ease,
+                box-shadow .32s ease;
+        }
+
+        .header.scrolled,
+        .header.menu-open,
+        .header.mega-open {
+            height: 76px;
+            color: var(--nav-ink);
+            background: var(--nav-glass);
+            border-color: var(--nav-line);
+            box-shadow: 0 12px 38px rgba(17, 29, 36, .07);
+            backdrop-filter: blur(22px) saturate(145%);
+            -webkit-backdrop-filter: blur(22px) saturate(145%);
+        }
+
+        .header * {
+            box-sizing: border-box;
+        }
+
+        .header a,
+        .header button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* =========================================================
+   02 — NAV WRAP
+   ========================================================= */
+        .nav {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* =========================================================
+   03 — BRAND
+   ========================================================= */
+        /* Keep both transparent PNGs in assets/images/.
+   logo-white.png = WHITE tagline, for dark backgrounds.
+   logo-black.png = BLACK tagline, for light backgrounds. */
+        .header .brand {
+            display: block;
+            flex: 0 0 auto;
+            width: 310px;
+            max-width: calc(100% - 95px);
+            color: inherit;
+            text-decoration: none !important;
+        }
+
+        .header .brand-logos {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+
+        .header .brand-logo {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: left center;
+            transition: opacity .25s ease;
+            pointer-events: none;
+        }
+
+        .header .brand-logo--white {
+            opacity: 1
+        }
+
+        .header .brand-logo--black {
+            opacity: 0
+        }
+
+        .header.scrolled .brand-logo--white,
+        .header.menu-open .brand-logo--white,
+        .header.mega-open .brand-logo--white {
+            opacity: 0
+        }
+
+        .header.scrolled .brand-logo--black,
+        .header.menu-open .brand-logo--black,
+        .header.mega-open .brand-logo--black {
+            opacity: 1
+        }
+
+        .header .brand:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 5px;
+            border-radius: 3px;
+        }
+
+        /* =========================================================
+   04 — DESKTOP LINKS
+   ========================================================= */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+            margin-left: auto;
+        }
+
+        .nav-links>a,
+        .solutions-trigger {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 44px;
+            padding: 0;
+            border: 0 !important;
+            outline: 0;
+            background: none;
+            color: inherit;
+            text-decoration: none !important;
+            font: 600 10.5px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .075em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        /* important: anchor itself gets NO underline / border */
+        .nav-links>a,
+        .nav-links>a:hover,
+        .nav-links>a:focus,
+        .solutions-trigger,
+        .solutions-trigger:hover,
+        .solutions-trigger:focus {
+            border-bottom: 0 !important;
+            text-decoration: none !important;
+            box-shadow: none;
+            background-image: none !important;
+        }
+
+        /* one and only underline lives on .nav-label */
+        .nav-label {
+            position: relative;
+            display: inline-block;
+            padding: 7px 0 9px;
+        }
+
+        .nav-label::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 2px;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right center;
+            opacity: .78;
+            transition: transform .28s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .nav-links>a:hover .nav-label::after,
+        .nav-links>a:focus-visible .nav-label::after,
+        .nav-links>a.is-active .nav-label::after,
+        .solutions-trigger:hover .nav-label::after,
+        .solutions-trigger:focus-visible .nav-label::after,
+        .solutions-trigger.is-active .nav-label::after,
+        .solutions-trigger[aria-expanded="true"] .nav-label::after {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+
+        .nav-links>a.is-active,
+        .solutions-trigger.is-active,
+        .solutions-trigger[aria-expanded="true"] {
+            color: inherit;
+        }
+
+        /* active page micro dot */
+        .nav-links>a.is-active .nav-label::before,
+        .solutions-trigger.is-active .nav-label::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -7px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--nav-gold);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(215, 168, 64, .35);
+        }
+
+        .solutions-chevron {
+            width: 13px;
+            height: 13px;
+            display: grid;
+            place-items: center;
+            transition: transform .3s ease;
+            opacity: .72;
+        }
+
+        .solutions-trigger[aria-expanded="true"] .solutions-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* =========================================================
+   05 — SOLUTIONS WRAPPER
+   ========================================================= */
+        .solutions {
+            position: static;
+        }
+
+        /* =========================================================
+   06 — PREMIUM MEGA MENU
+   ========================================================= */
+        .mega {
+            position: absolute;
+            top: calc(100% - 1px);
+            right: 0;
+            width: min(1080px, calc(100vw - 64px));
+            color: var(--nav-ink);
+            background: rgba(249, 250, 249, .98);
+            border: 1px solid rgba(17, 29, 36, .10);
+            border-radius: 0 0 12px 12px;
+            box-shadow:
+                0 34px 80px rgba(17, 29, 36, .16),
+                0 8px 24px rgba(17, 29, 36, .06);
+            overflow: hidden;
+            transform-origin: top right;
+            animation: megaIn .26s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .mega[hidden] {
+            display: none !important;
+        }
+
+        @keyframes megaIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px) scale(.992)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .mega-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--nav-line);
+            background: linear-gradient(90deg, rgba(255, 255, 255, .85), rgba(239, 243, 244, .74));
+        }
+
+        .mega-top-left {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .mega-top-left i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--nav-cyan);
+            box-shadow: 0 0 10px rgba(106, 220, 225, .45);
+        }
+
+        .mega-top strong {
+            font: 650 8px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+            color: #4d585e;
+        }
+
+        .mega-top span {
+            font: 550 8px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .10em;
+            color: #8a9195;
+            text-transform: uppercase;
+        }
+
+        .mega-grid {
+            display: grid;
+            grid-template-columns: .86fr 1fr 1fr 1fr;
+            min-height: 345px;
+        }
+
+        .mega-intro {
+            position: relative;
+            padding: 30px 26px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(78, 154, 174, .10), transparent 36%),
+                linear-gradient(160deg, #edf2f3, #f8f9f8 60%);
+            border-right: 1px solid var(--nav-line);
+        }
+
+        .mega-intro::after {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            right: -80px;
+            bottom: -80px;
+            border: 1px solid rgba(67, 130, 145, .10);
+            border-radius: 50%;
+            box-shadow: 0 0 0 24px rgba(67, 130, 145, .035), 0 0 0 48px rgba(67, 130, 145, .02);
+        }
+
+        .mega-kicker {
+            display: block;
+            margin-bottom: 16px;
+            font: 650 7.5px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+            color: #788187;
+        }
+
+        .mega-intro h3 {
+            margin: 0;
+            max-width: 220px;
+            font: 500 26px/1.06 "Manrope", Arial, sans-serif;
+            letter-spacing: -.045em;
+            color: #182025;
+        }
+
+        .mega-intro p {
+            margin: 16px 0 0;
+            max-width: 230px;
+            font: 400 10.5px/1.75 "Manrope", Arial, sans-serif;
+            color: #70797e;
+        }
+
+        .mega-all {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            color: #202a2f;
+            text-decoration: none !important;
+            font: 650 8px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+
+        .mega-all::after {
+            content: "↗";
+            font-size: 12px;
+            transition: transform .25s ease;
+        }
+
+        .mega-all:hover::after {
+            transform: translate(2px, -2px);
+        }
+
+        .mega-column {
+            padding: 28px 24px 24px;
+            border-right: 1px solid var(--nav-line);
+            background: rgba(255, 255, 255, .72);
+        }
+
+        .mega-column:last-child {
+            border-right: 0;
+        }
+
+        .mega-column-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding-bottom: 17px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--nav-line);
+        }
+
+        .mega-number {
+            padding-top: 4px;
+            font: 650 7px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .12em;
+            color: #9a9fa2;
+        }
+
+        .mega-column-head h4 {
+            margin: 0;
+            font: 550 18px/1.1 "Manrope", Arial, sans-serif;
+            letter-spacing: -.035em;
+            color: #1d2529;
+        }
+
+        .mega-column-head small {
+            display: block;
+            margin-top: 5px;
+            font: 500 7.5px/1.35 "Manrope", Arial, sans-serif;
+            letter-spacing: .04em;
+            color: #93999d;
+        }
+
+        .mega-column nav {
+            display: grid;
+            gap: 2px;
+        }
+
+        .mega-link {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+            min-height: 42px;
+            padding: 9px 2px 9px 0;
+            color: #626b70;
+            text-decoration: none !important;
+            border-bottom: 1px solid rgba(17, 29, 36, .055);
+            transition: color .22s ease, padding-left .22s ease, background .22s ease;
+        }
+
+        .mega-link:last-child {
+            border-bottom: 0;
+        }
+
+        .mega-link span:first-child {
+            font: 520 10.5px/1.3 "Manrope", Arial, sans-serif;
+        }
+
+        .mega-link .mega-arrow {
+            width: 19px;
+            height: 19px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(17, 29, 36, .08);
+            border-radius: 50%;
+            font-size: 9px;
+            color: #8b9296;
+            opacity: .65;
+            transition: transform .22s ease, opacity .22s ease, border-color .22s ease;
+        }
+
+        .mega-link:hover,
+        .mega-link:focus-visible {
+            color: #151c20;
+            padding-left: 5px;
+        }
+
+        .mega-link:hover .mega-arrow,
+        .mega-link:focus-visible .mega-arrow {
+            opacity: 1;
+            transform: translate(2px, -2px);
+            border-color: rgba(17, 29, 36, .18);
+        }
+
+        .mega-link.is-active {
+            color: #11171b;
+            font-weight: 650;
+        }
+
+        .mega-link.is-active::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: var(--nav-gold);
+        }
+
+        /* =========================================================
+   07 — MENU BUTTON
+   ========================================================= */
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 74px;
+            height: 38px;
+            padding: 0 12px;
+            border: 1px solid currentColor;
+            border-color: rgba(150, 150, 150, .42);
+            border-radius: 999px;
+            background: transparent;
+            color: inherit;
+            font: 650 9px/1 "Manrope", Arial, sans-serif;
+            letter-spacing: .10em;
+            text-transform: uppercase;
+        }
+
+        .menu-toggle i {
+            position: relative;
+            width: 12px;
+            height: 8px;
+        }
+
+        .menu-toggle i::before,
+        .menu-toggle i::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 12px;
+            height: 1px;
+            background: currentColor;
+            transition: transform .25s ease, top .25s ease;
+        }
+
+        .menu-toggle i::before {
+            top: 1px
+        }
+
+        .menu-toggle i::after {
+            top: 7px
+        }
+
+        .menu-open .menu-toggle i::before {
+            top: 4px;
+            transform: rotate(45deg)
+        }
+
+        .menu-open .menu-toggle i::after {
+            top: 4px;
+            transform: rotate(-45deg)
+        }
+
+        /* =========================================================
+   08 — TABLET
+   ========================================================= */
+        @media(max-width:1100px) {
+            .header .brand {
+                width: 270px
+            }
+
+            .nav-links {
+                gap: 27px
+            }
+
+            .mega {
+                width: min(960px, calc(100vw - 48px))
+            }
+
+            .mega-grid {
+                grid-template-columns: .74fr 1fr 1fr 1fr
+            }
+
+            .mega-intro {
+                padding: 26px 20px
+            }
+
+            .mega-column {
+                padding: 25px 18px 22px
+            }
+        }
+
+        /* =========================================================
+   09 — MOBILE
+   ========================================================= */
+        @media(max-width:760px) {
+            .header {
+                height: 74px
+            }
+
+            .header.scrolled,
+            .header.menu-open,
+            .header.mega-open {
+                height: 68px
+            }
+
+            .header .brand {
+                width: 235px
+            }
+
+            .header .brand-logos {
+                height: 62px
+            }
+
+            .menu-toggle {
+                display: inline-flex
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                left: -17px;
+                right: -17px;
+                top: 100%;
+                max-height: calc(100svh - 68px);
+                overflow: auto;
+                margin: 0;
+                padding: 13px 17px 22px;
+                background: rgba(248, 249, 248, .985);
+                color: var(--nav-ink);
+                border-top: 1px solid var(--nav-line);
+                box-shadow: 0 30px 60px rgba(17, 29, 36, .14);
+                backdrop-filter: blur(22px);
+                -webkit-backdrop-filter: blur(22px);
+            }
+
+            .menu-open .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav-links>a,
+            .solutions-trigger {
+                width: 100%;
+                min-height: 54px;
+                justify-content: space-between;
+                text-align: left;
+                border-bottom: 1px solid rgba(17, 29, 36, .09) !important;
+                font-size: 11px;
+            }
+
+            .nav-links>a .nav-label,
+            .solutions-trigger .nav-label {
+                padding: 0;
+            }
+
+            .nav-label::after,
+            .nav-links>a.is-active .nav-label::before,
+            .solutions-trigger.is-active .nav-label::before {
+                display: none;
+            }
+
+            .nav-links>a.is-active .nav-label,
+            .solutions-trigger.is-active .nav-label {
+                color: #11171b;
+                font-weight: 700;
+            }
+
+            .nav-links>a.is-active::before,
+            .solutions-trigger.is-active::before {
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: var(--nav-gold);
+                margin-right: 8px;
+                flex: 0 0 auto;
+            }
+
+            .solutions {
+                position: static
+            }
+
+            .mega {
+                position: static;
+                width: 100%;
+                margin: 0;
+                border: 0;
+                border-bottom: 1px solid rgba(17, 29, 36, .10);
+                border-radius: 0;
+                box-shadow: none;
+                background: #f1f4f4;
+                animation: none;
+            }
+
+            .mega-top {
+                display: none
+            }
+
+            .mega-grid {
+                display: block;
+                min-height: 0;
+            }
+
+            .mega-intro {
+                padding: 20px 16px;
+                border-right: 0;
+                border-bottom: 1px solid var(--nav-line);
+            }
+
+            .mega-intro h3 {
+                font-size: 21px
+            }
+
+            .mega-intro p {
+                font-size: 9.5px;
+                max-width: 100%
+            }
+
+            .mega-all {
+                margin-top: 15px
+            }
+
+            .mega-column {
+                padding: 20px 16px;
+                border-right: 0;
+                border-bottom: 1px solid var(--nav-line);
+            }
+
+            .mega-column:last-child {
+                border-bottom: 0
+            }
+
+            .mega-column-head {
+                margin-bottom: 4px;
+                padding-bottom: 12px
+            }
+
+            .mega-column-head h4 {
+                font-size: 16px
+            }
+
+            .mega-link {
+                min-height: 40px
+            }
+
+            .mega-link.is-active::before {
+                left: -16px
+            }
+        }
+
+        /* =========================================================
+   10 — REDUCED MOTION
+   ========================================================= */
+        @media(prefers-reduced-motion:reduce) {
+
+            .header *,
+            .header *::before,
+            .header *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+
+    <!-- =========================================================
+     HTML
+     ========================================================= -->
+    <header class="header" id="header">
+        <nav class="nav wrap" aria-label="Main navigation">
+
+            <!-- BOTH LOGOS: use transparent PNGs with matching canvas/padding. -->
+            <a class="brand" href="index.html" aria-label="Alphanumeric home">
+                <span class="brand-logos" aria-hidden="true">
+                    <img class="brand-logo brand-logo--white" src="assets/logo-black.png" alt="" loading="eager"
+                        decoding="sync" fetchpriority="high">
+                    <img class="brand-logo brand-logo--black" src="assets/logo-white.png" alt="" loading="eager"
+                        decoding="sync">
+                </span>
+            </a>
+
+            <!-- MOBILE BUTTON -->
+            <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false">
+                <span id="menuToggleText">Menu</span>
+                <i aria-hidden="true"></i>
+            </button>
+
+            <!-- LINKS -->
+            <div class="nav-links" id="navLinks">
+
+                <a href="index.html" data-nav-page="index.html">
+                    <span class="nav-label">Home</span>
+                </a>
+
+                <a href="about.html" data-nav-page="about.html">
+                    <span class="nav-label">About</span>
+                </a>
+
+                <!-- SOLUTIONS -->
+                <div class="solutions" id="solutionsRoot">
+
+                    <button class="solutions-trigger" id="solutionsTrigger" type="button" aria-controls="solutionsMenu"
+                        aria-expanded="false">
+                        <span class="nav-label">Solutions</span>
+                        <span class="solutions-chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <div class="mega" id="solutionsMenu" hidden>
+
+                        <div class="mega-top">
+                            <div class="mega-top-left">
+                                <i aria-hidden="true"></i>
+                                <strong>Integrated Solutions</strong>
+                            </div>
+                            <span>Lighting · Automation · BMS &amp; IoT</span>
+                        </div>
+
+                        <div class="mega-grid">
+
+                            <!-- INTRO -->
+                            <div class="mega-intro">
+                                <span class="mega-kicker">Connected environments</span>
+                                <h3>One portfolio. Multiple intelligent layers.</h3>
+                                <p>
+                                    Professional lighting, connected automation and building intelligence — planned as
+                                    complete, scalable systems.
+                                </p>
+                                <a class="mega-all" href="index.html#solutions">Explore solutions</a>
+                            </div>
+
+                            <!-- LIGHTING -->
+                            <div class="mega-column">
+                                <div class="mega-column-head">
+                                    <span class="mega-number">01</span>
+                                    <div>
+                                        <h4>Lighting</h4>
+                                        <small>Professional illumination</small>
+                                    </div>
+                                </div>
+
+                                <nav aria-label="Lighting solutions">
+                                    <a class="mega-link" href="residential-lighting.html"><span>Residential
+                                            Lighting</span><span class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="commercial-lighting.html"><span>Commercial
+                                            Lighting</span><span class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="industrial-lighting.html"><span>Industrial
+                                            Lighting</span><span class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="facade-lighting.html"><span>Façade Lighting</span><span
+                                            class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="landscape-lighting.html"><span>Landscape
+                                            Lighting</span><span class="mega-arrow">↗</span></a>
+                                </nav>
+                            </div>
+
+                            <!-- AUTOMATION -->
+                            <div class="mega-column">
+                                <div class="mega-column-head">
+                                    <span class="mega-number">02</span>
+                                    <div>
+                                        <h4>Automation</h4>
+                                        <small>Connected control systems</small>
+                                    </div>
+                                </div>
+
+                                <nav aria-label="Automation solutions">
+                                    <a class="mega-link" href="home-automation.html"><span>Home Automation</span><span
+                                            class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="commercial-automation.html"><span>Commercial
+                                            Automation</span><span class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="industrial-automation.html"><span>Industrial
+                                            Automation</span><span class="mega-arrow">↗</span></a>
+                                </nav>
+                            </div>
+
+                            <!-- BMS + IOT -->
+                            <div class="mega-column">
+                                <div class="mega-column-head">
+                                    <span class="mega-number">03</span>
+                                    <div>
+                                        <h4>BMS &amp; IoT</h4>
+                                        <small>Building intelligence</small>
+                                    </div>
+                                </div>
+
+                                <nav aria-label="BMS and IoT solutions">
+                                    <a class="mega-link" href="bms.html"><span>BMS</span><span
+                                            class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="bms-with-iot.html"><span>BMS with IoT</span><span
+                                            class="mega-arrow">↗</span></a>
+                                    <a class="mega-link" href="bms-and-iot.html"><span>BMS &amp; IoT</span><span
+                                            class="mega-arrow">↗</span></a>
+                                </nav>
+                            </div>
+
+                        </div>
                     </div>
-                </div><a href="contact.html">Contact</a>
+                </div>
+
+                <a href="contact.html" data-nav-page="contact.html">
+                    <span class="nav-label">Contact</span>
+                </a>
+
             </div>
         </nav>
-    </header><main id="main"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/ About</span></div><span class="kicker">ABOUT ANET</span><h1>Extraordinary spaces.<br><em>Intelligence within.</em></h1><div class="about-intro"><p>AlphaNumeric Engineering and Technology brings lighting, automation and connected building systems together.</p><p>From a single room to an entire facility, our approach starts with the way a space will be used. We connect the physical environment, everyday control and useful operational insight into a considered solution.</p></div><div class="brand-statement">LIGHT <span>/</span> CONTROL <span>/</span> CONNECT</div></div></section><section class="content-section"><div class="wrap"><div class="section-heading"><span class="kicker">OUR APPROACH</span><h2>Three disciplines.<br><em>One connected perspective.</em></h2><p>Each discipline has its own purpose. The value grows when they are planned together.</p></div><div class="scope-grid"><article class="scope-card"><span class="number">01 /</span><h3>Lighting</h3><p>Reveal architecture, support tasks and create the right atmosphere.</p></article><article class="scope-card"><span class="number">02 /</span><h3>Automation</h3><p>Coordinate compatible devices and simplify everyday routines.</p></article><article class="scope-card"><span class="number">03 /</span><h3>Building intelligence</h3><p>Connect equipment data with the people responsible for operating a building.</p></article></div></div></section><section class="experience"><div class="wrap experience-grid"><div><span class="kicker">OUR DIRECTION</span><h2>Technology with purpose.<br><em>Room for possibility.</em></h2></div><div><h3>Our vision</h3><p>Spaces that feel intuitive, operate clearly and can evolve with changing needs.</p><h3>Our mission</h3><p>Bring lighting, control and connected systems together through thoughtful planning, clear scope and coordinated delivery.</p></div></div></section><section class="content-section"><div class="wrap"><div class="section-heading"><span class="kicker">WHAT GUIDES US</span><h2>Considered choices.<br><em>Lasting relevance.</em></h2></div><div class="scope-grid"><article class="scope-card"><span class="number">01 /</span><h3>Purpose before complexity</h3><p>Begin with the experience or operational need the technology must support.</p></article><article class="scope-card"><span class="number">02 /</span><h3>Clarity at every stage</h3><p>Make scope, interfaces and responsibilities understandable.</p></article><article class="scope-card"><span class="number">03 /</span><h3>Compatibility by design</h3><p>Assess the equipment and protocols before defining integration.</p></article><article class="scope-card"><span class="number">04 /</span><h3>Quality &amp; reliability</h3><p>Use project requirements to guide selection, implementation and validation.</p></article><article class="scope-card"><span class="number">05 /</span><h3>Customer partnership</h3><p>Keep decisions connected to the people using and maintaining the space.</p></article><article class="scope-card"><span class="number">06 /</span><h3>Ready to evolve</h3><p>Consider service access and future requirements from the outset.</p></article></div></div></section><section class="project-cta"><div class="wrap"><div><span class="kicker">START A CONVERSATION</span><h2>Make your next space<br><em>work beautifully.</em></h2></div><a class="pill" href="contact.html">Discuss your project <span>↗</span></a></div></section></main><footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div><a class="brand" href="index.html"><span class="brand-mark"><svg aria-hidden="true"
-                                viewBox="0 0 146 36">
-                                <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"
-                                    stroke-width="4">
-                                    <path
-                                        d="M3 31 16 5h4l13 26M10 23h17M44 31V5l23 26V5M103 5H80v26h23M80 18h19M114 5h28M128 5v26">
-                                    </path>
-                                </g>
-                                <path d="M35 0h5v5h-5z" fill="#d0d0d0"></path>
-                            </svg></span><span class="brand-name">ALPHANUMERIC<small>ENGINEERING &amp;
-                                TECHNOLOGY</small></span></a>
-                    <p>Spaces, made intelligent.<br />Experiences, made extraordinary.</p>
+    </header>
+
+    <!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+    <script>
+        (() => {
+            'use strict';
+
+            const header = document.getElementById('header');
+            const menu = document.getElementById('menuToggle');
+            const menuText = document.getElementById('menuToggleText');
+            const navLinks = document.getElementById('navLinks');
+            const solutionsRoot = document.getElementById('solutionsRoot');
+            const trigger = document.getElementById('solutionsTrigger');
+            const mega = document.getElementById('solutionsMenu');
+
+            if (!header || !menu || !navLinks || !trigger || !mega) return;
+
+            const desktopMedia = window.matchMedia('(min-width: 761px)');
+
+            /* =========================================================
+               ACTIVE PAGE
+               Home stays active on /, /index.html and index variants.
+               Solution pages activate Solutions + corresponding mega link.
+               ========================================================= */
+            const normalizePage = () => {
+                let page = location.pathname.split('/').pop() || 'index.html';
+                page = page.split('?')[0].split('#')[0].toLowerCase();
+                return page || 'index.html';
+            };
+
+            const currentPage = normalizePage();
+
+            const directNav = [...navLinks.querySelectorAll(':scope > a[data-nav-page]')];
+            const megaLinks = [...mega.querySelectorAll('.mega-link')];
+
+            directNav.forEach(link => {
+                const target = (link.dataset.navPage || '').toLowerCase();
+                const homeMatch = target === 'index.html' && (currentPage === '' || currentPage === 'index.html');
+                const active = homeMatch || currentPage === target;
+
+                link.classList.toggle('is-active', active);
+                if (active) link.setAttribute('aria-current', 'page');
+                else link.removeAttribute('aria-current');
+            });
+
+            let solutionPageActive = false;
+
+            megaLinks.forEach(link => {
+                const target = (link.getAttribute('href') || '').split('/').pop().toLowerCase();
+                const active = currentPage === target;
+                link.classList.toggle('is-active', active);
+                if (active) {
+                    link.setAttribute('aria-current', 'page');
+                    solutionPageActive = true;
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+
+            trigger.classList.toggle('is-active', solutionPageActive);
+
+            /* =========================================================
+               OPEN / CLOSE HELPERS
+               ========================================================= */
+            function openMega() {
+                mega.hidden = false;
+                trigger.setAttribute('aria-expanded', 'true');
+                header.classList.add('mega-open');
+            }
+
+            function closeMega() {
+                mega.hidden = true;
+                trigger.setAttribute('aria-expanded', 'false');
+                header.classList.remove('mega-open');
+            }
+
+            function closeNav() {
+                header.classList.remove('menu-open');
+                menu.setAttribute('aria-expanded', 'false');
+                menuText.textContent = 'Menu';
+                closeMega();
+            }
+
+            /* =========================================================
+               MOBILE MENU
+               ========================================================= */
+            menu.addEventListener('click', () => {
+                const open = header.classList.toggle('menu-open');
+                menu.setAttribute('aria-expanded', String(open));
+                menuText.textContent = open ? 'Close' : 'Menu';
+                if (!open) closeMega();
+            });
+
+            /* =========================================================
+               SOLUTIONS CLICK
+               ========================================================= */
+            trigger.addEventListener('click', event => {
+                event.preventDefault();
+                mega.hidden ? openMega() : closeMega();
+            });
+
+            /* =========================================================
+               PREMIUM DESKTOP HOVER BEHAVIOUR
+               Small close delay prevents menu flicker while moving cursor.
+               ========================================================= */
+            let hoverTimer = null;
+
+            function clearHoverTimer() {
+                if (hoverTimer) {
+                    clearTimeout(hoverTimer);
+                    hoverTimer = null;
+                }
+            }
+
+            function scheduleClose() {
+                if (!desktopMedia.matches) return;
+                clearHoverTimer();
+                hoverTimer = setTimeout(closeMega, 150);
+            }
+
+            solutionsRoot.addEventListener('mouseenter', () => {
+                if (!desktopMedia.matches) return;
+                clearHoverTimer();
+                openMega();
+            });
+
+            solutionsRoot.addEventListener('mouseleave', scheduleClose);
+
+            /* =========================================================
+               OUTSIDE CLICK / ESC
+               ========================================================= */
+            document.addEventListener('click', event => {
+                if (!event.target.closest('#solutionsRoot')) closeMega();
+
+                if (
+                    header.classList.contains('menu-open') &&
+                    !event.target.closest('#header')
+                ) {
+                    closeNav();
+                }
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key !== 'Escape') return;
+
+                if (!mega.hidden) {
+                    closeMega();
+                    trigger.focus();
+                    return;
+                }
+
+                if (header.classList.contains('menu-open')) {
+                    closeNav();
+                    menu.focus();
+                }
+            });
+
+            /* close mobile menu when navigating */
+            navLinks.addEventListener('click', event => {
+                const link = event.target.closest('a');
+                if (!link) return;
+                if (!desktopMedia.matches) closeNav();
+            });
+
+            /* =========================================================
+               RESPONSIVE RESET
+               ========================================================= */
+            window.addEventListener('resize', () => {
+                clearHoverTimer();
+                if (desktopMedia.matches && header.classList.contains('menu-open')) {
+                    closeNav();
+                }
+            });
+
+            /* =========================================================
+               SCROLL STATE
+               ========================================================= */
+            const syncNav = () => {
+                header.classList.toggle('scrolled', window.scrollY > 22);
+            };
+
+            syncNav();
+            window.addEventListener('scroll', syncNav, { passive: true });
+            window.addEventListener('pageshow', syncNav);
+        })();
+    </script>
+
+    <!-- ======================= END PREMIUM HEADER MODULE ======================= -->
+
+<main id="main">
+<style>
+/* ============================================================
+   ABOUT PAGE — PREMIUM ARCHITECTURAL SYSTEM
+   ============================================================ */
+.aboutx{
+    --ax-paper:#f2f1ed;
+    --ax-soft:#e8e7e1;
+    --ax-ink:#111315;
+    --ax-muted:#73777b;
+    --ax-dark:#111315;
+    --ax-dark2:#191c20;
+    --ax-line:rgba(17,19,21,.11);
+    --ax-white:#f7f7f3;
+    --ax-gold:#d7a840;
+    --ax-blue:#004aad;
+    --ax-ease:cubic-bezier(.22,1,.36,1);
+    background:var(--ax-paper);
+    color:var(--ax-ink);
+}
+.aboutx *, .aboutx *::before, .aboutx *::after{box-sizing:border-box}
+.aboutx{font-family:"Manrope","Inter","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+.aboutx em,.aboutx i{font-style:normal}
+.aboutx-soft-text{font-style:normal}
+
+/* ---------- Shared typography ---------- */
+.aboutx-kicker{
+    display:flex;align-items:center;gap:12px;
+    margin:0 0 22px;
+    font:700 9px/1 "Manrope","Inter",Arial,sans-serif;
+    letter-spacing:.19em;text-transform:uppercase;
+}
+.aboutx-kicker::before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--ax-gold),rgba(215,168,64,.15))}
+.aboutx-kicker i{width:4px;height:4px;border-radius:50%;background:var(--ax-gold);box-shadow:0 0 0 5px rgba(215,168,64,.08)}
+.aboutx-title{
+    margin:0;
+    font:560 clamp(38px,4.2vw,60px)/1.02 "Manrope","Inter","Segoe UI",Arial,sans-serif;
+    letter-spacing:-.038em;
+}
+.aboutx-title .aboutx-soft-text{font:inherit;color:#777d80;letter-spacing:inherit}
+.aboutx-copy{margin:0;color:var(--ax-muted);font:450 14px/1.85 "Manrope","Inter",Arial,sans-serif}
+.aboutx-reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ax-ease),transform .9s var(--ax-ease)}
+.aboutx-reveal.is-visible{opacity:1;transform:none}
+
+/* ============================================================
+   01 — HERO
+   ============================================================ */
+.aboutx-hero{
+    position:relative;min-height:100svh;overflow:hidden;isolation:isolate;
+    padding:140px 0 72px;
+    color:#f5f5f1;
+    background:
+        radial-gradient(circle at 78% 34%,rgba(42,78,91,.17),transparent 31%),
+        radial-gradient(circle at 13% 84%,rgba(215,168,64,.055),transparent 28%),
+        linear-gradient(180deg,#0d0f11 0%,#131619 55%,#0c0e10 100%);
+}
+.aboutx-hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:.28;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:78px 78px;
+    mask-image:linear-gradient(90deg,#000,transparent 72%);
+    -webkit-mask-image:linear-gradient(90deg,#000,transparent 72%);
+}
+.aboutx-hero::after{
+    content:"";position:absolute;left:-12vw;bottom:-28vw;width:48vw;height:48vw;border-radius:50%;
+    border:1px solid rgba(255,255,255,.04);box-shadow:0 0 0 80px rgba(255,255,255,.012),0 0 0 160px rgba(255,255,255,.008);pointer-events:none;
+}
+.aboutx-hero-grid{
+    display:grid;grid-template-columns:minmax(340px,.82fr) minmax(0,1.18fr);gap:clamp(46px,6vw,110px);align-items:center;
+    min-height:calc(100svh - 226px);
+}
+.aboutx-hero-copy{position:relative;z-index:6;padding:20px 0 30px}
+.aboutx-hero .aboutx-kicker{color:#8c9296}
+.aboutx-hero-title{
+    max-width:720px;margin:0;
+    font:570 clamp(46px,5.2vw,76px)/.98 "Manrope","Inter","Segoe UI",Arial,sans-serif;
+    letter-spacing:-.045em;color:#f7f7f3;text-wrap:balance;
+}
+.aboutx-hero-title span{display:block;color:#bfc3c5}
+.aboutx-hero-title .aboutx-soft-text{display:block;font:inherit;font-style:normal;color:#b9bec1;letter-spacing:inherit}
+.aboutx-hero-lead{max-width:560px;margin:24px 0 0;color:#a7abad;font:450 13px/1.78 "Manrope","Inter",Arial,sans-serif}
+.aboutx-hero-lead strong{color:#e1e3e2;font-weight:520}
+.aboutx-hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+.aboutx-hero-tag{
+    display:inline-flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid rgba(255,255,255,.11);border-radius:999px;
+    color:#b8bcbe;background:rgba(255,255,255,.025);font:600 8px/1 "Manrope",sans-serif;letter-spacing:.11em;text-transform:uppercase;
+}
+.aboutx-hero-tag::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ax-gold);box-shadow:0 0 12px rgba(215,168,64,.34)}
+.aboutx-hero-note{display:flex;align-items:center;gap:15px;margin-top:38px;color:#666d71;font:600 8px/1.4 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.aboutx-hero-note::before{content:"";width:46px;height:1px;background:linear-gradient(90deg,#9da1a3,transparent)}
+
+/* hero visual */
+.aboutx-visual{position:relative;min-height:610px;perspective:1200px}
+.aboutx-visual::before{
+    content:"";position:absolute;inset:7% 4% 2% 8%;border:1px solid rgba(255,255,255,.055);pointer-events:none;
+}
+.aboutx-visual-stage{position:absolute;inset:0;transform-style:preserve-3d}
+.aboutx-media{
+    position:absolute;overflow:hidden;background:#171a1d;border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 30px 80px rgba(0,0,0,.26);isolation:isolate;transition:transform .65s var(--ax-ease),border-color .35s ease;
+}
+.aboutx-media::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(6,8,9,.08),rgba(6,8,9,.12) 45%,rgba(6,8,9,.74));pointer-events:none}
+.aboutx-media::after{content:"";position:absolute;inset:0;z-index:2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);pointer-events:none}
+.aboutx-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.03) brightness(.86);transition:transform 1.1s var(--ax-ease),filter .6s ease}
+.aboutx-media:hover{border-color:rgba(215,168,64,.32);z-index:5}
+.aboutx-media:hover img{transform:scale(1.035);filter:saturate(1) contrast(1.04) brightness(.96)}
+.aboutx-media--one{left:0;top:8%;width:55%;height:76%;z-index:3;transform:translateZ(28px)}
+.aboutx-media--two{right:0;top:0;width:42%;height:47%;z-index:2;transform:translateZ(6px)}
+.aboutx-media--three{right:3%;bottom:1%;width:45%;height:44%;z-index:4;transform:translateZ(44px)}
+.aboutx-media-label{position:absolute;left:18px;right:18px;bottom:16px;z-index:4;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.aboutx-media-label b{font:620 15px/1.05 "Manrope",sans-serif;letter-spacing:-.025em;color:#fff}
+.aboutx-media-label small{display:block;margin-top:6px;color:#9ca2a5;font:600 7px/1 "Manrope",sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.aboutx-media-label span{color:#d7a840;font:700 8px/1 "Manrope",sans-serif;letter-spacing:.12em}
+.aboutx-visual-badge{
+    position:absolute;left:-18px;bottom:8%;z-index:8;display:flex;align-items:center;gap:10px;padding:12px 14px;
+    background:rgba(15,17,19,.82);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    color:#b7bcbe;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.13em;text-transform:uppercase;
+}
+.aboutx-visual-badge i{width:6px;height:6px;border-radius:50%;background:#6adce1;box-shadow:0 0 13px rgba(106,220,225,.45)}
+
+/* ============================================================
+   02 — INTRO STATEMENT
+   ============================================================ */
+.aboutx-intro{position:relative;padding:108px 0 104px;background:linear-gradient(180deg,#f5f4f0,#eeede8)}
+.aboutx-intro-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(70px,10vw,160px);align-items:start}
+.aboutx-intro .aboutx-kicker{color:#686d70}
+.aboutx-intro h2{max-width:900px;font:540 clamp(40px,4.8vw,66px)/1.03 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.042em;margin:0;color:#141719}
+.aboutx-intro h2 .aboutx-soft-text{font:inherit;font-style:normal;color:#777d80;letter-spacing:inherit}
+.aboutx-intro-side{padding-top:55px}
+.aboutx-intro-side p{margin:0 0 22px;color:#6e7376;font:450 14px/1.9 "Manrope",sans-serif}
+.aboutx-signature{display:flex;align-items:center;gap:16px;margin-top:36px;color:#9a9d9f;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.aboutx-signature::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--ax-blue),var(--ax-gold))}
+
+/* ============================================================
+   03 — THREE DISCIPLINES
+   ============================================================ */
+.aboutx-disciplines{padding:104px 0 110px;background:#17191b;color:#f4f4f1}
+.aboutx-section-head{display:grid;grid-template-columns:1fr .58fr;gap:70px;align-items:end;margin-bottom:55px}
+.aboutx-disciplines .aboutx-kicker{color:#92979a}
+.aboutx-disciplines .aboutx-title{max-width:860px}
+.aboutx-disciplines .aboutx-copy{max-width:480px;color:#858b8e}
+.aboutx-discipline-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.09)}
+.aboutx-discipline-card{position:relative;min-height:360px;padding:38px 34px 34px;border-right:1px solid rgba(255,255,255,.09);overflow:hidden;isolation:isolate}
+.aboutx-discipline-card:last-child{border-right:0}
+.aboutx-discipline-card::before{content:"";position:absolute;inset:auto 0 0;height:0;background:linear-gradient(180deg,transparent,rgba(215,168,64,.055));transition:height .55s var(--ax-ease);z-index:-1}
+.aboutx-discipline-card:hover::before{height:100%}
+.aboutx-discipline-num{display:flex;align-items:center;justify-content:space-between;color:#6f7578;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.aboutx-discipline-num i{width:5px;height:5px;border-radius:50%;background:#d7a840;opacity:.7}
+.aboutx-discipline-card h3{max-width:250px;margin:96px 0 14px;font:540 clamp(25px,2.1vw,33px)/1.05 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.03em}
+.aboutx-discipline-card p{max-width:310px;margin:0;color:#858b8f;font:440 12px/1.78 "Manrope",sans-serif}
+.aboutx-discipline-link{display:inline-flex;align-items:center;gap:16px;margin-top:28px;color:#c6c9ca;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.aboutx-discipline-link span{font-size:13px;color:#d7a840;transition:transform .3s ease}
+.aboutx-discipline-link:hover span{transform:translate(3px,-3px)}
+
+/* ============================================================
+   04 — APPROACH / PROCESS
+   ============================================================ */
+.aboutx-process{padding:108px 0 114px;background:#f3f2ee}
+.aboutx-process-top{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px;align-items:start;margin-bottom:70px}
+.aboutx-process .aboutx-kicker{color:#6e7377}
+.aboutx-process .aboutx-title{max-width:900px}
+.aboutx-process-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ax-line)}
+.aboutx-step{position:relative;padding:29px 27px 34px 0;border-right:1px solid var(--ax-line);min-height:250px}
+.aboutx-step:not(:first-child){padding-left:27px}
+.aboutx-step:last-child{border-right:0}
+.aboutx-step::before{content:"";position:absolute;top:-3px;left:0;width:6px;height:6px;border-radius:50%;background:#17191b;box-shadow:0 0 0 5px #f3f2ee}
+.aboutx-step small{display:block;color:#9c9fa0;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.aboutx-step h3{margin:70px 0 12px;font:550 18px/1.16 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.022em}
+.aboutx-step p{margin:0;color:#74797c;font:440 11px/1.75 "Manrope",sans-serif}
+
+/* ============================================================
+   05 — VISION / MISSION WITH IMAGE
+   ============================================================ */
+.aboutx-direction{position:relative;display:grid;grid-template-columns:1.03fr .97fr;min-height:720px;background:#101214;color:#f5f5f1;overflow:hidden}
+.aboutx-direction-media{position:relative;overflow:hidden;min-height:720px;background:#0c0e10}
+.aboutx-direction-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.84) brightness(.72) contrast(1.05)}
+.aboutx-direction-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 52%,rgba(16,18,20,.8) 100%),linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.34))}
+.aboutx-direction-badge{position:absolute;left:34px;bottom:32px;z-index:3;padding:11px 13px;border:1px solid rgba(255,255,255,.13);background:rgba(11,13,14,.55);backdrop-filter:blur(12px);font:650 8px/1 "Manrope",sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#c9cdce}
+.aboutx-direction-copy{display:flex;flex-direction:column;justify-content:center;padding:80px clamp(44px,6vw,96px)}
+.aboutx-direction .aboutx-kicker{color:#919699}
+.aboutx-direction-copy h2{margin:0 0 52px;font:540 clamp(36px,4vw,56px)/1.04 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.038em}
+.aboutx-direction-copy h2 .aboutx-soft-text{display:block;font:inherit;font-style:normal;color:#9ca2a5;letter-spacing:inherit}
+.aboutx-direction-block{display:grid;grid-template-columns:90px 1fr;gap:25px;padding:26px 0;border-top:1px solid rgba(255,255,255,.1)}
+.aboutx-direction-block:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+.aboutx-direction-block span{color:#d7a840;font:650 8px/1.3 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.aboutx-direction-block h3{margin:0 0 9px;font:540 19px/1.16 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.022em}
+.aboutx-direction-block p{margin:0;color:#868c8f;font:440 11.5px/1.78 "Manrope",sans-serif}
+
+/* ============================================================
+   06 — PRINCIPLES
+   ============================================================ */
+.aboutx-values{padding:108px 0 114px;background:#ecebe6}
+.aboutx-values-head{display:grid;grid-template-columns:1fr .7fr;gap:70px;align-items:end;margin-bottom:56px}
+.aboutx-values .aboutx-kicker{color:#6c7174}
+.aboutx-values .aboutx-copy{max-width:470px}
+.aboutx-values-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ax-line);border-left:1px solid var(--ax-line)}
+.aboutx-value{min-height:235px;padding:30px 30px 34px;border-right:1px solid var(--ax-line);border-bottom:1px solid var(--ax-line);background:rgba(255,255,255,.18);transition:background .35s ease,transform .35s var(--ax-ease)}
+.aboutx-value:hover{background:rgba(255,255,255,.52);transform:translateY(-4px)}
+.aboutx-value small{color:#9a9ea0;font:650 8px/1 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.aboutx-value h3{margin:52px 0 12px;font:540 20px/1.14 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.025em}
+.aboutx-value p{margin:0;color:#74797c;font:440 11.5px/1.75 "Manrope",sans-serif}
+
+/* ============================================================
+   07 — CTA
+   ============================================================ */
+.aboutx-cta{position:relative;padding:94px 0;background:#f5f4f0;overflow:hidden}
+.aboutx-cta::before{content:"";position:absolute;right:-140px;top:-190px;width:460px;height:460px;border-radius:50%;border:1px solid rgba(0,74,173,.07);box-shadow:0 0 0 70px rgba(0,74,173,.015),0 0 0 140px rgba(0,74,173,.008)}
+.aboutx-cta-inner{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:60px}
+.aboutx-cta h2{max-width:960px;margin:0;font:540 clamp(40px,4.8vw,62px)/1.02 "Manrope","Inter","Segoe UI",Arial,sans-serif;letter-spacing:-.04em}
+.aboutx-cta h2 .aboutx-soft-text{font:inherit;font-style:normal;color:#777d80;letter-spacing:inherit}
+.aboutx-cta-link{flex:0 0 auto;display:inline-flex;align-items:center;gap:32px;padding:17px 21px;border:1px solid #202326;background:#16181a;color:#fff;font:650 9px/1 "Manrope",sans-serif;letter-spacing:.11em;text-transform:uppercase;transition:transform .3s var(--ax-ease),background .3s ease}
+.aboutx-cta-link:hover{transform:translateY(-3px);background:#232629}
+.aboutx-cta-link span{font-size:15px;color:#d7a840}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1180px){
+    .aboutx-hero-grid{grid-template-columns:.8fr 1.2fr;gap:52px}
+    .aboutx-visual{min-height:560px}
+    .aboutx-process-grid{grid-template-columns:repeat(3,1fr)}
+    .aboutx-step:nth-child(3){border-right:0}
+    .aboutx-step:nth-child(n+4){border-top:1px solid var(--ax-line)}
+}
+@media(max-width:920px){
+    .aboutx-hero{padding-top:126px}
+    .aboutx-hero-grid,.aboutx-intro-grid,.aboutx-section-head,.aboutx-process-top,.aboutx-values-head{grid-template-columns:1fr}
+    .aboutx-hero-grid{gap:40px}
+    .aboutx-visual{min-height:520px}
+    .aboutx-intro-side{padding-top:0;max-width:650px}
+    .aboutx-section-head,.aboutx-values-head{gap:26px}
+    .aboutx-discipline-grid{grid-template-columns:1fr}
+    .aboutx-discipline-card{min-height:300px;border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}
+    .aboutx-discipline-card:last-child{border-bottom:0}
+    .aboutx-discipline-card h3{margin-top:70px}
+    .aboutx-process-top{gap:28px}
+    .aboutx-direction{grid-template-columns:1fr}
+    .aboutx-direction-media{min-height:520px}
+    .aboutx-direction-copy{padding:72px 48px}
+    .aboutx-values-grid{grid-template-columns:repeat(2,1fr)}
+    .aboutx-cta-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:650px){
+    .aboutx-hero{min-height:auto;padding:108px 0 52px}
+    .aboutx-hero-grid{min-height:0}
+    .aboutx-hero-title{font-size:clamp(40px,11vw,54px);line-height:1.01}
+    .aboutx-hero-lead{font-size:12.5px;line-height:1.72}
+    .aboutx-hero-tags{gap:7px}
+    .aboutx-visual{min-height:470px}
+    .aboutx-media--one{left:0;top:8%;width:61%;height:66%}
+    .aboutx-media--two{right:0;top:0;width:43%;height:38%}
+    .aboutx-media--three{right:0;bottom:0;width:52%;height:43%}
+    .aboutx-visual-badge{left:0;bottom:6%}
+    .aboutx-intro,.aboutx-disciplines,.aboutx-process,.aboutx-values{padding:88px 0}
+    .aboutx-intro h2,.aboutx-title{font-size:clamp(34px,9.5vw,48px);line-height:1.04}
+    .aboutx-discipline-card{padding:30px 24px;min-height:280px}
+    .aboutx-process-grid{grid-template-columns:1fr}
+    .aboutx-step,.aboutx-step:not(:first-child){padding:26px 0 30px;border-right:0;border-bottom:1px solid var(--ax-line);min-height:0}
+    .aboutx-step h3{margin-top:42px}
+    .aboutx-direction-media{min-height:400px}
+    .aboutx-direction-copy{padding:64px 22px}
+    .aboutx-direction-copy h2{font-size:clamp(34px,9vw,46px);line-height:1.04;margin-bottom:34px}
+    .aboutx-direction-block{grid-template-columns:1fr;gap:12px}
+    .aboutx-values-grid{grid-template-columns:1fr}
+    .aboutx-value{min-height:230px}
+    .aboutx-cta{padding:82px 0}
+    .aboutx-cta h2{font-size:clamp(36px,10vw,50px);line-height:1.04}
+}
+@media(prefers-reduced-motion:reduce){
+    .aboutx *,.aboutx *::before,.aboutx *::after{animation:none!important;transition:none!important}
+    .aboutx-reveal{opacity:1;transform:none}
+}
+</style>
+
+<div class="aboutx">
+    <!-- HERO -->
+    <section class="aboutx-hero" aria-labelledby="aboutTitle">
+        <div class="wrap aboutx-hero-grid">
+            <div class="aboutx-hero-copy">
+                <div class="aboutx-kicker aboutx-reveal"><i></i> About AlphaNumeric</div>
+                <h1 class="aboutx-hero-title aboutx-reveal" id="aboutTitle">
+                    Intelligence
+                    <span>belongs in the</span>
+                    <span class="aboutx-soft-text">architecture.</span>
+                </h1>
+                <p class="aboutx-hero-lead aboutx-reveal">
+                    We bring <strong>professional lighting, connected automation, BMS and IoT</strong> into one considered environment — so spaces feel clear to use, easy to control and ready to evolve.
+                </p>
+                <div class="aboutx-hero-tags aboutx-reveal" aria-label="Core capabilities">
+                    <span class="aboutx-hero-tag">Lighting</span>
+                    <span class="aboutx-hero-tag">Automation</span>
+                    <span class="aboutx-hero-tag">BMS + IoT</span>
                 </div>
-                <div>
-                    <h3>EXPLORE</h3>
-                    <div class="footer-links"><a href="about.html">About us</a><a href="residential-lighting.html">Lighting</a><a
-                            href="industrial-automation.html">Automation</a><a href="bms-and-iot.html">IoT &amp; BMS</a></div>
-                </div>
-                <div>
-                    <h3>LET’S CONNECT</h3><a class="footer-mail" href="mailto:info@aniplgroup.com">info@aniplgroup.com
-                        ↗</a>
-                    <address>320 Fifth Floor, East Avenue,<br />Ayyappa Society Main Rd, near YSR Statue,<br />SBH
-                        Officers
-                        Colony, Mega Hills, Madhapur,<br />Hyderabad, Telangana 500081</address>
-                </div>
+                <div class="aboutx-hero-note aboutx-reveal">Light / Control / Connect</div>
             </div>
-            <div class="footer-bottom"><span>© <span id="year">2026</span> AlphaNumeric Engineering and
-                    Technology</span><span>LIGHT / CONTROL / CONNECT</span><a href="#top">Back to top ↑</a></div>
+
+            <div class="aboutx-visual aboutx-reveal" id="aboutVisual">
+                <div class="aboutx-visual-stage">
+                    <figure class="aboutx-media aboutx-media--one">
+                        <img src="assets/about/lightingindex.png" alt="Premium architectural lighting environment" loading="eager" decoding="async">
+                        <figcaption class="aboutx-media-label"><div><b>Lighting</b><small>Visual experience</small></div><span>01</span></figcaption>
+                    </figure>
+                    <figure class="aboutx-media aboutx-media--two">
+                        <img src="assets/about/automationindex.png" alt="Connected automation environment" loading="eager" decoding="async">
+                        <figcaption class="aboutx-media-label"><div><b>Automation</b><small>Connected control</small></div><span>02</span></figcaption>
+                    </figure>
+                    <figure class="aboutx-media aboutx-media--three">
+                        <img src="assets/about/iotbmsindex.png" alt="BMS and IoT building intelligence environment" loading="eager" decoding="async">
+                        <figcaption class="aboutx-media-label"><div><b>BMS + IoT</b><small>Building intelligence</small></div><span>03</span></figcaption>
+                    </figure>
+                </div>
+                <div class="aboutx-visual-badge"><i></i> Connected environment</div>
+            </div>
         </div>
-    </footer><script src="assets/pages.js"></script></body></html>
+    </section>
+
+    <!-- INTRO -->
+    <section class="aboutx-intro">
+        <div class="wrap aboutx-intro-grid">
+            <div class="aboutx-reveal">
+                <div class="aboutx-kicker"><i></i> Our perspective</div>
+                <h2>Technology should support the space — <span class="aboutx-soft-text">not compete with it.</span></h2>
+            </div>
+            <div class="aboutx-intro-side aboutx-reveal">
+                <p>Our work starts with how a space will be experienced, controlled and operated. Instead of treating lighting, automation and building systems as isolated packages, we look at the interfaces between them from the beginning.</p>
+                <p>The result is a clearer solution: the right system for the requirement, coordinated control where it adds value, and useful information where people need visibility.</p>
+                <div class="aboutx-signature">One connected perspective</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINES -->
+    <section class="aboutx-disciplines" id="capabilities">
+        <div class="wrap">
+            <div class="aboutx-section-head">
+                <div class="aboutx-reveal">
+                    <div class="aboutx-kicker"><i></i> What we bring together</div>
+                    <h2 class="aboutx-title">Three disciplines.<br><span class="aboutx-soft-text">One environment.</span></h2>
+                </div>
+                <p class="aboutx-copy aboutx-reveal">Each discipline has a clear role. The experience becomes stronger when the layers are planned to work together from the start.</p>
+            </div>
+
+            <div class="aboutx-discipline-grid">
+                <article class="aboutx-discipline-card aboutx-reveal">
+                    <div class="aboutx-discipline-num"><span>01 / Lighting</span><i></i></div>
+                    <h3>Light with intention.</h3>
+                    <p>Residential, commercial, industrial, façade and landscape lighting shaped around visibility, comfort, architecture and atmosphere.</p>
+                    <a class="aboutx-discipline-link" href="residential-lighting.html">Explore lighting <span>↗</span></a>
+                </article>
+                <article class="aboutx-discipline-card aboutx-reveal">
+                    <div class="aboutx-discipline-num"><span>02 / Automation</span><i></i></div>
+                    <h3>Control without friction.</h3>
+                    <p>Home, commercial and industrial automation that brings compatible devices, sensors, gateways and control logic into a coordinated system.</p>
+                    <a class="aboutx-discipline-link" href="home-automation.html">Explore automation <span>↗</span></a>
+                </article>
+                <article class="aboutx-discipline-card aboutx-reveal">
+                    <div class="aboutx-discipline-num"><span>03 / BMS + IoT</span><i></i></div>
+                    <h3>Visibility that matters.</h3>
+                    <p>Building management and IoT layers that connect equipment status, energy, alarms and operational data for clearer day-to-day oversight.</p>
+                    <a class="aboutx-discipline-link" href="bms-and-iot.html">Explore BMS + IoT <span>↗</span></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="aboutx-process">
+        <div class="wrap">
+            <div class="aboutx-process-top">
+                <div class="aboutx-kicker aboutx-reveal"><i></i> Our approach</div>
+                <h2 class="aboutx-title aboutx-reveal">Clear thinking from first conversation to <span class="aboutx-soft-text">final validation.</span></h2>
+            </div>
+            <div class="aboutx-process-grid">
+                <article class="aboutx-step aboutx-reveal"><small>01 / Discover</small><h3>Understand the space.</h3><p>Start with users, operating needs, priorities, constraints and the experience the project should create.</p></article>
+                <article class="aboutx-step aboutx-reveal"><small>02 / Define</small><h3>Set the right scope.</h3><p>Translate the requirement into clear systems, zones, interfaces, control points and measurable outcomes.</p></article>
+                <article class="aboutx-step aboutx-reveal"><small>03 / Coordinate</small><h3>Connect the layers.</h3><p>Review compatibility and coordination between lighting, automation, BMS, IoT and related building systems.</p></article>
+                <article class="aboutx-step aboutx-reveal"><small>04 / Deliver</small><h3>Build with clarity.</h3><p>Keep implementation aligned to the approved scope, documented interfaces and project requirements.</p></article>
+                <article class="aboutx-step aboutx-reveal"><small>05 / Validate</small><h3>Make it usable.</h3><p>Check operation, handover logic and system visibility so the final environment works as intended.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION / MISSION -->
+    <section class="aboutx-direction">
+        <div class="aboutx-direction-media aboutx-reveal">
+            <img src="assets/about/iotbmsindex.png" alt="Connected building systems and operational intelligence" loading="lazy" decoding="async">
+            <div class="aboutx-direction-badge">Connected building intelligence</div>
+        </div>
+        <div class="aboutx-direction-copy">
+            <div class="aboutx-kicker aboutx-reveal"><i></i> Our direction</div>
+            <h2 class="aboutx-reveal">Technology with purpose.<span class="aboutx-soft-text">Room for possibility.</span></h2>
+            <div class="aboutx-direction-block aboutx-reveal">
+                <span>Vision</span>
+                <div><h3>Spaces that feel intuitive.</h3><p>Create environments that are clear to use, efficient to operate and capable of evolving as needs change.</p></div>
+            </div>
+            <div class="aboutx-direction-block aboutx-reveal">
+                <span>Mission</span>
+                <div><h3>Bring the systems together.</h3><p>Plan lighting, control and connected intelligence with clear scope, thoughtful coordination and a strong focus on real-world usability.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="aboutx-values">
+        <div class="wrap">
+            <div class="aboutx-values-head">
+                <div class="aboutx-reveal">
+                    <div class="aboutx-kicker"><i></i> What guides us</div>
+                    <h2 class="aboutx-title">Considered choices.<br><span class="aboutx-soft-text">Lasting relevance.</span></h2>
+                </div>
+                <p class="aboutx-copy aboutx-reveal">We keep the technology secondary to the purpose it serves: a better experience, clearer control and dependable operation.</p>
+            </div>
+            <div class="aboutx-values-grid">
+                <article class="aboutx-value aboutx-reveal"><small>01 / Principle</small><h3>Purpose before complexity</h3><p>Start with the experience or operational need before deciding how much technology belongs in the solution.</p></article>
+                <article class="aboutx-value aboutx-reveal"><small>02 / Principle</small><h3>Clarity at every stage</h3><p>Keep scope, interfaces and responsibilities understandable for everyone involved in the project.</p></article>
+                <article class="aboutx-value aboutx-reveal"><small>03 / Principle</small><h3>Compatibility by design</h3><p>Assess equipment, protocols and integration requirements before defining how systems should connect.</p></article>
+                <article class="aboutx-value aboutx-reveal"><small>04 / Principle</small><h3>Quality &amp; reliability</h3><p>Use project requirements to guide selection, implementation, testing and long-term operation.</p></article>
+                <article class="aboutx-value aboutx-reveal"><small>05 / Principle</small><h3>Customer partnership</h3><p>Keep decisions connected to the people who will use, manage and maintain the environment.</p></article>
+                <article class="aboutx-value aboutx-reveal"><small>06 / Principle</small><h3>Ready to evolve</h3><p>Consider service access, scalability and future requirements from the outset rather than as an afterthought.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="aboutx-cta">
+        <div class="wrap aboutx-cta-inner">
+            <div class="aboutx-reveal">
+                <div class="aboutx-kicker"><i></i> Start a conversation</div>
+                <h2>Make the next space<br><span class="aboutx-soft-text">work beautifully.</span></h2>
+            </div>
+            <a class="aboutx-cta-link aboutx-reveal" href="contact.html">Discuss your project <span>↗</span></a>
+        </div>
+    </section>
+</div>
+
+<script>
+(() => {
+    'use strict';
+    const items = [...document.querySelectorAll('.aboutx-reveal')];
+    if(!items.length) return;
+
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){
+        items.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+        });
+    }, {threshold:.10, rootMargin:'0px 0px -4% 0px'});
+
+    items.forEach(el => io.observe(el));
+
+    /* subtle desktop depth on the 3-image hero */
+    const visual = document.getElementById('aboutVisual');
+    if(visual && matchMedia('(pointer:fine)').matches){
+        visual.addEventListener('pointermove', e => {
+            const r = visual.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - .5;
+            const y = (e.clientY - r.top) / r.height - .5;
+            visual.style.transform = `perspective(1200px) rotateY(${x * 1.8}deg) rotateX(${y * -1.4}deg)`;
+        });
+        visual.addEventListener('pointerleave', () => visual.style.transform = '');
+    }
+})();
+</script>
+</main>
+
+<!-- =========================================================
+     PREMIUM FOOTER MODULE
+     CSS + HTML + JS
+     ========================================================= -->
+
+<style>
+/* ============================================================
+   FOOTER — PREMIUM DARK
+   ============================================================ */
+
+.footer{
+    position:relative;
+    overflow:hidden;
+    padding:82px 0 24px;
+    background:
+        radial-gradient(circle at 8% 15%,rgba(215,168,64,.06),transparent 26%),
+        radial-gradient(circle at 86% 24%,rgba(60,131,255,.05),transparent 28%),
+        linear-gradient(180deg,#141516 0%,#0d0e0f 100%);
+    color:#f2f2f0;
+    border-top:1px solid rgba(255,255,255,.06);
+    isolation:isolate;
+}
+
+/* very subtle premium grid */
+.footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.22;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:72px 72px;
+    mask-image:linear-gradient(to bottom,#000,transparent 85%);
+    -webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+
+.footer .wrap{
+    width:min(1500px,calc(100% - 96px));
+    margin-inline:auto;
+}
+
+/* ============================================================
+   TOP AREA
+   ============================================================ */
+
+.footer-top{
+    display:grid;
+    grid-template-columns:
+        minmax(260px,1.25fr)
+        minmax(150px,.65fr)
+        minmax(190px,.82fr)
+        minmax(190px,.82fr)
+        minmax(260px,1.05fr);
+    gap:clamp(38px,4vw,76px);
+    align-items:start;
+}
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+
+.footer-brand{
+    min-width:0;
+}
+
+.footer-logo{
+    display:inline-flex;
+    align-items:center;
+    width:min(260px,100%);
+    margin-bottom:26px;
+}
+
+.footer-logo img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:100px;
+    object-fit:contain;
+    object-position:left center;
+}
+
+.footer-intro{
+    max-width:310px;
+    margin:0;
+    color:#85898c;
+    font:450 12px/1.85 "Manrope","Inter","Segoe UI",sans-serif;
+}
+
+.footer-intro strong{
+    color:#d9dbdc;
+    font-weight:500;
+}
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+.footer-title{
+    position:relative;
+    margin:5px 0 25px;
+    padding-top:14px;
+    color:#84898c;
+    font:650 8px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.19em;
+    text-transform:uppercase;
+}
+
+.footer-title::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:28px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        #d7a840,
+        rgba(215,168,64,.12)
+    );
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:13px;
+}
+
+.footer-links a{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#b5b8ba;
+    font:500 11px/1.4 "Manrope","Inter",sans-serif;
+    text-decoration:none;
+    transition:
+        color .3s ease,
+        transform .3s cubic-bezier(.2,.72,.2,1);
+}
+
+.footer-links a::before{
+    content:"";
+    width:0;
+    height:1px;
+    background:#d7a840;
+    transition:width .3s cubic-bezier(.2,.72,.2,1);
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(4px);
+}
+
+.footer-links a:hover::before{
+    width:13px;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.footer-contact{
+    min-width:0;
+}
+
+.footer-mail{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:18px;
+    color:#f0f0ee;
+    font:520 12px/1.4 "Manrope","Inter",sans-serif;
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.footer-mail span{
+    color:#d7a840;
+    transition:transform .3s ease;
+}
+
+.footer-mail:hover{
+    color:#d7a840;
+}
+
+.footer-mail:hover span{
+    transform:translate(2px,-2px);
+}
+
+.footer address{
+    margin:0;
+    max-width:310px;
+    color:#85898c;
+    font:450 10.5px/1.82 "Manrope","Inter",sans-serif;
+    font-style:normal;
+}
+
+/* ============================================================
+   SOCIAL AREA
+   ============================================================ */
+
+.footer-social-wrap{
+    margin-top:32px;
+}
+
+.footer-social-label{
+    display:block;
+    margin-bottom:13px;
+    color:#666b6e;
+    font:600 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+}
+
+.footer-socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.footer-social{
+    position:relative;
+    display:grid;
+    place-items:center;
+    width:36px;
+    height:36px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50%;
+    color:#aeb2b4;
+    background:rgba(255,255,255,.018);
+    text-decoration:none;
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s cubic-bezier(.2,.72,.2,1),
+        box-shadow .3s ease;
+}
+
+.footer-social svg{
+    width:14px;
+    height:14px;
+    fill:currentColor;
+}
+
+.footer-social:hover{
+    color:#fff;
+    border-color:rgba(215,168,64,.55);
+    background:rgba(215,168,64,.08);
+    transform:translateY(-3px);
+    box-shadow:0 10px 26px rgba(0,0,0,.28);
+}
+
+.footer-social::after{
+    content:attr(aria-label);
+    position:absolute;
+    left:50%;
+    bottom:calc(100% + 10px);
+    padding:6px 8px;
+    border-radius:3px;
+    background:#f1f1ef;
+    color:#121314;
+    font:600 7px/1 "Manrope","Inter",sans-serif;
+    letter-spacing:.04em;
+    white-space:nowrap;
+    opacity:0;
+    visibility:hidden;
+    transform:translate(-50%,5px);
+    transition:.22s ease;
+    pointer-events:none;
+}
+
+.footer-social:hover::after{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%,0);
+}
+
+/* ============================================================
+   DIVIDER / BOTTOM
+   ============================================================ */
+
+.footer-divider{
+    height:1px;
+    margin-top:68px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03),
+            rgba(255,255,255,.11) 50%,
+            rgba(255,255,255,.03)
+        );
+}
+
+.footer-bottom{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:28px;
+    padding-top:22px;
+    color:#686d70;
+    font:550 8px/1.5 "Manrope","Inter",sans-serif;
+    letter-spacing:.08em;
+}
+
+.footer-bottom-center{
+    color:#7a7f82;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.footer-back{
+    justify-self:end;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#9fa3a5;
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.footer-back i{
+    width:27px;
+    height:27px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50%;
+    font-style:normal;
+    transition:
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.footer-back:hover{
+    color:#fff;
+}
+
+.footer-back:hover i{
+    border-color:rgba(215,168,64,.45);
+    transform:translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media(max-width:1180px){
+
+    .footer .wrap{
+        width:min(100% - 60px,1500px);
+    }
+
+    .footer-top{
+        grid-template-columns:
+            minmax(260px,1.2fr)
+            repeat(3,minmax(145px,.7fr));
+        gap:45px 32px;
+    }
+
+    .footer-contact{
+        grid-column:2/-1;
+    }
+
+    .footer-contact-inner{
+        display:grid;
+        grid-template-columns:1fr auto;
+        gap:40px;
+        align-items:start;
+    }
+
+    .footer-social-wrap{
+        margin-top:0;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media(max-width:760px){
+
+    .footer{
+        padding:58px 0 24px;
+    }
+
+    .footer .wrap{
+        width:calc(100% - 38px);
+    }
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+        gap:42px 28px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+        padding-bottom:6px;
+    }
+
+    .footer-logo{
+        width:230px;
+        margin-bottom:20px;
+    }
+
+    .footer-intro{
+        max-width:300px;
+        font-size:11px;
+    }
+
+    .footer-contact{
+        grid-column:1/-1;
+    }
+
+    .footer-contact-inner{
+        display:block;
+    }
+
+    .footer-social-wrap{
+        margin-top:26px;
+    }
+
+    .footer-title{
+        margin-bottom:20px;
+    }
+
+    .footer-links{
+        gap:12px;
+    }
+
+    .footer-links a{
+        font-size:10px;
+    }
+
+    .footer address{
+        font-size:10px;
+    }
+
+    .footer-divider{
+        margin-top:48px;
+    }
+
+    .footer-bottom{
+        grid-template-columns:1fr auto;
+        gap:14px;
+        padding-top:20px;
+    }
+
+    .footer-bottom-center{
+        display:none;
+    }
+
+    .footer-bottom > span:first-child{
+        max-width:220px;
+        font-size:7.5px;
+    }
+}
+
+@media(max-width:480px){
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+        column-gap:20px;
+    }
+
+    .footer-logo{
+        width:205px;
+        
+    }
+
+    .footer-social{
+        width:34px;
+        height:34px;
+    }
+
+    .footer-social svg{
+        width:13px;
+        height:13px;
+    }
+
+    .footer-bottom{
+        align-items:end;
+    }
+}
+</style>
+
+
+<!-- ============================================================
+     FOOTER HTML
+     ============================================================ -->
+
+<footer class="footer">
+
+    <div class="wrap">
+
+        <div class="footer-top">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <a
+                    class="footer-logo"
+                    href="index.html"
+                    aria-label="Alphanumeric home"
+                >
+                    <!--
+                        DARK FOOTER:
+                        Use your transparent WHITE logo here.
+
+                        If your actual white logo filename is different,
+                        change only this src.
+                    -->
+                    <img
+                        src="assets/logo-black.png"
+                        alt="Alphanumeric"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </a>
+
+                <p class="footer-intro">
+                    <strong>Light. Control. Intelligence.</strong><br>
+                    Integrated lighting, automation and building
+                    intelligence for connected environments.
+                </p>
+
+            </div>
+
+
+            <!-- COMPANY -->
+            <div>
+
+                <h3 class="footer-title">Company</h3>
+
+                <nav class="footer-links" aria-label="Company links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+
+            </div>
+
+
+            <!-- LIGHTING -->
+            <div>
+
+                <h3 class="footer-title">Lighting</h3>
+
+                <nav class="footer-links" aria-label="Lighting links">
+
+                    <a href="residential-lighting.html">
+                        Residential
+                    </a>
+
+                    <a href="commercial-lighting.html">
+                        Commercial
+                    </a>
+
+                    <a href="industrial-lighting.html">
+                        Industrial
+                    </a>
+
+                    <a href="facade-lighting.html">
+                        Façade
+                    </a>
+
+                    <a href="landscape-lighting.html">
+                        Landscape
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- AUTOMATION -->
+            <div>
+
+                <h3 class="footer-title">Automation</h3>
+
+                <nav
+                    class="footer-links"
+                    aria-label="Automation links"
+                >
+
+                    <a href="home-automation.html">
+                        Home Automation
+                    </a>
+
+                    <a href="commercial-automation.html">
+                        Commercial Automation
+                    </a>
+
+                    <a href="industrial-automation.html">
+                        Industrial Automation
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <!-- CONNECT -->
+            <div class="footer-contact">
+
+                <h3 class="footer-title">Let's connect</h3>
+
+                <div class="footer-contact-inner">
+
+                    <div>
+
+                        <a
+                            class="footer-mail"
+                            href="mailto:info@aniplgroup.com"
+                        >
+                            info@aniplgroup.com
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                        <address>
+                            320 Fifth Floor, East Avenue,<br>
+                            Ayyappa Society Main Rd, near YSR Statue,<br>
+                            SBH Officers Colony, Mega Hills, Madhapur,<br>
+                            Hyderabad, Telangana 500081
+                        </address>
+
+                    </div>
+
+
+                    <!-- SOCIAL MEDIA -->
+                    <div class="footer-social-wrap">
+
+                        <span class="footer-social-label">
+                            Follow us
+                        </span>
+
+                        <div class="footer-socials">
+
+
+                            <!-- GOOGLE -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Google"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M21.35 12.27c0-.71-.06-1.24-.2-1.8H12v3.49h5.37c-.11.87-.69 2.18-1.98 3.06l-.02.12 2.87 2.23.2.02c1.84-1.7 2.91-4.2 2.91-7.12ZM12 21.8c2.62 0 4.82-.86 6.43-2.35l-3.06-2.37c-.82.56-1.91.95-3.37.95-2.52 0-4.66-1.7-5.43-4.05l-.11.01-2.99 2.32-.04.11A9.72 9.72 0 0 0 12 21.8ZM6.57 13.98A5.9 5.9 0 0 1 6.25 12c0-.69.12-1.36.31-1.98v-.12L3.54 7.54l-.1.05A9.79 9.79 0 0 0 2.4 12c0 1.58.38 3.07 1.04 4.41l3.13-2.43ZM12 5.97c1.82 0 3.05.79 3.75 1.44l2.75-2.68C16.81 3.15 14.62 2.2 12 2.2a9.72 9.72 0 0 0-8.57 5.39l3.13 2.43C7.34 7.67 9.48 5.97 12 5.97Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- INSTAGRAM -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Instagram"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- FACEBOOK -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Facebook"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M13.7 22v-9h3l.45-3.5H13.7V7.26c0-1.01.28-1.7 1.73-1.7h1.84V2.43a24 24 0 0 0-2.68-.14c-2.65 0-4.47 1.62-4.47 4.59V9.5h-3v3.5h3v9h3.58Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- YOUTUBE -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="YouTube"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M23.5 6.19a3 3 0 0 0-2.11-2.12C19.53 3.57 12 3.57 12 3.57s-7.53 0-9.39.5A3 3 0 0 0 .5 6.19 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.81 3 3 0 0 0 2.11 2.12c1.86.5 9.39.5 9.39.5s7.53 0 9.39-.5a3 3 0 0 0 2.11-2.12A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.81ZM9.6 15.6V8.4L15.84 12 9.6 15.6Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- PINTEREST -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Pinterest"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2C6.48 2 2 5.96 2 10.84c0 3.62 2.23 6.83 5.61 8.2-.08-.62-.14-1.58.03-2.26l1.29-5.46s-.33-.66-.33-1.64c0-1.53.89-2.68 2-2.68.94 0 1.4.71 1.4 1.56 0 .95-.6 2.37-.91 3.68-.26 1.1.55 2 1.64 2 1.97 0 3.49-2.08 3.49-5.08 0-2.66-1.91-4.51-4.64-4.51-3.16 0-5.01 2.37-5.01 4.82 0 .95.37 1.98.83 2.53.09.11.1.21.08.32l-.31 1.27c-.05.21-.17.25-.39.15-1.47-.68-2.39-2.83-2.39-4.55 0-3.71 2.69-7.12 7.77-7.12 4.08 0 7.25 2.91 7.25 6.79 0 4.05-2.55 7.31-6.09 7.31-1.19 0-2.31-.62-2.69-1.35l-.73 2.79c-.27 1.02-.98 2.3-1.46 3.08 1.1.34 2.26.52 3.47.52 5.52 0 10-3.96 10-8.84C22 5.96 17.52 2 12 2Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- X / TWITTER -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="X"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M18.24 2H21l-6.03 6.89L22.06 22h-5.55l-4.35-5.69L7.18 22H4.41l6.45-7.37L4.06 2h5.69l3.93 5.2L18.24 2Zm-.97 17.69h1.53L8.92 4.19H7.28l9.99 15.5Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- THREADS -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="Threads"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12.19 2C6.9 2 3.38 5.65 3.38 11.88c0 6.1 3.44 10.12 8.82 10.12 4.65 0 8.05-2.68 8.05-6.5 0-2.8-1.55-4.58-4.32-5.39-.11-1.55-.56-2.85-1.37-3.79-1.03-1.2-2.52-1.81-4.43-1.81-2.34 0-4.1.91-5.24 2.7l1.75 1.2c.78-1.21 1.91-1.78 3.49-1.78 2.08 0 3.27 1.02 3.55 3.03-.48-.05-.98-.07-1.51-.07-3.47 0-5.72 1.66-5.72 4.23 0 2.32 1.89 3.99 4.5 3.99 3.12 0 5.15-1.98 5.15-5.18v-.54c1.37.57 2.01 1.61 2.01 3.25 0 2.67-2.42 4.4-5.94 4.4-4.12 0-6.62-3.04-6.62-8.02 0-4.99 2.49-7.76 6.62-7.76 3.01 0 5.05 1.43 6.09 4.26l2.02-.74C19.02 3.88 16.27 2 12.19 2Zm-.97 13.93c-1.45 0-2.49-.8-2.49-1.96 0-1.34 1.25-2.19 3.4-2.19.57 0 1.1.03 1.58.1v.61c0 2.14-.93 3.44-2.49 3.44Z"/>
+                                </svg>
+                            </a>
+
+
+                            <!-- LINKEDIN -->
+                            <a
+                                class="footer-social"
+                                href="#"
+                                aria-label="LinkedIn"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M4.98 3.5A2.49 2.49 0 1 1 5 8.48 2.49 2.49 0 0 1 4.98 3.5ZM3 9.98h4V21H3V9.98Zm6.5 0h3.83v1.51h.05c.53-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.67 4.8 6.14V21h-4v-4.83c0-1.15-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56V21h-4V9.98Z"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-divider"></div>
+
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year">2026</span>
+                Alphanumeric. All rights reserved.
+            </span>
+
+            <span class="footer-bottom-center">
+                Light / Control / Connect
+            </span>
+
+            <a class="footer-back" href="#top">
+                Back to top
+                <i aria-hidden="true">↑</i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ============================================================
+     FOOTER JS
+     ============================================================ -->
+
+<script>
+(() => {
+
+    const year = document.getElementById("year");
+
+    if(year){
+        year.textContent = new Date().getFullYear();
+    }
+
+})();
+</script>
+
+<!-- ====================== END FOOTER ====================== -->
+</body>
+</html>
