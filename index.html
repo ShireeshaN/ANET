@@ -5191,6 +5191,715 @@
                 }
             }
 
+        
+
+            /* ============================================================
+               MOBILE MASTER OVERRIDE — CLEAN PREMIUM STACK
+               Lighting / Automation / BMS
+               This block intentionally comes LAST so older mobile patches
+               cannot fight with the final phone layout.
+               ============================================================ */
+            @media (max-width: 760px) {
+                .hero {
+                    --m-x: 14px;
+                    --m-top: 74px;
+                    --m-visual-h: calc(42.02vw - 10px);
+                    --m-copy-top: calc(98px + 42.02vw);
+                    --m-bottom-tabs: 64px;
+                    min-height: 790px !important;
+                    height: 790px !important;
+                    padding: 0 !important;
+                    overflow: hidden !important;
+                    background: #05080b !important;
+                }
+
+                .hero .wrap,
+                .hero.is-lighting .wrap,
+                .hero.is-automation .wrap,
+                .hero.is-bms .wrap {
+                    width: 100% !important;
+                    max-width: none !important;
+                    margin: 0 !important;
+                }
+
+                .hero .wrap.premium-layout,
+                .hero.is-lighting .wrap.premium-layout,
+                .hero.is-automation .wrap.premium-layout,
+                .hero.is-bms .wrap.premium-layout {
+                    position: relative !important;
+                    display: block !important;
+                    width: 100% !important;
+                    min-height: 790px !important;
+                    height: 790px !important;
+                }
+
+                .hero .premium-stage,
+                .hero.is-lighting .premium-stage,
+                .hero.is-automation .premium-stage,
+                .hero.is-bms .premium-stage {
+                    position: absolute !important;
+                    inset: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    padding: 0 !important;
+                }
+
+                .hero .premium-stage::before {
+                    display: none !important;
+                }
+
+                /* ---------------- COMMON COPY ---------------- */
+                .hero .hero-copy,
+                .hero.is-lighting .hero-copy,
+                .hero.is-automation .hero-copy,
+                .hero.is-bms .hero-copy {
+                    position: absolute !important;
+                    z-index: 45 !important;
+                    left: 20px !important;
+                    right: 20px !important;
+                    top: var(--m-copy-top) !important;
+                    bottom: auto !important;
+                    width: auto !important;
+                    max-width: 390px !important;
+                    padding: 0 !important;
+                    transform: none !important;
+                    pointer-events: none !important;
+                }
+
+                .hero .hero-copy::before,
+                .hero .hero-copy::after {
+                    display: none !important;
+                }
+
+                .hero .hero-eyebrow,
+                .hero.is-lighting .hero-eyebrow,
+                .hero.is-automation .hero-eyebrow,
+                .hero.is-bms .hero-eyebrow {
+                    margin: 0 0 10px !important;
+                    gap: 8px !important;
+                    font: 650 7.2px/1.25 "Manrope", "Inter", "Segoe UI", sans-serif !important;
+                    letter-spacing: .16em !important;
+                    color: rgba(211, 224, 229, .64) !important;
+                }
+
+                .hero .hero-eyebrow::before {
+                    width: 22px !important;
+                }
+
+                .hero h1,
+                .hero.is-lighting .hero-copy h1,
+                .hero.is-automation .hero-copy h1,
+                .hero.is-bms .hero-copy h1 {
+                    max-width: 360px !important;
+                    margin: 0 !important;
+                    font: 650 clamp(31px, 8.4vw, 39px)/.98 "Manrope", "Inter", "Segoe UI", sans-serif !important;
+                    letter-spacing: -.048em !important;
+                    color: #f7f8f6 !important;
+                    text-wrap: balance !important;
+                }
+
+                .hero .hero-slogan,
+                .hero.is-lighting .hero-slogan,
+                .hero.is-automation .hero-slogan,
+                .hero.is-bms .hero-slogan {
+                    max-width: 350px !important;
+                    margin: 12px 0 0 !important;
+                    font: 500 13px/1.42 "Manrope", "Inter", "Segoe UI", sans-serif !important;
+                    letter-spacing: -.015em !important;
+                    color: #dce2e4 !important;
+                }
+
+                .hero .hero-description,
+                .hero.is-lighting .hero-description,
+                .hero.is-automation .hero-description,
+                .hero.is-bms .hero-description {
+                    max-width: 350px !important;
+                    margin: 9px 0 0 !important;
+                    font: 450 10.5px/1.58 "Manrope", "Inter", "Segoe UI", sans-serif !important;
+                    letter-spacing: 0 !important;
+                    color: rgba(196, 207, 211, .72) !important;
+                }
+
+                .hero .hero-signature {
+                    display: none !important;
+                }
+
+                /* ---------------- LIGHTING MOBILE ---------------- */
+                .hero.is-lighting .lighting-banner {
+                    position: relative !important;
+                    width: 100% !important;
+                    height: 790px !important;
+                    min-height: 790px !important;
+                    background: #05080b !important;
+                }
+
+                .hero.is-lighting .lighting-media {
+                    inset: auto !important;
+                    left: var(--m-x) !important;
+                    right: var(--m-x) !important;
+                    top: var(--m-top) !important;
+                    width: auto !important;
+                    height: var(--m-visual-h) !important;
+                    min-height: 146px !important;
+                    max-height: 184px !important;
+                    overflow: hidden !important;
+                    border-radius: 12px !important;
+                    background: #07090b !important;
+                    box-shadow:
+                        0 16px 42px rgba(0,0,0,.30),
+                        inset 0 0 0 1px rgba(255,255,255,.045) !important;
+                }
+
+                .hero.is-lighting .lighting-base {
+                    inset: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: contain !important;
+                    object-position: center center !important;
+                    transform: none !important;
+                    filter: saturate(.94) contrast(1.02) brightness(.93) !important;
+                }
+
+                .hero.is-lighting .lighting-zones,
+                .hero.is-lighting .lighting-zone {
+                    inset: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+
+                .hero.is-lighting .lighting-zone {
+                    background-size: 100% 100% !important;
+                    background-position: center center !important;
+                    background-repeat: no-repeat !important;
+                }
+
+                .hero.is-lighting .lighting-effects {
+                    inset: auto !important;
+                    left: var(--m-x) !important;
+                    right: var(--m-x) !important;
+                    top: var(--m-top) !important;
+                    width: auto !important;
+                    height: var(--m-visual-h) !important;
+                    min-height: 146px !important;
+                    max-height: 184px !important;
+                    overflow: hidden !important;
+                    border-radius: 12px !important;
+                }
+
+                .hero.is-lighting .lighting-left-shade,
+                .hero.is-lighting .lighting-right-shade {
+                    display: none !important;
+                }
+
+                .hero.is-lighting .lighting-vignette {
+                    inset: auto !important;
+                    left: var(--m-x) !important;
+                    right: var(--m-x) !important;
+                    top: var(--m-top) !important;
+                    width: auto !important;
+                    height: var(--m-visual-h) !important;
+                    min-height: 146px !important;
+                    max-height: 184px !important;
+                    border-radius: 12px !important;
+                    box-shadow: inset 0 0 28px rgba(0,0,0,.22) !important;
+                    background: linear-gradient(180deg,rgba(4,7,10,.10),transparent 60%,rgba(4,7,10,.22)) !important;
+                }
+
+                .hero.is-lighting .lighting-nav-wrap {
+                    position: absolute !important;
+                    z-index: 48 !important;
+                    left: 14px !important;
+                    right: 14px !important;
+                    top: auto !important;
+                    bottom: calc(var(--m-bottom-tabs) + 12px + env(safe-area-inset-bottom, 0px)) !important;
+                    width: auto !important;
+                    height: 92px !important;
+                    max-height: none !important;
+                    transform: none !important;
+                    padding-top: 0 !important;
+                }
+
+                .hero.is-lighting .lighting-nav-line {
+                    left: 5% !important;
+                    right: 5% !important;
+                    top: 15px !important;
+                    bottom: auto !important;
+                    width: auto !important;
+                    height: 1px !important;
+                }
+
+                .hero.is-lighting .lighting-nav-progress {
+                    width: calc(var(--lighting-progress) * 1%) !important;
+                    height: 1px !important;
+                }
+
+                .hero.is-lighting .lighting-nav {
+                    inset: 0 !important;
+                    display: grid !important;
+                    grid-template-columns: repeat(5,minmax(0,1fr)) !important;
+                    align-items: start !important;
+                    gap: 2px !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item {
+                    width: 100% !important;
+                    min-width: 0 !important;
+                    min-height: 70px !important;
+                    padding: 1px 1px 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: flex-start !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    text-align: center !important;
+                    transform: none !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item::before {
+                    width: 8px !important;
+                    height: 8px !important;
+                    flex: 0 0 8px !important;
+                    margin: 11px 0 0 !important;
+                    transform: none !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item[aria-pressed="true"]::before {
+                    width: 10px !important;
+                    height: 10px !important;
+                    flex-basis: 10px !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item small {
+                    display: none !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item strong {
+                    display: block !important;
+                    max-width: 62px !important;
+                    font-size: 6.7px !important;
+                    line-height: 1.25 !important;
+                    font-weight: 600 !important;
+                    letter-spacing: 0 !important;
+                    white-space: normal !important;
+                }
+
+                /* ---------------- AUTOMATION MOBILE ---------------- */
+                .hero.is-automation .automation-banner {
+                    position: relative !important;
+                    width: 100% !important;
+                    height: 790px !important;
+                    min-height: 790px !important;
+                    --automation-image-height: var(--m-visual-h) !important;
+                    background: #05080b !important;
+                }
+
+                .hero.is-automation .automation-media {
+                    inset: auto !important;
+                    left: var(--m-x) !important;
+                    right: var(--m-x) !important;
+                    top: var(--m-top) !important;
+                    width: auto !important;
+                    height: var(--m-visual-h) !important;
+                    min-height: 146px !important;
+                    max-height: 184px !important;
+                    overflow: hidden !important;
+                    border-radius: 12px !important;
+                    background: #061019 !important;
+                    box-shadow:
+                        0 16px 42px rgba(0,0,0,.30),
+                        inset 0 0 0 1px rgba(255,255,255,.045) !important;
+                }
+
+                .hero.is-automation .automation-base {
+                    inset: 0 !important;
+                    top: 0 !important;
+                    bottom: auto !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: contain !important;
+                    object-position: center center !important;
+                    transform: none !important;
+                }
+
+                .hero.is-automation .automation-connected-layer {
+                    inset: 0 !important;
+                    top: 0 !important;
+                    bottom: auto !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    transform: none !important;
+                    overflow: hidden !important;
+                }
+
+                .hero.is-automation .automation-zone {
+                    inset: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    background-size: 100% 100% !important;
+                    background-position: center center !important;
+                    background-repeat: no-repeat !important;
+                    transform: none !important;
+                }
+
+                .hero.is-automation .automation-left-shade {
+                    background: linear-gradient(180deg,rgba(4,10,16,.06),transparent 62%,rgba(4,10,16,.22)) !important;
+                }
+
+                .hero.is-automation .automation-vignette {
+                    box-shadow: inset 0 0 28px rgba(0,0,0,.18) !important;
+                    background: none !important;
+                }
+
+                .hero.is-automation .automation-media::before,
+                .hero.is-automation .automation-media::after {
+                    display: none !important;
+                }
+
+                .hero.is-automation .automation-floor-nav {
+                    position: absolute !important;
+                    z-index: 48 !important;
+                    left: 14px !important;
+                    right: 14px !important;
+                    top: auto !important;
+                    bottom: calc(var(--m-bottom-tabs) + 12px + env(safe-area-inset-bottom, 0px)) !important;
+                    width: auto !important;
+                    height: 92px !important;
+                    transform: none !important;
+                    pointer-events: none !important;
+                }
+
+                .hero.is-automation .automation-floor-line {
+                    left: 8% !important;
+                    right: 8% !important;
+                    top: 15px !important;
+                    bottom: auto !important;
+                    width: auto !important;
+                    height: 1px !important;
+                }
+
+                .hero.is-automation .automation-floor-progress {
+                    left: 8% !important;
+                    top: 15px !important;
+                    bottom: auto !important;
+                    width: calc(var(--auto-progress) * .84%) !important;
+                    height: 1px !important;
+                }
+
+                .hero.is-automation .automation-signal {
+                    left: calc(8% + var(--auto-progress) * .84%) !important;
+                    top: 15px !important;
+                    width: 9px !important;
+                    height: 9px !important;
+                    transform: translate(-50%,-50%) !important;
+                }
+
+                .hero.is-automation .automation-signal::before {
+                    display: none !important;
+                }
+
+                .hero.is-automation .automation-step {
+                    top: 0 !important;
+                    right: auto !important;
+                    width: 33.333% !important;
+                    min-height: 72px !important;
+                    padding: 31px 3px 0 !important;
+                    display: flex !important;
+                    flex-direction: column-reverse !important;
+                    justify-content: flex-start !important;
+                    align-items: center !important;
+                    gap: 6px !important;
+                    text-align: center !important;
+                    transform: none !important;
+                    pointer-events: auto !important;
+                }
+
+                .hero.is-automation .automation-step[data-automation="0"] { left: 0 !important; }
+                .hero.is-automation .automation-step[data-automation="1"] { left: 33.333% !important; }
+                .hero.is-automation .automation-step[data-automation="2"] { left: 66.666% !important; }
+
+                .hero.is-automation .automation-step::after {
+                    top: 11px !important;
+                }
+
+                .hero.is-automation .automation-step small {
+                    display: none !important;
+                }
+
+                .hero.is-automation .automation-step strong {
+                    max-width: 96px !important;
+                    font-size: 7px !important;
+                    line-height: 1.25 !important;
+                    text-align: center !important;
+                }
+
+                /* ---------------- BMS + IoT MOBILE ---------------- */
+                .hero.is-bms .bms-story {
+                    --bms-safe-top: 0px !important;
+                    position: relative !important;
+                    width: 100% !important;
+                    height: 790px !important;
+                    min-height: 790px !important;
+                    background: #05080b !important;
+                }
+
+                .hero.is-bms .bms-story-media {
+                    inset: auto !important;
+                    left: var(--m-x) !important;
+                    right: var(--m-x) !important;
+                    top: var(--m-top) !important;
+                    width: auto !important;
+                    height: var(--m-visual-h) !important;
+                    min-height: 146px !important;
+                    max-height: 184px !important;
+                    overflow: hidden !important;
+                    border-radius: 12px !important;
+                    background: #061019 !important;
+                    box-shadow:
+                        0 16px 42px rgba(0,0,0,.30),
+                        inset 0 0 0 1px rgba(255,255,255,.045) !important;
+                }
+
+                .hero.is-bms .bms-story-backdrop,
+                .hero.is-bms .bms-story-media::before,
+                .hero.is-bms .bms-story-media::after {
+                    display: none !important;
+                }
+
+                .hero.is-bms .bms-story-base,
+                .hero.is-bms .bms-story-connected {
+                    inset: 0 !important;
+                    top: 0 !important;
+                    bottom: auto !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: contain !important;
+                    object-position: center center !important;
+                    transform: none !important;
+                }
+
+                .hero.is-bms .bms-story-left-shade {
+                    inset: 0 !important;
+                    background: linear-gradient(180deg,rgba(3,8,13,.06),transparent 64%,rgba(3,8,13,.20)) !important;
+                }
+
+                .hero.is-bms .bms-story-vignette {
+                    inset: 0 !important;
+                    box-shadow: inset 0 0 28px rgba(0,0,0,.18) !important;
+                    background: none !important;
+                }
+
+                .hero.is-bms .bms-story-network-glow {
+                    width: 58vw !important;
+                }
+
+                .hero.is-bms .bms-story-scan-line {
+                    top: 0 !important;
+                    bottom: 0 !important;
+                }
+
+                .hero.is-bms .bms-node-card,
+                .hero.is-bms .bms-node-link {
+                    display: none !important;
+                }
+
+                .hero.is-bms .bms-node-dot {
+                    width: 22px !important;
+                    height: 22px !important;
+                    box-shadow: 0 0 0 4px rgba(105,224,255,.06),0 0 14px rgba(105,224,255,.30) !important;
+                }
+
+                .hero.is-bms .bms-node-dot i {
+                    font-size: 6px !important;
+                }
+
+                .hero.is-bms .bms-story-progress {
+                    position: absolute !important;
+                    z-index: 48 !important;
+                    left: 20px !important;
+                    right: 20px !important;
+                    top: auto !important;
+                    bottom: calc(var(--m-bottom-tabs) + 26px + env(safe-area-inset-bottom, 0px)) !important;
+                    display: flex !important;
+                    justify-content: flex-start !important;
+                    gap: 22px !important;
+                }
+
+                .hero.is-bms .bms-story-stage {
+                    font-size: 6.8px !important;
+                    letter-spacing: .12em !important;
+                    white-space: nowrap !important;
+                }
+
+                /* ---------------- MAIN BOTTOM TABS ---------------- */
+                .hero .hero-bottom {
+                    position: absolute !important;
+                    z-index: 70 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    bottom: 0 !important;
+                    min-height: var(--m-bottom-tabs) !important;
+                    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+                    border-top: 1px solid rgba(255,255,255,.09) !important;
+                    background: rgba(8,10,12,.96) !important;
+                    backdrop-filter: blur(18px) !important;
+                    -webkit-backdrop-filter: blur(18px) !important;
+                }
+
+                .hero .hero-bottom .wrap {
+                    width: 100% !important;
+                    padding: 0 12px !important;
+                }
+
+                .hero .hero-tabs {
+                    width: 100% !important;
+                    min-height: var(--m-bottom-tabs) !important;
+                    display: grid !important;
+                    grid-template-columns: repeat(3,minmax(0,1fr)) 32px !important;
+                    gap: 6px !important;
+                    align-items: stretch !important;
+                }
+
+                .hero .hero-tab {
+                    min-width: 0 !important;
+                    padding: 12px 0 10px !important;
+                    gap: 5px !important;
+                    align-items: flex-start !important;
+                }
+
+                .hero .hero-tab small {
+                    display: none !important;
+                }
+
+                .hero .hero-tab strong {
+                    font-size: 9px !important;
+                    line-height: 1.15 !important;
+                    white-space: nowrap !important;
+                }
+
+                .hero .hero-tab span {
+                    display: none !important;
+                }
+
+                .hero .pause {
+                    align-self: center !important;
+                    width: 30px !important;
+                    height: 30px !important;
+                    font-size: 10px !important;
+                }
+            }
+
+            @media (max-width: 420px) {
+                .hero {
+                    --m-x: 10px;
+                    --m-top: 68px;
+                    --m-visual-h: calc(42.02vw - 8px);
+                    --m-copy-top: calc(88px + 42.02vw);
+                    min-height: 760px !important;
+                    height: 760px !important;
+                }
+
+                .hero .wrap.premium-layout,
+                .hero.is-lighting .wrap.premium-layout,
+                .hero.is-automation .wrap.premium-layout,
+                .hero.is-bms .wrap.premium-layout,
+                .hero.is-lighting .lighting-banner,
+                .hero.is-automation .automation-banner,
+                .hero.is-bms .bms-story {
+                    min-height: 760px !important;
+                    height: 760px !important;
+                }
+
+                .hero .hero-copy,
+                .hero.is-lighting .hero-copy,
+                .hero.is-automation .hero-copy,
+                .hero.is-bms .hero-copy {
+                    left: 17px !important;
+                    right: 17px !important;
+                }
+
+                .hero h1,
+                .hero.is-lighting .hero-copy h1,
+                .hero.is-automation .hero-copy h1,
+                .hero.is-bms .hero-copy h1 {
+                    font-size: clamp(29px, 8.1vw, 34px) !important;
+                }
+
+                .hero .hero-slogan,
+                .hero.is-lighting .hero-slogan,
+                .hero.is-automation .hero-slogan,
+                .hero.is-bms .hero-slogan {
+                    font-size: 12px !important;
+                    line-height: 1.4 !important;
+                }
+
+                .hero .hero-description,
+                .hero.is-lighting .hero-description,
+                .hero.is-automation .hero-description,
+                .hero.is-bms .hero-description {
+                    max-width: 330px !important;
+                    font-size: 9.8px !important;
+                    line-height: 1.52 !important;
+                }
+
+                .hero.is-lighting .lighting-nav-wrap,
+                .hero.is-automation .automation-floor-nav {
+                    left: 10px !important;
+                    right: 10px !important;
+                }
+
+                .hero.is-lighting .lighting-nav-item strong {
+                    max-width: 54px !important;
+                    font-size: 6.1px !important;
+                }
+
+                .hero.is-automation .automation-step strong {
+                    max-width: 82px !important;
+                    font-size: 6.5px !important;
+                }
+
+                .hero .hero-bottom .wrap {
+                    padding: 0 9px !important;
+                }
+
+                .hero .hero-tabs {
+                    grid-template-columns: repeat(3,minmax(0,1fr)) 30px !important;
+                    gap: 4px !important;
+                }
+
+                .hero .hero-tab strong {
+                    font-size: 8.3px !important;
+                }
+            }
+
+            @media (max-width: 370px) {
+                .hero {
+                    min-height: 740px !important;
+                    height: 740px !important;
+                }
+
+                .hero .wrap.premium-layout,
+                .hero.is-lighting .wrap.premium-layout,
+                .hero.is-automation .wrap.premium-layout,
+                .hero.is-bms .wrap.premium-layout,
+                .hero.is-lighting .lighting-banner,
+                .hero.is-automation .automation-banner,
+                .hero.is-bms .bms-story {
+                    min-height: 740px !important;
+                    height: 740px !important;
+                }
+
+                .hero .hero-description,
+                .hero.is-lighting .hero-description,
+                .hero.is-automation .hero-description,
+                .hero.is-bms .hero-description {
+                    font-size: 9.3px !important;
+                }
+
+                .hero .hero-tab strong {
+                    font-size: 7.7px !important;
+                }
+            }
+
         </style>
 
         <!-- ==================== COMPLETE HTML ==================== -->
@@ -6504,7 +7213,6 @@
 
     
     
-
 
 
 <!-- about start -->
@@ -14550,6 +15258,304 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
     }
 }
 
+
+
+/* ============================================================
+   FINAL MOBILE EXPERIENCE — CLEAN STACK / NO OVERLAP
+   Overrides every earlier mobile experiment without affecting desktop.
+   ============================================================ */
+@media (max-width:760px){
+    .bi2-section{
+        min-height:clamp(720px,182vw,790px) !important;
+        height:auto !important;
+        padding:0 !important;
+        overflow:hidden !important;
+        background:
+            radial-gradient(circle at 50% 10%,rgba(63,164,202,.08),transparent 28%),
+            linear-gradient(180deg,#050c13 0%,#03070b 42%,#03070b 100%) !important;
+    }
+
+    /* Wide artwork gets its own true banner frame. Full image, zero crop. */
+    .bi2-frame{
+        left:14px !important;
+        right:14px !important;
+        top:16px !important;
+        bottom:auto !important;
+        width:auto !important;
+        height:auto !important;
+        aspect-ratio:1935 / 813 !important;
+        border-radius:12px !important;
+        background:#050a0f !important;
+        box-shadow:
+            0 18px 44px rgba(0,0,0,.30),
+            inset 0 0 0 1px rgba(255,255,255,.035) !important;
+    }
+
+    .bi2-off,
+    .bi2-on-full{
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center center !important;
+        transform:none !important;
+    }
+
+    .bi2-system-layers{
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+    }
+
+    .bi2-layer{
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        background-size:contain !important;
+        background-position:center center !important;
+        background-repeat:no-repeat !important;
+    }
+
+    /* All cinematic effects stay inside the image zone only. */
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        left:14px !important;
+        right:14px !important;
+        top:16px !important;
+        bottom:auto !important;
+        width:auto !important;
+        height:auto !important;
+        aspect-ratio:1935 / 813 !important;
+        border-radius:12px !important;
+        overflow:hidden !important;
+    }
+
+    .bi2-left-vignette{
+        background:
+            linear-gradient(90deg,
+                rgba(3,7,11,.24) 0%,
+                rgba(3,7,11,.08) 16%,
+                transparent 34%) !important;
+    }
+
+    .bi2-right-shade{
+        background:
+            linear-gradient(90deg,
+                transparent 0%,
+                transparent 67%,
+                rgba(3,7,11,.10) 78%,
+                rgba(3,7,11,.30) 100%) !important;
+    }
+
+    .bi2-top-bottom{
+        background:
+            linear-gradient(180deg,
+                rgba(3,7,11,.48) 0%,
+                rgba(3,7,11,.12) 18%,
+                transparent 38%,
+                transparent 68%,
+                rgba(3,7,11,.16) 84%,
+                rgba(3,7,11,.58) 100%) !important;
+    }
+
+    /* Copy becomes a clean second block — no text sitting over artwork. */
+    .bi2-copy{
+        position:absolute !important;
+        z-index:24 !important;
+        top:clamp(205px,47vw,255px) !important;
+        left:20px !important;
+        right:20px !important;
+        bottom:auto !important;
+        width:auto !important;
+        max-width:none !important;
+        transform:none !important;
+        padding:0 !important;
+    }
+
+    .bi2-kicker{
+        margin:0 0 12px !important;
+        gap:9px !important;
+        font-size:7.2px !important;
+        line-height:1.25 !important;
+        letter-spacing:.16em !important;
+        color:rgba(214,228,233,.64) !important;
+    }
+
+    .bi2-kicker::before{
+        width:24px !important;
+    }
+
+    .bi2-title{
+        max-width:100% !important;
+        margin:0 !important;
+        font:700 clamp(30px,8.7vw,40px)/.94 "Manrope","Inter","Segoe UI",Arial,sans-serif !important;
+        letter-spacing:-.05em !important;
+        text-transform:uppercase !important;
+        color:#f8fbfb !important;
+        text-shadow:none !important;
+    }
+
+    .bi2-slogan{
+        max-width:100% !important;
+        margin:12px 0 0 !important;
+        font:560 clamp(14px,3.8vw,16px)/1.42 "Manrope","Inter","Segoe UI",Arial,sans-serif !important;
+        letter-spacing:-.015em !important;
+        color:#e7edef !important;
+        text-shadow:none !important;
+    }
+
+    .bi2-description{
+        max-width:100% !important;
+        margin:9px 0 0 !important;
+        font:450 10.5px/1.68 "Manrope","Inter","Segoe UI",Arial,sans-serif !important;
+        color:rgba(190,205,211,.72) !important;
+        text-shadow:none !important;
+    }
+
+    .bi2-capabilities{
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:7px !important;
+        width:100% !important;
+        max-width:100% !important;
+        margin:15px 0 0 !important;
+    }
+
+    .bi2-capabilities span{
+        display:flex !important;
+        align-items:center !important;
+        min-height:31px !important;
+        padding:8px 10px !important;
+        border-radius:7px !important;
+        border:1px solid rgba(146,209,226,.10) !important;
+        background:rgba(255,255,255,.028) !important;
+        color:rgba(211,225,230,.72) !important;
+        font:650 6.8px/1.25 "Manrope","Inter",sans-serif !important;
+        letter-spacing:.09em !important;
+        white-space:normal !important;
+    }
+
+    /* Bottom status is compact and cannot overflow small screens. */
+    .bi2-status{
+        left:20px !important;
+        right:20px !important;
+        bottom:42px !important;
+        width:auto !important;
+        min-width:0 !important;
+        display:grid !important;
+        grid-template-columns:auto minmax(0,1fr) auto !important;
+        align-items:center !important;
+        gap:10px !important;
+        z-index:25 !important;
+    }
+
+    .bi2-status-dot{
+        width:8px !important;
+        height:8px !important;
+        flex-basis:8px !important;
+    }
+
+    .bi2-status-copy{
+        min-width:0 !important;
+    }
+
+    .bi2-status-copy strong{
+        overflow:hidden !important;
+        text-overflow:ellipsis !important;
+        white-space:nowrap !important;
+        font-size:7.8px !important;
+        letter-spacing:.07em !important;
+    }
+
+    .bi2-status-copy small{
+        overflow:hidden !important;
+        text-overflow:ellipsis !important;
+        white-space:nowrap !important;
+        margin-top:4px !important;
+        font-size:6.3px !important;
+        letter-spacing:.08em !important;
+    }
+
+    .bi2-count{
+        margin:0 !important;
+        white-space:nowrap !important;
+        font-size:7px !important;
+    }
+
+    .bi2-progress{
+        left:20px !important;
+        right:20px !important;
+        bottom:20px !important;
+        width:auto !important;
+        height:1px !important;
+        z-index:25 !important;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width:390px){
+    .bi2-section{
+        min-height:735px !important;
+    }
+
+    .bi2-frame,
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        left:10px !important;
+        right:10px !important;
+        top:12px !important;
+        border-radius:10px !important;
+    }
+
+    .bi2-copy{
+        top:clamp(182px,46vw,215px) !important;
+        left:16px !important;
+        right:16px !important;
+    }
+
+    .bi2-title{
+        font-size:clamp(28px,8.8vw,34px) !important;
+    }
+
+    .bi2-slogan{
+        font-size:13.5px !important;
+    }
+
+    .bi2-description{
+        font-size:9.8px !important;
+        line-height:1.62 !important;
+    }
+
+    .bi2-capabilities{
+        gap:6px !important;
+        margin-top:12px !important;
+    }
+
+    .bi2-capabilities span{
+        min-height:29px !important;
+        padding:7px 8px !important;
+        font-size:6.2px !important;
+    }
+
+    .bi2-status{
+        left:16px !important;
+        right:16px !important;
+        bottom:40px !important;
+        gap:8px !important;
+    }
+
+    .bi2-progress{
+        left:16px !important;
+        right:16px !important;
+        bottom:18px !important;
+    }
+}
+
 </style>
 
 
@@ -14860,7 +15866,6 @@ Recommended: wide 1935 x 813 images. Images are displayed without cropping.
 </script>
 
 <!-- ================= END BMS → IoT SECTION ================= -->
-
 
 
 
