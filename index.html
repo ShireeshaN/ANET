@@ -1088,7 +1088,7 @@
 
             <!-- MOBILE BUTTON -->
             <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false">
-                <span id="menuToggleText">Menu</span>
+                <!-- <span id="menuToggleText">Menu</span> -->
                 <i aria-hidden="true"></i>
             </button>
 
@@ -6096,7 +6096,418 @@
                 }
             }
 
-        </style>
+        
+
+/* ============================================================
+   FINAL MOBILE SPACING FIX — LIGHTING / AUTOMATION / BMS
+   MOBILE ONLY. DESKTOP / TABLET ABOVE 760px REMAIN UNCHANGED.
+   Removes the large empty gaps between visual, copy and controls.
+   ============================================================ */
+
+@media (max-width:760px){
+
+    /* One compact mobile height system for all three banners */
+    .hero{
+        --m-x:12px !important;
+        --m-top:68px !important;
+        --m-visual-h:clamp(148px,42vw,180px) !important;
+        --m-copy-top:calc(var(--m-top) + var(--m-visual-h) + 18px) !important;
+        --m-bottom-tabs:58px !important;
+        --m-hero-h:clamp(585px,155vw,640px);
+
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+        padding:0 !important;
+        overflow:hidden !important;
+    }
+
+    /* Kill the old forced 760 / 790 / 100svh heights */
+    .hero .wrap.premium-layout,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+
+    /* Visual frame */
+    .hero.is-lighting .lighting-media,
+    .hero.is-lighting .lighting-effects,
+    .hero.is-lighting .lighting-vignette,
+    .hero.is-automation .automation-media,
+    .hero.is-bms .bms-story-media{
+        top:var(--m-top) !important;
+        height:var(--m-visual-h) !important;
+        min-height:0 !important;
+        max-height:none !important;
+    }
+
+    /* Copy starts directly below the banner image */
+    .hero .hero-copy,
+    .hero.is-lighting .hero-copy,
+    .hero.is-automation .hero-copy,
+    .hero.is-bms .hero-copy{
+        top:var(--m-copy-top) !important;
+        bottom:auto !important;
+        left:18px !important;
+        right:18px !important;
+        max-width:365px !important;
+    }
+
+    .hero .hero-eyebrow,
+    .hero.is-lighting .hero-eyebrow,
+    .hero.is-automation .hero-eyebrow,
+    .hero.is-bms .hero-eyebrow{
+        margin-bottom:7px !important;
+    }
+
+    .hero h1,
+    .hero.is-lighting .hero-copy h1,
+    .hero.is-automation .hero-copy h1,
+    .hero.is-bms .hero-copy h1{
+        font-size:clamp(29px,8vw,36px) !important;
+        line-height:.98 !important;
+    }
+
+    .hero .hero-slogan,
+    .hero.is-lighting .hero-slogan,
+    .hero.is-automation .hero-slogan,
+    .hero.is-bms .hero-slogan{
+        margin-top:8px !important;
+        font-size:12px !important;
+        line-height:1.36 !important;
+    }
+
+    .hero .hero-description,
+    .hero.is-lighting .hero-description,
+    .hero.is-automation .hero-description,
+    .hero.is-bms .hero-description{
+        margin-top:6px !important;
+        max-width:345px !important;
+        font-size:9.8px !important;
+        line-height:1.48 !important;
+    }
+
+    /* Lighting control row closer to content */
+    .hero.is-lighting .lighting-nav-wrap{
+        left:12px !important;
+        right:12px !important;
+        bottom:calc(var(--m-bottom-tabs) + 8px + env(safe-area-inset-bottom,0px)) !important;
+        height:82px !important;
+    }
+
+    .hero.is-lighting .lighting-nav-item{
+        min-height:60px !important;
+        gap:6px !important;
+    }
+
+    .hero.is-lighting .lighting-nav-item::before{
+        margin-top:8px !important;
+    }
+
+    /* Automation controls closer to content */
+    .hero.is-automation .automation-floor-nav{
+        left:12px !important;
+        right:12px !important;
+        bottom:calc(var(--m-bottom-tabs) + 8px + env(safe-area-inset-bottom,0px)) !important;
+        height:82px !important;
+    }
+
+    .hero.is-automation .automation-step{
+        min-height:62px !important;
+        padding-top:27px !important;
+    }
+
+    /* BMS progress sits closer to copy */
+    .hero.is-bms .bms-story-progress{
+        left:18px !important;
+        right:18px !important;
+        bottom:calc(var(--m-bottom-tabs) + 18px + env(safe-area-inset-bottom,0px)) !important;
+        gap:16px !important;
+    }
+
+    /* Main bottom tabs: slightly shorter, still easy to tap */
+    .hero .hero-bottom{
+        min-height:var(--m-bottom-tabs) !important;
+    }
+
+    .hero .hero-tabs{
+        min-height:var(--m-bottom-tabs) !important;
+        grid-template-columns:repeat(3,minmax(0,1fr)) 30px !important;
+        gap:4px !important;
+    }
+
+    .hero .hero-tab{
+        padding:10px 0 8px !important;
+    }
+
+    .hero .hero-tab strong{
+        font-size:8.6px !important;
+        line-height:1.1 !important;
+    }
+
+    .hero .pause{
+        width:28px !important;
+        height:28px !important;
+    }
+}
+
+
+/* Extra small phones — remove even more dead space */
+@media (max-width:420px){
+
+    .hero{
+        --m-x:10px !important;
+        --m-top:64px !important;
+        --m-visual-h:clamp(145px,42vw,170px) !important;
+        --m-copy-top:calc(var(--m-top) + var(--m-visual-h) + 15px) !important;
+        --m-bottom-tabs:56px !important;
+        --m-hero-h:clamp(570px,154vw,615px);
+
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+
+    .hero .wrap.premium-layout,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+
+    .hero .hero-copy,
+    .hero.is-lighting .hero-copy,
+    .hero.is-automation .hero-copy,
+    .hero.is-bms .hero-copy{
+        left:15px !important;
+        right:15px !important;
+    }
+
+    .hero h1,
+    .hero.is-lighting .hero-copy h1,
+    .hero.is-automation .hero-copy h1,
+    .hero.is-bms .hero-copy h1{
+        font-size:clamp(28px,8.1vw,33px) !important;
+    }
+
+    .hero .hero-description,
+    .hero.is-lighting .hero-description,
+    .hero.is-automation .hero-description,
+    .hero.is-bms .hero-description{
+        font-size:9.4px !important;
+        line-height:1.45 !important;
+    }
+
+    .hero.is-lighting .lighting-nav-wrap,
+    .hero.is-automation .automation-floor-nav{
+        bottom:calc(var(--m-bottom-tabs) + 6px + env(safe-area-inset-bottom,0px)) !important;
+        height:76px !important;
+    }
+
+    .hero.is-bms .bms-story-progress{
+        bottom:calc(var(--m-bottom-tabs) + 15px + env(safe-area-inset-bottom,0px)) !important;
+    }
+}
+
+
+/* Very narrow phones */
+@media (max-width:370px){
+
+    .hero{
+        --m-top:60px !important;
+        --m-visual-h:145px !important;
+        --m-copy-top:220px !important;
+        --m-hero-h:565px !important;
+
+        min-height:565px !important;
+        height:565px !important;
+    }
+
+    .hero .wrap.premium-layout,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:565px !important;
+        height:565px !important;
+    }
+
+    .hero .hero-slogan,
+    .hero.is-lighting .hero-slogan,
+    .hero.is-automation .hero-slogan,
+    .hero.is-bms .hero-slogan{
+        font-size:11.5px !important;
+    }
+
+    .hero .hero-description,
+    .hero.is-lighting .hero-description,
+    .hero.is-automation .hero-description,
+    .hero.is-bms .hero-description{
+        font-size:9px !important;
+        line-height:1.42 !important;
+    }
+}
+
+
+
+/* ============================================================
+   V3 — MOBILE GAP KILLER
+   Heading-only mobile banners should not reserve desktop-like height.
+   Applies ONLY at <=760px.
+   ============================================================ */
+
+@media (max-width:760px){
+
+    /* The page currently shows heading-only copy on mobile,
+       so each slide can be much shorter. */
+    .hero.is-lighting{
+        --m-hero-h:clamp(455px,121vw,510px) !important;
+    }
+
+    .hero.is-automation{
+        --m-hero-h:clamp(455px,121vw,510px) !important;
+    }
+
+    .hero.is-bms{
+        --m-hero-h:clamp(390px,106vw,445px) !important;
+    }
+
+    .hero.is-lighting,
+    .hero.is-automation,
+    .hero.is-bms,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+
+    /* Heading stays directly below the visual. */
+    .hero.is-lighting .hero-copy,
+    .hero.is-automation .hero-copy,
+    .hero.is-bms .hero-copy{
+        top:calc(var(--m-top) + var(--m-visual-h) + 14px) !important;
+        bottom:auto !important;
+    }
+
+    /* No hidden paragraph/tagline should reserve any visual rhythm. */
+    .hero.is-lighting .hero-copy > :not(h1),
+    .hero.is-automation .hero-copy > :not(h1),
+    .hero.is-bms .hero-copy > :not(h1){
+        margin-top:0 !important;
+        margin-bottom:0 !important;
+    }
+
+    /* LIGHTING — bring the five category controls up below the heading. */
+    .hero.is-lighting .lighting-nav-wrap{
+        top:calc(var(--m-top) + var(--m-visual-h) + 70px) !important;
+        bottom:auto !important;
+        height:78px !important;
+    }
+
+    /* AUTOMATION — same compact rhythm. */
+    .hero.is-automation .automation-floor-nav{
+        top:calc(var(--m-top) + var(--m-visual-h) + 70px) !important;
+        bottom:auto !important;
+        height:78px !important;
+    }
+
+    /* BMS — this is the big gap visible in the screenshot.
+       Put the BMS / BMS+IoT selector right below the heading,
+       instead of anchoring it near the bottom of a tall hero. */
+    .hero.is-bms .bms-story-progress{
+        top:calc(var(--m-top) + var(--m-visual-h) + 72px) !important;
+        bottom:auto !important;
+        left:18px !important;
+        right:18px !important;
+        gap:16px !important;
+    }
+
+    /* Bottom slide tabs remain at the bottom, but hero is now compact. */
+    .hero .hero-bottom{
+        bottom:0 !important;
+    }
+}
+
+
+/* Small phones */
+@media (max-width:420px){
+
+    .hero.is-lighting{
+        --m-hero-h:455px !important;
+    }
+
+    .hero.is-automation{
+        --m-hero-h:455px !important;
+    }
+
+    .hero.is-bms{
+        --m-hero-h:390px !important;
+    }
+
+    .hero.is-lighting,
+    .hero.is-automation,
+    .hero.is-bms,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+
+    .hero.is-bms .bms-story-progress{
+        top:calc(var(--m-top) + var(--m-visual-h) + 67px) !important;
+    }
+
+    .hero.is-lighting .lighting-nav-wrap,
+    .hero.is-automation .automation-floor-nav{
+        top:calc(var(--m-top) + var(--m-visual-h) + 65px) !important;
+    }
+}
+
+
+/* Very narrow phones */
+@media (max-width:370px){
+
+    .hero.is-lighting,
+    .hero.is-automation{
+        --m-hero-h:440px !important;
+    }
+
+    .hero.is-bms{
+        --m-hero-h:375px !important;
+    }
+
+    .hero.is-lighting,
+    .hero.is-automation,
+    .hero.is-bms,
+    .hero.is-lighting .wrap.premium-layout,
+    .hero.is-automation .wrap.premium-layout,
+    .hero.is-bms .wrap.premium-layout,
+    .hero.is-lighting .lighting-banner,
+    .hero.is-automation .automation-banner,
+    .hero.is-bms .bms-story{
+        min-height:var(--m-hero-h) !important;
+        height:var(--m-hero-h) !important;
+    }
+}
+
+</style>
 
         <!-- ==================== COMPLETE HTML ==================== -->
 
@@ -7804,6 +8215,98 @@
   .ani-why__core p{font-size:11.8px;max-width:195px}
 }
 
+
+/* ============================================================
+   CENTER-OUT REVEAL — 4 ITEMS, ONE BY ONE, ONCE PER PAGE LOAD
+   ============================================================ */
+
+.ani-why__item{
+  opacity:0;
+  filter:blur(5px);
+  will-change:transform,opacity,filter;
+}
+
+.ani-why__col--left .ani-why__item{
+  transform:translateX(clamp(70px,8vw,135px)) scale(.94);
+}
+
+.ani-why__col--right .ani-why__item{
+  transform:translateX(clamp(-135px,-8vw,-70px)) scale(.94);
+}
+
+.ani-why__item.ani-why__item--arrived{
+  opacity:1;
+  filter:blur(0);
+  transform:translateX(0) scale(1);
+  transition:
+    opacity .72s ease,
+    filter .82s ease,
+    transform 1.05s cubic-bezier(.16,.76,.20,1);
+}
+
+.ani-why__orbit::after{
+  content:"";
+  position:absolute;
+  inset:24%;
+  z-index:1;
+  border-radius:50%;
+  border:1px solid rgba(215,168,64,0);
+  opacity:0;
+  pointer-events:none;
+}
+
+.ani-why__orbit.ani-why__orbit--launch::after{
+  animation:aniWhyLaunchPulse 1.05s cubic-bezier(.2,.72,.2,1) 1 both;
+}
+
+@keyframes aniWhyLaunchPulse{
+  0%{
+    opacity:0;
+    transform:scale(.55);
+    border-color:rgba(215,168,64,.05);
+    box-shadow:0 0 0 0 rgba(215,168,64,.08);
+  }
+  28%{
+    opacity:1;
+    border-color:rgba(215,168,64,.48);
+    box-shadow:
+      0 0 0 8px rgba(215,168,64,.055),
+      0 0 42px rgba(121,181,194,.18);
+  }
+  100%{
+    opacity:0;
+    transform:scale(2.18);
+    border-color:rgba(121,181,194,.08);
+    box-shadow:
+      0 0 0 18px rgba(121,181,194,0),
+      0 0 70px rgba(121,181,194,0);
+  }
+}
+
+@media(max-width:860px){
+  .ani-why__col--left .ani-why__item,
+  .ani-why__col--right .ani-why__item{
+    transform:translateY(-34px) scale(.97);
+  }
+
+  .ani-why__item.ani-why__item--arrived{
+    transform:translateY(0) scale(1);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ani-why__item{
+    opacity:1 !important;
+    filter:none !important;
+    transform:none !important;
+    transition:none !important;
+  }
+
+  .ani-why__orbit::after{
+    display:none !important;
+  }
+}
+
 </style>
 
 <!-- ============================================================
@@ -7829,13 +8332,13 @@
 
       <div class="ani-why__col ani-why__col--left">
         <article class="ani-why__item ani-why__reveal">
-          <div class="ani-why__no">01</div>
+         
           <h3>Advanced Technology <strong>Practical Value</strong></h3>
           <p>We select proven, future-ready technologies around performance, reliability, compatibility and long-term operational value.</p>
         </article>
 
         <article class="ani-why__item ani-why__reveal">
-          <div class="ani-why__no">02</div>
+          
           <h3>Engineering <strong>Design &amp; Planning</strong></h3>
           <p>Systems are planned around actual site conditions, technical requirements, integration needs and long-term operation for a clear, practical outcome.</p>
         </article>
@@ -7859,13 +8362,13 @@
 
       <div class="ani-why__col ani-why__col--right">
         <article class="ani-why__item ani-why__reveal">
-          <div class="ani-why__no">03</div>
+     
           <h3>Professional Project <strong>Execution</strong></h3>
           <p>Detailed coordination, implementation, testing and handover follow a disciplined process to maintain quality, control and consistency throughout the project.</p>
         </article>
 
         <article class="ani-why__item ani-why__reveal">
-          <div class="ani-why__no">04</div>
+          
           <h3>Scientific <strong>Performance Approach</strong></h3>
           <p>Analysis, technical logic, validation and measurable performance guide our decisions, helping create efficient, scalable and dependable solutions.</p>
         </article>
@@ -7879,37 +8382,86 @@
 
 <script>
 /* ============================================================
-   WHY WE — JAVASCRIPT
+   WHY WE — CENTRE-OUT SEQUENTIAL ANIMATION
+   Runs only once when the section first enters the viewport.
    ============================================================ */
 (() => {
   const section = document.querySelector('.ani-why');
-  if (!section) return;
+  if (!section || section.dataset.whyAnimated === 'true') return;
 
-  const items = section.querySelectorAll('.ani-why__reveal');
+  const top = section.querySelector('.ani-why__top');
+  const center = section.querySelector('.ani-why__center');
+  const orbit = section.querySelector('.ani-why__orbit');
 
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(item => item.classList.add('is-visible'));
+  const leftItems = [...section.querySelectorAll('.ani-why__col--left .ani-why__item')];
+  const rightItems = [...section.querySelectorAll('.ani-why__col--right .ani-why__item')];
+
+  const sequence = [
+    leftItems[0],
+    rightItems[0],
+    leftItems[1],
+    rightItems[1]
+  ].filter(Boolean);
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function showStatic(){
+    section.dataset.whyAnimated = 'true';
+    if (top) top.classList.add('is-visible');
+    if (center) center.classList.add('is-visible');
+
+    sequence.forEach(item => {
+      item.classList.add('is-visible', 'ani-why__item--arrived');
+    });
+  }
+
+  function runOnce(){
+    if (section.dataset.whyAnimated === 'true') return;
+    section.dataset.whyAnimated = 'true';
+
+    requestAnimationFrame(() => {
+      if (top) top.classList.add('is-visible');
+      if (center) center.classList.add('is-visible');
+    });
+
+    setTimeout(() => {
+      if (orbit) orbit.classList.add('ani-why__orbit--launch');
+    }, 260);
+
+    const firstDelay = 620;
+    const stepDelay = 420;
+
+    sequence.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('is-visible', 'ani-why__item--arrived');
+      }, firstDelay + (index * stepDelay));
+    });
+
+    setTimeout(() => {
+      if (orbit) orbit.classList.remove('ani-why__orbit--launch');
+    }, firstDelay + (sequence.length * stepDelay) + 900);
+  }
+
+  if (reducedMotion || !('IntersectionObserver' in window)){
+    showStatic();
     return;
   }
 
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
+    const entry = entries[0];
+    if (!entry || !entry.isIntersecting) return;
+
+    runOnce();
+    observer.unobserve(section);
+    observer.disconnect();
   }, {
-    threshold: .14,
-    rootMargin: '0px 0px -6% 0px'
+    threshold:.28,
+    rootMargin:'0px 0px -8% 0px'
   });
 
-  items.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
-    observer.observe(item);
-  });
+  observer.observe(section);
 })();
 </script>
-
 
 
         <!-- ============================================================
@@ -13361,6 +13913,374 @@
     }
 }
 
+
+/* ============================================================
+   V8 — MOBILE EXPERIENCE FIX
+   Desktop remains unchanged.
+   Mobile becomes a clean stacked banner:
+   image on top, content below, controls at bottom.
+   ============================================================ */
+
+@media(max-width:800px){
+
+    /* Section spacing */
+    #automation.an-showcase{
+        padding:56px 0 64px !important;
+    }
+
+    #automation .ac-wrap{
+        width:calc(100% - 28px) !important;
+    }
+
+    /* Heading */
+    #automation .ac-heading{
+        display:block !important;
+        margin-bottom:20px !important;
+    }
+
+    #automation h2{
+        font-size:clamp(34px,10vw,46px) !important;
+        line-height:1 !important;
+        letter-spacing:-.018em !important;
+    }
+
+    /* Main mobile card */
+    #automation .ac-stage{
+        position:relative !important;
+        width:100% !important;
+        height:640px !important;
+        aspect-ratio:auto !important;
+        overflow:hidden !important;
+        border-radius:14px !important;
+
+        background:
+            radial-gradient(circle at 50% 14%,rgba(79,112,130,.12),transparent 30%),
+            linear-gradient(180deg,#0b0f13 0%,#090c10 46%,#07090c 100%) !important;
+
+        box-shadow:
+            0 20px 54px rgba(0,0,0,.28) !important;
+    }
+
+    /* Image area — keeps the complete wide image visible */
+    #automation .ac-panel{
+        inset:auto 0 auto 0 !important;
+        top:0 !important;
+        width:100% !important;
+        height:clamp(182px,48vw,225px) !important;
+        overflow:hidden !important;
+        background:#070a0d !important;
+    }
+
+    #automation .ac-image{
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center center !important;
+        background:#070a0d !important;
+    }
+
+    /* Soft separator below visual */
+    #automation .ac-stage::before{
+        content:"";
+        position:absolute;
+        z-index:2;
+        left:18px;
+        right:18px;
+        top:clamp(182px,48vw,225px);
+        height:1px;
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.12) 15%,
+                rgba(215,168,64,.28) 50%,
+                rgba(255,255,255,.12) 85%,
+                transparent
+            );
+        pointer-events:none;
+    }
+
+    /* Remove the desktop full-height black wash on mobile */
+    #automation .ac-stage::after{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0,0,0,.08) 0%,
+                rgba(0,0,0,.02) 31%,
+                rgba(0,0,0,.16) 45%,
+                rgba(0,0,0,.42) 100%
+            ) !important;
+    }
+
+    /* Caption becomes a proper content block below the image */
+    #automation .ac-caption{
+        position:absolute !important;
+        z-index:4 !important;
+
+        top:calc(clamp(182px,48vw,225px) + 25px) !important;
+        left:18px !important;
+        right:18px !important;
+        bottom:auto !important;
+
+        width:auto !important;
+        max-width:none !important;
+    }
+
+    #automation .ac-caption small{
+        margin:0 0 18px !important;
+        font-size:clamp(25px,7.2vw,34px) !important;
+        line-height:1.04 !important;
+        letter-spacing:-.012em !important;
+        color:#fff !important;
+        text-shadow:none !important;
+    }
+
+    /* Flow becomes vertical on mobile so nothing gets crushed/wrapped badly */
+    #automation .ac-flow{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        align-items:stretch !important;
+        gap:0 !important;
+        row-gap:0 !important;
+        width:100% !important;
+        max-width:none !important;
+    }
+
+    #automation .ac-flow span{
+        position:relative !important;
+        display:flex !important;
+        align-items:center !important;
+
+        min-height:36px !important;
+        margin:0 !important;
+        padding:0 0 0 20px !important;
+
+        white-space:normal !important;
+
+        color:rgba(244,242,237,.92) !important;
+        font:600 clamp(11px,3.1vw,13px)/1.25 "Manrope",sans-serif !important;
+        letter-spacing:.025em !important;
+        text-transform:uppercase !important;
+
+        opacity:0;
+        transform:translateY(7px);
+    }
+
+    #automation .ac-flow span.is-visible{
+        opacity:1 !important;
+        transform:none !important;
+    }
+
+    /* Mobile node */
+    #automation .ac-flow span::before{
+        content:"" !important;
+        position:absolute !important;
+        left:1px !important;
+        top:50% !important;
+
+        width:6px !important;
+        height:6px !important;
+        margin:0 !important;
+
+        transform:translateY(-50%) !important;
+        border-radius:50% !important;
+
+        background:#f6e2b8 !important;
+        box-shadow:
+            0 0 0 4px rgba(215,168,64,.07),
+            0 0 12px rgba(215,168,64,.26) !important;
+
+        opacity:0 !important;
+        transition:opacity .28s ease .18s !important;
+    }
+
+    #automation .ac-flow span.is-visible::before{
+        opacity:1 !important;
+    }
+
+    /* Vertical connector */
+    #automation .ac-flow span:not(:last-child)::after{
+        content:"" !important;
+        position:absolute !important;
+
+        left:3.5px !important;
+        top:calc(50% + 7px) !important;
+
+        width:1px !important;
+        height:calc(50% + 11px) !important;
+
+        transform:scaleY(0) !important;
+        transform-origin:top center !important;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(215,168,64,.78),
+                rgba(255,239,207,.20)
+            ) !important;
+
+        opacity:0 !important;
+        box-shadow:none !important;
+
+        transition:
+            transform .40s ease .23s,
+            opacity .28s ease .18s !important;
+    }
+
+    #automation .ac-flow span.is-visible:not(:last-child)::after{
+        opacity:1 !important;
+        transform:scaleY(1) !important;
+    }
+
+    /* Last item never gets connector decoration */
+    #automation .ac-flow span:last-child::after{
+        content:none !important;
+        display:none !important;
+    }
+
+    /* Controls */
+    #automation .ac-controls{
+        left:18px !important;
+        right:auto !important;
+        bottom:18px !important;
+        gap:9px !important;
+        z-index:6 !important;
+    }
+
+    #automation .ac-control-btn{
+        width:38px !important;
+        min-width:38px !important;
+        height:38px !important;
+        padding:0 !important;
+
+        border-radius:50% !important;
+        border:1px solid rgba(255,255,255,.16) !important;
+
+        background:rgba(13,17,21,.72) !important;
+        backdrop-filter:blur(10px) !important;
+        -webkit-backdrop-filter:blur(10px) !important;
+    }
+
+    #automation .ac-control-prev span,
+    #automation .ac-control-next span{
+        font-size:17px !important;
+    }
+
+    #automation .ac-control-pause span{
+        font-size:13px !important;
+    }
+
+    /* Hidden legacy pieces stay hidden */
+    #automation .ac-toolbar,
+    #automation .ac-detail,
+    #automation .ac-status,
+    #automation .ac-tabs,
+    #automation .ac-pause-btn{
+        display:none !important;
+    }
+}
+
+
+/* Very small phones */
+@media(max-width:430px){
+
+    #automation.an-showcase{
+        padding:48px 0 56px !important;
+    }
+
+    #automation .ac-wrap{
+        width:calc(100% - 22px) !important;
+    }
+
+    #automation h2{
+        font-size:34px !important;
+    }
+
+    #automation .ac-stage{
+        height:660px !important;
+        border-radius:12px !important;
+    }
+
+    #automation .ac-panel{
+        height:176px !important;
+    }
+
+    #automation .ac-stage::before{
+        top:176px !important;
+        left:14px !important;
+        right:14px !important;
+    }
+
+    #automation .ac-caption{
+        top:198px !important;
+        left:15px !important;
+        right:15px !important;
+    }
+
+    #automation .ac-caption small{
+        font-size:26px !important;
+        margin-bottom:16px !important;
+    }
+
+    #automation .ac-flow span{
+        min-height:36px !important;
+        font-size:11px !important;
+        padding-left:19px !important;
+    }
+
+    #automation .ac-controls{
+        left:15px !important;
+        bottom:15px !important;
+    }
+
+    #automation .ac-control-btn{
+        width:36px !important;
+        min-width:36px !important;
+        height:36px !important;
+    }
+}
+
+
+/* Landscape mobile / short screens */
+@media(max-width:800px) and (orientation:landscape){
+
+    #automation .ac-stage{
+        height:520px !important;
+    }
+
+    #automation .ac-panel{
+        height:210px !important;
+    }
+
+    #automation .ac-stage::before{
+        top:210px !important;
+    }
+
+    #automation .ac-caption{
+        top:232px !important;
+    }
+
+    #automation .ac-caption small{
+        font-size:25px !important;
+        margin-bottom:13px !important;
+    }
+
+    #automation .ac-flow{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        column-gap:24px !important;
+    }
+
+    #automation .ac-flow span{
+        min-height:32px !important;
+        font-size:10.5px !important;
+    }
+
+    /* no misleading vertical connectors in 2-column landscape */
+    #automation .ac-flow span::after{
+        display:none !important;
+    }
+}
+
 </style>
         <section class="an-showcase" id="automation" aria-labelledby="acTitle">
             <div class="ac-wrap">
@@ -13562,7 +14482,6 @@
 
 
 <!-- automation end -->
-
 
 
 
@@ -15552,6 +16471,216 @@
     display:none !important;
 }
 
+
+/* ============================================================
+   FINAL MOBILE FIX — NATURAL HEIGHT / NO LARGE BOTTOM GAP
+   Desktop is unchanged.
+   ============================================================ */
+
+@media(max-width:760px){
+
+    /* Let the section height come from the actual mobile content. */
+    .bi2-section{
+        min-height:0 !important;
+        height:auto !important;
+        padding:14px 0 42px !important;
+        overflow:hidden !important;
+    }
+
+    /* The image stage now participates in normal document flow. */
+    .bi2-stage{
+        position:relative !important;
+        inset:auto !important;
+        width:calc(100% - 28px) !important;
+        height:auto !important;
+        aspect-ratio:1935 / 813 !important;
+        margin:0 auto !important;
+        overflow:hidden !important;
+        border-radius:12px !important;
+        background:#050a0f !important;
+    }
+
+    /* Artwork fills only the mobile image stage. */
+    .bi2-frame{
+        position:absolute !important;
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        aspect-ratio:auto !important;
+        border-radius:12px !important;
+        overflow:hidden !important;
+        background:#050a0f !important;
+        box-shadow:none !important;
+    }
+
+    .bi2-off,
+    .bi2-on-full{
+        width:100% !important;
+        height:100% !important;
+        object-fit:contain !important;
+        object-position:center center !important;
+        transform:none !important;
+    }
+
+    .bi2-system-layers{
+        position:absolute !important;
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+    }
+
+    .bi2-layer{
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        background-size:contain !important;
+        background-position:center center !important;
+        background-repeat:no-repeat !important;
+    }
+
+    /* Keep every cinematic layer inside the image only. */
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        position:absolute !important;
+        inset:0 !important;
+        width:100% !important;
+        height:100% !important;
+        aspect-ratio:auto !important;
+        border-radius:12px !important;
+        overflow:hidden !important;
+    }
+
+    /* Text block now flows directly below the image.
+       This is what removes the unnecessary empty space. */
+    .bi2-copy{
+        position:relative !important;
+        top:auto !important;
+        right:auto !important;
+        bottom:auto !important;
+        left:auto !important;
+
+        width:auto !important;
+        max-width:none !important;
+
+        margin:24px 20px 0 !important;
+        padding:0 !important;
+        transform:none !important;
+    }
+
+    .bi2-title{
+        max-width:100% !important;
+        margin:0 !important;
+        font-size:clamp(31px,9vw,42px) !important;
+        line-height:1.02 !important;
+        letter-spacing:-.018em !important;
+    }
+
+    .bi2-description{
+        max-width:100% !important;
+        margin:13px 0 0 !important;
+        font-size:11.5px !important;
+        line-height:1.68 !important;
+    }
+
+    .bi2-solution-paths{
+        margin-top:16px !important;
+        max-width:100% !important;
+        gap:8px 0 !important;
+    }
+
+    .bi2-solution-paths span{
+        font-size:8px !important;
+        letter-spacing:.065em !important;
+    }
+
+    .bi2-solution-paths span:not(:last-child){
+        margin-right:24px !important;
+    }
+
+    .bi2-solution-paths span:not(:last-child)::after{
+        left:calc(100% + 8px) !important;
+        width:8px !important;
+    }
+
+    .bi2-actions{
+        margin-top:19px !important;
+        gap:8px !important;
+    }
+
+    .bi2-action{
+        min-width:0 !important;
+        min-height:40px !important;
+        padding:0 15px !important;
+        font-size:8.5px !important;
+        letter-spacing:.085em !important;
+    }
+
+    /* These were already visually removed — keep them fully out of layout. */
+    .bi2-status,
+    .bi2-progress{
+        display:none !important;
+    }
+}
+
+
+/* Extra-small phones */
+@media(max-width:390px){
+
+    .bi2-section{
+        padding:10px 0 36px !important;
+    }
+
+    .bi2-stage{
+        width:calc(100% - 20px) !important;
+        border-radius:10px !important;
+    }
+
+    .bi2-frame,
+    .bi2-left-vignette,
+    .bi2-right-shade,
+    .bi2-top-bottom,
+    .bi2-scan,
+    .bi2-glow{
+        border-radius:10px !important;
+    }
+
+    .bi2-copy{
+        margin:20px 16px 0 !important;
+    }
+
+    .bi2-title{
+        font-size:clamp(29px,8.8vw,35px) !important;
+    }
+
+    .bi2-description{
+        margin-top:11px !important;
+        font-size:10.7px !important;
+        line-height:1.65 !important;
+    }
+
+    .bi2-solution-paths{
+        margin-top:14px !important;
+    }
+
+    .bi2-solution-paths span{
+        font-size:7.4px !important;
+    }
+
+    .bi2-actions{
+        margin-top:17px !important;
+        flex-wrap:nowrap !important;
+    }
+
+    .bi2-action{
+        flex:1 1 0 !important;
+        padding:0 9px !important;
+        font-size:7.8px !important;
+    }
+}
+
 </style>
 
 
@@ -15857,7 +16986,6 @@
 </script>
 
 <!-- ================= END BMS → IoT SECTION ================= -->
-
       <!-- =========================================================
      PROCESS MODULE — PREMIUM VERSION
      CSS + HTML + JS
